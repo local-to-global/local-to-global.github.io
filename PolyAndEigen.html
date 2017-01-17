@@ -24,13 +24,30 @@
   <div class="post-date">11/21/2016</div>
     <p>The behavior of eigenvalues, eigenspaces and eigendecompositions are heavily influenced by the arithmetic of polynomials. This will  just be an overview of how this works and the proofs will be left to the reader.
     </p>
-    <p> The key thing about this is that if $V$ is a vector space over some field then a linear transformation $T:V\rightarrow V$, that we might want to understand, can turn a polynomial $p(x)$ into a linear transformation $p(T)$. This means, given a single $T$, we can imprint any polynomial onto our vector space and how this imprinting works can lead to things like Eigenspaces and Eigendecomposition.
+    <p> The key thing about this is that if $V$ is a vector space over some field then a linear transformation $T:V\rightarrow V$, that we might want to understand, can turn a polynomial $p(x)$ into a linear transformation $p(T)$. Explicitly, if $p(x)=a_nx^n+\cdots+a_1x+a_0$ then $$p(T):=a_nT^n+\cdots+a_1T+a_0I$$ where $I$ is the identity linear transformation. This means, given a single $T$, we can imprint the behavior of any polynomial onto our vector space and how this imprinting works can lead to things like Eigenspaces and Eigendecomposition.
     </p>
-    <p>Recall that if $F:V\rightarrow V$ is any linear transformation, then $F$ determines a fundamental subspace of $T$, the kernel $$\ker(F)=\{v\in V\;|\; F(v)=0\}$$ The linear transformation $T$ has one itself, but so do every polynomial combination of $T$, $p(T)$. Call $E_p=\ker(p(T))$ the $p$-Eigenspace of $T$.
+    <p>Recall that if $F:V\rightarrow V$ is any linear transformation, then $F$ determines a fundamental subspace of $T$, the kernel $$\ker(F)=\{v\in V\;|\; F(v)=0\}$$ The linear transformation $T$ has one itself, but so do every polynomial combination of $T$, $p(T)$. Call $E_p=\ker(p(T))$ the $p$-Eigenspace of $T$. There are a few great things about these eigenspaces. One of the most important of which is that they are all invariante subspaces of $T$. This means that if $v\in E_p$ then so is $Tv$. Finding invariant subspaces, and things like them, is a process that is interesting in all parts of math. In Linear Algebra, invariant subspaces help simplify questions about the associated linear transformation by allowing us to look at smaller subspaces or subspaces with specific structure. The fact that we can explicitly describe certain invariant subspaces as these eigenspaces is powerful.
     </p>
-
-
-
+    <p>Note that this notion of eigenspace corresponds with the tranditional notion of an eigenspace. In particular, if $\lamba$ is an eigenvalue, then we can put $p(x)=x-\lambda$ and we'll find that the $\lambda$-eigenspace, in the traditional sense, is the same as the $p(x)$-eigenspace in this sense. The advantage of this is that we can now directly talk about how polynomials interact with these things.
+    </p>
+    <p>
+      We can also import some of the polynomial arithmetic to help decompose our vector space. The key thing is that if $p(x)$ and $q(x)$ are polynomials with greatest common divisor $g(x)$, then we have
+      $$
+      E_p \cap E_q = E_g
+      $$
+      If we think of the greatest common divisor as how much two polynomials (or numbers) multiplicatively overlap, then this formual tells us that this transfers directly to how much the associated subspaces overlap. Related, we also have that 
+      $$
+      E_p+E_q \subseteq E_{pq}
+      $$
+      where the sum is not necessarily direct. When $p(x)$ and $q(x)$ are coprime, it follows that $E_p\cap E_q = 0$ and this turns into the traditional statement that eigenspaces with different eigenvalues do not intersect. In addition, when $p(x)$ and $q(x)$ are coprime, the sum $E_p+E_q$ is direct and, in addition, we get
+      $$
+      E_{pq} = E_p+E_q
+      $$
+      This is almost the complete statement of the Eigendecomposition of a linear transformation. In particular, if we can write $p(x)=p_1(x)^{k_1}\cdots p_n^{k_n}(x)$, the irreducible decomposition of a polynomial, then we can write $E_p$ as the direct sum
+      $$
+      E_p = E_{p_1^{k_1}}+\cdots +E_{p_n^{k_n}}
+      $$
+     This corresponds to the decomposition of $E_p$ into its generalized eigenspaces. The key thing is that we can do this to the entire vector space $V$. There exists a unique polynomial $m_t(x)$ (monic and of minimal degree) so that $E_{m_T}=V$, and applying this formula to $E_{m_T}$ results in the decomposition of the entire vector space $V$ into generalized eigenspaces.
   </div>
 
 
