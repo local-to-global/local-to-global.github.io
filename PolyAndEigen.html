@@ -26,9 +26,10 @@
     </p>
     <p> The key thing about this is that if $V$ is a vector space over some field then a linear transformation $T:V\rightarrow V$, that we might want to understand, can turn a polynomial $p(x)$ into a linear transformation $p(T)$. Explicitly, if $p(x)=a_nx^n+\cdots+a_1x+a_0$ then $$p(T):=a_nT^n+\cdots+a_1T+a_0I$$ where $I$ is the identity linear transformation. This means, given a single $T$, we can imprint the behavior of any polynomial onto our vector space and how this imprinting works can lead to things like Eigenspaces and Eigendecomposition.
     </p>
+    <h3>Eigenspaces</h3>
     <p>Recall that if $F:V\rightarrow V$ is any linear transformation, then $F$ determines a fundamental subspace of $T$, the kernel $$\ker(F)=\{v\in V\;|\; F(v)=0\}$$ The linear transformation $T$ has one itself, but so do every polynomial combination of $T$, $p(T)$. Call $E_p=\ker(p(T))$ the $p$-Eigenspace of $T$. There are a few great things about these eigenspaces. One of the most important of which is that they are all invariante subspaces of $T$. This means that if $v\in E_p$ then so is $Tv$. Finding invariant subspaces, and things like them, is a process that is interesting in all parts of math. In Linear Algebra, invariant subspaces help simplify questions about the associated linear transformation by allowing us to look at smaller subspaces or subspaces with specific structure. The fact that we can explicitly describe certain invariant subspaces as these eigenspaces is powerful.
     </p>
-    <p>Note that this notion of eigenspace corresponds with the tranditional notion of an eigenspace. In particular, if $\lamba$ is an eigenvalue, then we can put $p(x)=x-\lambda$ and we'll find that the $\lambda$-eigenspace, in the traditional sense, is the same as the $p(x)$-eigenspace in this sense. The advantage of this is that we can now directly talk about how polynomials interact with these things.
+    <p>Note that this notion of eigenspace corresponds with the tranditional notion of an eigenspace. In particular, if $\lambda$ is an eigenvalue, then we can put $p(x)=x-\lambda$ and we'll find that the $\lambda$-eigenspace, in the traditional sense, is the same as the $p(x)$-eigenspace in this sense. The advantage of this is that we can now directly talk about how polynomials interact with these things.
     </p>
     <p>
       We can also import some of the polynomial arithmetic to help decompose our vector space. The key thing is that if $p(x)$ and $q(x)$ are polynomials with greatest common divisor $g(x)$, then we have
@@ -47,8 +48,28 @@
       $$
       E_p = E_{p_1^{k_1}}+\cdots +E_{p_n^{k_n}}
       $$
-     This corresponds to the decomposition of $E_p$ into its generalized eigenspaces. The key thing is that we can do this to the entire vector space $V$. There exists a unique polynomial $m_t(x)$ (monic and of minimal degree) so that $E_{m_T}=V$, and applying this formula to $E_{m_T}$ results in the decomposition of the entire vector space $V$ into generalized eigenspaces.
+     This corresponds to the decomposition of $E_p$ into its generalized eigenspaces. The key thing is that we can do this to the entire vector space $V$. There exists a unique polynomial $m_t(x)$ (monic and of minimal degree) so that $E_{m_T}=V$, and applying this formula to $E_{m_T}$ results in the decomposition of the entire vector space $V$ into generalized eigenspaces. This shows that it is the arithmetic of polynomials that governs how a vector space decomposes into eigenspaces. Overall, this allows us to use linear transformations to decompose any vector space into smaller, invariant subspaces that have a particular structure. Namely, they are the eigenspaces of so-called "Primary Polynomials", which are polynomials that are a power of an irreducible polynomial. The structure of these primary eigenspaces is a little more difficult to assess.
+    <h3> Eigenspaces of Primary Polynomials</h3>
+    <p> A subspace being an eigenspace of a primary polynomial $p^k(x)$ is the same as saying that the minimal polynomial of the original function when restricted to this subspace is $p^k(x)$.  Firstly, it may decompose further into smaller invariant vector spaces. Though if the original these are constrained to be killed by $p^{\ell}(x)$ for some $\ell\leq k$. Overall, means that we can restrict our attention to vector spaces whose minimal polynomials are primary polynomials and, moreover, they do not decompose as a direct sum of smaller invariant subspaces. These are the indecomposable components of a vector space and are what give rise to Jordan Blocks.
+    </p>
+    <p> So let $V$ be a vector space and $T:V\rightarrow V$ is a linear transformation so that $V$ that cannot be broken down into a direct sum of invariant subspaces and $m_T(x)=p^k(x)$ is a primary polynomial. We can then use the linear transformation $p(T)$ to expose a structure in $V$. Note that if $i\leq k$, then we have the nonzero subspace $E_{p^i}\subseteq V$, this gives us the following flag on $V$:
+      $$
+      0 \subset E_p \subset E_{p^2}\subset \cdots \subset E_{p^{k-2}\subset E_{p^{k-1}} \subset V
+      $$
+      Moreover, we have that $p(T):E_{p^i}\too E_{p^{i-1}}$ with kernel $E_p$ and so $p(T)$ lets us walk down this line via
+      $$
+      V \rightarrow E_{p^{k-1}}\rightarrow E_{p^{k-2}}\rightarrow\cdots\rightarrow E_{p^2}\rightarrow E_{p}\rightarrow 0
+      $$
+      leaving behind a copy of $E_p$ each time. In particular, we can find a (non-canonical) isomorphism $E_{p^i}=(E_p)^{i}$.  Note that $E_p$ is an invariant subspace of $T$ in $V$, which means that when we restrict $T$ to $E_p$, we get a function $T|_{E_p}:E_p\rightarrow E_p$. If we have a direct product $(E_p)^{i}$, then we can form a diagonalized version of this action by just haveing $T|_{E_p}$ independently act on each coordinate. Let $\Delta T:V\rightarrow V$ be the corresponding diagonal linear transformation obtained in this way from the decomposition $V=(E_p)^k$. If $p(x)=x-\lambda$, then this is just the $k\times k$ with all $\lambda$s on the diagonal, and $T$ would then be the associated $k\times k$ Jordan Block. If the degree of $p(x)$ is larger than 1, then we can only guarantee that $\Delta T$ is block-diagonal with identical blocks rather than diagonal itself.
+    </p>
+    <p>
+      Finally, it can be shown that $N=T-\Delta T$ is a nilpotent map of degree $k$. In particular, $T-\Delta T$ sends $E_{p^i}$ to $E_{p^{i-1}}$. In this way, we can say that in such a situation, $T$ acting on a vector space $V$ that cannot be decomposed into smaller subspaces, that $T$ is "almost" equal too the block-diagonal transformation $\Delta T$ since
+      $$
+      T = \Delta T + N
+      $$
+      where $N$ is nilpotent. This is a more general version of Jordan Block Form. What is good about this is that we can describe the action of $T$, a transformation with a primary minimal polynomial, in terms of a transformation $T|_{E_p}$ that has an irreducible minimal polynomial. This means that to understand a linear transformation, all we need to do is understand how linear transformations that are indecomposable and have irreducible minimal polynomials behave. 
   </div>
+  
 
 
 
