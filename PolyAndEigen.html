@@ -1,0 +1,39 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Polynomials and Eigenspaces</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Polynomials and Eigenspaces</h1>
+  </div>
+  <hr id="titlebreak">
+
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+    <p>The behavior of eigenvalues, eigenspaces and eigendecompositions are heavily influenced by the arithmetic of polynomials. This will  just be an overview of how this works and the proofs will be left to the reader.
+    </p>
+    <p> The key thing about this is that if $V$ is a vector space over some field then a linear transformation $T:V\rightarrow V$, that we might want to understand, can turn a polynomial $p(x)$ into a linear transformation $p(T)$. This means, given a single $T$, we can imprint any polynomial onto our vector space and how this imprinting works can lead to things like Eigenspaces and Eigendecomposition.
+    </p>
+    <p>Recall that if $F:V\rightarrow V$ is any linear transformation, then $F$ determines a fundamental subspace of $T$, the kernel $$\ker(F)=\{v\in V\;|\; F(v)=0\}$$ The linear transformation $T$ has one itself, but so do every polynomial combination of $T$, $p(T)$. Call $E_p=\ker(p(T))$ the $p$-Eigenspace of $T$.
+    </p>
+
+
+
+  </div>
+
+
+
+</body>
+</html>
