@@ -49,10 +49,12 @@
       E_p = E_{p_1^{k_1}}+\cdots +E_{p_n^{k_n}}
       $$
      This corresponds to the decomposition of $E_p$ into its generalized eigenspaces. The key thing is that we can do this to the entire vector space $V$. There exists a unique polynomial $m_t(x)$ (monic and of minimal degree) so that $E_{m_T}=V$, and applying this formula to $E_{m_T}$ results in the decomposition of the entire vector space $V$ into generalized eigenspaces. This shows that it is the arithmetic of polynomials that governs how a vector space decomposes into eigenspaces. Overall, this allows us to use linear transformations to decompose any vector space into smaller, invariant subspaces that have a particular structure. Namely, they are the eigenspaces of so-called "Primary Polynomials", which are polynomials that are a power of an irreducible polynomial. The structure of these primary eigenspaces is a little more difficult to assess.
-    <h3> Eigenspaces of Primary Polynomials</h3>
+    </p>
     <p> A subspace being an eigenspace of a primary polynomial $p^k(x)$ is the same as saying that the minimal polynomial of the original function when restricted to this subspace is $p^k(x)$.  Firstly, it may decompose further into smaller invariant vector spaces. Though if the original these are constrained to be killed by $p^{\ell}(x)$ for some $\ell\leq k$. Overall, means that we can restrict our attention to vector spaces whose minimal polynomials are primary polynomials and, moreover, they do not decompose as a direct sum of smaller invariant subspaces. These are the indecomposable components of a vector space and are what give rise to Jordan Blocks.
     </p>
-    <p> So let $V$ be a vector space and $T:V\rightarrow V$ is a linear transformation so that $V$ that cannot be broken down into a direct sum of invariant subspaces and $m_T(x)=p^k(x)$ is a primary polynomial. We can then use the linear transformation $p(T)$ to expose a structure in $V$. Note that if $i\leq k$, then we have the nonzero subspace $E_{p^i}\subseteq V$, this gives us the following flag on $V$:
+    <p> It should be noted that all that has been said is nothing more than the Structure Theorem for Modules over a PID applied to the case where $T:V\rightarrow V$ turns the $K$-vector space into a $K[x]$-Module. Each of the indecomposable parts corresponds to a submodule of the form $K[x]/(p^k)$, which we will now looks at.
+    <h3> Eigenspaces of Primary Polynomials</h3>
+    <p> Let $V$ be a vector space and $T:V\rightarrow V$ is a linear transformation so that $V$ that cannot be broken down into a direct sum of invariant subspaces and $m_T(x)=p^k(x)$ is a primary polynomial. We can then use the linear transformation $p(T)$ to expose a structure in $V$. Note that if $i\leq k$, then we have the nonzero subspace $E_{p^i}\subseteq V$, this gives us the following flag on $V$:
       $$
       0 \subset E_p \subset E_{p^2}\subset \cdots \subset E_{p^{k-2}\subset E_{p^{k-1}} \subset V
       $$
