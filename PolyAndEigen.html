@@ -58,18 +58,31 @@
       $$
       0 \subset E_p \subset E_{p^2}\subset \cdots \subset E_{p^{k-2}}\subset E_{p^{k-1}} \subset V
       $$
-      Moreover, we have that $p(T):E_{p^i}\too E_{p^{i-1}}$ with kernel $E_p$ and so $p(T)$ lets us walk down this line via
+      Moreover, we have that $p(T):E_{p^i}\rightarrow E_{p^{i-1}}$ with kernel $E_p$ and so $p(T)$ lets us walk down this line via
       $$
       V \rightarrow E_{p^{k-1}}\rightarrow E_{p^{k-2}}\rightarrow\cdots\rightarrow E_{p^2}\rightarrow E_{p}\rightarrow 0
       $$
       leaving behind a copy of $E_p$ each time. In particular, we can find a (non-canonical) isomorphism $E_{p^i}=(E_p)^{i}$.  Note that $E_p$ is an invariant subspace of $T$ in $V$, which means that when we restrict $T$ to $E_p$, we get a function $T|_{E_p}:E_p\rightarrow E_p$. If we have a direct product $(E_p)^{i}$, then we can form a diagonalized version of this action by just haveing $T|_{E_p}$ independently act on each coordinate. Let $\Delta T:V\rightarrow V$ be the corresponding diagonal linear transformation obtained in this way from the decomposition $V=(E_p)^k$. If $p(x)=x-\lambda$, then this is just the $k\times k$ with all $\lambda$s on the diagonal, and $T$ would then be the associated $k\times k$ Jordan Block. If the degree of $p(x)$ is larger than 1, then we can only guarantee that $\Delta T$ is block-diagonal with identical blocks rather than diagonal itself.
     </p>
     <p>
-      Finally, it can be shown that $N=T-\Delta T$ is a nilpotent map of degree $k$. In particular, $T-\Delta T$ sends $E_{p^i}$ to $E_{p^{i-1}}$. In this way, we can say that in such a situation, $T$ acting on a vector space $V$ that cannot be decomposed into smaller subspaces, that $T$ is "almost" equal too the block-diagonal transformation $\Delta T$ since
+      Finally, it can be shown that $N=T-\Delta T$ is a nilpotent map of degree $k$. In particular, $T-\Delta T$ sends $E_{p^i}$ to $E_{p^{i-1}}$. In this way, we can say that in such a situation, $T$ acting on a vector space $V$ that cannot be decomposed into smaller subspaces, that $T$ is "almost" equal to the block-diagonal transformation $\Delta T$ since
       $$
       T = \Delta T + N
       $$
       where $N$ is nilpotent. This is a more general version of Jordan Block Form. What is good about this is that we can describe the action of $T$, a transformation with a primary minimal polynomial, in terms of a transformation $T|_{E_p}$ that has an irreducible minimal polynomial. This means that to understand a linear transformation, all we need to do is understand how linear transformations that are indecomposable and have irreducible minimal polynomials behave. 
+    <h3> Indecomposable Linear Transformations with Irredicuble Minimal Polynomial</h3>
+    <p> Let $V$ be a vector space and $T:V\rightarrow V$ is a linear transformation so that $V$ that cannot be broken down into a direct sum of invariant subspaces and $m_T(x)=p(x)$ is an irreducible polynomial. Note that if $m_T(x)=x-\lambda$ is of degree 1, then $V$ must have dimension 1 and $T$ must act as $Tv=\lamdba v$ and so we completely understand $T$.
+    </p>
+    <p>We will make the quality-of-life assumption that $p(x)$ is a separable polynomial, which means that all of its roots (in a splitting field) are unique.Let $L/K$ be a splitting field for the polynomial $p(x)$ and let $V_L=V\otimes L$ be the vector space $V$ with scalars extended to $L$. In $L$, the polynomial $p(x)$ will factor as $p(x)=(x-\lamdba_1)\cdots(x-\lambda_n)$. The linear tranformation $T$ then induces a linear transformation $T_L:V_L\rightarrow V_L$. This linear transformation will have the same minimal polynomial and so $V_L$ decomposes into a direct sum of subspaces as above:
+      $$
+      V_L = E_1+\cdots E_n
+      $$
+      where $E_i$ is the $(x-\lambda_i)$-eigenspace. If $v_i\in E_i$ then $T_L$ acts as $T_Lv_i = \lambda_iv_i$. Now, $V$ lives inside $V_L$ and if we view $V_L$ as a $K$-vector space, then $V$ is an invariant subspace of $T_L$. Let $\phi:V\rightarrow V_L$ be the inclusion map (note: it is invertible when restricted to $V$). It then follows that for $v\in V$ we have 
+      $$
+      Tv = \phi^{-1}T_L\phi v
+      $$
+      In other words, there is a diagonal $L$-linear transformation $T_L$ on $V_L$ so that $T$ is similar to $T_L$. This completely classifies how linear transformations can behave.
+    </p>
   </div>
   
 
