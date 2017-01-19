@@ -1,0 +1,58 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>The Pole of the Riemann Zeta Function</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">The Pole of the Riemann Zeta Function</h1>
+  </div>
+  <hr id="titlebreak">
+
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+    <p>
+    The Riemann Zeta Function governs the behaviour of the primes and how they are distributed through Euler's Formula
+    $$
+    \zeta(s) = \sum_{n=1}^{\infty}\frac{1}{n^s} = \prod_{p}\frac{1}{1-p^{-s}}
+    $$
+    which is valid for all complex numbers $s$ whose real part is larger than $1$. In general, however, this defines function that is meromorphic on the entire complex plane. This function has known zeros at ever negative even integer, $\zeta(-2n)=0$, and possible zeros in the region $0\leq \textrm{Re}(s)\leq 1$ but also a pole at $s=1$. The zeros get a lot of glory, due to the Riemann Hypothesis which says that the zeroes in the afformentioned region are actually all on the line $\textrm{Re}(s)=1/2$, but it is the pole that determines a lot of the properties of primes. This is what we will be interested in looking at. 
+    </p>
+    <p>
+    In particular, we will be concerned with how the existence of this pole determines that there are infinitely many primes, that the connection with the Harmonic Series determines the rate at which the sum $\sum_p\frac{1}{p}$ diverges, and how this can give us a bound on the growth of primes. Additionally, we'll look at Merten's more refined look at this sum. Finally, we'll see how the poles and zeros explicitly determine the growth of primes, and how the pole is the main driving force and how the Riemann Hypothesis is really the hypothesis that the zeros don't mess things up too much.
+    </p>
+    <h3>The Infinitude of Primes</h3>
+    <p> The first thing that we can learn about primes from the pole of the Riemann Zeta Function is that there are infinitely many of them. As mentioned, for any $s$ whose real part is larger than $1$, we have Euler's Product Formula. In particular, we must have 
+    $$
+    \lim_{s\rightarrow 1^+}\sum_{n=1}^{\infty}\frac{1}{n^s} = \lim_{s\rightarrow 1^+}\prod_{p}\frac{1}{1-p^{-s}}
+    $$
+    At this point, it is tempting to just say that the left side of this equation must be infinity, since $\sum_{n=1}^{\infty}\frac{1}{n}=\infty$, but this makes the assumption that the infinite series is valid even in the limit. In other words, it assumes that we can switch the limits: $\lim_{s\rightarrow 1^+}\lim_{N\rightarrow\infty}\sum_{n=1}^N\frac{1}{n^s} = \lim_{N\rightarrow \infty}\lim_{s\rightarrow 1^+}\sum_{n=1}^{\infty}\frac{1}{n^s}$, which isn't necessarily true. Though, it does turn out that we can do it in this case. In particular, we know that 
+    $$
+    \lim_{N\rightarrow \infty}\sum_{n=1}^{N}\frac{1}{n} = \lim_{N\rightarrow \infty}\prod_{p\leq N}\frac{1}{1-p^{-1}}
+    $$
+    Since the sum on the left is the harmonic series, it follows that the limit is infinity. We therefore have $\prod_p(1-p^{-1})^{-1}=\infty$ where the product is over all primes. Since each individual term is finite, the only way that this can be infinite is if there are infinitely many primes. We then have our first, basic, result that shows how the primes are goverend by this pole.
+    </p>
+    <h3> The Divergence of the Sum of Reciprocal Primes</h3>
+    <p>
+    The above is fairly simple, and all we can do is conclude that there are infinitely many primes. If, however, we use the formula $\lim_{N\rightarrow \infty}\sum_{n=1}^{N}\frac{1}{n} = \lim_{N\rightarrow \infty}\prod_{p\leq N}\frac{1}{1-p^{-1}}$ to figure out the rate at which these expressions diverge, we can learn a bit more explicit information about the distribution of primes.
+    </p>
+
+
+
+  </div>
+
+
+
+</body>
+</html>
