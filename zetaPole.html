@@ -37,7 +37,7 @@
     $$
     \lim_{s\rightarrow 1^+}\sum_{n=1}^{\infty}\frac{1}{n^s} = \lim_{s\rightarrow 1^+}\prod_{p}\frac{1}{1-p^{-s}}
     $$
-    At this point, it is tempting to just say that the left side of this equation must be infinity, since $\sum_{n=1}^{\infty}\frac{1}{n}=\infty$, but this makes the assumption that the infinite series is valid even in the limit. In other words, it assumes that we can switch the limits: $\lim_{s\rightarrow 1^+}\lim_{N\rightarrow\infty}\sum_{n=1}^N\frac{1}{n^s} = \lim_{N\rightarrow \infty}\lim_{s\rightarrow 1^+}\sum_{n=1}^{\infty}\frac{1}{n^s}$, which isn't necessarily true. Though, it does turn out that we can do it in this case. In particular, we know that 
+    At this point, it is tempting to just say that the left side of this equation must be infinity, since $\sum_{n=1}^{\infty}\frac{1}{n}=\infty$, but this makes the assumption that the infinite series is valid even in the limit. In other words, it assumes that we can switch the limits: $\lim_{s\rightarrow 1^+}\lim_{N\rightarrow\infty}\sum_{n=1}^N\frac{1}{n^s} = \lim_{N\rightarrow \infty}\lim_{s\rightarrow 1^+}\sum_{n=1}^{N}\frac{1}{n^s}$, which isn't necessarily true. Though, it does turn out that we can do it in this case. In particular, we know that 
     $$
     \lim_{N\rightarrow \infty}\sum_{n=1}^{N}\frac{1}{n} = \lim_{N\rightarrow \infty}\prod_{p\leq N}\frac{1}{1-p^{-1}}
     $$
@@ -47,7 +47,21 @@
     <p>
     The above is fairly simple, and all we can do is conclude that there are infinitely many primes. If, however, we use the formula $\lim_{N\rightarrow \infty}\sum_{n=1}^{N}\frac{1}{n} = \lim_{N\rightarrow \infty}\prod_{p\leq N}\frac{1}{1-p^{-1}}$ to figure out the rate at which these expressions diverge, we can learn a bit more explicit information about the distribution of primes.
     </p>
-
+    <p> The first thing to note is that $\sum_{n=1}^N\frac{1}{n}$ grows like $\log(N)$. This can be seen by comparing the sum to an integral of $\frac{1}{x}$. Explicitly this is expressed as $\sum_{n=1}^N\frac{1}{n} = \log(N)+O(1)$, which means that the difference between the sum and the log is bounded. This is a statement about the behavior of the zeta function as it approaches the pole. Given this neat asymptotic approximation for the partial sums in the harmonic series, we need to figure out an expression for the partial products in the prime expression.
+    </p>
+    <p>
+      Towards this end, we are going to take a logarithm so that we can turn this product into a sum. This looks like
+      $$
+      \log\left(\prod_{p\leq N}\frac{1}{1-p^{-1}}\right) = -\sum_{p\leq N}\log(1-p^{-1})
+      $$
+      We can expand the logarithms as a power series and get
+      $$
+      \log\left(\prod_{p\leq N}\frac{1}{1-p^{-1}}\right) = \sum_{p\leq N} \sum_{k=1}^{\infty}\frac{p^{-k}}{k} = \sum_{p\leq N}\frac{1}{p} +\sum_{k=2}^{\infty}\sum_{p\leq N}\frac{p^{-k}}{k}
+      $$
+      The important thing about this is that the final double-sum converges as $\N\rightarrow\infty$. In particular, we have that $\sum_{k=2}^{\infty}\frac{p^{-k}}{k}< \frac{1}{2p^2}\sum_{k=0}^{\infty}\frac{1}{p^k}$ from which we can extract a geometric series. This means that for every $p$ this term is bounded above by $\frac{1}{2p(p-1)}$. Summing over all $p\leq N$ is less than summing $\frac{1}{2n(n-1)}$ over all $n>1$ which is convergent and the bounds on this convergence are independent of what $N$ was. From all this, we can say that 
+      $$
+      \log\left(\prod_{p\leq N}\frac{1}{1-p^{-1}}\right) = \sum_{p\leq N}\frac{1}{p} + O(1)
+      $$
 
 
   </div>
