@@ -73,8 +73,28 @@
       $$
       \sum_{p\leq N}\frac{1}{p} = \log\log(N) + O(1)
       $$
-      This shows that the growth of the series at the pole can help us determine how fast this particular sum of primes diverges. We can in fact do more. We can use this to get a statement about how the primes themselves grow
+      This shows that the growth of the series at the pole can help us determine how fast this particular sum of primes diverges. We can in fact do more. We can use this to get a statement about how the primes themselves grow. In fact, using this we can prove through the Euler-Maclaurin Formula that if $p_n$ is the $n$th prime
+      $$
+      1\leq \liminf_{n\rightarrow \infty} \frac{p_n}{n\log n} \leq \limsup_{n\rightarrow \infty}\frac{p_n}{n\log n} \leq\ne \infty
+      $$
+      (I'm having trouble with MathJax writing strictly-less than signs, so deal with me.) Which means that $p_n$ grows not too much faster or slower than $n\log n$. In reality, the limit of $\frac{p_n}{n\log n}$ exists and is equal to $1$, so this is a good step in that direction. If $\pi(x)$ is the number of primes less than $x$, then we get the related result
+      $$
+      1 \leq\liminf_{x\rightarrow\infty}\frac{\pi(x)}{x/\log(x)} \leq \limsup_{x\rightarrow \infty}\frac{\pi(x)}{x/\log(x)}\leq\ne\infty
+      $$
+      This means that $\pi(x)$ grows not too differently from $\frac{x}{\log x}$.
       </p>
+    <h3>Merten's Theorem</h3>
+    This result is good, but we can do a little better. The issue is that we only know that the value $\sum_{p\leq x}\frac{1}{p}-\log\log x$ is bounded, we don't know if it oscillates too much or if the limit at infinity actually exists. Merten's (2nd) Theorem answers this, it says that this limit exists. In particular, there is a constant $M$, called Merten's Constant, which is related to the Euler-Mascheroni Constant, so that
+    $$
+    \lim_{n\rightarrow\infty} \left(\sum_{p<x}\frac{1}{p} -\log\log x -M\right) =0
+    $$
+      This is a much stronger statement and can get us a stronger result about the primes. Overall, Mertens Theorem is a very refined look at the growth of the pole of the Riemann Zeta Function and the full statement one of the most impressive results of early Analytic Number Theory.
+      
+      
+      
+      
+      
+      
     <h4>The Prime Counting Function</h4>
     <p> To do this, we consider the prime counting function $\pi(x)=\sum_{p\le x}1$, which is just the number of primes less than $x$. The previous result tells us how the sum $\sum_{p\leq N}\frac{1}{p}$ grows, so surely we can use it to figure out how the prime counting function grows. To do this, we invoke Partial Summation, which is a slightly modified version of Integration-by-Parts that mixes it with sums. This states that if $a_n$ is a sequence and $f(x)$ is a differentiable function and $A(x)=\sum_{n=1}^x a_n$, then
         $$
