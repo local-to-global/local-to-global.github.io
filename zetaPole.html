@@ -98,7 +98,7 @@
         $$
       With the choice that $f(x)=x$ and $a_n=1/n$ when $n$ is prime and zero otherwise, we get that $\sum_{y\leq n\le x}a_nf(n) = \pi(x)-\pi(y)$ and that $A(x)=\sum_{p\leq x}\frac{1}{p}$. This means that
        $$
-      \pi(x)-\pi(y) = x\sum_{p\leq x}\frac{1}{p}-y\sum_{p\leq y}\frac{1}{p} -\int_y^x \sim_{p\leq t]\frac{1}{p}dt
+      \pi(x)-\pi(y) = x\sum_{p\leq x}\frac{1}{p}-y\sum_{p\leq y}\frac{1}{p} -\int_y^x \sum_{p\leq t}\frac{1}{p}dt
       $$      
       A more explicit version of Merten's Theorem says that $A(x)=\log\log x + M +O(1/\log(x))$. Plugging all of this into the above Partial Summation formula, choosing an appropriate $y$ and simplifying, gives
       $$
