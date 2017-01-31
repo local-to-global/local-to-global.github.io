@@ -96,10 +96,17 @@
         $$
            \sum_{y\le n \le x}a_nf(n) = f(x)A(x) - f(y)A(y) - \int_y^x f'(t)A(t) dt 
         $$
-      With the choice that $f(x)=x$ and $a_n=1/n$ when $n$ is prime and zero otherwise, we get that $\sum_{y\leq n\le x}a_nf(n) = \pi(x)-\pi(y)$ and that $A(x)=\sum_{p\leq x}\frac{1}{p}$. A more explicit version of Merten's Theorem says that $A(x)=\log\log x + M +O(1/\log(x)$. ******* We then get
+      With the choice that $f(x)=x$ and $a_n=1/n$ when $n$ is prime and zero otherwise, we get that $\sum_{y\leq n\le x}a_nf(n) = \pi(x)-\pi(y)$ and that $A(x)=\sum_{p\leq x}\frac{1}{p}$. This means that
+       $$
+      \pi(x)-\pi(y) = x\sum_{p\leq x}\frac{1}{p}-y\sum_{p\leq y}\frac{1}{p} -\int_y^x \sim_{p\leq t]\frac{1}{p}dt
+      $$      
+      A more explicit version of Merten's Theorem says that $A(x)=\log\log x + M +O(1/\log(x))$. Plugging all of this into the above Partial Summation formula, choosing an appropriate $y$ and simplifying, gives
       $$
-      \pi(x)-\pi(y) = x\log\log(x)-y\log\log(y) + (x-y)M-\int_y^x \log\log(t)dt - (x-y)M + o(x-y)
+      \pi(x)=O\left(\frac{x}{\log(x)}\right)
       $$
+      For comparison, the Prime Number Theorem says that the limit 
+      ******* We then get
+     
         This integral is equal to
         $$
         \int_y^x \log\log(t)dt = x\log\log(x)-y\log\log(y) +Li(y)-Li(x)
