@@ -26,7 +26,7 @@
     </p>
     <p> Lets first classify all the real solutions, as this will help us find solutions in other number systems. Firstly, if we log both sides of the equation $a^b=b^a$ and rearrange things a bit, we get
     $$
-    \frac{log(a)}{a}=\frac{\log(b)}{b}
+    \frac{\log(a)}{a}=\frac{\log(b)}{b}
     $$
     So if we set $f(x)=\log(x)/x$, then we'll have a solution to $a^b=b^a$ exactly when we have $f(a)=f(b)$, and happens when a horizontal line intersects the graph of our function at $x=a$ and $x=b$, so we should understand a bit about this graph. Note that $f(x)$ is a continuous and differentiable function for all $x>0$. Its derivative is 
     $$
@@ -45,9 +45,21 @@
     Therefore, we know that there are tons of solutions. Right away, we can show that $a=2$, $b=4$ is the only integer solution. This is because there is only one integer in the range $(1,e)$, and that integer is $2$, and since $2^4=4^2$, it follows that $a=2$ and $b=4$ is an integer solution and that there are no other possibilities.
      </p>
      <p>
-     But to find what all the rational solutions are, we'll need to classify these solutions in a more maliable way. 
-
-    
+     But to find what all the rational solutions are, we'll need to classify these solutions in a more maliable way. In particular, if $a$ is an arbitrary number in the interval $(1,e)$, then what does the corresponding $b$ look like? If we set $r=\log_a(b)$, then we'll have $b=a^r$. Are $a$ and $b$ individually dependent on $r$? If we plug in $b=a^r$ into $\log(a)/a=\log(b)/b$, then we get
+       $$
+       \frac{\log(a)}{a}=\frac{r\log(a)}{a^r}
+       $$
+     which means that $r=a^{r-1}$, or $a=r^{1/(r-1)}$ and so $b=r^{r/(r-1)}$. This tells us how to recover $a$ and $b$ individually from a given $r$ so that $b=a^r$ is a solution to $a^b=b^a$. Of note is that any $a$ in the interval $(1,e)$ can be written as $a=r^{1/(r-1)}$ for some unique $r>1$. Moreover, given any $r>1$ we get that $r^{1/(r-1)}$ is in the interval $(1,e)$. This means that the real numbers $r>1$ uniquely parameterize the solutions to $a^b=b^a$ through
+       $$
+       \begin{eqnarray*}
+       a & = & r^{1/(r-1)}\\
+       b & = & r^{r/(r-1)}
+       \end{eqnarray*}
+       $$
+    This completely characterizes all solutions to the equation $x^y=y^x$.
+    </p>
+    <p>
+      But what about the rational solutions? When is both $a=r^{1/(r-1)}$ and $b=r^{r/(r-1)}$ rational numbers? This will require a  little more work.
   </div>
 
 
