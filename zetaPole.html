@@ -96,9 +96,9 @@
         $$
            \sum_{y\le n \le x}a_nf(n) = f(x)A(x) - f(y)A(y) - \int_y^x f'(t)A(t) dt 
         $$
-      With the choice that $f(x)=x$ and $a_n=1/n$ when $n$ is prime and zero otherwise, we get that $\sum_{y\leq n\le x}a_nf(n) = \pi(x)-\pi(y)$ and that $A(x)=\sum_{p\leq x}\frac{1}{p}$. Merten's Theorem says that $A(x)=\log\log x + M +o(1)$. We then get
+      With the choice that $f(x)=x$ and $a_n=1/n$ when $n$ is prime and zero otherwise, we get that $\sum_{y\leq n\le x}a_nf(n) = \pi(x)-\pi(y)$ and that $A(x)=\sum_{p\leq x}\frac{1}{p}$. A more explicit version of Merten's Theorem says that $A(x)=\log\log x + M +O(1/\log(x)$. ******* We then get
       $$
-      \pi(x)-\pi(y) = x\log\log(x)-y\log\log(y)-\int_y^x \log\log(t)dt + O(x-y)
+      \pi(x)-\pi(y) = x\log\log(x)-y\log\log(y) + (x-y)M-\int_y^x \log\log(t)dt - (x-y)M + o(x-y)
       $$
         This integral is equal to
         $$
