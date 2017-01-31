@@ -84,23 +84,19 @@
       This means that $\pi(x)$ grows not too differently from $\frac{x}{\log x}$.
       </p>
     <h3>Merten's Theorem</h3>
+    <p>
     This result is good, but we can do a little better. The issue is that we only know that the value $\sum_{p\leq x}\frac{1}{p}-\log\log x$ is bounded, we don't know if it oscillates too much or if the limit at infinity actually exists. Merten's (2nd) Theorem answers this, it says that this limit exists. In particular, there is a constant $M$, called Merten's Constant, which is related to the Euler-Mascheroni Constant, so that
     $$
-    \lim_{n\rightarrow\infty} \left(\sum_{p\leq x}\frac{1}{p} -\log\log x -M\right) =0
+    \lim_{x\rightarrow\infty} \left(\sum_{p\leq x}\frac{1}{p} -\log\log x -M\right) =0
     $$
       This is a much stronger statement and can get us a stronger result about the primes. Overall, Mertens Theorem is a very refined look at the growth of the pole of the Riemann Zeta Function and the full statement one of the most impressive results of early Analytic Number Theory.
-      
-      
-      
-      
-      
-      
-    <h4>The Prime Counting Function</h4>
-    <p> To do this, we consider the prime counting function $\pi(x)=\sum_{p\le x}1$, which is just the number of primes less than $x$. The previous result tells us how the sum $\sum_{p\leq N}\frac{1}{p}$ grows, so surely we can use it to figure out how the prime counting function grows. To do this, we invoke Partial Summation, which is a slightly modified version of Integration-by-Parts that mixes it with sums. This states that if $a_n$ is a sequence and $f(x)$ is a differentiable function and $A(x)=\sum_{n=1}^x a_n$, then
+    </p>
+    <p>
+      We can then use Partial Summation to get a result about the growth of the Prime Counting Function via Merten's Theorem. Partial Summation is a mix of Integration by Parts with sums and states that if $a_n$ is a sequence and $f(x)$ is a differentiable function and $A(x)=\sum_{n=1}^x a_n$, then
         $$
-           \sum_{y\le n \le x}a_nf(n) = f(x)A(x) - f(y)A(y) - \int_y^x f'(t)A(t) dt  %'
+           \sum_{y\le n \le x}a_nf(n) = f(x)A(x) - f(y)A(y) - \int_y^x f'(t)A(t) dt 
         $$
-      With the choice that $f(x)=x$ and $a_n=1/n$ when $n$ is prime and zero otherwise, we get that $\sum_{y\leq n\le x}a_nf(n) = \pi(x)-\pi(y)$ and that $A(x)=\sum_{p\e x}\frac{1}{p}$. The Partial Summation formula applied to this, using our result to say $A(x)=\log\log(x)+O(1)$, says
+      With the choice that $f(x)=x$ and $a_n=1/n$ when $n$ is prime and zero otherwise, we get that $\sum_{y\leq n\le x}a_nf(n) = \pi(x)-\pi(y)$ and that $A(x)=\sum_{p\leq x}\frac{1}{p}$. Merten's Theorem says that $A(x)=\log\log x + M +o(1)$. We then get
       $$
       \pi(x)-\pi(y) = x\log\log(x)-y\log\log(y)-\int_y^x \log\log(t)dt + O(x-y)
       $$
