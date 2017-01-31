@@ -86,7 +86,7 @@
     <h3>Merten's Theorem</h3>
     This result is good, but we can do a little better. The issue is that we only know that the value $\sum_{p\leq x}\frac{1}{p}-\log\log x$ is bounded, we don't know if it oscillates too much or if the limit at infinity actually exists. Merten's (2nd) Theorem answers this, it says that this limit exists. In particular, there is a constant $M$, called Merten's Constant, which is related to the Euler-Mascheroni Constant, so that
     $$
-    \lim_{n\rightarrow\infty} \left(\sum_{p<x}\frac{1}{p} -\log\log x -M\right) =0
+    \lim_{n\rightarrow\infty} \left(\sum_{p\leq x}\frac{1}{p} -\log\log x -M\right) =0
     $$
       This is a much stronger statement and can get us a stronger result about the primes. Overall, Mertens Theorem is a very refined look at the growth of the pole of the Riemann Zeta Function and the full statement one of the most impressive results of early Analytic Number Theory.
       
