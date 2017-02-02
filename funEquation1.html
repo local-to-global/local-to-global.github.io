@@ -59,7 +59,14 @@
     This completely characterizes all solutions to the equation $x^y=y^x$.
     </p>
     <p>
-      But what about the rational solutions? When is both $a=r^{1/(r-1)}$ and $b=r^{r/(r-1)}$ rational numbers? This will require a  little more work.
+      But what about the rational solutions? When is both $a=r^{1/(r-1)}$ and $b=r^{r/(r-1)}$ rational numbers? Recall that we have $a=b^r$, so if $a$ and $b$ are both rational, then so is $r$. This is because One thing preventing these from being rational is the fraction in the exponent. If we impose that $\frac{1}{r-1}=n$ is an integer, then we find that $r=1+1/n$. In this canse $\frac{r}{1-r}=n+1$ is also an integer. So if $n$ is any positive integer and we set $r=1+1/n$ then we get the pair
+       $$
+       \begin{eqnarray*}
+       a & = & \left(1+\frac{1}{n}\right)^{n}\\
+       b & = & \left(1+\frac{1}{n}\right)^{n+1}
+       \end{eqnarray*}
+       $$
+      which satisfies $a^b=b^a$. These are the values you get when you put $r=1+\frac{1}{n}$. Note that when $n=1$ we get $a=2$ and $b=4$. These are also the value of $r$ required so that the exponents, $\frac{1}{r-1}$ and $\frac{r}{r-1}$, are simultaneously integers.
   </div>
 
 
