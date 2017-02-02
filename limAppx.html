@@ -1,0 +1,84 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Limits and Approximation</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Limits and Approximation</h1>
+  </div>
+  <hr id="titlebreak">
+
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  
+  <p>
+  Limits are probably the most important thing to learn in Calculus, conceptually and practically. Of particular importance is understanding the precise epsilon-delta definition of a limit. This is because limits provide us a roadmap to approximation through this explicit description, and approximation is one of the widely used ideas in math. To understand the connection between limits and approximation, we'll first look at approximation.
+  </p>
+  
+  <h3>Approximation</h3>
+  <p>
+    Most values used in math are not going to be 100% precise. Whether you're measuring a value or using a physical/mathematical value, you're more than likely not using the actual value you claim. You're likely using another number that approximates it well enough. What does this mean? This means that you have taken a look at your problem and decided that using only the first few digits of $\pi$, or that you can just take the acceleration due to gravity to be $-9.8m/s$, and this will result in an answer that will work for the purposes you need. While you may mindlessly always use the approximation of $\pi$ that is automatically programmed into calculators, you're still doing this process implicitly and it can become important when you solve problems with more and more values. "Significant Digits" is a standardized way to do this that is effective, but is lacking.</p>
+    <p>
+    This means that the values are "close enough". The key to this is that the distance between the value you need and the value you use is small enough to not matter. Determining when a value is "close enough" then boils down to figuring out how far away from actual value you can live with. We can call this maximum distance the <stong>Error</strong> of the value, and we denote this using the character "$\epsilon$, which is an epsilon, which is the Greek character for "e" which stands for error. If we have a value $A$ that we would like to approximate within error $\epsilon>0$, then we just need to find some value $v$ so that the distance between $A$ and $v$ is less than $\epsilon$. Since $|x-y|$ is equal to the distance between $x$ and $y$, we can use the following equation to say "the distance between $A$ and $v$ is less than $\epsilon$":
+    $$
+    |v-A| < \epsilon
+    $$
+And this can be illustrated on the number line as
+<img src ="">
+</p>
+<p> This gives us a notion of approximation:
+<div class="thm"> <strong>Definition:</strong> If $A$ is number to be approximated, and $\epsilon>0$ the acceptable error that we can use in the approximation, then a value $v$ <strong>Approximates</strong> $A$ with error $\epsilon$ whenever 
+$$
+|v-A| < \epsilon
+$$
+</div>
+As an example, if $A=\pi$, and the error is $\epsilon=0.01$, then the value $v_1=3.14$ is an approximation for $\pi$ within this error. If we want to push the error to be smaller, then we'll have to find better values to approximate with. If $\epsilon=0.001$, then we should use the value $v_2=3.141$. In this way, the error is closely linked to the number of digits you need to approximate a value. However, it should be noted that $v_2$ also approximates $\pi$ within error $0.01$.
+</p>
+<h3>Limits of Sequences</h3>
+<p>
+Ie: Infinitely accurate approximation. If we know that the value $v_1$ approximates a number $A$ within some error (and $v_1$ is not equal to $A$, which is usually the case), then we can always bump up the accuracy of the approximation, by lowering the error, until $v_1$ is no longer a good enough approximation. We could find another value $v_2$ that is within this new error, but we could do the same process: lower the error until $v_2$ no long approximates $A$ within the new error. We would then have to  find a new value $v_3$ etc. This can be illustrated in the image:
+<img src="">
+If we continue to do this, then we'll get a sequence of values $v_1,v_2,v_3,...$ that approximate $A$ with increasingly good accuracy. If, as we do this, the value of the error approaches zero, then this sequence will approximate $A$ with arbitrarily good accuracy. In this case, pick any error, no matter how small, and you'll be able to find some $v_n$ that is within this error. Moreover, since the approximation only gets better as we go along this sequence, if $k\geq 0$ then $v_{n+k}$ will also approximate it within this error.
+</p>
+<p>
+There are a few things to point out in this process. The first is that we get to choose the error, and it can be as small as we like. Regardless of how small this error is, we'll always be able to find a value on our list that approximates it within this error. Moreover, any value that appears after this value will also approximate it within this error. Furthermore, if we decrease the error so that our value is no longer good enough, then there we know there will always be values later on down the list that are good enough. These are the basic ingredients for a limit.
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+</body>
+</html>
