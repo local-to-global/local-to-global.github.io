@@ -55,9 +55,37 @@ If we continue to do this, then we'll get a sequence of values $v_1,v_2,v_3,...$
 <p>
 There are a few things to point out in this process. The first is that we get to choose the error, and it can be as small as we like. Regardless of how small this error is, we'll always be able to find a value on our list that approximates it within this error. Moreover, any value that appears after this value will also approximate it within this error. Furthermore, if we decrease the error so that our value is no longer good enough, then there we know there will always be values later on down the list that are good enough. These are the basic ingredients for a limit.
 </p>
-
-
-
+<p>
+  If $A$ is a number and $v_1,v_2,...$ are values so that, for large enough $n$, the $v_n$ approximate $A$ to any error $\epsilon$, no matter how small, then we say that $A=\lim_{n\rightarrow \infty}v_n$. Writing this out explicitly, we have
+    <div class = "thm"><strong>Definition: </strong> let $v_1,v_2,v_3,...$ be an infinite sequence of values. If there is a number $A$ so that for any error $\epsilon > 0$ we can find an index $n$ any value appearing after $v_n approximates $A$ with error $\epsilon$, then we say that $A$ is the <strong>Limit</strong> of the sequence $v_i$.
+      <br>
+More explicitly, if for all $\epsilon > 0$ there exists an index $n$ so that for all $N>n$ we have 
+  $$
+  |v_N-A| &lt; \epsilon
+  $$
+then we say that $A=\lim_{n\rightarrow\infty} v_n$.
+    </div>
+    This notion of a limit is the limit of a sequence, and the technical definition of it is a little easier to internalize than the one for limits of functions. Here it is clear that $\epsilon$ is playing the role of an error, and how the choice of an error determines which elements of the sequence can be used to approximate it within that error. This gives us a way to approximate individual values fairly concretely. As an example, consider the sequence
+    $$
+    \begin{eqnarray*}
+    v_1 &=& 4\\
+    v_2 &=& 4(1-1/3)\\
+    v_3 &=& 4(1-1/3+1/5)\\
+    v_4 &=& 4(1-1/3+1/5-1/7)\\
+    &\vdots&\\
+    v_n &=& 4(1-1/3+1/5-1/7+...+(-1)^n/(2n+1))\\
+    &\vdots&
+    \end{eqnarray*}
+    $$
+    This sequence famously has the limit $\pi = \lim_{n\rightarrow\infty} \pi$. So now we have a concrete way to approximate $\pi$ to any required precision. First we choose some error $\epsilon>0$ that we can live with, then we know that we can find an $n$ so that $\pi \approx 4(1-1/3+1/5-1/7+...+(-1)^n/(2n+1))$, within that error. The issue for this then becomes: "How high does $n$ need to be for really small $\epsilon$?" and for this sequence, you need pretty large $n$ to get a good approximations. More modern math can find sequences where even the first few can approximate $\pi$ really well, so it takes a reasonable number of terms to compute $\pi$ to trillions of digits.
+ </p>
+  <p>
+    We should then think of limits as roadmaps to approximation.
+  </p>
+  <h3>Limits of Functions</h3>
+  <p>
+    Limits of functions behave similar to limits of sequences. As before, we'll have a value that we are approximating, and be choosing errors and figuring out if the values that we have can approximate it or not. The only thing that changes is the range on the values that end up doing the approximating. 
+    
 
 
 
