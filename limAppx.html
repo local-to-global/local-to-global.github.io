@@ -93,7 +93,7 @@ then we say that $A=\lim_{n\rightarrow\infty} v_n$.
     $$
     This interpretation gives us some flexibility, particularly on the left side of this if-then statement. In particular, it frees us from having to use sequences, we can use anything that has a notion of "close enough" (admittedly vague at this point, but this will be cleared up). So let $a$ be any real number and $f(x)$ a function defined around $x=a$. We can then say that $\lim_{x\rightarrow a}f(x)=A$ if $f(x)$ is close enough to $A$ whenever $x$ is close enough to $a$. Or:
     $$
-    \textrm{If }x\textrm{ is close enough to }a{, then }f(x)\textrm{ is close enough to }A
+    \textrm{If }x\textrm{ is close enough to }a\textrm{, then }f(x)\textrm{ is close enough to }A
     $$
     To get our "roadmap to approximation", we need to make these notions explicit. We already know what "close enough to $A$" means, it means that the value is within the error $\epsilon$ that we choose. The notion of "close enough to $a$" will be similar. It will be determined by some acceptable deviation from $x=a$, denoted $\delta$. So $x$ is "close enough" to $a$ in this sense if $|x-a| &lt;\delta$. Since being able to plug in $x=a$ into the function is something not required, and often can't happen, we make the additional restriction that $0 &lt; |x-a| &lt; \delta$.
   </p>
@@ -102,8 +102,13 @@ then we say that $A=\lim_{n\rightarrow\infty} v_n$.
   </div>
   <p> This can be illustrated by the images below:</p>
   <img src="">
-  
-
+  <p>The key to limits is then this working no matter how small you make the error. That is if the values around $x=a$ approimate $A$ through $f$ for any error that you could choose.
+      <div class="thm"><strong>Definition:</strong> If $f$ is a function defined around a number $a$, and $A$ is some fixed value, then we say that $A$ is the <strong>Limit</strong> of $f(x)$ at $x=a$ if the values around $x=a$ approximate $A$ through $f$ to any arbitrary error. Explicitly, $A$ is the limit of $f(x)$ at $x=a$ if for any error $\epsilon >0$ there is some acceptable deviation $\delta>0$ so that 
+        $$
+        \textrm{If } 0 &lt; |x-\delta| &lt; \delta \textrm{ then } |f(x)-A| \&lt; \epsilon
+        $$
+  </div>
+  <p> The $\delta$ is then an allowed deviation that still guarantees that $f(x)$ is within the given error of $A$, and it is determined by the $\epsilon$ in question. 
 
 
 
