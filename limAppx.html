@@ -68,10 +68,10 @@ then we say that $A=\lim_{n\rightarrow\infty} v_n$.
     This notion of a limit is the limit of a sequence, and the technical definition of it is a little easier to internalize than the one for limits of functions. Here it is clear that $\epsilon$ is playing the role of an error, and how the choice of an error determines which elements of the sequence can be used to approximate it within that error. This gives us a way to approximate individual values fairly concretely. As an example, consider the sequence
     $$
     \begin{eqnarray*}
-    v_1 &=& 1\\
-    v_2 &=& 1-\frac{1}{3}\\
-    v_3 &=& 1-\frac{1}{3}+\frac{1}{5}\\
-    v_4 &=& 1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}\\
+    v_0 &=& 1\\
+    v_1 &=& 1-\frac{1}{3}\\
+    v_2 &=& 1-\frac{1}{3}+\frac{1}{5}\\
+    v_3 &=& 1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}\\
     &\vdots&\\
     v_n &=& 1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+...+\frac{(-1)^n}{2n+1}\\
     &\vdots&
@@ -85,7 +85,24 @@ then we say that $A=\lim_{n\rightarrow\infty} v_n$.
   <h3>Limits of Functions</h3>
   <p>
     Limits of functions behave similar to limits of sequences. As before, we'll have a value that we are approximating, and be choosing errors and figuring out if the values that we have can approximate it or not. The only thing that changes is the range on the values that end up doing the approximating. 
-    
+  </p>
+  <p>
+    Looking at the limits of sequences, what we were doing was picking an error, and then finding input values for the sequence that are "close enough to infinity" (ie large enough) so that the values are within that error. This means that a the limit $\lim_{n\rightarrow\infty}v_n =A$ if $v_n$ is "close enough" to $A$ whenever $n$ is "close enough" to infinity. Said another way:
+    $$
+    \textrm{If }n\textrm{ is close enough to infinity, then }v_n\textrm{ is close enough to }A
+    $$
+    This interpretation gives us some flexibility, particularly on the left side of this if-then statement. In particular, it frees us from having to use sequences, we can use anything that has a notion of "close enough" (admittedly vague at this point, but this will be cleared up). So let $a$ be any real number and $f(x)$ a function defined around $x=a$. We can then say that $\lim_{x\rightarrow a}f(x)=A$ if $f(x)$ is close enough to $A$ whenever $x$ is close enough to $a$. Or:
+    $$
+    \textrm{If }x\textrm{ is close enough to }a{, then }f(x)\textrm{ is close enough to }A
+    $$
+    To get our "roadmap to approximation", we need to make these notions explicit. We already know what "close enough to $A$" means, it means that the value is within the error $\epsilon$ that we choose. The notion of "close enough to $a$" will be similar. It will be determined by some acceptable deviation from $x=a$, denoted $\delta$. So $x$ is "close enough" to $a$ in this sense if $|x-a| &lt;\delta$. Since being able to plug in $x=a$ into the function is something not required, and often can't happen, we make the additional restriction that $0 &lt; |x-a| &lt; \delta$.
+  </p>
+  <p> We can then make a notion of approximation via a function:
+  <div class="thm"><strong>Definition:</strong> If $A$ is a real number and $\epsilon>0$ is some fixed error, and $f$ is a function, then we say that the values around $x=a$ <strong>Approximate</strong> $A$ though $f$ if $x$ is close enough to $a$, then the value $f(x)$ approximates $A$ with error $\epsilon$. Explicitly, the values arouond $x=a$ approximate $A$ through $f$ if there is some acceptable deviation $\delta>0$ so that if $0&lt; |x-a| &lt; \delta$ then $|f(x)-A| &lt; \epsilon$.
+  </div>
+  <p> This can be illustrated by the images below:</p>
+  <img src="">
+  
 
 
 
