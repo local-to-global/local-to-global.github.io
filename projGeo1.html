@@ -1,0 +1,67 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Projective Geometry 1: The Real Projective Line</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Projective Geometry 1: The Real Projective Line</h1>
+  </div>
+  <hr id="titlebreak">
+
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  <p>
+  Projective Geometry extends classical geometry. In this process it unifies some ideas, and gives us more flexibility in others. As we'll see, it allows us to do things like divide by zero, it tells us that all conics are just different ways to look at the same object, and gives us a way to count how many times two algebraic equations intersect. We'll just look at the one and two dimensional cases over the real numbers, but these ideas extend all over math and put a lot of things in a much more unified and compact setting.
+  </p>
+  <h3>The Real Line and Infinity</h3>
+  <p>
+  Anyone who passed middle school knows that you can't divide by zero. Anyone, that is, except mathematicians, we divide by zero all over the place. But how does this work? Heuristically, we want to say that $\frac{1}{0}=\infty$. This is actually fine, as long as you're willing to put up with a few extra rules for arithmetic, we'll make it an precise concept that can be generalized in a bit. But with just this we can figure out a bit about how it needs to behave.</p>
+  <p>
+  Firstly, this infinity is different than the infinity you see in calculus. Note that 
+  $$
+  -\infty = \frac{-1}{0} = \frac{1}{-0} = \frac{1}{0} = \infty
+  $$
+    which means that $-\infty=\infty$. In particular, note that this is a direct consequence of the fact that $0=-0$. So, arithmetically, separating $-\infty$ and $\infty$ makes as much sense as separating $0$ and $-0$. This also gives us a hint at what the geometric interpretation of infinity is, in this case. If you'll recall, if we plug in very small positive numbers for $x$ into $1/x$, then we get out very large positive numbers and if we plug in very small negative numbers into $1/x$, then we get out very large negative numbers. So as the $x$ in $1/x$ goes to zero from the positive side, you travel along the real line out to $\infty$ and as the $x$ in $1/x$ goes to zero from the negative side, you travel along the real line out to $-\infty$. If $x$ is really small, then it looks like $1/x$ is travelling away from $1/-x$ really fast, eventually ending up so that one is at $\infty$ and the other is at $-\infty$:
+</p>
+<img src="">
+<p>
+ But in our interpretation $-\infty=\infty$, which means that $1/x$ and $1/-x$ are actually travelling to the same point! Even though they're travelling away from each other along the real line, they're travelling towards each other when we include $\infty=1/0$. The only way that this can happen is if, through this new point, the real line actually loops back onto itself and forms a circle:
+</p>
+<img src="">
+<p>
+This is what the Projective Real Line is. It is the real line tied up into a circle using an extra point called "infinity". We can compare this to what is used in Calculus, which is the "Extended Real Line", which is the real line capped off on either end with two new points, $-\infty$ and $\infty$:
+</p>
+<img src="">
+<p>
+You can get from the Extended Real Line to the Projective Real Line by gluing those two points together. Overall, then, if we define $\infty$ arithmetically as $1/0$, then this forces us to interpret it as living on this circle, the Projective Real Line. We can extend some more of the arithmetic operations to include infinity, here $x$ is any real number (not infinity) and $y$ is any real number (possibly infinity, but not zero):
+$$
+\begin{eqnarray*}
+y\cdot\infty = \infty && \frac{x}{\infty}=0\\
+x+\infty=\infty && 
+\end{eqnarray*}
+$$
+We still have some undefined quantities, like $0\cdot\infty$, $\infty/\infty$, $0/0$. You'll note the similarity to the indeterminant forms for L'Hopital's rule. These prevent us from doing a few things that we would normally do with arithmetic. Most notably, these rules, along with the restriction, prevent us from using division by zero to "cancel". For example, $2\cdot0=3\cdot0$, but we can't divide by $0$ to cancel out the zeros, as we would end up with $2=3$. This is how a lot of "fake proofs" of rediculous things of this sort work. This is all because $x0=0$ for all $x$ and $y\infty=\infty$ for all $y$. So while we can divide by zero now, we can't cancel using this division. This is perhaps why you don't see it in school. Division isn't taught super well, the computational process is taught okay, but the arithmetic concepts are not, so it would be hard to instill onto students the difference between division and cancellation.
+</p>
+<h3>The Projective Real Line</h3>
+We now have an intuitive notion of the Projective Real Line, as the real line tied up into a circle using an extra point denoted by the symbol "$\infty$". But it is not yet a robust enough concept to generalize or really use in any interesting way (except to divide by zero).
+
+
+
+  </div>
+
+
+
+</body>
+</html>
