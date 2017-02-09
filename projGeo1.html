@@ -55,8 +55,29 @@ $$
 We still have some undefined quantities, like $0\cdot\infty$, $\infty/\infty$, $0/0$. You'll note the similarity to the indeterminant forms for L'Hopital's rule. These prevent us from doing a few things that we would normally do with arithmetic. Most notably, these rules, along with the restriction, prevent us from using division by zero to "cancel". For example, $2\cdot0=3\cdot0$, but we can't divide by $0$ to cancel out the zeros, as we would end up with $2=3$. This is how a lot of "fake proofs" of rediculous things of this sort work. This is all because $x0=0$ for all $x$ and $y\infty=\infty$ for all $y$. So while we can divide by zero now, we can't cancel using this division. This is perhaps why you don't see it in school. Division isn't taught super well, the computational process is taught okay, but the arithmetic concepts are not, so it would be hard to instill onto students the difference between division and cancellation.
 </p>
 <h3>The Projective Real Line</h3>
-We now have an intuitive notion of the Projective Real Line, as the real line tied up into a circle using an extra point denoted by the symbol "$\infty$". But it is not yet a robust enough concept to generalize or really use in any interesting way (except to divide by zero).
-
+<p>
+We now have an intuitive notion of the Projective Real Line, as the real line tied up into a circle using an extra point denoted by the symbol "$\infty$". But it is not yet a robust enough concept to generalize or really use in any interesting way (except to divide by zero). This is what we will construct now.
+    </p>
+    <p>
+      The idea is to view the real line as all possible ratios of two numbers. For instance $3$ is the ratio $15:5$, $\sqrt{2}$ is the ratio $\sqrt{8}:2$, $\pi$ is the ratio $8\pi^2:8\pi$ and $e$ is the ratio $e:1$. So given two real numbers $x$ and $y$, we can say that $(x:y)$ is a representation of the real number $x/y$. An important thing about this is that if $z$ is nonzero, then $(zx:zy)=(x:y)$. If, then, $y$ is a nonzero real number, then $(x:y)$ is an alternative way to look at the number $x/y$.
+    </p>
+    <p>
+      Why is this productive? It helps us because we can consider pairs like $(x:0)$, which do not represent a real number. What we're really doing is considering all pairs $(x:y)$, where not both $x$ and $y$ are zero, and saying that $(x:y)=(x':y')$ if there is a number $z$ so that $x'=zx$ and $y'=zy$. In this way, every real number $x$ can be represented as $(x:1)$ and $\infty$ can be represented as $(1:0)$. Defined this way, these pairs represent every element of the Projective Real Line. It is important that we don't allow $(0:0)$, as this does not fit well into this schema.
+    </p>
+    <p>
+      We can define arithmetic on these things too. For instance $(a:b)(c:d)=(ac:bd)$ and $(a:b)+(c:d)=(ad+bc:bd)$. We recover the arithmetic of the real numbers this way, but also the arithmetic involving infinity. For instance $(a:b)(1:0)=(a:0)=(1:0)$ show that $x\infty=\infty$ whenever $x$ is nonzero.
+    </p>
+    <p>
+      There are also more geometric ways to view these. We can, for instance, view these as the collection of all lines in the plane that pass through the origin. If $(a:b)$ is one of these elements, then we can make the line $ax-by=0$. When $b\ne 0$, this is just the line that passes through the origin with slope $a/b$, but when $b=0$ this is the vertical line through the origin.
+</p>
+<img src="">
+<p>
+  This can help us view the numbers as actually living on a circle. If we draw the unit circle on the origin, then each line through the origin gives us two lines on opposite ends of the circle. If we then wrap the circle around on itself, like you would double-loop a rubber band, then these two points will line up. Explicitly, this means that we can identify the real number $x$ with the angle $\theta_x=2\arctan(x)-\frac{\pi}{2}$. This puts $x=0$ at the bottom, $x=1,-1$ on the rightmost/leftmost points and $x=\infty$ at the top:
+</p>
+<img src="">
+<p>
+  While this does give us a way to picture exactly how the Real Projective Line looks like as a circle, the important takeaway is the representation as pairs of ratios $(a:b)$. This is the most maliable representation and easily generalizes to higher dimensions, whereas these visual ones we cannot. Doing this in higher dimensions results in objects that can't be simply represented in 3D space, so we can't visualize them in any kind of reliable way, so it's the $(a:b)$ representation that is the bread-and-butter that we're looking for. We'll look at higher dimensional analogs to this later, and how they affect curves.
+    </p>
 
 
   </div>
