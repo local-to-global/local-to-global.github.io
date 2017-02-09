@@ -1,0 +1,75 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>The Quadratic Formula</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">The Quadratic Formula</h1>
+  </div>
+  <hr id="titlebreak">
+
+  <div class="post-content">
+  <div class="post-date">2/9/2017</div>
+  <p>
+  Everyone knows the quadratic formula. It says that the solutions to the polynomial equation $ax^2+bx+c=0$ are
+  $$
+  x = \frac{-b\pm\sqrt{b^2-4ac}{2a}
+  $$
+  Many may even know its derivation. But lets take this opportunity to think a little more critically about how we get to is. 
+  </p>
+  <p>
+  Firstly, lets make things easy on ourselves. If we have $ax^2+bx+c=0$, then dividing through by $a$ gives $x^2+\frac{b}{a}x+\frac{c}{a}=0$. If $B=\frac{b}{a}$ and $C=\frac{c}{a}$, then this means that we only have to look at equations of the form 
+  $$
+  x^2+Bx+C=0
+  $$
+  This just makes our life easier, as there are less variables floating around. The key to solving an equation like this is the realization that solving $x^2+C=0$ is really easy to do. The solutions to this equation are just $x=\pm\sqrt{-C}$. In fact, the square root is invented to be a solution to such an equation. The question then becomes: Can we solve $x^2+Bx+C=0$ using this easy special case?
+  </p>
+  <p>
+  If we take a look at the equations parabolas of the form $f(x)=x^2+C$ we notice that these are all very similar:
+  </p>
+  <img src="">
+  <p>
+  In particular, these are all symmetric about the y-axis. If we introduce the linear term $Bx$ into this, to get $f(x)=x^2+Bx+C$, we see that it affects the graph by shifting the axis of symmetry laterally:
+  </p>
+  <img src="">
+  <p>
+  But even through these shifts, the important thing to note is that the zeros are still symmetric about this line. Ie, they are always the same distance from the line of symmetry. There is another way to shift graphs of functions, and that is by adding or subtracting from the input $x$. Eg, $f(x+h)$:
+  </p>
+  <img src="">
+  <p>
+  We can always shift the graph so that the axis of symmetry lies on the y-axis and this means that there is some shift value $h$ so that if $f(x)=x^2+Bx+C$ then $f(x+h)=x^2+P$, for some value $P$. This is then of the form that we can easily solve! The solution to $x^2+P=0$ is $x=\pm\sqrt(-P)$. This means that if we plug $x=h\pm\sqrt{-P}$ into $f(x)=x^2+Bx+C$, then we'll get zero. So the solutions to $x^2+Bx+C=0$ are $x=h\pm\sqrt{-P}$. All that's left is to figure out what $h$ and $P$ need to be.
+  </p>
+  <p>
+  There are a few ways to figure out $h$ and $P$. The most direct way is to just plug in $x+h$ into $f(x)=x^2+Bx+C$ and solve for the $h$ that makes the linear term zero. In this way, we get
+  $$
+  f(x+h) = (x+h)^2 + (x+h)B+C = x^2 +(2h+B)x+(C+Bh+h^2)
+  $$
+  Clearly the only $h$ that gets rid of the middle term is $h=-B/2$. This, then, would mean that we have $P=C-\frac{B^2}{4}$, which is what we get after simplifying $C+Bh+h^2$ after plugging in our $h$. Our general solution is then 
+  $$
+  x=\frac{-B}{2} \pm \sqrt{\frac{B^2}{4}-C}
+  $$
+This is generally what completing the square does. Another way to find this value is to note that the line of symmetry is where the derivative is equal to zero, and so you can shift it by the critical $x$ value of the derivative. Writing the general solution in this form is rather illustrative of how we actually solved it. Our method was to 1.) Shift the parabola 2.) Find the solution to the shifted parabole 3.) Shift the solution back. We did 1.) when we plugged in $x+h$. We did 2.) when we solved for $x=\pm\sqrt{-P}$. We did 3.) when we corrected back to the solution. That is, we had the solution to $f(x'+h)=0$, so the solution to $f(x)=0$ is shifted from this. Writing the solution as $\frac{-B}{2} \pm \sqrt{\frac{B^2}{4}-C}$ shows our first shift (the $(B/2)^2$ in the radical), our solution to the "easy" expression (the square root) and then the shift to the solution to the original equation (the $-B/2$ on the outside).
+</p>
+<p>
+This is a common method to solving many kinds of problems in math: Find an easy version of the problem, transform the hard equation into the easy version, and then shift the solution back.
+</p>
+
+
+  </div>
+
+
+
+</body>
+</html>
