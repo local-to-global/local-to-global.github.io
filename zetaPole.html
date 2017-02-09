@@ -75,48 +75,41 @@
       $$
       This shows that the growth of the series at the pole can help us determine how fast this particular sum of primes diverges. We can in fact do more. We can use this to get a statement about how the primes themselves grow. In fact, using this we can prove through the Euler-Maclaurin Formula that if $p_n$ is the $n$th prime
       $$
-      1\leq \liminf_{n\rightarrow \infty} \frac{p_n}{n\log n} \leq \limsup_{n\rightarrow \infty}\frac{p_n}{n\log n} \leq\ne \infty
+      1\leq \liminf_{n\rightarrow \infty} \frac{p_n}{n\log n} \leq \limsup_{n\rightarrow \infty}\frac{p_n}{n\log n} &lt; \infty
       $$
-      (I'm having trouble with MathJax writing strictly-less than signs, so deal with me.) Which means that $p_n$ grows not too much faster or slower than $n\log n$. In reality, the limit of $\frac{p_n}{n\log n}$ exists and is equal to $1$, so this is a good step in that direction. If $\pi(x)$ is the number of primes less than $x$, then we get the related result
+       Which means that $p_n$ grows not too much faster or slower than $n\log n$. In reality, the limit of $\frac{p_n}{n\log n}$ exists and is equal to $1$, so this is a good step in that direction. If $\pi(x)$ is the number of primes less than $x$, then we get the related result
       $$
-      1 \leq\liminf_{x\rightarrow\infty}\frac{\pi(x)}{x/\log(x)} \leq \limsup_{x\rightarrow \infty}\frac{\pi(x)}{x/\log(x)}\leq\ne\infty
+      1 \leq\liminf_{x\rightarrow\infty}\frac{\pi(x)}{x/\log(x)} \leq \limsup_{x\rightarrow \infty}\frac{\pi(x)}{x/\log(x)} &lt; \infty
       $$
       This means that $\pi(x)$ grows not too differently from $\frac{x}{\log x}$.
       </p>
-    <h3>Merten's Theorem</h3>
+    <h3>The Riemann-von Mangoldt Explicit Formula</h3>
     <p>
-    This result is good, but we can do a little better. The issue is that we only know that the value $\sum_{p\leq x}\frac{1}{p}-\log\log x$ is bounded, we don't know if it oscillates too much or if the limit at infinity actually exists. Merten's (2nd) Theorem answers this, it says that this limit exists. In particular, there is a constant $M$, called Merten's Constant, which is related to the Euler-Mascheroni Constant, so that
-    $$
-    \lim_{x\rightarrow\infty} \left(\sum_{p\leq x}\frac{1}{p} -\log\log x -M\right) =0
-    $$
-      This is a much stronger statement and can get us a stronger result about the primes. Overall, Mertens Theorem is a very refined look at the growth of the pole of the Riemann Zeta Function and the full statement one of the most impressive results of early Analytic Number Theory.
+      The real importance of this pole, and the zeros, of the Riemann Zeta Function really come to fruition in the Riemann-von Mangoldt Explicit Formula. This arises from the Euler Product of the Riemann Zeta Function, which links it to the primes and their distribution, and the fact that the zeta function is meromorphic on the complex plane, along with the result that meromorphic functions are mostly determined by their zeros and poles. This gives us two ways to express the zeta function as infinite products:
+      $$
+      \prod_p\frac{1}{1-p^{-s}} = \zeta(s) = \frac{e^{a+bs}}{s-1}\prod_{n=1}^{\infty}\left(1+\frac{s}{2n}\right)e^{-s/2}\prod_{\rho}\left(1-\frac{s}{\rho}\right)e^{s/\rho}
+      $$
+      where the final product on the right side is over all zeros in the critical strip. The expression on the right is the meromorphic equivalent of writing a polynomial in terms of its zeros. Note that the pole is apparent from this expression due to the $s-1$ in the denominator. Overall this has three main parts: 1) The pole, 2) The Trivial Zeros at $s=-2n$ and 3) The Non-Trivial Zeros. These will contribute to the distribution of primes via this equation in three different ways. The pole will be end up being the most dominant term, the trivial zeros will not contribute anything asymptotically and the non-trivial zeros will be responsible for the noise of the primes in their distribution and is the most mysterious part of this puzzle.
     </p>
     <p>
-      We can then use Partial Summation to get a result about the growth of the Prime Counting Function via Merten's Theorem. Partial Summation is a mix of Integration by Parts with sums and states that if $a_n$ is a sequence and $f(x)$ is a differentiable function and $A(x)=\sum_{n=1}^x a_n$, then
-        $$
-           \sum_{y\le n \le x}a_nf(n) = f(x)A(x) - f(y)A(y) - \int_y^x f'(t)A(t) dt 
-        $$
-      With the choice that $f(x)=x$ and $a_n=1/n$ when $n$ is prime and zero otherwise, we get that $\sum_{y\leq n\le x}a_nf(n) = \pi(x)-\pi(y)$ and that $A(x)=\sum_{p\leq x}\frac{1}{p}$. This means that
-       $$
-      \pi(x)-\pi(y) = x\sum_{p\leq x}\frac{1}{p}-y\sum_{p\leq y}\frac{1}{p} -\int_y^x \sum_{p\leq t}\frac{1}{p}dt
-      $$      
-      A more explicit version of Merten's Theorem says that $A(x)=\log\log x + M +O(1/\log(x))$. Plugging all of this into the above Partial Summation formula, choosing an appropriate $y$ and simplifying, gives
+     We can manipulate this equation to explicitly link the distribution of primes with the zeros and pole. How this is done is by first looking at the logarithmic derivative $\zeta'(s)/\zeta(s)$, which turns all these products into sums, and then performing an integral transform that picks out only relevant information. The end result is
       $$
-      \pi(x)=O\left(\frac{x}{\log(x)}\right)
+      \sum_{p^n &lt; x} \log p = x - b - \frac{1}{2}\log(1-x^{-2}) - \sum_{\rho}\frac{x^{\rho}}{\rho}
       $$
-      For comparison, the Prime Number Theorem says that the limit 
-      ******* We then get
-     
-        This integral is equal to
+      The sum on the right is the Chebyshev function $\psi(x):= \sum_{p^n &lt; x} \log p$ and it is, essentially, a smoothed out version of the prime counting function $\pi(x)$. Knowing fine information about one gives us fine information about the other, they're practically interchangable. For instance, if $\pi(x)~x/\log(x)$ then $\psi(x)~x$. The terms on the right are what are insteresting. The $x-b$ comes directly from the pole via the term  $\frac{e^{a+bs}}{s-1}$, and it is the term that grows the fastest out of all of them, so it dominates the growth of $\psi(x)$ and therefore the primes. Since this term grows unboundedly, we can see how the pole influences the fact that there are infinitely many primes and things like that. The logarithmic term comes from the trivial zeros, and it goes to zero at infinity, so it is not really important at all. Some may even say that it's trivial.
+    </p>
+      <p>The final term is what we get from the nontrivial zeros with $0\leq Re(\rho)\leq 1$. How this term behaves will affect how the slightly more fine details about the distribution of primes. Since these have complex numbers in the exponents, each of these terms will oscillate as $x$ grows. How much they oscillate depends on where the zeros are. If there are zeros with $Re(s)=1$, then dividing through by $x$ and ignoring the terms that go to zero gives us
         $$
-        \int_y^x \log\log(t)dt = x\log\log(x)-y\log\log(y) +Li(y)-Li(x)
+        \psi(x)/x = 1 - \sum_{Re(\rho)=1}\frac{x^{\rho-1}}{\rho}
         $$
-        Fixing $y$ at any value will allow us to eat up each of the terms that contain a $y$ into the big-O and so we can say that
-        $$
-        \pi(x) = Li(x) + O(x) 
-        $$
-        </p>
+        The other nontrivial zeros will get killed when $x\rightarrow \infty$. So the growth rate of $\psi(x)$ depends on the location of these zeros. If there are no such zeros, then we'll have $\lim_{x\rightarrow\infty}\psi(x)/x=1$, which is not necessarily the case if there are zeros like this. The Prime Number Theorem then asserts that there are no such zeros, and so we get the asymptotic result $\psi(x)~x$ which means that $\pi(x)~x/\log(x)$, which is much stronger than we already showed. This shows that, asymptotically, the only contribution to the prime distribution that really matters is the one coming from the pole.
+    </p>
+    <p>
+      Determining how much we can ignore the nontrivial zero term is the question of the Riemann Hypothesis. It states that the nontrivial zeros contribute as little as possible to this expression and tells us a bit about the remainder term of $\psi(x)-x$. It says that $\psi(x)=x+o(x^{1/2+\epsilon})$ for any $\epsilon>0$. 
       
+    <h3>Conclusion</h3>
+    Overall, the pole of the Riemann Zeta Function tells us about the dominant trends in the distribution of primes. In fact, not mentioned was how the behaviour of primes in arithmetic progressions also depend on this pole. The nontrivial zeros tell us about the finer details of this distribution. 
+
 
 
   </div>
