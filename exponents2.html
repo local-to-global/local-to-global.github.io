@@ -25,9 +25,38 @@
   When talking about exponentiation, especially over the real numbers, you cannot escape the number $e$. It pops up everywhere, and in this post we're going to explore why and find some fundamental relationships involving $e$, the exponential function and logarithms.
   <h3>Exponents, derivatives and defining $e$</h3>
   <p>
-  If $A$ is a positive real number, then we can consider the function $f(x)=A^x$ defined on the whole real line. This is a continuous function and is, in fact, differentiable. 
-  
+  If $A$ is a positive real number, then we can consider the function $f(x)=A^x$ defined on the whole real line. This is a continuous function and is, in fact, differentiable. What is its derivative? Computing this directly from the definition of a derivative shows that
+    $$
+    \begin{eqnarray*}
+    \frac{d}{dx}(A^x) &=& \lim_{h\rightarrow 0} \frac{A^{x+h}-A^x}{h}\\
+          &=& A^x\lim_{h\rightarrow 0} \frac{A^h-1}{h}\\
+          &=& c_A \cdot A^x
+    \end{eqnarray*}
+    $$
+    where 
+    $$
+    c_A = \lim_{h\rightarrow 0} \frac{A^h-1}{h}
+    $$
+    It might be interesting to see how $c_A$ compares to $c_B$ when for different values $A,B$. We have $\frac{dA^x}{dx}=c_AA^x$ and $\frac{dB^x}{dx}=c_BB^x$, but we can evaluate this latter derivative in an alternate way. In particular, we can always write $B=A^{\log_AB}$. This means that $B^x=A^{x\log_A(B)}$. Then, evaluating the derivative of $B^x$ using this expression and the chain rule shows that $\frac{dB^x}{dx}=c_A\log_A(B)B^x$. Equating this to the original expression for the derivative of $B^x$ gives
+    $$
+    \frac{c_B}{c_A}=\log_A(B)
+    $$
+    
+    
+    We then define $e$ to be the value, whatever it is, so that $c_e=1$. This means that $\frac{de^x}{dx}=e^x$. Note that if $A$ is a positive real number, then $A^x=e^{x\log A}$. Taking the derivatives of both sides, and applying the chain rule to the right, shows that
+    $$
+    c_A A^x = \log(A)\cdot e^{x\log A} = \log(A)\cdot A^x
+    $$
+    This then gives us a formula for the natural logarithm: It shows that 
+    $$
+    c_A = \log(A) = \lim_{h\rightarrow 0} \frac{A^h-1}{h}
+    $$
+    In general, with we have $\frac{dA^x}{dx} = \log(A)A^x$. Right away, we can tell that using this as the definition of $e$ makes calculus involving exponentials and, as we'll see, logarithms very nice.
+    </p>
+    
   <h3>The Natural Logarithm</h3>
+    <p>
+      When investigating the derivative of an exponential, a logarithm 
   
   
   
