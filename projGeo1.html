@@ -59,7 +59,16 @@ We still have some undefined quantities, like $0\cdot\infty$, $\infty/\infty$, $
 We now have an intuitive notion of the Projective Real Line, as the real line tied up into a circle using an extra point denoted by the symbol "$\infty$". But it is not yet a robust enough concept to generalize or really use in any interesting way (except to divide by zero). This is what we will construct now.
     </p>
     <p>
-      The idea is to view the real line as all possible ratios of two numbers. For instance $3$ is the ratio $15:5$, $\sqrt{2}$ is the ratio $\sqrt{8}:2$, $\pi$ is the ratio $8\pi^2:8\pi$ and $e$ is the ratio $e:1$. So given two real numbers $x$ and $y$, we can say that $(x:y)$ is a representation of the real number $x/y$. An important thing about this is that if $z$ is nonzero, then $(zx:zy)=(x:y)$. If, then, $y$ is a nonzero real number, then $(x:y)$ is an alternative way to look at the number $x/y$.
+      The idea is to view the real line as all possible ratios of two numbers. For instance:
+      $$
+      \begin{eqnarray*}
+      3 &\textrm{ is the ratio }& 15:5\\ $
+      \sqrt{2} &\textrm{ is the ratio }& \sqrt{8}:2\\
+      \pi &\textrm{ is the ratio }& 8\pi^2:8\pi\\
+      e &\textrm{ is the ratio} & e:1
+      \end{eqnarray*}
+      $$
+      So given two real numbers $x$ and $y$, we can say that $(x:y)$ is a representation of the real number $x/y$. An important thing about this is that if $z$ is nonzero, then $(zx:zy)=(x:y)$. This means that if $y$ is a nonzero real number, then $(x:y)$ is an alternative way to look at the number $x/y$.
     </p>
     <p>
       Why is this productive? It helps us because we can consider pairs like $(x:0)$, which do not represent a real number. What we're really doing is considering all pairs $(x:y)$, where not both $x$ and $y$ are zero, and saying that $(x:y)=(x':y')$ if there is a number $z$ so that $x'=zx$ and $y'=zy$. In this way, every real number $x$ can be represented as $(x:1)$ and $\infty$ can be represented as $(1:0)$. Defined this way, these pairs represent every element of the Projective Real Line. It is important that we don't allow $(0:0)$, as this does not fit well into this schema.
