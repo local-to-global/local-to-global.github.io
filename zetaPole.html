@@ -57,15 +57,15 @@
       $$
     </p>
     <p>
-      Towards this end, we are going to take a logarithm so that we can turn this product into a sum. This looks like
+      Towards this end, we are going to take a logarithm so that we can turn this product into a sum and write it as a Taylor series. This looks like
       $$
-      \log\left(\prod_{p\leq N}\frac{1}{1-p^{-1}}\right) = -\sum_{p\leq N}\log(1-p^{-1})
+      \begin{eqnarray*}
+      \log\left(\prod_{p\leq N}\frac{1}{1-p^{-1}}\right) &=& -\sum_{p\leq N}\log(1-p^{-1})\\
+                                                         &=& \sum_{p\leq N} \sum_{k=1}^{\infty}\frac{p^{-k}}{k}\\
+                                                         &=& \sum_{p\leq N}\frac{1}{p} +\sum_{k=2}^{\infty}\sum_{p\leq N}\frac{p^{-k}}{k}
+      \end{eqnarray*}
       $$
-      We can expand the logarithms as a power series and get
-      $$
-      \log\left(\prod_{p\leq N}\frac{1}{1-p^{-1}}\right) = \sum_{p\leq N} \sum_{k=1}^{\infty}\frac{p^{-k}}{k} = \sum_{p\leq N}\frac{1}{p} +\sum_{k=2}^{\infty}\sum_{p\leq N}\frac{p^{-k}}{k}
-      $$
-      The important thing about this is that the final double-sum converges as $N\rightarrow\infty$. In particular, we have that $\sum_{k=2}^{\infty}\frac{p^{-k}}{k} \leq \frac{1}{2p^2}\sum_{k=0}^{\infty}\frac{1}{p^k}$ from which we can extract a geometric series. This means that for every $p$ this term is bounded above by $\frac{1}{2p(p-1)}$. Summing over all $p\leq N$ is less than summing $\frac{1}{2n(n-1)}$ over all $n>1$ which is convergent and the bounds on this convergence are independent of what $N$ was. We can then conclude that
+      The important thing about this is that the final double-sum converges as $N\rightarrow\infty$. To see why this is the case, note that $\sum_{k=2}^{\infty}\frac{p^{-k}}{k} \leq \frac{1}{2p^2}\sum_{k=0}^{\infty}\frac{1}{p^k}$ from which we can extract a geometric series. This means that for every $p$ this term is bounded above by $\frac{1}{2p(p-1)}$. Summing over all $p\leq N$ is less than summing $\frac{1}{2n(n-1)}$ over all $n>1$ which is convergent and the bounds on this convergence are independent of what $N$ was. We can then conclude that
       $$
       \log\left(\prod_{p\leq N}\frac{1}{1-p^{-1}}\right) = \sum_{p\leq N}\frac{1}{p} + O(1)
       $$
