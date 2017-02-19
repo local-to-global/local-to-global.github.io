@@ -24,6 +24,7 @@
   <div class="post-date">11/21/2016</div>
     <p>What are the integer solutions to the equation $x^y=y^x$? What about rational solutions? What about real solutions? Clearly we always have a solution when $x=y$, but what about when $x\ne y$? This is a fun little equation to solve and analyze. 
     </p>
+    <h3>All real and integer solutions</h3>
     <p> Lets first classify all the real solutions, as this will help us find solutions in other number systems. Firstly, if we log both sides of the equation $a^b=b^a$ and rearrange things a bit, we get
     $$
     \frac{\log(a)}{a}=\frac{\log(b)}{b}
@@ -39,13 +40,13 @@
     </p>
     <img src="http://i.imgur.com/d4AGJsy.png">
     <p>
-    So when can we draw a horizontal line that intersects this graph at two differnt places? The above shows that this can happen exactly for pairs $a$ and $b$ when one of them is in the interval $(1,e)$ and the other is in the interval $(e,\infty)$. So there are infinitely many solutions to this, one for each number in the interval $(1,e)$.
+    Whenever we can we draw a horizontal line that intersects this graph at two differnt places, we get a nontrivial solution to this equation. The above shows that this can happen exactly for pairs $a$ and $b$ when one of them is in the interval $(1,e)$ and the other is in the interval $(e,\infty)$. So there are infinitely many solutions to this, one for each number in the interval $(1,e)$.
     </p>
     <p>
-    Therefore, we know that there are tons of solutions. Right away, we can show that $a=2$, $b=4$ is the only integer solution. This is because there is only one integer in the range $(1,e)$, and that integer is $2$, and since $2^4=4^2$, it follows that $a=2$ and $b=4$ is an integer solution and that there are no other possibilities.
+    Now we know that there are tons of solutions. Right away, we can show that $a=2$, $b=4$ is the only integer solution. This is because there is only one integer in the range $(1,e)$, and that integer is $2$, and since $2^4=4^2$, it follows that $a=2$ and $b=4$ is an integer solution and that there are no other possibilities.
      </p>
      <p>
-     But to find what all the rational solutions are, we'll need to classify these solutions in a more maliable way. In particular, if $a$ is an arbitrary number in the interval $(1,e)$, then what does the corresponding $b$ look like? If we set $r=\log_a(b)$, then we'll have $b=a^r$. Are $a$ and $b$ individually dependent on $r$? If we plug in $b=a^r$ into $\log(a)/a=\log(b)/b$, then we get
+     But given an $a$ in the interval $(1,e)$, what does the corresponding $b$ look like? If we have a solution $a^b=b^a$ and set $r=\log_a(b)$, then we have $b=a^r$. Can we turn this around? Can we express both $a$ and $b$ simply in terms of this exponent $r$? If we plug in $b=a^r$ into $\log(a)/a=\log(b)/b$, then we get
        $$
        \frac{\log(a)}{a}=\frac{r\log(a)}{a^r}
        $$
@@ -58,8 +59,9 @@
        $$
     This completely characterizes all solutions to the equation $x^y=y^x$.
     </p>
+    <h3>All rational solutions</h3>
     <p>
-      But what about the rational solutions? When is both $a=r^{1/(r-1)}$ and $b=r^{r/(r-1)}$ rational numbers? Recall that we have $a=b^r$, so if $a$ and $b$ are both rational, then so is $r$. This is because One thing preventing these from being rational is the fraction in the exponent. If we impose that $\frac{1}{r-1}=n$ is an integer, then we find that $r=1+1/n$. In this canse $\frac{r}{1-r}=n+1$ is also an integer. So if $n$ is any positive integer and we set $r=1+1/n$ then we get the pair
+      But what about the rational solutions? When is both $a=r^{1/(r-1)}$ and $b=r^{r/(r-1)}$ rational numbers? Recall that we have $a=b^r$, so if $a$ and $b$ are both rational, then so is $r$. This is because one thing preventing these from being rational is the fraction in the exponent. If we impose that $\frac{1}{r-1}=n$ is an integer, then we find that $r=1+1/n$. In this canse $\frac{r}{1-r}=n+1$ is also an integer. So if $n$ is any positive integer and we set $r=1+1/n$ then we get the pair
        $$
        \begin{eqnarray*}
        a & = & \left(1+\frac{1}{n}\right)^{n}\\
@@ -67,6 +69,32 @@
        \end{eqnarray*}
        $$
       which satisfies $a^b=b^a$. These are the values you get when you put $r=1+\frac{1}{n}$. Note that when $n=1$ we get $a=2$ and $b=4$. These are also the value of $r$ required so that the exponents, $\frac{1}{r-1}$ and $\frac{r}{r-1}$, are simultaneously integers.
+    </p>
+    <p>The real question is then about whether or not these are all of the rational solutions. To figure this out, note that whenever $a=r^{1/(r-1)}$ and $b=r^{r/(r-1)}$ are solutions, then we have $a=rb$ (check this yourself!), so if $a$ and $b$ are rational, then so must $r=a/b$. In fact, any two of the numbers $a,b,r$ being rational implies that the third one is. This means that we just need to figure out when $a$ and $r$ are rational, as this will imply that $b$ is rational.
+    </p>
+    <p>
+      Towards this end, assume that $r=\frac{n}{m}$ is rational, with $m,n$ coprime integers and $n>m$. It then follows that \frac{1}{r-1}=\frac{m}{n-m}$ is also rational and we can prove that $m$ and $n-m$ are coprime. So 
+      $$a=r^{1/(r-1)}=(n/m)^{m/(n-m)}=\frac{x}{y}$$ 
+      where $x,y$ are coprime integers. Rearranging the last equality shows that $n^my^{n-m}=m^mx^{n-m}$, and the comprimeness conditions on various pairs of these give us the two equations
+      $$
+      \begin{eqnarray*}
+      n^m &=& x^{n-m}\\
+      m^m &=& y^{n-m}
+      \end{eqnarray*}
+      $$
+      The key thing here is that the exponents $m$ and $n-m$ are coprime, and if $p$ is a prime, then $p$ must divide each side of each of these equations the same number of times. So if $p$ divides $n$ a $k$ number of times, then it divides $n^m$ a $mk$ number of times, and if it divides $x$ a $j$ number of times, then it divides $x^{n-m}$ a $(n-m)j$ number of times. Since, then, $mk=(n-m)j$, we find that $m$ divides $j$. This is true for any prime, which means that we can write $x$ as $u^m$ for some integer $m$. Similarly, we have $y=v^m$ for some integer $v$. All this means is that
+      $$
+      \begin{eqnarray*}
+      n &=& u^{n-m}\\
+      m &=& v^{n-m}
+      \end{eqnarray*}
+      $$
+      Note that $u>v$. Let's then write $n-m=k$ for some integer $k$. We then have 
+      $$
+      k=u^k-v^k \geq 2^k-1^k
+      $$
+      Since for $k>1$ we have $2^k-1>k$, it follows that we must have $k=1$. Therefore, we have $n=m+1$ and $r=1+1/m$, which are exactly the solutions from before.
+    </p>
   </div>
 
 
