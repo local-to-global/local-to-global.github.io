@@ -12,6 +12,10 @@ body{
     background-color: white;
 }
 
+img {
+ max-width: "80%"; 
+}
+
 #titleheading {
   font-family: "Lora";
   text-align: center;
