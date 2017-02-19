@@ -12,11 +12,11 @@
 
 
 
-<title>Derivatives and Linear Approximation</title>
+<title>Linear Approximation, Derivatives and Naive Differentials</title>
 </head>
 <body>
   <div class="title">
-    <h1 id="titleheading">Derivatives and Linear Approximation</h1>
+    <h1 id="titleheading">Linear Approximation, Derivatives and Naive Differentials</h1>
   </div>
   <hr id="titlebreak">
 
@@ -28,41 +28,28 @@
       $$
       But why? Why does this work? Understanding why this works is very closely tied to understanding how the definition for a derivative works. In fact, the fact that this linear approximation is the best possible way to approimate $f(x)$ near $f(a)$ with a line is a way that we could define the derivative! Let's unpack what this all means.
     </p>
-    <p>
-      A quick note. If we write $\Delta x=x-a$, the we can rearrange this to say $f(a+\Delta x) \approx f(a)+f'(a)\Delta x$. This is sometimes used in applications to simplify expressions.
-    </p>
-    <hr>
+    <h3>Derivatives and Linear Approximation</h3>
     <p>Firstly, the derivative of $f(x)$ is defined to be
       $$
       f'(a) = \lim_{h\rightarrow 0}\frac{f(a+h)-f(a)}{h}
       $$
-      If take this and then we view the expression
-      $$
-      \epsilon(h)=f'(a)-\frac{f(a+h)-f(a)}{h}
-      $$
-      as a function of $h$, then we must have that $\lim_{h\rightarrow 0} \epsilon(h) = 0$. That is, if $h$ is "small", then so is $\epsilon(h)$. We can rearrange this formula to get
+      What this really means is that if we look at the expression $\epsilon(h)=f'(a)-\frac{f(a+h)-f(a)}{h}$, a function of $h$, then we must have that $\lim_{h\rightarrow 0} \epsilon(h) = 0$. So if $h$ is "small", then so is $\epsilon(h)$. We can rearrange this formula to get
       $$
       f(a+h)=f(a)+f'(a)h -h\epsilon(h).
       $$
-      This should look a little familiar. In fact, if we put $x=a+h$ and plug this in then we get
-      $$
-      f(x) = f(a) + f'(a)(x-a) - (x-a)\cdot\epsilon(x-a)
-      $$
-      Recall that if $x-a$ is small, then so is $\epsilon(x-a)$ is too, which means that their product is even smaller. In particular, it is smaller than the other terms, so we can write $f(x)=f(a)+f'(a)(x-a) + (\textrm{ Very Small })$ which is to say that near $x=a$ (ie, $x-a$ is small) the function $f(x)$ is approxixmately equal to the line $f(x)+f'(a)(x-a)$. The existence of this function $\epsilon(h)$ whose limit at zero is zero is what makes this work. If the limit were something other than zero, then the term $(x-a)\epsilon(x-a)$ would be able to compete with the term $f'(a)(x-a)$ since they would then get small at similar rates and we couldn't say that $f(x)$ approximately equals a line. We'll see how this works in the next section.
+      This should look a little familiar. In fact, if we put $x=a+h$ and plug this in then we get $f(x) = f(a) + f'(a)(x-a) - (x-a)\cdot\epsilon(x-a)$. Now, if $x-a$ is small, then so is $\epsilon(x-a)$, and means that their product is even smaller. It is, in fact, smaller than the other terms, so we can write $f(x)=f(a)+f'(a)(x-a) + (\textrm{ Very Small })$ which is to say that near $x=a$ the function $f(x)$ is approxixmately equal to the line $f(x)+f'(a)(x-a)$. You can actually take this to be the definition of the derivative. It is the unique slope that approximates the function near the point.
     </p>
-    <hr>
-    <p> Now let's see that the derivative is the unique slope $C$ to the line $L(x)=f(a)+C(x-a)$ so that $L(x)$ approximates $f(x)$ nead $x=a$ the best. This will be a little more technical. Note that $L(a)=f(a)$. If it exists, consider the value
+    <h3>Naive Differentials</h3>
+    <p>The key thing about derivatives is that we have $f(a+\Delta x)=f(a)+f'(a)\Delta x$, at least within some error. If we put $\Delta f=f(a+\Delta x)-f(a)$, then this says that 
       $$
-      m = \lim_{x\rightarrow a} \frac{L(x)-f(x)}{x-a}
+      \frac{\Delta f}{\Delta x} \approx f'(a)
       $$
-    If $m\ne 0$, then this means that $L(x)-f(x) -m\cdot (x-a) = E(x)$, where  the limit of $E(x)$ at $x=a$ is zero. This means that the line $$\overline{L}(x) = L(x)-m\cdot(x-a) = f(a) + (C-m)(x-a)$$ approximates $f(x)$ near $x=a$ better since the different between the two goes to zero faster around $x=a$. So if $L(x)$ is going to approximate $f(x)$ the best then we should have $m=0$. If, then $m=0$, we get that
-    $$
-    0 = \lim_{x\rightarrow a} \frac{L(x)-f(x)}{x-a} = C + \lim_{x\rightarrow a}\frac{f(a)-f(x)}{x-a}
-    $$
-    from which we get $C=\lim_{x\rightarrow a}\frac{f(x)-f(a)}{x-a}$, which is the definition of the derivative.
-  </p>
-  <p> So the derivative is defined as the slope of the line that best approximates $f(x)$ around the point of interest. The familiar limit formula is then an alternate, yet equivalent, expression of this.</p>
-
+    In fact, if you are willing to live with some given error, you can make this an equals sign. From this we can get an approximated version of the Chain Rule. If $F(x)=f(g(x))$ and we set $y=g(x)$, then
+      $$
+      F'(x) = \frac{\Delta F}{\Delta x} = \frac{\Delta f}{\Delta y}\frac{\Delta g}{\Delta x} = f'(g(x))g'(x)
+      $$
+      And this works, at least within our error. Note that we got this by treating these as actual fractions, but it generally works as long as we are careful with out limits. In particular, we are treating $\Delta f$ and $\Delta x$ as we would $df$ or $dx$ in a non-math course. This gives us a little insight in how physicists and engineers typically use differentials. The precise and mathematical definition of them is very abstract, and requires higher level math to really understand, but we can give a naive definition for them that generally fits in with what is done in physics courses. We can say that "$df$" is the $\Delta f$ given by a $\Delta x$ that is small enough so that we can say that $\Delta f = f'(a)\Delta x$, while within our error. So if you see a physicist use $df$ non-rigorously, then it is likely that they are treating $df$ as a $\Delta f$ that is small enough so that the error inherent to the equation $\Delta f \approx f'(a)\Delta x$ is negligable. You actuall can treat these as fractions, and as long as you work with the nice functions you see in physics, then you won't encounter any issues if you just pretend that you take the limit to get the actual derivative later.
+    </p>
 
   </div>
 
