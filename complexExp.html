@@ -1,0 +1,76 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>From Real to Complex Exponents and Euler's Formula</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">From Real to Complex Exponents and Euler's Formula</h1>
+  </div>
+  <hr id="titlebreak">
+
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  <p>
+    In another post, we looked at how to start from exponentiation as just being the concept of repeated multiplication, and extended it to allow for any real power. The key property that was used was the additive property, which says that $A^{x+y}=A^xA^y$. This is what makes exponentiation interesting, so any extension of exponentiation would have to preserve this property. The typical method was to use the additive property to write an exponent of an element in the new number system as an expression involving powers in the old number systems. That is, we were looking for something of the form:
+    $$
+    A^(\textrm{New number}) = \textrm{  Expression with values we already know how to  compute}
+    $$
+To find a way to make sense of complex exponents, we'll do the same. Though the process is a little more involved. Explicitly, what we will be looking for is an expression for $A^{x+iy}$, when $A$ is a positive real number, in terms of values that we can already compute.
+</p>
+<h3>Preliminaries</h3>
+<p>
+Before jumping in and looking for this expression, we need to make sure we know what kind of tools are in our toolbox. We've already mentioned it, but one of the main things we will be assuming is that the Additive Property holds when we have complex exponents. This simplifies our life right away since this allows us to break up $A^{x+iy}$ as
+$$
+A^{x+iy}=A^{x}A^{iy}
+$$
+Since we already know how to compute $A^{x}$, we just have to figure out how to compute $A^{iy}$, so we'll be focusing just on this case.
+</p>
+<p>Related to this assumption we make another assumption about the derivative of $A^{iy}$. In particular, we assume that it works like traditional derivatives of exponents. That is, we assume that
+$$
+\frac{d}{dy} A^{iy} = i\log(A) A^{iy}
+$$
+where $\log(A)$ is the natural log of $A$. This actually isn't an additional assumption, as you can prove this from the assumption that the additive property holds, but we'll treat it as an additional assumption as this is not the place for that kind of proof. 
+<h4>Complex Conjugation</h4>
+<p>
+The final thing we will assume will be about what happens to $A^{x+iy}$ under complex conjugation. Recall that the complex conjugate of the value $x+iy$ is $x-iy$, we just flip the sign on the imaginary part. Before we talk about the specific assumption, we need to know a little about complex conjugation in general. If $z=x+iy$, let $z^{*}=x-iy$ denote the complex conjugate.
+</p>
+<p>
+The complex conjugate holds important information about complex numbers. We will, in particular, be interested in the geometric information it holds. If $z=x+iy$ is a complex number, then we can look at its distance from zero using the Pythagorean Theorem. This says that the distance is equal to $d=\sqrt{x^2+y^2}$. This is interesting, because if we compute $z\cdot z^*$, then we get $zz^*=x^2+y^2$. So the complex conjugate of $z$ is related to the distance that $z$ from zero via 
+$$
+zz^* = d^2
+$$
+To take advantage of this, we need to know how to take the complex conjugate of $A^z$. Since we have yet to define $A^z$, we actually need to make an assumption about what the complex conjugate of $A^z$ is. We will want to treat this like a polynomial with real coefficients. Note that if $f(z)=3z^3+4z^2-5$, then taking the complex conjugate doesn't change anything about the coefficients, just the variables: 
+$$
+\big(f(z)\big)^* = (3z^3+4z^2-5)^* = 3(z^*)^3+4(z^*)^2-5 = f(z^*)
+$$
+The equation $\big(f(z)\big)^*=f(z^*)$ is characteristic of a function that "originates" on the real numbers that has been extended to the complex numbers. The important thing is that the complex conjugate of the whole thing doesn't change anything about the function and only affects the complex variable in the function. Since we're extending exponentiation from the reals to the complex numbers, we should make this assumption about complex exponents. In particular, we'll be assuming:
+$$
+(A^z)^* = A^(z^*)
+$$
+<h4>Recap of Assumptions</h4>
+For reference, we will then be making the following assumptions about what properties we want the extended complex exponents to satisfy:
+<ul>
+<li> For any complex $z,w$, we have $A^{z+w}=A^zA^w$</li>
+<li> The derivative behaves normally: $\frac{d}{dy}A^{iy}=i\log(A)A^{iy}$</li>
+<li> It interacts well with the complex conjugate: $(A^z)^* = A^(z^*)$</li>
+</ul>
+It should be noted that the first and second are equivalent, given the correct definitions about derivatives. With these, we can figure out how complex powers should work.
+
+  </div>
+
+
+
+</body>
+</html>
