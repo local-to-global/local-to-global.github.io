@@ -39,7 +39,7 @@
 <img src="images\projgeo.svg">
     </center>
 <p>
- But in our interpretation $-\infty=\infty$, which means that $1/x$ and $1/-x$ are actually travelling to the same point! Even though they're travelling away from each other along the real line, they're travelling towards each other when we include $\infty=1/0$. The only way that this can happen is if, through this new point, the real line actually loops back onto itself and forms a circle:
+ But in our interpretation $-\infty=\infty$, which means that as $x$ goes to zero, the values $1/x$ and $1/-x$ are now travelling to the same point! Even though they're travelling away from each other along the real line, they're travelling towards each other when we include $\infty=1/0$. The only way that this can happen is if, through this new point, the real line actually loops back onto itself and forms a circle:
 </p>
     <center>
 <img src="images\projgeo1.svg" height="30%">
@@ -75,7 +75,14 @@ We now have an intuitive notion of the Projective Real Line, as the real line ti
       Why is this productive? It helps us because we can consider pairs like $(x:0)$, which do not represent a real number. What we're really doing is considering all pairs $(x:y)$, where not both $x$ and $y$ are zero, and saying that $(x:y)=(x':y')$ if there is a number $z$ so that $x'=zx$ and $y'=zy$. In this way, every real number $x$ can be represented as $(x:1)$ and $\infty$ can be represented as $(1:0)$. Defined this way, these pairs represent every element of the Projective Real Line. It is important that we don't allow $(0:0)$, as this does not fit well into this schema.
     </p>
     <p>
-      We can define arithmetic on these things too, multiplication and addition are defined as $(a:b)(c:d)=(ac:bd)$ and $(a:b)+(c:d)=(ad+bc:bd)$. We can recover the arithmetic of the real numbers this way, but also the arithmetic involving infinity that we explored above. For instance $(a:b)(1:0)=(a:0)=(1:0)$ shows that $x\infty=\infty$ whenever $x$ is nonzero.
+      We can define arithmetic on these things too, multiplication and addition are defined as 
+      $$
+      \begin{eqnarray*}
+      (a:b)(c:d)&=&(ac:bd)\\
+      (a:b)+(c:d)&=&(ad+bc:bd)
+      \end{eqnarray*}
+      $$
+      We can recover the arithmetic of the real numbers this way, but also the arithmetic involving infinity that we explored above. For instance $(a:b)(1:0)=(a:0)=(1:0)$ shows that $x\infty=\infty$ whenever $x$ is nonzero.
     </p>
     <p>
       There are also more geometric ways to view these. We can, for instance, view these as the collection of all lines in the plane that pass through the origin. If $(a:b)$ is one of these elements, then we can make the line $ax-by=0$. When $b\ne 0$, this is just the line that passes through the origin with slope $a/b$, but when $b=0$ this is the vertical line through the origin.
