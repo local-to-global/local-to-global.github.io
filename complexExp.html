@@ -57,18 +57,76 @@ $$
 $$
 The equation $\big(f(z)\big)^*=f(z^*)$ is characteristic of a function that "originates" on the real numbers that has been extended to the complex numbers. The important thing is that the complex conjugate of the whole thing doesn't change anything about the function and only affects the complex variable in the function. Since we're extending exponentiation from the reals to the complex numbers, we should make this assumption about complex exponents. In particular, we'll be assuming:
 $$
-(A^z)^* = A^(z^*)
+(A^z)^* = A^{(z^*)}
 $$
+    </p>
 <h4>Recap of Assumptions</h4>
-For reference, we will then be making the following assumptions about what properties we want the extended complex exponents to satisfy:
+<p>For reference, we will then be making the following assumptions about what properties we want the extended complex exponents to satisfy:</p>
 <ul>
 <li> For any complex $z,w$, we have $A^{z+w}=A^zA^w$</li>
 <li> The derivative behaves normally: $\frac{d}{dy}A^{iy}=i\log(A)A^{iy}$</li>
-<li> It interacts well with the complex conjugate: $(A^z)^* = A^(z^*)$</li>
+<li> It interacts well with the complex conjugate: $(A^z)^* = A^{(z^*)}$</li>
 </ul>
+    <p>
 It should be noted that the first and second are equivalent, given the correct definitions about derivatives. With these, we can figure out how complex powers should work.
-
+    </p>
+    <h3>Complex Exponents</h3>
+    <p>
+      As mentioned, we only have to concern ourselves with the case $A^{iy}$. To investigate what value this should have, let's see what its complex conjugate is. Under our assumption about complex conjugation, we have
+      $$
+      (A^{iy})^* = A^{(iy)^*} = A^{-iy}
+      $$
+      Using this, we can compute the distance of $A$ from zero using the distance formula in terms of complex conjugation:
+      $$
+      \begin{eqnarray*}
+      d^2 &=& (A^{iy})(A^{iy})^*\\
+      &=& A^{iy}A^{-iy}\\
+      &=& A^{iy-iy}\\
+      &=& A^0\\
+      &=& 1
+      \end{eqnarray*}
+      $$
+      This, of course, means that the distance of $A^{iy}$ from zero is $1$, moreover this distance does  not change when you change $y$. We then conclude that, for all real $y$ that $A^{iy}$ is on the unit circle in the complex plane. If we have an angle $\theta$, then the point on the unit circle corresponding to $\theta$ has Cartesian coordinates $(\cos(\theta),\sin(\theta))$. If we view this as being in the complex plane, then the complex number on the unit circle corresponding to the angle $\theta$ is $\cos(\theta)+i\sin(\theta)$. Since $A^{iy}$ is on the unit circle in the complex plane, it follows that there is some angle $\theta$ that depends on $y$ so that
+      $$
+      A^{iy} = \cos(\theta) +i\sin(\theta)
+      $$
+      This equation is a hint at things to come. It shows that, when working on the complex plane, we can transfer from exponents to angles via a formula like this. But if we want an actual formula for $A^{iy}$, then we need to find out how $\theta$ depends on $y$. If $y=0$, then we know that $A^{0}=1$, which hmeans that we need $\cos(\theta)=1$ and $\sin(\theta)=0$. This happens for any multiple of $2\pi$, but there is no issue with choosing it so that when $y=0$ we have $\theta=0$. We then have an initial condition, which will allow us to use calculus to figure out a full equation for $\theta$ in terms of $y$. 
+    </p>
+    <p>
+      To do this, we will implicitly differentiate both sides of $A^{iy} = \cos(\theta) +i\sin(\theta)$ with respect to $y$. The key thing to note is that we need to use the chain rule when we encounter $\theta$ in this. Under our assumption about the derivative of this exponent, we get:
+      $$
+      i\log(A) A^{iy} = \frac{d\theta}{dy}\big(-\sin(\theta) +i\cos(\theta)\big)
+      $$
+      We can rearrange the trigonometric expression on the right side as
+      $$
+      -\sin(\theta) +i\cos(\theta) = i(\cos(\theta)+i\sin(\theta)) = i A^{iy}
+      $$
+      What we have is then $i\log(A)A^{iy} = i\frac{d\theta}{dy} A^{iy}$, and concelling out the $iA^{iy}$ gives us the equation
+      $$
+      \frac{d\theta}{dy} = \log(A)
+      $$
+      The solution to this, with $\theta(0)=0$ is $\theta = y\log(A)$. So we have an expression for $\theta$ wholly in terms of things we can compute. Plugging this in gives us the formula:
+      $$
+      A^{iy} = \cos(\log(A)y)+i\sin(\log(A)y)
+      $$
+      Which is an expression for $A^{iy}$ wholly in terms of things we already know how to compute. Expressions like this show us an interaction between properties of exponents and properties of trigonometric functions. For example, the additive rule for exponents translates into the sum-of-angles formula for trigonometric functions (you actually implicitly use the latter to obtain this formula, so we can't prove them with this formula). Overall, the full equation for complex exponenitation is
+      $$
+      A^{x+iy} = A^{x}\big( \cos(\log(A)y)+i\sin(\log(A)y)\big)
+      $$
+    </p>
+    <h3>Euler's Formula</h3>
+    <p>
+      As one last note, this formula is particularly simple in the case when $A=e$, as we get rid of these logarithms. This becomes
+      $$
+      e^{ix} = \cos(x)+i\sin(x)
+      $$
+      And from this we obtain the "most beautiful equation in the world" according to people who don't specialize in math:
+      $$
+      e^{i\pi} +1 =0
+      $$
+    </p>
   </div>
+  
 
 
 
