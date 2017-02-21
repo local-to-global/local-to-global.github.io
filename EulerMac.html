@@ -56,7 +56,10 @@ We can compare the coefficients of this too. For $m\leq n$ contribution of $[g]_
       (-1)^n \int_a^b f_m(x)g^{(n+1)}(x)dx = \sum_{k=n-m}^n (-1)^k \big( f_{k-n+m}(b)g^{(k)}(b)-f_{k-n+m}(a)g^{(k)}(a)\big)      $$
    For $m>n$, we start to see contributions from the other integral:
    $$
-     \frac{m!}{(n+1-m)!}\int_a^bf_{n+1-m}(x)g(x)dx \; + \; (-1)^n \int_a^b f_m(x)g^{(n+1)}(x)dx = \sum_{k=0}^n (-1)^k \big( f_{k-n+m}(b)g^{(k)}(b)-f_{k-n+m}(a)g^{(k)}(a)\big) 
+      \begin{eqnarray*}
+     \frac{m!}{(n+1-m)!}\int_a^bf_{n+1-m}(x)g(x)dx &=& \sum_{k=0}^n (-1)^k \big( f_{k-n+m}(b)g^{(k)}(b)-f_{k-n+m}(a)g^{(k)}(a)\big)\\
+    &&  +  (-1)^{n+1} \int_a^b f_m(x)g^{(n+1)}(x)dx 
+      \end{eqnarray*}
    $$
   </div>
 
