@@ -51,6 +51,9 @@ If we iterate this process, we can get the formula
 $$
 t^{n+1}[g]_f(t) +(-1)^{n} [g^{(n+1)}]_f(t) = t^n\sum_{k=0}^{n}(-1)^k\frac{f(b,t)g^{(k)}(b)-f(a,t)g^{(k)}(a)}{t^k} 
 $$
+We can compare the coefficients of this too. For $m\leq n$ contribution of $[g]_f(t)$ to $t^m$ is zero, so we get
+      $$
+      (-1)^n \int_a^b f_m(x)g^{(n+1)}(x)dx = \sum_{k=n-m}^n (-1)^k \big( f_{k-n+m}(b)g^{(k)}(b)-f_{k-n+m}(a)g^{(k)}(a)\big)      $$
   </div>
 
 
