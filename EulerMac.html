@@ -37,7 +37,7 @@ $$
 $$
 Integration by parts then gives us the formula:
 $$
-t[g]_f(t) + [g']_f(t) = f(b,t)g(b)-f(a,t)g(a) 
+t[g]_f(t) = f(b,t)g(b)-f(a,t)g(a) - [g']_f(t)
 $$
 This formula contains the pertinent information of the Euler-Maclaurin Formula. For an arbitrary function $h(x)$ we can write
 $$
@@ -46,6 +46,10 @@ $$
 We can then compare the coefficients in the main theorem using this. The coefficient of the constant term gives $\int_{a}^b g'(x)f_0(x)dx = f_0(b)g(b)-f_0(a)g(a)$. For $k>0$, we get
 $$
 k\int_a^b f_{k-1}(x)g(x)dx = f_k(b)g(b)-f_k(a)g(a) - \int_a^bf_k(x)g'(x)dx
+$$
+If we iterate this process, we can get the formula
+$$
+t^{n+1}[g]_f(t) = \sum_{k=0}^{n}(-1)^kt^{n-k}(f(b,t)g^{(k)}(b)-f(a,t)g^{(k)}(a)) + (-1)^{n+1} [g^{(n+1)}]_f(t)      
 $$
   </div>
 
