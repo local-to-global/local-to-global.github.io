@@ -70,15 +70,15 @@ We can compare the coefficients of this too. For $m\leq n$ contribution of $[g]_
       where $T_jg(x)=g(x+j)$, and we're assuming now that $a=0$ and $b=1$ in the definition of $[g]_f(x)$, and that $u,v\in\mathbb{Z}$. Using the results from above, we then get, after some rearranging,
       $$
       \begin{eqnarray*}
-      t^{n+1}\{g\}_F(t) - (-1)^{n+1}\{g^{(n+1)}\}_F(t) &=& t^n \sum_{k=0}^{n}(-1)^k\frac{f(1,t)g^{(k)}(v+1)-f(0,t)g^{(k)}(u)}{t^k} \\
-      && + t^n(f(1,t)-f(0,t))\sum_{k=0}^n\frac{(-1)^k}{t^k}\sum_{j=u+1}^vg^{(k)}(j)
+      t^{n+1}\{g\}_F(t) - (-1)^{n+1}\{g^{(n+1)}\}_F(t) &=&  + t^n(f(1,t)-f(0,t))\sum_{k=0}^n\frac{(-1)^k}{t^k}\sum_{j=u+1}^vg^{(k)}(j)\\
+      && +t^n \sum_{k=0}^{n}(-1)^k\frac{f(1,t)g^{(k)}(v+1)-f(0,t)g^{(k)}(u)}{t^k}
       \end{eqnarray*}
       $$
       For $m>n$, we can compare the coefficients of $t^m$ and get
       $$
       \begin{eqnarray*}
-      \frac{1}{(m-n-1)!}\int_u^{v+1}F_{m-n-1}(x)g(x) &=& \sum_{k=0}^n \frac{(-1)^k}{(m+k-n)!}\big(f_{m+k-n}(1)g^{(k)}(v+1)-f_{m+k-n}(0)g^{(k)}(u)\big) \\
-      && + \sum_{k=0}^{n}\frac{(-1)^k}{(m+k-n)!}(f_{m+k-n}(1)-f_{m+k-n}(0))\sum_{j=u+1}^vg^{(k)}(j)\\
+      \frac{1}{(m-n-1)!}\int_u^{v+1}F_{m-n-1}(x)g(x) &=& \sum_{k=0}^{n}\frac{(-1)^k}{(m+k-n)!}(f_{m+k-n}(1)-f_{m+k-n}(0))\sum_{j=u+1}^vg^{(k)}(j)\\
+      && + \sum_{k=0}^n \frac{(-1)^k}{(m+k-n)!}\big(f_{m+k-n}(1)g^{(k)}(v+1)-f_{m+k-n}(0)g^{(k)}(u)\big) \\
       && + \frac{(-1)^{n+1}}{m!}\int_u^{v+1}F_m(x)g^{(n+1)}(x)dx
       \end{eqnarray*}
       $$
