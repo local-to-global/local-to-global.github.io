@@ -61,6 +61,16 @@ We can compare the coefficients of this too. For $m\leq n$ contribution of $[g]_
     &&  +  (-1)^{n+1} \int_a^b f_m(x)g^{(n+1)}(x)dx 
       \end{eqnarray*}
    $$
+    </p>
+    <h3>Getting the Sums</h3>
+    <p>There is one thing glaringly missing from these formulas, and that is the sums. The Euler-Maclaurin formula is supposed to approximate a sum by its integral, but the only sums we see here are the "extra" terms in the formula. To find these, let $f(x,t)$ be a Bernoulli-type function and $F(x,t)=f({x},t)$, where ${x}$ is the fractional part of $x$. If we set ${g}_F(t)=\int_u^{v+1} F(x,t)g(x)dx$, then we can split up the integrals to get
+      $$
+      {g}_F(t) = \sum_{j=u}^{v}[T_jg]_f(t)
+      $$
+      where $T_jg(x)=g(x+j)$, and we're assuming now that $a=0$ and $b=1$ in the definition of $[g]_f(x)$, and that $u,v\in\Z$. Using the results from above, we then get
+      $$
+      t^{n+1}{g}_F(t) - (-1)^{n+1}{g^{(n+1)}}_F(t) = t^n \sum_{k=0}^{n}
+      $$
   </div>
 
 
