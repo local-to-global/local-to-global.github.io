@@ -49,7 +49,7 @@ k\int_a^b f_{k-1}(x)g(x)dx = f_k(b)g(b)-f_k(a)g(a) - \int_a^bf_k(x)g'(x)dx
 $$
 If we iterate this process, we can get the formula
 $$
-t^{n+1}[g]_f(t) = \sum_{k=0}^{n}(-1)^kt^{n-k}(f(b,t)g^{(k)}(b)-f(a,t)g^{(k)}(a)) + (-1)^{n+1} [g^{(n+1)}]_f(t)      
+t^{n+1}[g]_f(t) = t^n\sum_{k=0}^{n}(-1)^k\frac{f(b,t)g^{(k)}(b)-f(a,t)g^{(k)}(a)}{t^k} \;\;+\;\; (-1)^{n+1} [g^{(n+1)}]_f(t) 
 $$
   </div>
 
