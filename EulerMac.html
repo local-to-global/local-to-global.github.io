@@ -1,0 +1,55 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>A Derivation of the Euler-Maclaurin Formula</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">A Derivation of the Euler-Maclaurin Formula</h1>
+  </div>
+  <hr id="titlebreak">
+
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+    <p>
+    The Euler-Maclaurin Formula is a formula that allows for the approximation of sums by integrals to good asymptotic accuracy. It the backbone of many proofs, including Stirling's Approximation and many from Analytic Number Theory. From the derivation, it is not clear why Bernoulli Numbers and Bernoulli Polynomials appear, these are objects with close ties to Number Theory, but are seen in this approximation theorem. We'll give a proof that investigates these matters.
+    </p>
+    <h3>Bernoulli-type Functions</h3>
+    <p>
+    Bernoulli polynomials and numbers are typically given as coefficients in the power series of a function with particular properties. Let's define a type of function that behaves like these, and see how we can look at the Euler-Maclaurin Fromula in this context. Define a <strong>Bernoulli-type Function</strong> as a bivariate function $f(x,t)$ that has a power series in the variable $t$:
+    $$
+    f(x,t) = \sum_{k=0}^{\infty}f_k(x)\frac{t^k}{k!}
+    $$
+Further, assume that it satisfies $\frac{d}{dx}f(x,t)=tf(x,t)$. With a Bernoulli-type function $f(x,t)$ and another functio $g(x)$, we can define the integral transformation of $g(x)$ over some interval using $f(x,t)$ as a kernel. That is, set:
+$$
+[g]_f(t) = \int_a^bf(x,t)g(x)dx
+$$
+Integration by parts then gives us the formula:
+$$
+t[g]_f(t) + [g']_f(t) = f(b,t)g(b)-f(a,t)g(a) 
+$$
+This formula contains the pertinent information of the Euler-Maclaurin Formula. For an arbitrary function $h(x)$ we can write
+$$
+[h]_f(t) = \sum_{k=0}^{\infty}\frac{t^k}{k!}\int_a^b f_k(x)h(x)dx
+$$
+We can then compare the coefficients in the main theorem using this. The coefficient of the constant term gives $\int_{a}^b g'(x)f_0(x)dx = f_0(b)g(b)-f_0(a)g(a)$. For $k>0$, we get
+$$
+k\int_a^b f_{k-1}(x)g(x)dx = f_k(b)g(b)-f_k(a)g(a) - \int_a^bf_k(x)g'(x)dx
+$$
+  </div>
+
+
+
+</body>
+</html>
