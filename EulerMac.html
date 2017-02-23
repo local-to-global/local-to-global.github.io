@@ -97,8 +97,8 @@ We can compare the coefficients of this too. For $m\leq n$ contribution of $[g]_
       For some sequence $a_n$ set $A(n)=\sum_{k=0}^{n}\binom{n}{k}a_{n-k}$, then the above general Euler-Maclaurin Formula can be writen as
       $$
       \begin{eqnarray*}
-      \frac{1}{(m-n-1)!}\int_u^{v+1}F_{m-n-1}(x)g(x) &=& \sum_{k=0}^{n}\frac{(-1)^k(A(m+k-n)-a_n)}{(m+k-n)!}\sum_{j=u+1}^vg^{(k)}(j)\\
-      && + \sum_{k=0}^n \frac{(-1)^k}{(m+k-n)!}\big(A(m+k-n)g^{(k)}(v+1)-a_0g^{(k)}(u)\big) \\
+      \frac{1}{(m-n-1)!}\int_u^{v+1}F_{m-n-1}(x)g(x) &=& \sum_{k=0}^{n}(-1)^k\frac{A(m+k-n)-a_n}{(m+k-n)!}\sum_{j=u+1}^vg^{(k)}(j)\\
+      && + \sum_{k=0}^n \frac{(-1)^k}{(m+k-n)!}\big(A(m+k-n)g^{(k)}(v+1)-a_ng^{(k)}(u)\big) \\
       && + \frac{(-1)^{n+1}}{m!}\int_u^{v+1}F_m(x)g^{(n+1)}(x)dx
       \end{eqnarray*}
       $$
