@@ -84,6 +84,18 @@ We can compare the coefficients of this too. For $m\leq n$ contribution of $[g]_
       $$
       This can be seen as a more general version of the Euler-Maclaurin Formula that is build from functional properties, rather than ad hoc-ly from the Bernoulli Polynomials.
     </p>
+    <h3>Classifying Bernoulli-type Functions</h3>
+    <p>
+      If $f(x,t)=\sum_{n=0}^{\infty}f_n(x)\frac{t^n}{n!}$ and $\frac{d}{dx}f(x,t)=tf(x,t)$, then we get:
+      $$
+      \sum_{n=0}^{\infty}f'_n(x)\frac{t^n}{n!} = \sum_{n=0}^{\infty}f_n(x)\frac{t^{n+1}}{n!}
+      $$
+      which implies that $f'_0(x)$ is constant and $f'_{n}(x)=nf_{n-1}(x)$. This means that each $f_n(x)$ is a degree $\leq n$ polynomial. Furthermore, for fixed $t$, the solution to $\frac{d}{dx}f(x,t)=tf(x,t)$ is $f(x,t)=a(t)e^{xt}$. Note that $f(x,t)=e^{xt}$ is a Bernoulli-type Function with $f_n(x)=x^n$. If $a(t)=\sum_{n=0}^{\infty}a_n\frac{t^n}{n!}$, then we find, using Cauchy Products, that 
+      $$
+      f_n(x) = \sum_{k=0}^{n}\binom{n}{k}a_kx^{n-k}
+      $$
+    
+    
     <h3>Some Cases</h3>
     <h4>The Exponential</h4>
     <p>
