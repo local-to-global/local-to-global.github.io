@@ -37,7 +37,7 @@
   <ul>
   <li> The Traditional Exponent: $\exp(x,t)=e^{xt}$, whose Appell sequence is $\exp_n(x)=x^n$ and whose sequence is $e_0=1$ and $e_n=0$ for $n>0$. We have \overline{\exp(x,t)}=e^{bt/a}e^{xt}$, $\overline{\exp}_n(x) = \frac{1}{a^n}\sum_{k=0}^n\binom{n}{k}b^{n-k}(ax)^k$ and $\overline{e}_n = b^n/a^n$.</li>
   <li> The Bernoulli Function: $B(x,t) = \frac{te^{xt}}{e^t-1}$, whose Appell sequence is $B_n(x)$, the Bernoulli Polynomials, and whose number sequence are $B_n$, the Bernoulli Numbers. We have $\overline{B}(x,t)=\frac{B(x,t)}{a}\sum_{k=0}^{\infty}(e^{(b+k)t/a}- e^{(a+b+k)t/a})$. If $a=-1$ and $b=1$, then we get $\overline{B}(x,t)=B(x,t)$, which means that $\overline{B}_n(x)=B(x)$, and implies $B_n(1-x)=(-1)^nB_n(x)$. </li>
-    <li> The Euler Function: $E(x,t) = \frac{2e^{xt}]{e^t-1}$, whose Appell sequence are the Euler Polynomials $E_n(x)$. These satisfy identical properties to the Bernoulli Polynomials.
+    <li> The Euler Function: $E(x,t) = \frac{2e^{xt}}{e^t-1}$, whose Appell sequence are the Euler Polynomials $E_n(x)$. These satisfy identical properties to the Bernoulli Polynomials.
     </li>  
   </ul>
     <h3>The Appell Operators</h3>
@@ -67,6 +67,10 @@
     Using integration by parts with the equation $\frac{d}{dx}P(x,t)=tP(x,t)$ we can get that
       $$
       t\mathcal{L}^{a,b}(g;t) + \mathcal{L}^{a,b}(g';t) = \partial\mathcal{L}^{a,b}(g;t)
+      $$
+      Comparing the coefficients in the corresponding power series gives $L^{a,b}_0(g')=\partial L^{a,b}_0(g)$, which amounts to the Fundamental Theorem of Calculus, but additionally 
+      $$
+      L
       $$
 
 
