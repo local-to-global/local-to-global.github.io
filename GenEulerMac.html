@@ -1,0 +1,50 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Generalized Euler-Maclaurin</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">A Generalized Euler-Maclauring Formula</h1>
+  </div>
+  <hr id="titlebreak">
+
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  <h3>Appell Sequences</h3>
+  <p>
+  An Appell Sequence of polynomials is a sequence $p_0(x),p_1(x),...$ so that the degree of $p_n(x)$ is $n$ and for $n>0$ we have $p'_n(x)=np_{n-1}(x)$. Equivalently, there is a sequence $c_0,c_1,...$ so that $p_n(x)=\sum_{k=0}^n\binom{n}{k}c_{n-k}x^k$. Furthermore, we have $p_n(x+y)=\sum_{k=0}^n\binom{n}{k}p_{n-k}(x)y^{k}$. In a lot of ways, these are polynomials that behave like $x^n$.
+  </p>
+  <p>
+  There is another characterization of Appell Squences in terms of analytic functions. If we have a function $P(x,t)$ that is analytic in $t$ with $\frac{d}{dx}P(x,t)=tP(x,t)$, then we can write $P(x,t)=\sum_{n=0}^{\infty}p_n(x)\frac{t^n}{n!}$, where $p_n(x)$ is an Appell sequence. An Appell sequence conversely defines such a function. Call this an Appell Function. Elementary differential equations shows that we can write $P(x,t)=c(t)e^{xt}$ where $c(x)=\sum_{n=0}^{\infty}c_n\frac{t^n}{n!}$, where $c_n$ is the sequence of coefficients associated to the Appell sequence.
+  </p>
+  <p>If $P(x,t)=c(t)e^{xt}$ is an Appell function, and $a,b$ are fixed numbers, then define $\overline{P}(x,t)=\overline{c}(t)e^{xt}$ where $\overline{c}(t)=c(t/a)e^{bt/a}$. This is also an Appell function, and it is the function that satisfies $P(ax+b,t)=\overline{P}(x,at)$. The associated Appell sequence is given by $\overline{p}_n(x)=p_n(ax+b)/a^n$ and the addition formula for Appell sequences says $\overline{p}_n(x)=\frac{1}{a^n}\sum_{k=0}^n\binom{n}{k}f_{n-k}(b)a^kx^k$. Furthermore $\overline{c}_n=\frac{1}{a^n}\sum_{k=0}^n\binom{n}{k}c_kb^{n-k}$.
+  </p>
+  <p>
+  Some examples of Appell functions are:
+  <ul>
+  <li> The Traditional Exponent: $\exp(x,t)=e^{xt}$, whose Appell sequence is $\exp_n(x)=x^n$ and whose sequence is $e_0=1$ and $e_n=0$ for $n>0$. We have \overline{\exp(x,t)}=e^{bt/a}e^{xt}$, $\overline{\exp}_n(x) = \frac{1}{a^n}\sum_{k=0}^n\binom{n}{k}b^{n-k}(ax)^k$ and $\overline{e}_n = b^n/a^n$.</li>
+  <li> The Bernoulli Function: $B(x,t) = \frac{te^{xt}}{e^t-1}$, whose Appel sequence is $B_n(x)$, the Bernoulli Polynomials, and whose number sequence are $B_n$, the Bernoulli Numbers. We have $\overline{B}(x,t)=\frac{B(x,t)}{a}\sum_{k=0}^{\infty}(e^{(b+k)t/a}- e^{(a+b+k)t/a})$. If $a=-1$ and $b=1$, then we get $\overline{B}(x,t)=B(x,t)$, which means that $\overline{B}_n(x)=B(x)$, and implies $B_n(1-x)=(-1)^nB_n(x)$. </li>
+  
+  </ul>
+    
+
+
+
+  </div>
+
+
+
+</body>
+</html>
