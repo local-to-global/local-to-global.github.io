@@ -16,7 +16,7 @@
 </head>
 <body>
   <div class="title">
-    <h1 id="titleheading">A Generalized Euler-Maclauring Formula</h1>
+    <h1 id="titleheading">A Generalized Euler-Maclaurin Formula</h1>
   </div>
   <hr id="titlebreak">
 
@@ -33,13 +33,41 @@
   </p>
   <p>
   Some examples of Appell functions are:
+    </p>
   <ul>
   <li> The Traditional Exponent: $\exp(x,t)=e^{xt}$, whose Appell sequence is $\exp_n(x)=x^n$ and whose sequence is $e_0=1$ and $e_n=0$ for $n>0$. We have \overline{\exp(x,t)}=e^{bt/a}e^{xt}$, $\overline{\exp}_n(x) = \frac{1}{a^n}\sum_{k=0}^n\binom{n}{k}b^{n-k}(ax)^k$ and $\overline{e}_n = b^n/a^n$.</li>
-  <li> The Bernoulli Function: $B(x,t) = \frac{te^{xt}}{e^t-1}$, whose Appel sequence is $B_n(x)$, the Bernoulli Polynomials, and whose number sequence are $B_n$, the Bernoulli Numbers. We have $\overline{B}(x,t)=\frac{B(x,t)}{a}\sum_{k=0}^{\infty}(e^{(b+k)t/a}- e^{(a+b+k)t/a})$. If $a=-1$ and $b=1$, then we get $\overline{B}(x,t)=B(x,t)$, which means that $\overline{B}_n(x)=B(x)$, and implies $B_n(1-x)=(-1)^nB_n(x)$. </li>
-  
+  <li> The Bernoulli Function: $B(x,t) = \frac{te^{xt}}{e^t-1}$, whose Appell sequence is $B_n(x)$, the Bernoulli Polynomials, and whose number sequence are $B_n$, the Bernoulli Numbers. We have $\overline{B}(x,t)=\frac{B(x,t)}{a}\sum_{k=0}^{\infty}(e^{(b+k)t/a}- e^{(a+b+k)t/a})$. If $a=-1$ and $b=1$, then we get $\overline{B}(x,t)=B(x,t)$, which means that $\overline{B}_n(x)=B(x)$, and implies $B_n(1-x)=(-1)^nB_n(x)$. </li>
+    <li> The Euler Function: $E(x,t) = \frac{2e^{xt}]{e^t-1}$, whose Appell sequence are the Euler Polynomials $E_n(x)$. These satisfy identical properties to the Bernoulli Polynomials.
+    </li>  
   </ul>
-    
-
+    <h3>The Appell Operators</h3>
+    <p>
+      Fix an Appell Function $P(x,t)$ with Appell sequence $p_n(x)$. Given a function $g(x)$ and an interval $[a,b]$, we can define the linear operators:
+      $$
+      \begin{eqnarray*}
+      \mathcal{L}^{a,b}(g;t) &=& \int_a^bP(x,t)g(x)dx\\
+      \partial \mathcal{L}^{a,b}(g;t) &=& P(b,t)g(b) - P(a,t)g(a)
+      \end{eqnarray*}
+      $$
+      We can, additionally, define the functionals
+      $$
+      \begin{eqnarray*}
+      L^{a,b}_n(g) &=& \int_a^bp_n(x)g(x)dx\\
+      \partial L^{a,b}_n(g) &=& p_n(b)g(b) - p_n(a)g(a)
+      \end{eqnarray*}
+      $$
+      We then get a power series representation for $\mathcal{L}^{a,b}(g;t)$ and $\partial \mathcal{L}^{a,b}(g;t)$ as
+      $$
+      \begin{eqnarray*}
+      \mathcal{L}^{a,b}(g;t) &=& \sum_{n=0}^{\infty}  L^{a,b}_n(g) \frac{t^n}{n!}\\
+      \partial \mathcal{L}^{a,b}(g;t) &=& \sum_{n=0}^{\infty}  \partial L^{a,b}_n(g) \frac{t^n}{n!}
+      \end{eqnarray*}
+      $$
+      
+    Using integration by parts with the equation $\frac{d}{dx}P(x,t)=tP(x,t)$ we can get that
+      $$
+      t\mathcal{L}^{a,b}(g;t) + \mathcal{L}^{a,b}(g';t) = \partial\mathcal{L}^{a,b}(g;t)
+      $$
 
 
   </div>
