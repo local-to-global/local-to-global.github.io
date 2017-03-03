@@ -12,19 +12,88 @@
 
 
 
-<title>TITLE</title>
+<title>What are Algebraic Tensors?</title>
 </head>
 <body>
   <div class="title">
-    <h1 id="titleheading">TITLE</h1>
+    <h1 id="titleheading">What are Algebraic Tensors?</h1>
   </div>
   <hr id="titlebreak">
 
   <div class="post-content">
   <div class="post-date">11/21/2016</div>
+    <p>
+      Algebraic Tensors are the most basic tensors you can encounter. Any math, physics or enginnering major will work with them at some point in their undergraduate career. These tensors are really powerful and useful, but very rarely are they explained in any definitive way, so you have a bunch of undergrads using tools they don't understand and any good undergrad will begin to ask questions. We hope to answer one of these questions here.
+    </p>
     
+    <h3>Linear Functions and Covectors</h3>
+    <p>
+      The first thing we need to know is to know what a linear function is and what a covector is.
+    </p>
+    <p>
+      If we are in some $n$-dimensional space, then we can look at functions that take in $n$-dimensional vectors and output vectors in some other $m$-dimensional space. For example, if $v=(v_1,v_2)$, then we can make the function $f(v)=v_1v_2$ that outputs a real number, or the function $F(v)=(v_1v_2,v1+v2)$, which outputs another 2-dimensional vector. Finally, $g(v)=v_1$ is also a function that outputs a real number. There are lots of functions like this, and are the main topic of interest in a typical Calc 3 course.
+    </p>
+    <p>
+      We will be interested in a very particular type of function: A linear function. These are functions that take in vectors $v$ that "respect" addition and scalar multipilication. What this means is that $L$ is a linear transformation if $L(v+w)=L(v)+L(w)$ and $L(sv)=sL(v)$, whenever $v,w$ are vectors and $s$ is a scalar. These are called "Linear" because they take lines through the origin and send them to other lines through the origin. The only function that is linear in the above paragraph is $g(v)$. Linear Functions are the main topic of study for Linear Algebra.
+    </p>
+    <p>
+      If we are still in some $n$-dimensional space, then we can look at a very particular class of linear functions: Linear functions that output real numbers. We call these special kinds of linear functions "Linear Functionals", but sometimes we call them "Covectors". The function $g(v)$ above is one of these covectors. The interesting thing is that the collection of all linear functionals on an $n$-dimensional space themselves form a different $n$-dimensional space called the "Dual Space". 
+    </p>
+      <p>
+      This is where it becomes important to not view vectors as just "things with direction and magnitude", or "arrays of numbers". Rather, vectors are things that we can add together and can scale by a real number. For example, the collection of all quadratic polynomials (and lower degree) forms a 3-dimensional vector space, because we can add them together to get another such polynomial and scale them. But quadratic polynomials are not lists of numbers, they are functions. They don't have magnitude and direction, they are functions. This is what we mean by a "vector".
+    </p>
+    <p>
+      However!, if we are given linear coordinates for our vector space, then we can represent them as arrays of numbers. This is akin to how if we are given a base, then we can represent numbers through their base representation. The number "fifteen" is not the array of digits "15", but in base ten we can represent the number fifteen as this array of digits, and this is very convenient for applications and computations. The cost of this ease is that we are working with representations of numbers, rather than with numbers themselves. This causes no problems, but it can mislead people into thinking that the digits of a number are important to the nature of the number. In a similar way, there are no computational issues when viewing vectors as arrays of numbers, but this is separated from actual vectors and can obscure the true nature of what is going on with vectors. 
+    </p>
+    <p>
+      In our case, given coordinates, we can represent vectors as a column of numbers. For example, $v=(1,2)^T$ (where $^T$ is the transpose) is a column representation of a 2-dimensional vector. If we represent vectors like this, then we can represent covectors as row vectors. For example $\alpha=(4,3)$ is a representation of the covector $L(w)=4w_1+3w_2$, when $w=(w_1,w_2)$. In particular, if $\alpha$ is any $n$-dimensional row vector, and $v$ is any $n$-dimensional column vector, then $\alpha$ represents the function $L_{\alpha}(v)=\alpha v$, done through matrix multiplication. What this represents geometrically is how much $v$ projects onto the vector $\alpha^T$.
+    </p>
+    <p>
+      As a concrete example, if $\alpha=(1,-1)$ and $v=(3,2)^T$, then 
+      $$
+      L_{\alpha}((3,2)^T) = (1,-1)(3,2)T = 3-2 = 1
+      $$
+      This easily generalizes to arbitrary dimension. The really key thing is that if we change our coordinates, then the way we represent the vector $v$ and the covector $\alpha$ will change, we'll use different numbers, but the thing that definitely won't change is the value of $L_{\alpha}(v)$. This is becayse $L_{\alpha}(v)$ depends only on the vector and covector used, and not how we choose to represent these vectors as rows and columns.
+    </p>
+    <h3>Rank-1 Tensors</h3>
+    <p>
+      Tensors are functions. Very specific functions.
+    </p>
+    <p>
+      The idea behind tensors is to generalize the idea of covectors, not vectors. What we want to capture with tensors is how a vector space interacts with its dual space, the vector space of covectors. We do this by constructing functions that input vectors and/or covectors as arguments.
+    </p>
+      
+      <p>
+      A rank-1 tensor is the easiest to understand. Specifically, a $(0,1)$-Tensor is a linear function that takes in vectors and outputs real numbers. That is, a $(0,1)-$-Tensor is a covector. A $(1,0)$-Tensor does a similar thing, but for covectors. This means that a $(1,0)$-Tensor is a linear function that takes in covectors and outputs real numbers. These are what Rank-1 Tensors actually are. 
+    </p>
+    <p>
+      The really interesting thing is that $(0,1)$-Tensors are covectors, and we may view $(1,0)$-Tensors as vectors. If $v$ is a vector and $\alpha$ is some covector (a linear function that takes in vectors and outputs real numbers, we're not viewing it as a row vector at the moment), then we can construct the $(1,0)$-Tensor $T_v$ defined as
+      $$
+      T_v(\alpha) = \alpha(v)
+      $$
+      This tensor essentially evaluates different functions on the same argument $v$. The great thing about the identification of vectors with $(1,0)$-Tensors is the fact that it is an identification. For every vector, there is a unique $(1,0)$-Tensor associated to it, and for everey $(1,0)$-Tensor, we can find a vector that describes it in this way. This allows us to view vectors as $(1,0)$-Tensors.
+    </p>
+    <p>
+      While this is great, this is a cause of confusion and vaguery. It is tempting to  say that "Tensors generalize vectors", but generalize how? The issue is that vectors are not tensors, but we are allowed to view vectors as functions that turn out to be tensors. Vectors are only tensors when we explicitly view the vectors as functions. On their own, they are not tensors, you  need to do this extra identification to  make that leap. Once we are viewing vectors as functions, we can say that tensors generalize vectors, but we aren't really going to be generalizing the vector part of a vector, we'll be generalizing the function part. So a tensor doesn't generalize a vector, a tensor is a generalization of a particular kind of function. Covectors actually are functions, so a tensor generalizes the notion of a covevctor.
+    </p>
+    <p>
+      With this nice identification, if we have coordinates, then we can represent $(1,0)$-Tensors as column vectors and $(0,1)$-Tensors as row vectors. Again, it is not the array of numbers that is important, but that these arrays represent, and give us an easy way to compute, functions
+    </p>
+    <h3>Multilinear Functions and Tensors</h3>
+    <p>
+      A general tensor generalizes this concept to multivariable functions. When we say "multivariable", we mean that we input multiple vectors into these functions. In particular, a $(n,m)$-Tensor will be a function that takes in $n$ covectors and $m$ vectors and outputs a real number. The key thing about Rank-1 Tensors was that they were linear, so the issue in generalizing this concept is to figure out how "linear" generalizes to multivariable functions of this type.
+    </p>
+    <p>
 
-
+      
+      
+      
+      
+      
+      
+      
+      
+      
 
   </div>
 
