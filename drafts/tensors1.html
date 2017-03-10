@@ -31,19 +31,13 @@
       The first thing we need to know is to know what a linear function is and what a covector is.
     </p>
     <p>
-      If we are in some $n$-dimensional space, then we can look at functions that take in $n$-dimensional vectors and output vectors in some other $m$-dimensional space. For example, if $v=(v_1,v_2)$, then we can make the function $f(v)=v_1v_2$ that outputs a real number, or the function $F(v)=(v_1v_2,v1+v2)$, which outputs another 2-dimensional vector. Finally, $g(v)=v_1$ is also a function that outputs a real number. There are lots of functions like this, and are the main topic of interest in a typical Calc 3 course.
+      If we are in some $n$-dimensional space, then we can look at functions that take in $n$-dimensional vectors and output vectors in some other $m$-dimensional space. For example, if $v=(v_1,v_2)$, then we can make the function $f(v)=v_1v_2$ that outputs a real number, or the function $F(v)=(v_1v_2,v_1+v_2)$, which outputs another 2-dimensional vector.  $g(v)=v_1$ is also a function that outputs a real number. There are lots of functions like this, and are the main topic of interest in a typical Calc 3 course.
     </p>
     <p>
-      We will be interested in a very particular type of function: A linear function. These are functions that take in vectors $v$ that "respect" addition and scalar multipilication. What this means is that $L$ is a linear transformation if $L(v+w)=L(v)+L(w)$ and $L(sv)=sL(v)$, whenever $v,w$ are vectors and $s$ is a scalar. These are called "Linear" because they take lines through the origin and send them to other lines through the origin. The only function that is linear in the above paragraph is $g(v)$. Linear Functions are the main topic of study for Linear Algebra.
+      We will be interested in a very particular type of function: A linear function. These are functions that take in vectors $v$ and that "respect" addition and scalar multipilication. What this means is that $L$ is a linear transformation if $L(v+w)=L(v)+L(w)$ and $L(sv)=sL(v)$, whenever $v,w$ are vectors and $s$ is a scalar. These are called "Linear" because they take lines through the origin and send them to other lines through the origin. The only function that is linear in the above paragraph is $g(v)$. Linear Functions are the main topic of study for Linear Algebra.
     </p>
     <p>
       If we are still in some $n$-dimensional space, then we can look at a very particular class of linear functions: Linear functions that output real numbers. We call these special kinds of linear functions "Linear Functionals", but sometimes we call them "Covectors". The function $g(v)$ above is one of these covectors. The interesting thing is that the collection of all linear functionals on an $n$-dimensional space themselves form a different $n$-dimensional space called the "Dual Space". 
-    </p>
-      <p>
-      This is where it becomes important to not view vectors as just "things with direction and magnitude", or "arrays of numbers". Rather, vectors are things that we can add together and can scale by a real number. For example, the collection of all quadratic polynomials (and lower degree) forms a 3-dimensional vector space, because we can add them together to get another such polynomial and scale them. But quadratic polynomials are not lists of numbers, they are functions. They don't have magnitude and direction, they are functions. This is what we mean by a "vector".
-    </p>
-    <p>
-      However!, if we are given linear coordinates for our vector space, then we can represent them as arrays of numbers. This is akin to how if we are given a base, then we can represent numbers through their base representation. The number "fifteen" is not the array of digits "15", but in base ten we can represent the number fifteen as this array of digits, and this is very convenient for applications and computations. The cost of this ease is that we are working with representations of numbers, rather than with numbers themselves. This causes no problems, but it can mislead people into thinking that the digits of a number are important to the nature of the number. In a similar way, there are no computational issues when viewing vectors as arrays of numbers, but this is separated from actual vectors and can obscure the true nature of what is going on with vectors. 
     </p>
     <p>
       In our case, given coordinates, we can represent vectors as a column of numbers. For example, $v=(1,2)^T$ (where $^T$ is the transpose) is a column representation of a 2-dimensional vector. If we represent vectors like this, then we can represent covectors as row vectors. For example $\alpha=(4,3)$ is a representation of the covector $L(w)=4w_1+3w_2$, when $w=(w_1,w_2)$. In particular, if $\alpha$ is any $n$-dimensional row vector, and $v$ is any $n$-dimensional column vector, then $\alpha$ represents the function $L_{\alpha}(v)=\alpha v$, done through matrix multiplication. What this represents geometrically is how much $v$ projects onto the vector $\alpha^T$.
@@ -51,9 +45,16 @@
     <p>
       As a concrete example, if $\alpha=(1,-1)$ and $v=(3,2)^T$, then 
       $$
-      L_{\alpha}((3,2)^T) = (1,-1)(3,2)T = 3-2 = 1
+      L_{\alpha}((3,2)^T) = (1,-1)(3,2)^T = 3-2 = 1
       $$
       This easily generalizes to arbitrary dimension. The really key thing is that if we change our coordinates, then the way we represent the vector $v$ and the covector $\alpha$ will change, we'll use different numbers, but the thing that definitely won't change is the value of $L_{\alpha}(v)$. This is becayse $L_{\alpha}(v)$ depends only on the vector and covector used, and not how we choose to represent these vectors as rows and columns.
+    </p>
+    <p>
+      A really key thing is that the array of numbers used to represent a vector or covector can change whenever you change coordinates. But a vector/covector shouldn't change when you change your coordinates, we can then conclude that vectors and covectors are not the arrays, but whatever the arrays represent. If we change our coordinates, then we'll get different arrays, but the vectors/covectors remaind the same so the output of the function doesn't change. If $(v_1,v_2)^T$ and $(v'_1,v'_2)^T$ are two representations of the same vector $v$, just in different coordinates, and if $(\alpha_1,\alpha_2)$ and $(\alpha'_1,\alpha'_2)$ are two representations for the same covector $L$ in the same respective coordinates as above, then we will get 
+      $$
+      L(v) = (\alpha_1,\alpha_2)(v_1,v_2)^T = (\alpha'_1,\alpha'_2)(v'_1,v'_2)^T
+      $$
+      since changing coordinates doesn't actually change the vector and covector. This is what allows tensors and vectors to encode actual physical information. The information does not change based on how we look at them, so the information is actually encoded as a vector or tensor, and we just use arrays to represent and compute with them.
     </p>
     <h3>Rank-1 Tensors</h3>
     <p>
