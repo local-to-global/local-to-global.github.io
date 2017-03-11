@@ -41,7 +41,7 @@
       If $V$ is a vector space, then an element $v$ inside it is called a "vector". This is the truest notion of a vector.
     </p>
     <p>
-      As an example, the set of functions that are differentiable on the entire real line forms a vector space. If $f(x)$ and $g(x)$ are two differentiable functions, then we can add them together to get a new function $f+g$ defined as $(f+g)(x)=f(x)+g(x)$. We can also  multiply $f$ by a real number $r$ to get a new differentiable function $rf$ defined as $(rf)(x) = r\cdot f(x)$. These notions of "Addition" and "Multiplication" work like we would expect them to, and so we get a vector space. Note that diffentiable functions are not arrays of numbers, and that there is no notion of "direction" or "magnitude" for an arbitrary differentiable function, nonetheless a differentiable function $f(x)$ is a vector, since it is an element of a vector space. This vector space can be difficult to understand, as it is infinite dimensional and that is a whole other monster, but it serves as a nice reference point to think back on when you catch yourself thinking of vectors as arrays of numbers or as things with direction and magnitude. In general, function spaces (vector spaces of functions) are some of the most important vector spaces in all of math.
+      As an example, the set of functions that are differentiable on the entire real line forms a vector space. If $f(x)$ and $g(x)$ are two differentiable functions, then we can add them together to get a new function $f+g$ defined as $(f+g)(x)=f(x)+g(x)$. We can also  multiply $f$ by a real number $r$ to get a new differentiable function $rf$ defined as $(rf)(x) = r\cdot f(x)$. These notions of "Addition" and "Multiplication" work like we would expect them to, and so we get a vector space. Note that diffentiable functions are not arrays of numbers, they aren't "arrows" and that there is no notion of "direction" or "magnitude" for an arbitrary differentiable function, nonetheless a differentiable function $f(x)$ is a vector, since it is an element of a vector space.This vector space can be difficult to understand, as it is infinite dimensional and that is a whole other monster, but it serves as a nice reference point to think back on when you catch yourself thinking of vectors as arrays of numbers or as things with direction and magnitude.  Vectors are understood by how they interact with other vectors, and this can really help illustrate this. In general, function spaces (vector spaces of functions) are some of the most important vector spaces in all of math.
     </p>
     <p>
       If $V$ is a vector space, then we can create a new vector space from it for free. This can be thought of as the "Mirror Version" of the vector space in question, and is called the "Dual Space", denoted $V^*$. The vector space $V^*$ is a function space, which  means its elements are functions. In particular, an element $\alpha$ of $V^*$ is a function from $V$ to the real numbers (or complex numbers) that "respect" vector addition and scalar multiplication. Explicitly, if $v,w$ are vectors in $V$ and $r$ is a real (or complex) number, then the element $\alpha$ in $V^*$ is a function from $V$ that outpus real (or complex) numbers and satisfies
@@ -56,10 +56,72 @@
     <p>
       As a quick example, we can find a pretty nice covector for the vector space of differentiable functions. This will have to be a function that inputs differentiable functionos and outputs a real number. We can make the covector $ev_0$ which, when input the function $f(x)$, outputs the number $f(0)$. So $ev_0(f)=f(0)$. It is not too difficult to check that this satisfies the requisites for a covector, so it is an element of the dual space of differentiable functions. In fact, for any real number $r$, we can get the covector $ev_r(f)=f(r)$. The function $ev_r$ is called the "evaluation at $r$" function. We input different functions and see what value they output at this particular point. Similarly, we can make $dev_r(f)=f'(r)$, which outputs the value of the derivative at $r$. This is also a covector. While dual spaces for this infinite dimensional space doesn't work as nicely as in the finite dimensional case, these are great examples of what covectors can be.
     </p>
-      
-      
-      
-      
+    <h3> Rank-1 Tensors</h3>
+    <p>
+      Now that we know what vectors and covectors are, and we are free from thinking of vectors as arrows, or arrays or something, we can start talking about tensors.
+    </p>
+    <p> A $(0,1)$-Tensor on the vector space $V$ is a function $T$ that inputs vectors and outputs real (or complex) numbers satisfying the equations
+      $$
+      \begin{eqnarray*}
+      T(v+w) &=& T(v) + T(w)\\
+      T(r\cdot v) &=& r\cdot T(v)
+      \end{eqnarray*}
+      $$
+      for vectors $v,w$ in $V$ and scalar $r$. In other words, a $(1,0)$-Tensor is a covector. This should be seen as the prototypical example of a tensor, and general tensors will then be a generalization of covectors rather than a generalization of vectors. What's happening is that we find that covectors and dual spaces are great at understanding vector spaces, so we want to generalize them to be more descriptive, and the key things that we will be generalizing are these linearity relations and the fact that covectors are necessarily functions.
+    </p>
+    <p>The first way to generalize this is to change the type of input from vectors to covectors themselves. A $(1,0)$-Tensor on the vector space $V$ is then a function $f$ that inputs covectors and outputs real (or complex) numbers so that 
+      $$
+      \begin{eqnarray*}
+      f(\alpha+\beta) &=& f(\alpha) + f(\beta)\\
+      f(r\cdot \alpha) &=& r\cdot f(\alpha)
+      \end{eqnarray*}
+      $$
+      for covectors $\alpha,\beta$ in $V^*$ and scalar $r$. In other words, such a  tensor is a cocovector, or a covector for the vector space $V^*$. The really magical thing is that each of these tensors can be represented uniquely as a vector in $V$. What this means is that we can interpret each vector $v$ in $V$ as a $(1,0)$-tensor, or as a cocovector. This is typically expressed as $V^{**}\simeq V$, which means that the dual space of a dual space is, essentially, just the original vector space (the dual space is like a "mirror" space for a reason). Concretely, if $v$ is a vector in $V$, then we can make the $(1,0)$-Tensor $f_v$ defined as
+      $$
+      f_v(\alpha)=\alpha(v)
+      $$
+      In other words, this is the evaluation function at the point $v$. The magic is that in finite dimensional spaces (and really, really nice infinite dimensional spaces) every one of these cocovectors has this description. This isn't true in general.
+    </p>
+    <p>So every vector $v$ in $V$ can be interpreted as a tensor, but this description is not fundamental to being a vector since vectors are no a priori functions, but tensors are. This means that tensors are not generalizations of a vector, instead they are generalization of covectors, which are functions, a priori. It is just a really nice and convenience that vectors can be interpreted as tensors as well. The corrected statement to "Tensors generalize vectors" is then "Tensors generalize covectors".
+    </p>
+    <p>
+      To summarize, $(0,1)$-Tensors are covectors, linear functions that take in vectors and output real (or complex) numbers, and $(1,0)$-Tensors are cocovectors, linear functions that take in covectors and output real (or complex) numbers. Furthermore, each $(1,0)$-Tensor has a unique description as a vector, particularly the evaluation function at a particular vector. When we are being lax with these distinctions (as we often do), we can say that rank-1 Tensors are functions, and $(0,1)$-Tensors are covectors and $(1,0)$-Tensors "are" vectors. The emphasis, however, should be on the fact that tensors are functions. This is the big idea of this whole thing.
+    </p>
+    <h3>Tensors</h3>
+    <p>
+      An arbitrary tensor is a generalization of a covector, and other rank-1 tensors, to multivariable functions. In this context, "multivariable" means that we input multiple vectors/covectors. In this way, a $(k,\ell)$-Tensor will be some kind of function that inputs $\ell$ vectors and $k$ covectors and outputs real (or complex) numbers. The difficulty is then figuring out how to generalize the linearity relations to multiple inputs. The simplest way to achieve this is to say that they satisfy these equations individually in each variable separately. Such functions are called "Multilinear", and so a $(k,\ell)$-Tensor is a multilinear function  that inputs $\ell$ vectors and $k$ covectors and outputs a real (or complex) number.
+    </p>
+    <p>
+      This is best illustrated in the two variable case. A $(1,1)$-Tensor is a multilinear function $T(\alpha,v)$ that inputs a single vector $v$ and covector $\alpha$ and outputs a real (or complex) number. The multilinearity means that it must satisfy the equations
+      $$
+      \begin{eqnarray*}
+      T(\alpha,v+w) &=& T(\alpha,v) + T(\alpha,w)\\
+      T(\alpha,r\cdot v) &=& r\cdot T(\alpha,v)\\
+      T(\alpha+\beta,v) &=& T(\alpha,v) + T(\beta,v) \\
+      T(r\cdot\alpha,v) &=& r\cdot T(\alpha,v)
+      \end{eqnarray*}
+      $$
+      for vectors $v,w$ in $V$, covectors $\alpha,\beta$ in $V^*$ and scalar $r$. This just means that it is linear in each argument separately. A simple example of a $(1,1)$-tensor is the "Evaluation Tensor", $E(\alpha,v)$ defined as
+      $$
+      E(\alpha,v) = \alpha(v)
+      $$
+   You input a vector, and covector and output whatever value you get when you apply the input vector to the input covector. In fact, if $L$ is any linear function from $V$ into $V$, which means that it inputs vectors in $V$, outputs vectors in $V$, and obeys a linearity relation, then we can  create the $(1,1)$-tensor $T_L$ defined as
+      $$
+      T_L(\alpha, v) = \alpha(Tv)
+      $$
+      First apply $T$ to $v$ to get a new vector in $V$, then apply $\alpha$ to the result. What is not-at-all obvious is that every $(1,1)$-tensor can be written in this way. That is, every linear transformation can be interpreted uniquely as a $(1,1)$-tensor, and every $(1,1)$-tensor can be interpreted as a linear transformation. These are, a prior, different objects that can be interpreted as each other. This does not mean that linear transformations are $(1,1)$-tensors, just that we have this interpretation. This is similar to how vectors can be interpreted as $(1,0)$-tensors. The thing that tensors generalize are covectors, and through this generalization, we find that we can interpret other, unrelated objects, in this context. This is helpful, but makes the description "Tensors generalize vectors and matrices" misleading, because we're not generalizing the vector-ness of a vector, or the linear transformation-ness of a matix, we're generalizing them only once we throw them into a totally different context. Again, this description of a tensor should really just be "Tensors generalize covectors", since we are generalizing the function-ness inherent to covectors, something that vectors are not assumed to have.
+    </p>
+    <p>
+      Tensors of rank other than $(1,0)$, $(0,1)$ or $(1,1)$ do not have nice interpretations as basic linear algebra objects. With some extra tools, we might be able to interpret $(2,0)$ and $(0,2)$ tensors are matrices, but this would not be illustrative. The takeaway of all this should be that tensor are multivariable functions that input vectors and covectors and output real (or complex) numbers and are linear. In general, a $(k,\ell)$-Tensor $T$ takes in vectors $v_1,...,v_{\ell}$ from $V$ and covectors $\alpha_1,...,\alpha_k$ from $V^*$ and outputs a number denoted
+      $$
+      T(\alpha_1,...,\alpha_k;v_1,...,v_{\ell})
+      $$
+      It cannot be overemphsized that we got this by trying to generalize the notion of a covector, particularly how they behave as functions, not from generalizing scalars, vectors or matrices. 
+    </p>
+    <h3>Applications 1</h3>
+    <p> Since most people looking at this will probably be non-mathematicians, your head is probably hurting from all this abstract talk, and you really want some application to get a feel for all this talk. I'll then reward you with what a mathematician would consider an "application". </p>
+    <h4>The Cauchy-Stress Tensor</h4>
+    <p>
       
 
   </div>
