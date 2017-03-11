@@ -23,99 +23,39 @@
   <div class="post-content">
   <div class="post-date">11/21/2016</div>
     <p>
-      Algebraic Tensors are the most basic tensors you can encounter. Any math, physics or enginnering major will work with them at some point in their undergraduate career. These tensors are really powerful and useful, but very rarely are they explained in any definitive way, so you have a bunch of undergrads using tools they don't understand and any good undergrad will begin to ask questions. We hope to answer one of these questions here.
-    </p>
-    
-    <h3>Linear Functions and Covectors</h3>
-    <p>
-      The first thing we need to know is to know what a linear function is and what a covector is.
+      If you have ever sat in a math, physics or engineering course, working through manipulations and ask yourself "What the heck are Tensors?!" then this is the place for you. If you've then asked someone and they said "They're generalizations oof scalars, vectors and matrices" or "They're multidimensional arrays" or "They're things that transform like Tensors", and felt that these were inadequet explanations, just left more confused or left you with more questions/curiosity, then this is the place for you. 
     </p>
     <p>
-      If we are in some $n$-dimensional space, then we can look at functions that take in $n$-dimensional vectors and output vectors in some other $m$-dimensional space. For example, if $v=(v_1,v_2)$, then we can make the function $f(v)=v_1v_2$ that outputs a real number, or the function $F(v)=(v_1v_2,v_1+v_2)$, which outputs another 2-dimensional vector.  $g(v)=v_1$ is also a function that outputs a real number. There are lots of functions like this, and are the main topic of interest in a typical Calc 3 course.
+      Tensors are really powerful objects that can encode a lot of information. Physical as well as geometric information. The issue is that they pop up in different contexts, and what is meant by a "tensor" depends on that context. I'll try to go over all of these different contexts. They are each related, but function differently from each other and so a single answer to "What is a Tensor?" does not work for all of them (and usually doesn't work for any of them). Because they are so powerful, but their definition is never made clear and is relatively more abstract than the typical toolbox for a physicist or engineer (and because mathematicians usually don't encounter the same tensors that physcists/engineers do), what we're left with is a bunch of people using tensors without actually knowing what the heck they are! I hope to  set this  straight. The price of setting it straight, however, is working at a higher level of  abstraction than you might encounter in a typical physics or engineering degree. It's not harder, you just might have to get out of your comfort zone a bit.
     </p>
     <p>
-      We will be interested in a very particular type of function: A linear function. These are functions that take in vectors $v$ and that "respect" addition and scalar multipilication. What this means is that $L$ is a linear transformation if $L(v+w)=L(v)+L(w)$ and $L(sv)=sL(v)$, whenever $v,w$ are vectors and $s$ is a scalar. These are called "Linear" because they take lines through the origin and send them to other lines through the origin. The only function that is linear in the above paragraph is $g(v)$. Linear Functions are the main topic of study for Linear Algebra.
+      In this bit, we're going to look at the simplest kind of tensor: Algebraic Tensors. These are probably the most common tensor that is encountered in everyday work for engineers and physicists (unless you do General Relativity). Common examples of tensors of this type are the Cauchy-Stress Tensor and the Inertial Tensor. As a plan of attack, we will first get you out of your comfort zone a bit by transitioning from vectors as "things with magnitude and direction" or "arrays of numbers" to more abstract notions of vectors. This is an unfortunate prerequisite to understanding tensors. You can work with tensors without making this leap, but you can't understand them without it. Along the way we'll introduce covectors and Dual Spaces. Next we'll cover rank-1 tensors, and investigate their connection to vectors and covectors. After that, we'll introduce tensors of general rank. At this point, we'll know the nature of what tensors are, but be unable to do computations of any kind, as we'll be lacking the tools needed to compute with tensors, so we'll introduce those tools next and see how tensors are often confused with arrays of numbers. Finally, we'll look at the examples of the Cause-Stress Tensor and the Inertial Tensor as explicit examples of tensors, working from what these tensors do abstractly as tensors and how we compute/work with them.
+    </p>
+    <h3>Vectors and Covectors</h3>
+    <p>
+      Vectors are not lists of numbers. Vectors are not things with direction and magnitude. Vectors are elements of a vector space. Sometimes we can represent and compute vectors using lists of numbers. Working with them in this way makes them fool-proof, you don't need to know much about vectors to begin working with them when you're only given them as arrays of numbers. These are the "Apple Product" version of a vector, anyone can use them without really knowing what they're doing. Also, in really, really nice vector spaces we can talk about notions like "direction" and "magniture", but these are extra addons not typically included when you have a vector. We're working with the basics, not the premium package. 
+    </p>
+    <p> A vector is an element of a vector space. A vector space $V$ is a collection of things that we can add together and scale by a real (or complex) number. "Scale" is a generous term, a better way to say it is that a vector space is a collection things that we can add together and multiply by real or complex numbers. This means that if $v$ and $w$ are in the vector space $V$, then there is some notion of "Addition" so that $v+w$ is also in $V$, additionally if $r$ is a real (or complex) number then there is a notion of "Multiplication" so that $r\cdot v$ is in $V$. What these addition and multiplication operations are depends on the vector space in question, but they obey the kinds of equations that you would expect them to, like distributivity and associativity. There's also a zero vector that adds just like zero usually does, and multiplication by 1 does what typical multiplication by 1 does: Nothing. The important thing is that there are these nice rules that addition/multiplication in a vector space obey, but there is no formula for addition or multiplication in a vector space. How addition and multiplication are actually computed depends on the vector space you have, so they aren't important to what a vector space actually *is*.
     </p>
     <p>
-      If we are still in some $n$-dimensional space, then we can look at a very particular class of linear functions: Linear functions that output real numbers. We call these special kinds of linear functions "Linear Functionals", but sometimes we call them "Covectors". The function $g(v)$ above is one of these covectors. The interesting thing is that the collection of all linear functionals on an $n$-dimensional space themselves form a different $n$-dimensional space called the "Dual Space". 
+      If $V$ is a vector space, then an element $v$ inside it is called a "vector". This is the truest notion of a vector.
     </p>
     <p>
-      In our case, given coordinates, we can represent vectors as a column of numbers. For example, $v=(1,2)^T$ (where $^T$ is the transpose) is a column representation of a 2-dimensional vector. If we represent vectors like this, then we can represent covectors as row vectors. For example $\alpha=(4,3)$ is a representation of the covector $L(w)=4w_1+3w_2$, when $w=(w_1,w_2)$. In particular, if $\alpha$ is any $n$-dimensional row vector, and $v$ is any $n$-dimensional column vector, then $\alpha$ represents the function $L_{\alpha}(v)=\alpha v$, done through matrix multiplication. What this represents geometrically is how much $v$ projects onto the vector $\alpha^T$.
+      As an example, the set of functions that are differentiable on the entire real line forms a vector space. If $f(x)$ and $g(x)$ are two differentiable functions, then we can add them together to get a new function $f+g$ defined as $(f+g)(x)=f(x)+g(x)$. We can also  multiply $f$ by a real number $r$ to get a new differentiable function $rf$ defined as $(rf)(x) = r\cdot f(x)$. These notions of "Addition" and "Multiplication" work like we would expect them to, and so we get a vector space. Note that diffentiable functions are not arrays of numbers, and that there is no notion of "direction" or "magnitude" for an arbitrary differentiable function, nonetheless a differentiable function $f(x)$ is a vector, since it is an element of a vector space. This vector space can be difficult to understand, as it is infinite dimensional and that is a whole other monster, but it serves as a nice reference point to think back on when you catch yourself thinking of vectors as arrays of numbers or as things with direction and magnitude. In general, function spaces (vector spaces of functions) are some of the most important vector spaces in all of math.
     </p>
     <p>
-      As a concrete example, if $\alpha=(1,-1)$ and $v=(3,2)^T$, then 
-      $$
-      L_{\alpha}((3,2)^T) = (1,-1)(3,2)^T = 3-2 = 1
-      $$
-      This easily generalizes to arbitrary dimension. The really key thing is that if we change our coordinates, then the way we represent the vector $v$ and the covector $\alpha$ will change, we'll use different numbers, but the thing that definitely won't change is the value of $L_{\alpha}(v)$. This is becayse $L_{\alpha}(v)$ depends only on the vector and covector used, and not how we choose to represent these vectors as rows and columns.
-    </p>
-    <p>
-      A really key thing is that the array of numbers used to represent a vector or covector can change whenever you change coordinates. But a vector/covector shouldn't change when you change your coordinates, we can then conclude that vectors and covectors are not the arrays, but whatever the arrays represent. If we change our coordinates, then we'll get different arrays, but the vectors/covectors remaind the same so the output of the function doesn't change. If $(v_1,v_2)^T$ and $(v'_1,v'_2)^T$ are two representations of the same vector $v$, just in different coordinates, and if $(\alpha_1,\alpha_2)$ and $(\alpha'_1,\alpha'_2)$ are two representations for the same covector $L$ in the same respective coordinates as above, then we will get 
-      $$
-      L(v) = (\alpha_1,\alpha_2)(v_1,v_2)^T = (\alpha'_1,\alpha'_2)(v'_1,v'_2)^T
-      $$
-      since changing coordinates doesn't actually change the vector and covector. This is what allows tensors and vectors to encode actual physical information. The information does not change based on how we look at them, so the information is actually encoded as a vector or tensor, and we just use arrays to represent and compute with them.
-    </p>
-    <h3>Rank-1 Tensors</h3>
-    <p>
-      Tensors are functions. Very specific functions.
-    </p>
-    <p>
-      The idea behind tensors is to generalize the idea of covectors, not vectors. What we want to capture with tensors is how a vector space interacts with its dual space, the vector space of covectors. We do this by constructing functions that input vectors and/or covectors as arguments.
-    </p>
-      
-      <p>
-      A rank-1 tensor is the easiest to understand. Specifically, a $(0,1)$-Tensor is a linear function that takes in vectors and outputs real numbers. That is, a $(0,1)-$-Tensor is a covector. A $(1,0)$-Tensor does a similar thing, but for covectors. This means that a $(1,0)$-Tensor is a linear function that takes in covectors and outputs real numbers. These are what Rank-1 Tensors actually are. 
-    </p>
-    <p>
-      The really interesting thing is that $(0,1)$-Tensors are covectors, and we may view $(1,0)$-Tensors as vectors. If $v$ is a vector and $\alpha$ is some covector (a linear function that takes in vectors and outputs real numbers, we're not viewing it as a row vector at the moment), then we can construct the $(1,0)$-Tensor $T_v$ defined as
-      $$
-      T_v(\alpha) = \alpha(v)
-      $$
-      This tensor essentially evaluates different functions on the same argument $v$. The great thing about the identification of vectors with $(1,0)$-Tensors is the fact that it is an identification. For every vector, there is a unique $(1,0)$-Tensor associated to it, and for everey $(1,0)$-Tensor, we can find a vector that describes it in this way. This allows us to view vectors as $(1,0)$-Tensors.
-    </p>
-    <p>
-      While this is great, this is a cause of confusion and vaguery. It is tempting to  say that "Tensors generalize vectors", but generalize how? The issue is that vectors are not tensors, but we are allowed to view vectors as functions that turn out to be tensors. Vectors are only tensors when we explicitly view the vectors as functions. On their own, they are not tensors, you  need to do this extra identification to  make that leap. Once we are viewing vectors as functions, we can say that tensors generalize vectors, but we aren't really going to be generalizing the vector part of a vector, we'll be generalizing the function part. So a tensor doesn't generalize a vector, a tensor is a generalization of a particular kind of function. Covectors actually are functions, so a tensor generalizes the notion of a covevctor.
-    </p>
-    <p>
-      With this nice identification, if we have coordinates, then we can represent $(1,0)$-Tensors as column vectors and $(0,1)$-Tensors as row vectors. Again, it is not the array of numbers that is important, but that these arrays represent, and give us an easy way to compute, functions
-    </p>
-    <h3>Multilinear Functions and Tensors</h3>
-    <p>
-      A general tensor generalizes this concept to multivariable functions. When we say "multivariable", we mean that we input multiple vectors into these functions. In particular, a $(n,m)$-Tensor will be a function that takes in $n$ covectors and $m$ vectors and outputs a real number. The key thing about Rank-1 Tensors was that they were linear, so the issue in generalizing this concept is to figure out how "linear" generalizes to multivariable functions of this type.
-    </p>
-    <p>
-      This multivariable concept of linear has the creative nume of a "Multilinear Function". A multilinear function is a multivariable function that is linear in each of it s arguments. This is illustrated well for two variable multilinear functions, called bilinear. The function $B(v,u)$, that doesn't necessarily output just real numbers, is bilinear if
+      If $V$ is a vector space, then we can create a new vector space from it for free. This can be thought of as the "Mirror Version" of the vector space in question, and is called the "Dual Space", denoted $V^*$. The vector space $V^*$ is a function space, which  means its elements are functions. In particular, an element $\alpha$ of $V^*$ is a function from $V$ to the real numbers (or complex numbers) that "respect" vector addition and scalar multiplication. Explicitly, if $v,w$ are vectors in $V$ and $r$ is a real (or complex) number, then the element $\alpha$ in $V^*$ is a function from $V$ that outpus real (or complex) numbers and satisfies
       $$
       \begin{eqnarray*}
-      B(v+w,u) &=& B(v,u) + B(w,u)\\
-      B(sv,u) &=& sB(v,u)\\
-      B(v,u+w) &=& B(v,u) + B(v,w) \\
-      B(v,su) &=& sB(v,u)
+      \alpha(v+w) &=& \alpha(v) + \alpha(w)\\
+      \alpha(r\cdot v) &=& r\cdot\alpha(v)
       \end{eqnarray*}
       $$
-      It is linear in each variable separately. This concept can easily be extended to any number of variables. This is the best way to generalize the idea of linearity to include multiple variables. A $(n,m)$-Tensor is then a multilinear function $T$ that inputs $n$-covectors and $m$-vectors and outputs a real number. 
+    The set of all functions that satisfy these equations forms a vector space, and we call it $V^*$, the dual space of $V$. These vectors are sometimes called "Linear Functionals", because they work a lot like basic linear functions from high school algebra, but we're going to call them "Covectors". While a covector $\alpha$ is actually a vector, since it is an element of the vector space $V^(*)$, calling it a covector emphasizes its relationship to $V$ as a function.
     </p>
     <p>
-      There are many tensors for any given $n$-dimensional vector space, luckily we can easily express them if we are given linear coordinates for the space, just as in the Rank-1 case. If, for example, $T(v,\alpha)$ is a $(1,1)$ tensor, then we can represent $T$ as an array of number $T^a_{b}$, where $1\leq a,b \leq n$. If $v=(v_1,...,v_n)^T$ is the column vector for $v$ in this coordinate system, and $\alpha=(\alpha^1,...,\alpha^n)$ is the row vector for $\alpha$ in this coordinate system, then we have
-      $$
-      T(v,\alpha) = \sum_{a,b=1}^n T^a_bv_a\alpha^b
-      $$
-      To ease up notation, we just write $T^a_bv_a\alpha^b$, where it is understood that we're summing over the indexes $a$ and $b$. This is Einstein Summation Notation. In otherwords, we can represent $T$ as a matrix. Again, $T$ is not a matrix, or a linear transformation, but we can use matrices and linear transformations to understand and work with $(1,1)$ tensors.  This representation of this tensor allows for easy computation, manipulation and analysis, but deemphasizes the fact that a tensor is a multilinear map with certain behavior. The important thing about this is that the value of $T(v,\alpha)$ does not change when we change our coordinates, even if the entries in the arrays do. In general, though, if we have linear coordinates and $M$ is a matrix and $\alpha$ is a row-vector and $v$ is a column vector in these coordinates, then we can get the tensor $T_M$ defined as $T_M(\alpha,v)=\alpha Mv$, evaluated through matrix multiplication. 
+      As a quick example, we can find a pretty nice covector for the vector space of differentiable functions. This will have to be a function that inputs differentiable functionos and outputs a real number. We can make the covector $ev_0$ which, when input the function $f(x)$, outputs the number $f(0)$. So $ev_0(f)=f(0)$. It is not too difficult to check that this satisfies the requisites for a covector, so it is an element of the dual space of differentiable functions. In fact, for any real number $r$, we can get the covector $ev_r(f)=f(r)$. The function $ev_r$ is called the "evaluation at $r$" function. We input different functions and see what value they output at this particular point. Similarly, we can make $dev_r(f)=f'(r)$, which outputs the value of the derivative at $r$. This is also a covector. While dual spaces for this infinite dimensional space doesn't work as nicely as in the finite dimensional case, these are great examples of what covectors can be.
     </p>
-    <p>
-      In general, given linear coordinates for our vector space, we can represent any $(k,\ell)$-Tensor as an "multidimensional array". That is $T$ can be represented as
-      $$
-      T^{a_1,...,a_\ell}_{b_1,...,b_k}
-      $$
-      where the indicies all run through the dimension. This is a "$k+\ell$-dimensional array". But a $k+\ell$-dimensional array is not a tensor, because there is all the extra information about a basis and description as a function that need to go into it before it is can be seen as a representation for a tensor. These arrays are to tensors as base-representations are to numbers. A level of abstraction below the actual objects, that allows for concrete computation.
-    </p>
-    <h3>An Example: The Cauchy Stress Tensor</h3>
-    <p>
-      
-    </p>
-      
-      
       
       
       
