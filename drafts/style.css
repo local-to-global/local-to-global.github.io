@@ -5,6 +5,9 @@ body{
   background-color: white;
 }
 
+hr{
+  width = 75%;
+}
 .title{
     margin: auto;
     width: 65%;
