@@ -12,6 +12,14 @@ h1{
 hr{
   width = 75%;
 }
+
+#titlebreak{
+  width = 75%;
+}
+.titlebreak{
+  width = 75%;
+}
+
 .title{
     margin: auto;
     width: 65%;
