@@ -2,7 +2,22 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 body{
-  background-color: lightgrey;
+  background-color: white;
+}
+
+h1{
+
+}
+
+hr{
+  width = 75%;
+}
+
+#titlebreak{
+  width = 75%;
+}
+.titlebreak{
+  width = 75%;
 }
 
 .title{
@@ -22,6 +37,15 @@ img {
   font-family: "Lora";
   text-align: center;
 }
+
+h3{
+  color: #006699;
+}
+
+h4 {
+  color: #006699;
+}
+
 
 .post{
     background-color: white;
@@ -63,7 +87,6 @@ img {
     margin-left: auto;
     margin-right: auto;
     width: 65%;
-    border: 3px solid green;
     padding: 10px;
 }
 
