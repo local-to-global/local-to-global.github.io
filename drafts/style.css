@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 body{
-  background-color: lightgrey;
+  background-color: white;
 }
 
 .title{
@@ -63,7 +63,7 @@ img {
     margin-left: auto;
     margin-right: auto;
     width: 65%;
-    border: 3px solid green;
+    border: 3px ridge lightblue;
     padding: 10px;
 }
 
