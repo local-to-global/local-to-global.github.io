@@ -1,0 +1,79 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Pi and Integers</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Pi and Integers</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  <p>Pi can seem to pop up in a whole bunch of seemingly unrelated places. Least of which is as the solution to the Basel Problem:
+  $$
+  \frac{1}{1}+\frac{1}{2^2} + \frac{1}{3^2} + \frac{1}{4^2}+\frac{1}{5^2}+\cdots = \frac{\pi^2}{6}
+  $$
+  Focusing less on the proof of this fact, we'll try to find a reason why we should expect pi to show up in this formula and others like it. The succinct reason why you should be able to expect it is that $\sin(\pi x)$ is, essentially, the only function whose set of zeros is exactly the integers. More precisely, $\sin(pi x)/x$ is, essentially, the only function whose set of zeros is exactly the non-zero integers. The reason for all this will give us a chance to explore a few different and interesting topics. 
+  </p>
+  <h3>Integers and Zeros of Functions</h3>
+  <p>
+  If you recall from high school or college level algebra class, if you have a polynomial then it is determined, up to a scaling factor, by its zeros (including repetition). For example, the only polynomials whose zeros are exactly $x=-1,1$ are the ones of the form
+  $$
+  c(x+1)(x-1) = cx^2-c
+  $$
+  for some nonzero scale $c$. Given a set of zeros, then, it is easy to find the unique polynomial (up to scale) that has these zeros. If the zeros are $x=a_1,...,a_n$, then you can just make the polynomial 
+  $$
+  (x-a_1)(x-a_2)\cdots (x-a_n)
+  $$
+  Expanding this might be difficult, but we still have made the polynomial we were looking for. This is a really nice property that polynomials have, and it isn't necesarily true for non-polynomial functions on the real line. However, if we look beyond to complex numbers, things become nicer. Differentiable functions of a complex variable are much nicer than their real counterparts, as the notion of differentiability is much more rigid and doesn't allow for as many pathalogical cases. In particular, differentiable functions on the whole complex plane behave a lot like polynomials. In particular, up to a "scale", a differentiable function on the complex plane is completely determined by its zeros. If we want a function with zeros $z=a_1,a_2,...$, then we can try ot make the function
+  $$
+  f(z) = (z-a_1)(z-a_2)(z-a_3)\cdots
+  $$
+  The only issue is that the for such functions, the zeros $a_i$ need to be able to grow, and so when you try to expand this out, you get infinitely large coefficients, which is not nice. So we, instead, create the function
+  $$
+  f(z) = \left(1-\frac{z}{a_1}\right)\left(1-\frac{z}{a_2}\right)\left(1-\frac{z}{a_3}\right)\cdots
+  $$
+  This is what we would get if we pulled out a $-a_i$ from the $i$th term, and ignored the resulting scale out front, so its the same idea as what happened with polynomials above just in a more infinity-friendly way. (Also, if any of the $a_i=0$, then we just put a $z$ outfront instead of pulling the zero out.) The great thing about complex numbers is that this function is, up to a scale, the only function with exactly these zeros. In this case "scale" is a little more sophisticated than in the polynomial case, and includes exponential functions and we have to deal with the infinitely many terms better, and it controls the growth rate of the function, but the idea is the same. This result is known as the Weierstrass Factorization of a function, and is key to a lot of the interactions between complex analysis and number theory.
+  </p>
+  <p>
+  Speaking of numbers, we can now create a complex valued function that encodes within it the integers as its zeros:
+  $$
+  I(z) = z(1-z)(1+z)(1-z/2)(1+z/2)(1-z/3)(1+z/3)\cdots
+  $$
+  This is, up to exponential scale, the only function whose zeros are the integers, and $I(z)/z$ is the only function whose zeros are the non-zero integers. This is how Complex Analysis sees the integers as living inside the complex plane. In fact, through rotations and scales, this is how Complex Analysis sees any regularly spaced line of zeros in the complex plane. We are going to use this to find way to find a value for the sum $1+1/4+1/9+1/16+...$.
+  </p>
+  <p>
+  We start by combining terms that have the same zero up to sign, like $(1-z/2)(1+z/2)=1-z^2/4$. This gives:
+  $$
+  \frac{I(z)}{z} = (1-z^2)(1-z^2/4)(1-z^2/9)(1-z^2/16)(1-z^2/25)\cdots
+  $$
+  We can next turn this into a Taylor series for $I(z)/z$ by expanding this out to "standard form". The first, constant term will just be the product of all the 1s from each element of the product. There is no way to get a single $z$ from this expansion, so the second term is zero. To get the $z^2$ coefficient, we can find all the ways to take just one non-1 term through the distribution. This ends up with the sum $1+1/4+1/9+1/16+...$ as the coefficient to $z^2$ in the Taylor expansion. These are the only terms we really care about, and we find that the Taylor expansion looks like:
+  $$
+  \frac{I(z)}{z} = 1 + \left(1+\frac{1}{2^2}+\frac{1}{3^2}+\frac{1}{4^2}+\cdots\right)z^2 + (\textrm{Higher order terms})
+  $$
+  This means that the sum we're interested in is the third coefficeint in the Taylor expansion of the unique function (up to scale) whose zeros are the non-zero integers. 
+  </p>
+  <h3>Circles</h3>
+
+
+
+  </div>
+
+
+
+</body>
+</html>
