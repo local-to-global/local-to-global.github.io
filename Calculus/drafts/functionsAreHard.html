@@ -1,0 +1,51 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Functions are Hard</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Functions are Hard</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+    <p>
+    Throughout math education, up until Calculus, you may encounter functions, but these are not the objects of actual study. You use them to understand things about other objects, like circles or investments or whatever. There is something more fundamental than functions, like the length of a side on a triangle, that you use functions to study. This changes in Calculus. In calculus, the main and fundamental object of study are functions themselves. This is applicable because if you can setup a problem in physics by specifying the behavior of a function, rather than just the values of the function, then you have a tool that is much more flexible to explore these concepts, resulting in more powerful predictions and computations. Mathematically, though, we are interested in functions because they are hard to understand. If you are going to appreciate calculus, you must first appreciate how difficult it is to understand functions.
+    </p>
+    <p>
+    The first step to this is knowing what functions actually are. Going through high school/college algebra, trigonometry and pre-calculus, you might be left with the impression that a function is a formula that you can plug numbers into and evaluate to find the "answer". This is not the case. A function from a set $A$ to another set $B$ is any way to assign an element of $B$ to every element of $A$. There is no requirement that there be a formula for this assignment, or any guarantee that we can actually compute it, you just need one element of $B$ for every element of $A$. If $f$ is the function, then we like to write $f:A\rightarrow B$ to denote that if we have an element of $A$, then we can use $f$ to get an element of $B$ via the arrow. If $a$ is an element of $A$, the we sometimes write $f(a)$ for the element of $B$ that is associated to $a$. Sometimes there is a nice expression that we can use to tell us what $f(a)$ is for arbitrary $a$, but this is not something that you can expect to happen.    
+    </p>
+    <p>
+    Armed with this notion of a function, the first barrier to understanding function is the sheer number of functions that there are. For now we will be concerened with functions from the real line back into the real line. We use the symbol $\mathbb{R}$ to replace "the real line" so that we don't have to write "the real line" everywhere. We are then concerned with functions of the sort $f:\mathbb{R}\rightarrow \mathbb{R}$. The number of possible functions are incomprehensible. Even the first few sizes of infinity are utterly small compared to the number of possible functions like this. For each real number, there is an uncountable infinity number of possible outputs for it, so for each of the uncountably many possible inputs, there are uncountably many possible number of outputs. On the other hand, we could (theoretically) list out all the possible function with formulas to evaluate, so the functions that we could hope to evaluate using functions are nothing compared with how many functions there are.
+    </p>
+    <p>
+    With this many functions, there is no hope to even begin to understand them all. But most of these functions are just total noise, outputting seemingly random real numbers for every real number, and are not particularly interesting. We can then work on finding the kinds of functions that are interesting. These will be functions whose values are not just random noise, which means that, generally, if two points are close enough together then their outputs are also relatively close together. To determine the functions of this type we need calculus.
+    </p>
+    <p>
+    Even after we identify what it means for a function to not be complete random noise, via calculus, we are still a long way from understanding functions. There are two main barriers to this: An inability to compute them and an inability to classify them based on their behavior. Just because a function is nice does not mean it has an easy formula that we can use to evaluate it. But Calculus finds ways to approximate values of a function, giving us ways to "essentially" compute them. Even if they are a relative mess. Another thing that we might want to know is if two functions behave similarly. Just because two functions "go up" doesn't mean that their growth rates compare. Finally, we may want to classify function based on their net-overall behavior. This means finding a way to average out the function. All of these can be answered with calculus.
+    </p>
+    <p>
+    Towards this end there are two main types of properties that we characterize about functions: Local properties and Global properties. 
+
+
+
+  </div>
+
+
+
+</body>
+</html>
