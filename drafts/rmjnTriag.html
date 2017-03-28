@@ -29,6 +29,19 @@
     
   <h3>Triangle Numbers</h3>
   <p>
+    The $n$th triangle number is $T_n=1+2+3+...+n$, and we have the formula $T_n=\frac{n(n+1)}{2}$. This can be proved rather elementarily, but let's do it in a more complicated way motivated from Ramanujan's manipulations. Firstly, we can define the function $p_n(x)=1+x+x^2+...+x^n$, which is equal to $p_n(x)=\frac{x^{n+1}-1}{x-1}$. Taking the derivative we get the equality
+    $$
+    \begin{eqnarray*}
+    p'_n(x) &=& 1+2x+3x^2+...+nx^{n-1}\\
+            &=& \frac{nx^{n+1}-(n+1)x^n+1}{(x-1)^2}
+    \end{eqnarray*}
+    $$
+    Note that $p_n'(1)=T_n$, the only issue is that we can't directly plug in $x=1$ into the above formula. Let $n=2N$ if it is ever and $n=2N+1$ if it is odd.  We then compute $p_n'(x)-2p'_N(x^2)$ to get
+    $$
+    \begin{eqnarray*}
+    p_n'(x)-4p'_N(x^2) &=& 
+    \end{eqnarray*}
+    $$
     
 
 
