@@ -1,0 +1,69 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Probabilities of the Modular Dot Product</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Probabilities of the Modular Dot Product</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  <p>
+  If we have $M=(\mathbb{Z}/n\mathbb{Z})^k$, then we can create a "dot product" on $M$ where we have for $u,v\in M$,
+  $$
+  u\cdot v := u_1v_1+\cdots +u_kv_k \in  \mathbb{Z}/n\mathbb{Z}
+  $$
+  The question is then: Given $r\in \mathbb{Z}/n\mathbb{Z}$, what is the probability of picking two $u,v\in M$ so that $u\cdot v = r$? Call this probability $P(r)$. If $n=p$ were a prime, then $\mathbb{Z}/p\mathbb{Z}$ is a field and this is map is a traditional dot product and it's not hard to see that, for each $r$, $P(r)=1/p$. If $n$ is an arbitrary integer, then we lose a few things that make this work out. In particular, we have non-units to deal with that restrict the possible dot products. 
+  </p>
+  <p> To investigate this, we'll first fix $v\in M$ and compute the chances that, for fixed $r\in \mathbb{Z}/n\mathbb{Z}$, we pick $u\in M$ so that $v\codt u = r$. Call this probability $P(v;r)$. Note that the underlying sets the give these probabilities are all disjoint and so we get
+  $$
+  P(r) = \frac{1}{n^{2k}}\sum_{v\in M} n^kP(v;r) = \frac{1}{n^k}\sum_{v\in M} P(v;r)
+  $$
+  For our fixed $v$, the function "Dot-Product with $v$" is a homomorphism from $M$ to $\mathbb{Z}/n\mathbb{Z}$, denoted $I_v:M\rightarrow \mathbb{Z}/n\mathbb{Z}$. If $x$ is in the image of $I_v$, then the inverse image $I_v^{-1}(\{x\})$ is a coset in $M$. Each coset has the same size, and so the probabilities in $M$ are uniformly distributed across the image of $I_v$. If the size of the image is $m$, then each coset has size $n^(k)/m$. Therefore, given that $r$ is in the image, we have $P(v;r) = 1/m$, and it is zero otherwise. Therefore, given a $v\in M$, what is the size of the image $I_v$? And when is $x$ in this image?
+  </p>
+  <p>
+  To answer this, we'll need Bezout's Identity, which says that for fixed integers $a,b$, the integers of the form $ax+by$ are exactly the multiples of the greatest common divisor of $a$ and $b$. This can be generalized to more terms: If $a_1,...,a_k$ are integers, then the only integers that are of the form $a_1x_1+\cdots+a_kx_k$ are exactly the multiples of the greatest common divisor of all the numbers $a_1,...,a_k$. This can be proved via induction using the bivariate case ase the base case. An issue is that we are working mod $n$, rather than in the integers, so we need to be careful. Let $a_1,..,a_k$ be integers that represent the entries in $v$, so if $v_i$ is the $i$th entry in $v$ then $v_i = a_i+n\mathbb{Z}$. If the GCD of the set $\{a_1,...,a_k,n\}$ is $g_v$, then say the "GCD of $v$" is $g_v$. If $b_1,...,b_k$ are a separate choice of integer representations for the entries in $v$ with GCD $g'$, then we have (by Bezout's Identity) $g_v=g'$. Also, note that since $g_v|n$, it will always be at most $n$ and equals $n$ if and only if $v=0$.
+  </p>
+  <p>
+  I claim that the image of $I_v$ is equal to $g_v\mathbb{Z}/n\mathbb{Z}$. If the $a_i$ are still our representatives for the entries in $v$, and $w_1,...,w_k$ are representatives for $w\in M$, then any dot-product is of the form
+  $$
+  I_v(w) = a_1w_1+\cdots + a_kw_k + n\mathbb{Z}
+  $$
+  Any representative of this set is then of the form $a_1w_1+\cdots + a_kw_k + xn$. By Bezout's Identity, the only possible such numbers are the multiples of $g_v$, so $a_1w_1+\cdots + a_kw_k \equiv g_vy \mod n$ for some integer $y$. This shows that $\textrm{Im}(I_v)\subseteq g_v\mathbb{Z}/n\mathbb{Z}$. But if $d$ is any multiple of $g_v$, then we can find integer $w_1,...,w_k,x$ so that $a_1w_1+\cdots+a_kw_k+nx = d$. Take $w$ to have these entries and we find that this map is surjective.
+  </p>
+  <p> So the size of the image of $I_v$ is then $n/g_v$. Further, $r$ is in the image if and only if it can be represented as a multiple of $g_v$. Let $\epsilon_{v,r}=1$ if $g_v|r'$, where $r'$ is any representative of $r$, and zero otherwise.  We then have that $P(v;r)=\epsilon_{v,r}\frac{g_v}{n}$. Therefore,
+  $$
+  P(r)  = \frac{1}{n^{k+1}}\sum_{v\in M} \epsilon_{v,r}g_v
+  $$
+  </p> 
+  <p>But we're not really done. This is not a super-helpful formula, we can do more work on it. If we fix $g$ and count the number of $v\in M$ so that $g_v=g$, then we can switch this to a sum over the divisors of $n$. Moreover, this term will be nonzero only when $g_v|r'$. So let $d_r=\textrm{gcd}(r',n)$, where $r=r'+n\mathbb{Z}$. Let $N_g$ be the number of $v\in M$ so that $g_v=g$, and this sum becomes
+  $$
+  P(r) = \frac{1}{n^{k+1}} \sum_{g | d_r} gN_r
+  $$
+  A much more tractable sum. But we need to find $N_r$. We'll actually find the probability that a randomly selected $v\in M$ satisfies $g_v=g$. If this probability is $\mathcal{P}_p$, the we have
+  $$
+  P(r) = \frac{1}{n} \sum_{g | d_r} g\mathcal{P}_g
+  $$
+  In this way, we can see the probability of getting $r$ is $1/n$ adjusted by some factor that takes divisibility of $n$ into account. 
+
+  </div>
+
+
+
+</body>
+</html>
