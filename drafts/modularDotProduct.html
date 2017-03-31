@@ -53,13 +53,18 @@
   </p> 
   <p>But we're not really done. This is not a super-helpful formula, we can do more work on it. If we fix $g$ and count the number of $v\in M$ so that $g_v=g$, then we can switch this to a sum over the divisors of $n$. Moreover, this term will be nonzero only when $g_v|r'$. So let $d_r=\textrm{gcd}(r',n)$, where $r=r'+n\mathbb{Z}$. Let $N_g$ be the number of $v\in M$ so that $g_v=g$, and this sum becomes
   $$
-  P(r) = \frac{1}{n^{k+1}} \sum_{g | d_r} gN_r
+  P(r) = \frac{1}{n^{k+1}} \sum_{g | d_r} gN_g
   $$
-  A much more tractable sum. But we need to find $N_r$. We'll actually find the probability that a randomly selected $v\in M$ satisfies $g_v=g$. If this probability is $\mathcal{P}_p$, the we have
+  A much more tractable sum. But we need to find $N_g$. We'll actually find the probability that a randomly selected $v\in M$ satisfies $g_v=g$. If this probability is $\mathcal{P}_p$, the we have
   $$
   P(r) = \frac{1}{n} \sum_{g | d_r} g\mathcal{P}_g
   $$
   In this way, we can see the probability of getting $r$ is $1/n$ adjusted by some factor that takes divisibility of $n$ into account. 
+    </p>
+    <p> We are therefore looking for the probability that $k$ randomly chosen integers $v_1,...,v_k$ between $1$ and $n$ satisfy $\textrm{gcd}(v_1,...,v_k,n)=g$. We then have
+      $$
+      P(\textrm{gcd}(v_1,...,v_k,n) = g) = \sum_{\textrm{gcd}(n,u)=1,\; u \leg n/g}P(\textrm{gcd}(v_1,...,v_k)=gu)
+      $$
 
   </div>
 
