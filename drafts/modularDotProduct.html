@@ -30,7 +30,7 @@
   $$
   The question is then: Given $r\in \mathbb{Z}/n\mathbb{Z}$, what is the probability of picking two $u,v\in M$ so that $u\cdot v = r$? Call this probability $P(r)$. If $n=p$ were a prime, then $\mathbb{Z}/p\mathbb{Z}$ is a field and this is map is a traditional dot product and it's not hard to see that, for each $r$, $P(r)=1/p$. If $n$ is an arbitrary integer, then we lose a few things that make this work out. In particular, we have non-units to deal with that restrict the possible dot products. 
   </p>
-  <p> To investigate this, we'll first fix $v\in M$ and compute the chances that, for fixed $r\in \mathbb{Z}/n\mathbb{Z}$, we pick $u\in M$ so that $v\codt u = r$. Call this probability $P(v;r)$. Note that the underlying sets the give these probabilities are all disjoint and so we get
+  <p> To investigate this, we'll first fix $v\in M$ and compute the chances that, for fixed $r\in \mathbb{Z}/n\mathbb{Z}$, we pick $u\in M$ so that $v\cdot u = r$. Call this probability $P(v;r)$. Note that the underlying sets the give these probabilities are all disjoint and so we get
   $$
   P(r) = \frac{1}{n^{2k}}\sum_{v\in M} n^kP(v;r) = \frac{1}{n^k}\sum_{v\in M} P(v;r)
   $$
@@ -61,11 +61,11 @@
   $$
   In this way, we can see the probability of getting $r$ is $1/n$ adjusted by some factor that takes divisibility of $n$ into account. 
     </p>
-    <p> We are therefore looking for the probability that $k$ randomly chosen integers $v_1,...,v_k$ between $1$ and $n$ satisfy $\textrm{gcd}(v_1,...,v_k,n)=g$. We then have
+    <p> We are therefore looking for the probability that $k$ randomly chosen integers $v_1,...,v_k$ between $1$ and $n$ satisfy $\textrm{gcd}(v_1,...,v_k,n)=g$. We can get rid of the $n$ from this, as long as we consider the gcds on the right with an extra term coprime to $n$. We then have
       $$
-      P(\textrm{gcd}(v_1,...,v_k,n) = g) = \sum_{\textrm{gcd}(n,u)=1,\; u \leg n/g}P(\textrm{gcd}(v_1,...,v_k)=gu)
+      \mathcal{P}_g = \sum_{\textrm{gcd}(n,u)=1,\; u \leq \frac{n}{g}}P(\textrm{gcd}(v_1,...,v_k)=gu)
       $$
-
+We can divide this through by $gu$ to get the expression $P(gu|v_i\,\;\;\&\;\;\textrm{gcd}(v_1/gu,...,v_k/gu)=1)$. So the probability that $k$ randomly chosen integers between $1$ and $n$ have GCD $gu$ is equal to the probability that $k$ randomly chosen integers between $1$ and $n/gu$ are coprime. 
   </div>
 
 
