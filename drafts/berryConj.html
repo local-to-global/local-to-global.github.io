@@ -1,0 +1,87 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Progress on the Berry-Keating Conjecture: Using Quantum Mechanics to solve the Riemann Hypothesis</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Progress on the Berry-Keating Conjecture: Using Quantum Mechanics to solve the Riemann Hypothesis</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  <h3>A Mysterious Function</h3>
+  <p>
+  One of the most high profile unsolved problems in mathematics is the Riemann Hypothesis. Prime numbers are numbers that are only divisible by one and themselves, and are the centerpoint to a wide variety of math in the field of Number Theory. One question surrounding prime numbers is that of figuring out how they are distributed along the number line. The Prime Number Theorem, a key result of the late-19th century states that, on average, the prime numbers tend to spread out the further along the number line, in a fairly predictable way. While we know the average behaviour of the distribution, we're much less sure about how wildly they deviate from the average. The Riemann Hypothesis is an open conjecture predicting that these deviations are as tame as possible. So while there is a certain unpredictablility to the primes, the Riemann Hypothesis says that this unpredictableness is not too wild or biased.
+</p>
+<p>
+The way that the Riemann Hypothesis is formulated, however, sometimes does not make it obvious that it has to do with primes. What happens is that we encode the entire distribution of primes into a single function called the Riemann Zeta Function $\zeta(s)$. This function contains all the information about primes that we could possibly ever desire, but this information is encrypted and this encryption is very difficult to decode. Even small breakthroughs in understanding this function can require a lot of sophisticated and deep mathematics.
+</p>
+<p>
+This function is very generous with the numbers you can plug into it. You can plug in absolutely any number, except $1$, into it. By "any number" we also include imaginary numbers. For example, $\zeta(i)\approx 0.0033+i0.4182$. Overall, if we know how the Riemann Zeta Function behaves on all these numbers, then we'll know everything about the Riemann Zeta Function and, therefore, everything about the primes.
+</p>
+<p>
+In fact, we have formulas that tell us exactly how the primes are distributed, given that we know the right stuff about the Riemann Zeta Function. These formulas tell us that the distribution of primes are encoded into the Riemann Zeta Function as the values that make is zero. That is, if we know all the numbers $A$ so that $\zeta(A)=0$, then we can use these formulas to know everything we could ever want about how the primes are distributed. These numbers are called the "Zeros" of the Riemann Zeta Function.
+</p>
+<p>
+We know some of these numbers. For instance, $-2,-4,-6,-8,-10,...$ all make the Riemann Zeta Function go to zero. Unfortunately, there are many more zeros and the way that these numbers contribute to the distrition of primes is vastly overpowered by the other zeros and, as such, are called the "Trivial Zeros" and zeros that are not negative even integers are called "Non-Trivial Zeros". Luckily, where the non-trivial zeros can be is fairly restricted. They have to be imaginary numbers in a constrained strip called the "Critical Strip". Explicitly, they nontrivial zeros must look like $A=x+iy$ where $0\leq x \leq 1$. We can draw the critical strip on the complex plane as such:
+</p>
+IMG
+<p>
+The middle of the strip is all the numbers that look like $\frac{1}{2}+iy$, and the zeros are mirrored about this line. We call this the "Critical Line". If there is a zero on one side of this line, then there is a mirror-zero on the other side of this line. 
+<p>
+</p>
+The way that our formulas work tell us that the closer that the zeros are to the edges of the strip, the more wildly the primes will behave. The Prime Number Theorem, the theorem that tells us that the primes have a nice average behavior (disregarding variation from the average), actually boils down to saying that there are no zeros on the edge of the critical strip. That is, all the zeros are strictly in on the inside of the strip, not on the border. But the closer to the middle of the strip that the primes live, the better behaved that they are. Riemann then conjectured that all the zeros were actually on the middle of the strip. This is how the Riemann Hypothesis is typically stated, and it can be thought of as a "Super Prime Number Theorem". 
+<p>
+Overall, then, if we want to solve the Riemann Hypothesis, then we need to get a grip on these zeros and try to show that they are only on the middle line.
+</p>
+
+<h3>Enter Physics</h3>
+<p>
+The Riemann Hypothesis was conjectured long before the Prime Number Theorem itself was proved, and has gathered a lot of attention over the 150 years since. It is so prolific that there is a million dollar prize waiting for whoever can prove it. Interest has not been contained only within the Number Theorists, many different areas of math have put their own spin on attempts to solve it. Even physics has taking a knock at it. 
+</p>
+<p>
+In traditional physics, you can give an object a push by any amount of energy, and it will follow the path, or configuration, associated to that energy. Any level of the continuous energy possibilities is valid. The field of Quantum Mechanics is called what it is because in common quantum mechanical systems, we can't do this, the possible energies that you can give an object are discrete and quantized. An electron in an atom won't accept an amount of energy that isn't on it's list of possible energies. 
+</p>
+<p>
+To talk about a physical system in quantum mechanics, you then need to find the allowed energies. In the process you generally also find the possible configurations that the particles can be in. So a quantum mechanical system is described, in part, by the list of possible energies that it can have. 
+</p>
+Sounds pretty familiar to how the distribution of primes is determined by the list of zeros of the Riemann Zeta Function...
+<p>
+This sounded familiar to a couple physicists/mathematicians in the early 1900s as well. What would happen if there were a quantum mechanical system that had the nontrivial zeros of the Riemann Zeta Function as its allowed energies? There is a problem to this: The zeroes have imaginary components to them, but energies have to be real. But there are algebraic manipulations that you can do to the nontrivial zeros that will make them real, but only if the zero is on the critical line! 
+</p>
+<p>
+It was then conjectured that there was quantum mechanical system that had exactly these transformed nontrivial zeros of the Riemann Zeta Function as the allowed energies. This is equivalent to the Riemann Hypothesis because for it to be a physical system, the energies must be real, and they're only real if the zeros are all on the critical strip, which is what the Riemann Hypothesis says. This conjecture states that we can encode the distribution of primes into some physical system.
+</p>
+<h3>The Berry-Keating Conjecture</h3>
+<p>
+Such a system is not easy to find. But the mathematical properties of what such a physical system would have to satisfy were investigated, leading to the Berry-Kearing Conjecture which hypothesized certain properties of such a system. In a recent paper, a group of physicists claim to find a mathematical formulation that offers such a system. What they found was a psuedo-physcal system, whose quantum mechanical energies are exactly the zeros of the Riemann Hypothesis. This is psuedo-physical because, while it looks like a physical system, the possibility of imaginary energies cannot be ruled out. This, essentially, offers a solution to the Berry-Keating Conjecture, which is a step towards the Riemann-Hypothesis. 
+</p>
+<p>
+What this does is encrypted the information in the Riemann Zeta Function into a quantum mechanical system that may or may not be physical. The hope is that it is easier to  decode this information in this quantum mechanics form, compared to how it is encrypted in the Riemann Zeta Function form.
+</p>
+<p>
+Whether this direction of attack will eventually lead to a proof of the Riemann Hypothesis or not is still up in the air. Is this a wild goose chase, or are we on track?
+</p>
+
+
+  </div>
+
+
+
+</body>
+</html>
+Contact GitHub API Training Shop Blog About
