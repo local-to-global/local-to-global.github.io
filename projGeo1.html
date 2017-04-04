@@ -56,47 +56,59 @@ $$
 We still have some undefined quantities, like $0\cdot\infty$, $\infty/\infty$, $0/0$, $\infty-\infty$. You'll note the similarity to the indeterminant forms for L'Hopital's rule. These prevent us from doing a few things that we would normally do with arithmetic. Most notably, these rules, along with the restriction, prevent us from using division by zero to "cancel". For example, $2\cdot0=3\cdot0$, but we can't divide by $0$ to cancel out the zeros, as we would end up with $2=3$. This is how a lot of "fake proofs" of rediculous things of this sort work. This is all because $x0=0$ for all $x$ and $y\infty=\infty$ for all $y$. So while we can divide by zero now, we can't cancel using this division. This is perhaps why you don't see it in school. Division isn't taught super well, the computational process is taught okay, but the arithmetic concepts are not, so it would be hard to instill onto students the difference between division and cancellation.
 </p>
 <h3>The Projective Real Line</h3>
-<p>
-We now have an intuitive notion of the Projective Real Line, as the real line tied up into a circle using an extra point denoted by the symbol "$\infty$". But it is not yet a robust enough concept to generalize or really use in any interesting way (except to divide by zero). This is what we will construct now.
+<p> What we have just described is an intuitive idea about how we would expect something like division by zero to work. But this does not mean that we have created a mathematically precise method for dealing with it. This is a starting point for creating a mathematical formulation that encapsulates this intuition, and from this formulation we can generalize further to things like higher dimensions and alternate number systems.
+</p>
+<p>To make this formulation, we have to try to pick out the important things about the above description. What we found is that something like "$1/0$" can make sense, but the issue is that we cannot evaluate such a fraction. It's not the fraction itself that's the issue, the issue that fractions need to evaluate to real numbers that is the problem. This suggests that if we can work with fractions without having to worry if their division makes sense, then we might be able to get a way to get the fraction $1/0$. With this in mind, we can introduce Numerator-Denominator Pairs. These are nothing more than pairs of real numbers $(a:b)$ to represent the fraction $a/b$. We know that there is no context that can make $0/0$ make sense so we require at least one of the entries in the pair to be non-zero. 
     </p>
     <p>
-      The idea is to view the real line as all possible ratios of two numbers. For instance:
+      Aside from evaluation, we want these pairs to behave like fractions. One thing about fractions is that we can cancel out common terms, that is
+      $$
+      \frac{ra}{rb} = \frac{a}{b}
+      $$
+    This suggests that we should have a similar thing happen to these pairs. That is, we impose the following equality:
+      $$
+      (ra:rb) = (a:b)
+      $$
+      whenever $r$ is a nonzero real number. Furthermore, fractions have their own rules for arithmetic:
       $$
       \begin{eqnarray*}
-      3 &\textrm{ is the ratio }& 15:5\\ 
-      \sqrt{2} &\textrm{ is the ratio }& \sqrt{8}:2\\
-      \pi &\textrm{ is the ratio }& 8\pi^2:8\pi\\
-      e &\textrm{ is the ratio} & e:1
+      \frac{a}{b}+\frac{c}{d} &=& \frac{ad+bc}{bd}\\
+      \frac{a}{b} \cdot \frac{c}{d} &=& \frac{ac}{bd}\\
+      \frac{a}{b} \ \frac{c}{d} &=& \frac{ad}{bc}\\
       \end{eqnarray*}
       $$
-      So given two real numbers $x$ and $y$, we can say that $(x:y)$ is a representation of the real number $x/y$. An important thing about this is that if $z$ is nonzero, then $(zx:zy)=(x:y)$. This means that if $y$ is a nonzero real number, then $(x:y)$ is an alternative way to look at the number $x/y$.
-    </p>
-    <p>
-      Why is this productive? It helps us because we can consider pairs like $(x:0)$, which do not represent a real number. What we're really doing is considering all pairs $(x:y)$, where not both $x$ and $y$ are zero, and saying that $(x:y)=(x':y')$ if there is a number $z$ so that $x'=zx$ and $y'=zy$. In this way, every real number $x$ can be represented as $(x:1)$ and $\infty$ can be represented as $(1:0)$. Defined this way, these pairs represent every element of the Projective Real Line. It is important that we don't allow $(0:0)$, as this does not fit well into this schema.
-    </p>
-    <p>
-      We can define arithmetic on these things too, multiplication and addition are defined as 
+      which suggests that we give our pairs an arithmetic as:
       $$
       \begin{eqnarray*}
-      (a:b)(c:d)&=&(ac:bd)\\
-      (a:b)+(c:d)&=&(ad+bc:bd)
+      (a:b)+(c:d) &=& (ad+bc:bd)\\
+      (a:b) \cdot (c:d) &=& (ac:bd)
+      (a:b) / (c:d) &=& (ad:bc)
       \end{eqnarray*}
       $$
-      We can recover the arithmetic of the real numbers this way, but also the arithmetic involving infinity that we explored above. For instance $(a:b)(1:0)=(a:0)=(1:0)$ shows that $x\infty=\infty$ whenever $x$ is nonzero.
+      The set of all such pairs is called the "Projective Real Line". Within it, the Projective Real Line contains all the real numbers, the real number $r$ corresponds to the Projective Real Number $(r:1)$. But, in addition, we have things like $(a:0)$, which represent what would be $a/0$. Using our rules for arithmetic, we can show that 
+      $$
+      \begin{eqnarray*}
+      (a:0) &=& (1:0)\\
+      (1:0)\cdot(a:b) &=& (1:0)\\
+      (a:b) / (0:1) &=& (1:0)\\
+      (a:b) / (1:0) &=& (0:1)\\
+      (1:0) + (a:b) &=& (1:0)
+      $$
+      whenever $a$ is nonzero (and $b$ is nonzero in the last one). In this,  $(1:0)$ corresponds to $\infty$. These are the rigorous manifestation of $x\infty=\infty$, $x/0=\infty$, $x/\infty=0$ and $\infty + x =\infty$, except now we have a rigorous setting to investigate these things.
     </p>
     <p>
-      There are also more geometric ways to view these. We can, for instance, view these as the collection of all lines in the plane that pass through the origin. If $(a:b)$ is one of these elements, then we can make the line $ax-by=0$. When $b\ne 0$, this is just the line that passes through the origin with slope $a/b$, but when $b=0$ this is the vertical line through the origin.
-</p>
-<img src="">
-<p>
-  This can help us view the numbers as actually living on a circle. If we draw the unit circle on the origin, then each line through the origin gives us two lines on opposite ends of the circle. If we then wrap the circle around on itself, like you would double-loop a rubber band, then these two points will line up. Explicitly, this means that we can identify the real number $x$ with the angle $\theta_x=2\arctan(x)-\frac{\pi}{2}$. This puts $x=0$ at the bottom, $x=1,-1$ on the rightmost/leftmost points and $x=\infty$ at the top:
-</p>
-<img src="">
-<p>
-  While this does give us a way to picture exactly how the Real Projective Line looks like as a circle, the important takeaway is the representation as pairs of ratios $(a:b)$. This is the most maliable representation and easily generalizes to higher dimensions, whereas these visual ones we cannot. Doing this in higher dimensions results in objects that can't be simply represented in 3D space, so we can't visualize them in any kind of reliable way, so it's the $(a:b)$ representation that is the bread-and-butter that we're looking for. We'll look at higher dimensional analogs to this later, and how they affect curves.
+      Arithmetically, the Projective Real Line gives us an "infinity" and "division by zero" that makes rigorous sense. Geometrically, it looks like a circle. The most natural way to see this is to plot a point $(a:b)$ on the coordinate grid, and plot all the others that equal it. So all the points $(ra:rb)$. What you'll get is a line passing through the origin. This means that every point on the projective real line corresponds to a line in the plane. Conversely, every line corresponds to a point on the Projective Real Line, with the vertical line representing infinity. In a way, then, the Projective Real Line is the set of all slopes that lines can have. This is a lot, but luckily we can visualize this by drawing a circle around the origin and looking at the points where each line pass through the circle. This is close to how the Projective Real Line looks like a circle, but any line will pass through such a circle at two opposite points. So for every point on the Projective Real Line, we can easily get two points on the circle. 
     </p>
-
-
+    <p>
+      For example, the point $(1:0)$, which represents infinity, corresponds to the top and bottom points on the circle. The point $(0:1)$, which represents zero, corresponds to the leftmost and rightmost points. The point $(1:1)$ corresponds to a line of 45 degrees and cuts through at two points. 
+    </p>
+    <p>
+      We can easily turn these two points into a single point by wrapping the circle around itself twice, like you might double-loop a rubber band. If you imagine taking the bottom of the circle, and stretchcing it around the rest of the circle so that is meets with the top point, then you have the idea how this works. With this double looping, infinity corresponds to the top point, zero corresponds to the bottom point, 1 corresponds to the rightmost point and -1 corresponds to the leftmost point.
+    </p>
+    
+    <h3> Conclusion</h3>
+    <p>
+      Using our intuition about what division by zero should look like, we've created a mathematically rigorous way to work with it. This formulation, the Projective Real Line, is very robust and can give us a blueprint to working in higher dimensions and in alternative number systems. For instance, we'll see that we can look at plane-geometry using infinities in the form of triples $(a:b:c)$ with similar equality conditions. With this we can say things like "All lines cross at one point in the Real Projective Plane, parallel lines cross at infinity". Conics have a very nice interpretation when we let them live on the Real Projective Plane, rather than just the Cartesian coordinate grid. While we have a nice formulation for this, we cannot visualize the Real Projective Plane. We can also take this idea and apply it to complex number as well, obtaining the Riemann Sphere, which is the Complex Projective Line. 
   </div>
 
 
