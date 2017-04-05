@@ -1,0 +1,98 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>The Pi in the Gaussian</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">The Pi in the Gaussian</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  <p>
+  People are generally surprised to see the formula
+  $$
+  \int_{\infty}^{\infty}e^{-x^2}dx =\sqrt{\pi}
+  $$
+    Why is there a $\pi$ there? While there are other reasons, this equation has a particularly interesting reason for the $\pi$. 
+    </p>
+    <p>
+    Consider a differentiable function $f(x)$, if $(x,y)$ is a point on the coordinate grid, then we can consider the value $f(x)f(y)$. In particular, what happens when $f(x)f(y)=kf(r)$, where $r=\sqrt{x^2+y^2}$? If this is the case, then we can evaluate the integral rather nicely. If we set $I=\int_{-\infty}^{\infty}f(x)dx$, then we get
+    $$
+    \begin{eqnarray*}
+    I^2 &=& \left(\int_{-\infty}^{\infty}f(x)dx\right)\cdot \left(\int_{\infty}^{\infty}f(y)dy\right)\\
+    &=& \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x)f(y)dxdy\\
+    &=& \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}kf(\sqrt{x^2+y^2})dxdy
+    \end{eqnarray*}
+    $$
+    Transforming this into polar coordinates then gives
+    $$
+    \begin{eqnarray*}
+    I^2 &=& k\int_0^{\infty}\int_0^{2\pi}f(r)rd\theta dr\\
+    &=& 2\pi k\int_0^{\infty}f(r)rdr
+    \end{eqnarray*}
+    $$
+    This means that the integral $I$ will equal (plus or minus) the square root of $2\pi k$-times the radial integral. That is
+    $$
+    \int_{-\infty}^{\infty} f(x)dx = \sqrt{2\pi k} \left(\int_0^{\infty}f(x)xdx\right)^{\frac{1}{2}}
+    $$
+    If there is no $\pi$ in the integral of $f(x)xdx$ or $k$, then the integral of $f(x)dx$ will necessarily have a $\pi$ in it. So what functions satisfy the equation $f(x)f(y)=kf(r)$?
+    </p>
+    <p>
+    Let's talk a bit more generally: What are the functions $f(x)$ so that $f(x)f(y)$ is independent of the angle of the point $(x,y)$ in the coordinate plane. So, which functions $f(x)$ are so that $f(x)f(y)$ only depends on the distance $(x,y)$ is from the origin? We'll assume differentiability, so we can consider then
+    $$
+    \frac{d}{d\theta}f(x)f(y) = 0
+    $$
+    Note that since $x=r\cos(\theta)$ and $y=r\sin(\theta)$, we get $\frac{dx}{d\theta} = -y$ and $\frac{dy}{d\theta}=x$. Using the chain rule, we can evaluate this derivative:
+    $$
+    \begin{eqnarray*}
+    \frac{d}{d\theta}f(x)f(y) &=& \frac{\frac{dx}{d\theta}f'(x)f(y) + \frac{dy}{d\theta}f(x)f'(y)}{(f(x)f(y))^2}\\
+    &=& \frac{-yf'(x)f(y) + xf(x)f'(y)}{(f(x)f(y))^2}
+    \end{eqnarray*}
+    $$
+    For the derivative to be zero, we then just need $xf(x)f'(y)=yf'(x)f(y)$. Rearranging this, we get 
+    $$
+    x\frac{f(x)}{f'(x)} = y\frac{f(y)}{f'(y)}
+    $$
+    so the value $x\frac{f(x)}{f'(x)}$ is independent of the value $x$ that we input, so there is some constant $c$ so that such a function satisfies the differential equation
+    $$
+    f'(x) = cxf(x)
+    $$
+    The similarity to the equation $f'(x)=cf(x)$ should be noted, and this equation is the "infinitesimal" version of the additive formula $h(x+y)=h(x)h(y)$ that defines and makes exponential functions so important. In fact, the change of variables $x=\sqrt{t}$, while noting that $\frac{dx}{dt}=\frac{1}{2x}$, shows that
+    $$
+    \begin{eqnarray*}
+    \frac{df(x)}{dt} &=&  f'(x)\frac{dx}{dt}\\
+    &=& cxf(x)\frac{dx}{dt}\\
+    &=& \frac{c}{2} f(x)
+    \end{eqnarray*}
+    $$
+    That is, if $F(t)=f(\sqrt{t})$, then $F'(t) = \frac{c}{2}f=F(t)$, which is the "infinitesimal" additive formula. So $F(t)=ke^{ct/2}$. What this means is that we must have $f(x) = ke^{Cx^2}$ for some constance $k$ and $C$. 
+    </p>
+    <p>
+    So imposing just angle independence on $f(x)f(y)$ requires us to get a Gaussian-type function. On the other hand, if $f(x)=ke^{Cx^2}$, then we will get $f(x)f(y)=kf(r)$ since we have $x^2+y^2=r^2$. In a way, then $f(x)f(y)=kf(r)$ can be thought of as a "Multiplicative Distance Formula".
+    </p>
+    <p>
+    Because the Gaussian is the unique type of function whose 2D product is angularly independent, it follows that we necessarily get the $\pi$ as a consequence of this independence.
+    </p>
+
+
+  </div>
+
+
+
+</body>
+</html>
