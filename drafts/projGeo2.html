@@ -1,0 +1,72 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Projective Geometry 2: The Real Projective Plane</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Projective Geometry 2: The Real Projective Plane</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  <p>
+  Last time, we saw that we can extend the real line and include infinity in a meaningful way by wrapping it up in a circle. This visualization works well in this 1-dimensional case, but things become unruly if we want to go to higher dimensions. In particular, if we want to talk about the geometry of the plane, including the behavior of lines and conics, in a way that includes infinity, then we need something more robust that doesn't rely on us looking at something. So we saw how we can view this circle, the Real Projective Line, as pairs of numbers $(a:b)$, where at least one is nonzero, and we say that $(a:b)=(ra:rb)$ for any nonzero real number $r$. These generalize fractions just enough to meaningfully talk about things like $1/0$, which is represented by $(1:0)$.
+  </p>
+<p>
+This explicit description is easily generalizable to higher dimensions. In particular, we can extend the plane to include points "at infinity" in a similar way. In particular, we say that all triples
+$$
+(a:b:c)
+$$
+    where at least on of these is nonzero, create the Real Projective Plane, and we say that
+    $$
+    (ra:rb:rc) = (a:b:c)
+    $$
+    for any nonzero $r$. The set of these such numbers includes the real coordinate plane. In particular, if $(x,y)$ is a coordinate on the plane, then $(x:y:1)$ is the respective point on the Real Projective Plane. In fact, if $c$ is nonzero, then $(a:b:c)$ will correspond with the point $(a/c,b/c)$ on the coordinate plane. This means that the real projective plane includes the ordinary coordinate plane, but extends it. 
+</p>
+<p>
+    It also have the numbers of the form $(a:b:0)$. We call such points "Points at Infinity", because they "look like" the point $(a/0,b/0)$. These numbers, collectively, form their own real projective line, since they are, essentially, numbers of the form $(a:b)$, so we often call the points $(a:b:0)$ the "Line at Infinity". There is some difficulty in picturing how this works geometrically, because this projective line at infinity doesn't just surround the plane as a border, it wraps it up in a way that we can't picture. To understand why we can't really picture it, we need to know how lines behave on this extended plane.
+    </p>
+    <h3>Projective Lines</h3>
+    <p>
+    A line on the traditional $(x,y)$-coordinate plane is the set of points that satisfy $Ax+By+C=0$, where at least one $A,B$ is nonzero. We can make this a projective line by making it "homogeneous". This means it needs to be an equation in three variables, $x,y,z$ for each of the entries in $(x:y:z)$, but also  that the degree in each term needs to be the same. In this case, this means that the projectivized version of $Ax+By+C=0$ is 
+    $$
+    Ax+By+Cz=0
+    $$
+    So a line in the projective plane are the projective points $(x:y:z)$ that satisfy an equation $Ax+By+Cz=0$. A key thing about this is to ensure that if $(x:y:z)$ satisfy the equation, then so does $(rx:ry:rz)$, since they are actually the same point. Each term in the projectivized equation being the same ensures that this happens. We recover the original line in the traditional coordinate plane as the points $(x:y:1)$ that satisfy this equation, but the points of the form $(x:y:0)$ on that satisfy the equation are the points on this line at infinity. 
+    </p>
+    <p>
+    Each projective line has exactly one point at infinity. Namely, $(B:-A:0)$ is the point at infinity for the line $Ax+By+Cz=0$. This is actually pretty interesting. If we look at the original equation $Ax+By+C=0$, then we can write it in slope-intercept form (if $B$ is nonzero) as $y = -\frac{A}{B}x+\frac{C}{B}$. That is, $-A/B$ is the slope of this line. We can rewrite the point $(B:-A:0$ as $(1:-A/B:0)$. That is, the point of infinity of the line $Ax+By+Cz=0$ is point that corresponds exactly to the slope of the line. That is, a projective line intersects the line at infinity at its slope. Or, the line at infinity corresponds to all possible slopes of lines.
+    </p>
+    <p>
+    This has a few consequences. Firstly, it tells us why we can't just picture the real projective plane as the ordinary plane but with a circle boundary at infinity. If this were the case, then drawing a line on the projective plane would intercept it twice at both ends of the line, but the projective plane glues these opposite ends of the line together, and you  also need a separate one for each possible slope. The coordinate plane with a circle border surrounding it at infinity is just a disk, and is analogous to the extended real line where $+\infty$ and $-\infty$ are different. The Real Projective Plane is what you would get if you could clue the Mobius strip to itself along its single line. Can't be done nicely or intuitively. 
+    </p>
+    <p>
+    Secondly, we get the theorem "Any two distinct lines intersect at exactly one point on the real projective plane." If the lines are not parallel, then they interesect at exactly one point in the coordinate plane part of the projective plane, and not at infinity since they have different slopes. But if they are parallel, then they intersect at infinity, since they have the same slope, but nowhere else. This feels much nicers than Euclid's original description of things, with parallel lines as a special case.
+    </p>
+    <p>
+    Also, the line at infinity, corresponds to the line $0x+0y+Cz=0$.
+    </p>
+    
+
+
+
+  </div>
+
+
+
+</body>
+</html>
