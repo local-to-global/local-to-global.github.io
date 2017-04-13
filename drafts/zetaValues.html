@@ -1,0 +1,64 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Bernoulli Numbers and Values of the Riemann Zeta Function</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Bernoulli Numbers and Values of the Riemann Zeta Function</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  <p>
+  Bernoulli Numbers pop up in many contexts in number theory. They are defined to be the Taylor coefficients of the function
+  $$
+  f(t) = \frac{t}{e^t-1} = \sum_{n=1}^{\infty}b_n\frac{t^n}{n!}
+  $$
+  The reason why this function is important is because we can expand this out as a geometric series:
+  $$
+  f(t) = te^{-t}\frac{1}{1-e^{-t}} = te^{-t} + te^{-2t} + te^{-3t}+ te^{-4t}+...
+  $$
+  This sum can be used in many ways that we'll see.
+  Related to this, we also can define the Bernoulli Polynomials
+ as the Taylor coefficients of the following function (expanded in the variable $t$):
+  $$
+  F(x,t) = \frac{te^{xt}}{e^t-1} = \sum_{n=1}B_n(x)\frac{t^n}{n!}
+  $$
+  Note that $B_n(0)=b_n$. This can  be expanded using geometric series as
+  $$
+  \begin{eqnarray*}
+  F(x,t) &=& te^{t(x-1)}\frac{1}{1-e^{-t}}\\
+  &=& te^{t(x-1)} + te^{t(x-2)} + te^{t(x-3)}+\cdots\\
+  &=& t\sum_{n=1}^{\infty}e^{t(x-n)}\\
+  &=& t\sum_{n=1}^{\infty}\sum_{k=0}^{\infty} (x-n)^k\frac{t^k}{k!}
+  $$
+  Here we see how this geometric expansion can be used. If we could rearrange these sums, then the Taylor coefficients would be sums powers. We can do this with some clever cancelling as
+  $$
+  F(m+1,t) - F(1,t) = t\sum_{n=1}^{\infty}\sum_{k=0}^{\infty} \big((m+1-n)^k - (1-n)^k\Big)\frac{t^k}{k!}
+  $$
+  
+  With the Bernoulli Poly
+
+
+
+  </div>
+
+
+
+</body>
+</html>
+Contact GitHub API Training Shop Blog About
