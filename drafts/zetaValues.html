@@ -38,21 +38,30 @@
   $$
   F(x,t) = \frac{te^{xt}}{e^t-1} = \sum_{n=1}B_n(x)\frac{t^n}{n!}
   $$
-  Note that $B_n(0)=b_n$. This can  be expanded using geometric series as
-  $$
-  \begin{eqnarray*}
-  F(x,t) &=& te^{t(x-1)}\frac{1}{1-e^{-t}}\\
-  &=& te^{t(x-1)} + te^{t(x-2)} + te^{t(x-3)}+\cdots\\
-  &=& t\sum_{n=1}^{\infty}e^{t(x-n)}\\
-  &=& t\sum_{n=1}^{\infty}\sum_{k=0}^{\infty} (x-n)^k\frac{t^k}{k!}
-  $$
-  Here we see how this geometric expansion can be used. If we could rearrange these sums, then the Taylor coefficients would be sums powers. We can do this with some clever cancelling as
-  $$
-  F(m+1,t) - F(1,t) = t\sum_{n=1}^{\infty}\sum_{k=0}^{\infty} \big((m+1-n)^k - (1-n)^k\Big)\frac{t^k}{k!}
-  $$
-  
-  With the Bernoulli Poly
-
+  Note that $B_n(0)=b_n$. Now consider the value $F(x,t)(e^{(N+1)t}t-1)$ Using the formula $\frac{z^{N+1}-1}{z-1}=1+z+z^2+\cdots+z^N$ we get
+    $$
+    \begin{eqnarray*}
+    F(x,t)(e^{(N+1)t}-1) &=& te^{xt}\frac{e^{(N+1)t}-1}{e^t-1}\\
+    &=& te^{xt}(1+e^t+e^{2t}+\cdots +e^{Nt})\\
+    &=& t\sum_{k=0}^{N}e^{t(x+k)}\\
+    &=& \sum_{k=0}^{N}\sum_{n=0}^{\infty}(x+k)^n\frac{t^{n+1}}{n!}\\
+    &=& \sum_{n=0}^{\infty}(x^n + (x+1)^n+(x+2)^n+\cdots+(x+N)^n)\frac{t^{n+1}}{n!}\\
+    \end{eqnarray*}
+    $$
+    So the Taylor Coefficients of this contain the sum of the first $N$ $n$th powers, when $x=0$. But we can write this differently as
+    $$
+    \begin{eqnarray*}
+    F(x,t)(e^{(N+1)t}-1) &=& \frac{te^{xt+(N+1)t}}{e^t-1} - \frac{te^{xt}}{e^t-1}\\
+    &=& F(x+N+1,t) - F(x,t)\\
+    &=& \sum_{n=1}^{\infty} (B_n(x+N+1)-B_n(x))\frac{t^n}{n!}
+    \end{eqnarray*}
+    $$
+    Plugging in $x=0$ and equating these Taylor coefficients then shows that
+    $$
+    1+2^n+3^n+4^n+\cdots+N^n = \frac{B_{n+1}(N+1)-B_{n+1}(1)}{(n+1)!}
+    $$
+    And this followed directly from the nice properties of the function $F(x,t)$ and how we can rewrite it using geometric series.
+    
 
 
   </div>
@@ -61,4 +70,3 @@
 
 </body>
 </html>
-Contact GitHub API Training Shop Blog About
