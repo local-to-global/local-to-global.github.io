@@ -1,0 +1,98 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Linear Diophantine Equations and Division</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Linear Diophantine Equations and Division</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+    <p>
+    The basic object of study in Number Theory are the integers, the set of numbers $...,-2,-1,0,1,2,...$, which we denote with the symbol $\mathbb{Z}$, along with its arithmetic operations of addition and multiplication. These operations satisfy associative and distributive properties:
+    $$
+    \begin{eqnarray*}
+    a+(b+c) &=& (a+b)+c\\
+    a\cdot(b\cdot c) &=& (a\cdot b)\cdot c\\
+    a\cdot (b+c) &=& (a\cdot b)+(a\cdot c)
+    \end{eqnarray*}
+    $$
+  We will just take these basic properties of arithmetic for granted. Number Theoretic questions begin to naturally pop-out when you ask certain kinds of questions about the integers. In particular, questions about Diophantine Equations motivate many results in Number Theory and are the subjects of the hardest unanswered questions in the whole of math. A Diophantine Equation is an algebraic equation for which you only look for integer solutions. For example:
+  $$
+  \begin{eqnarray*}
+  x^2+y^2=z^2 && x^2-7y^2=1\\
+  x^7+y^7 +z^7+w^7=0 && y^2=x^3+x+1
+  \end{eqnarray*}
+  $$
+  are all Diophantine Equations when you are searching only for the solutions that are integers. For example, the equation $x^2-2=0$ has an easy solution in the reals: $x=\pm\sqrt{2}$, but it takes some work to show that this has no solution as a Diophantine Equation, as $\sqrt{2}$ is irrational.
+  </p>
+  <p>
+  Diophantine Equations are also responsible for much of our arithmetic. To this end, we will study Single Variable Linear Diophantine Equations and see how asking questions about these naturally leads to division and fundamental results about division. A Single Variable Linear Diophantine Equation is an equation of the form $ax-b=0$ for two fixed integer $a,b\in\mathbb{Z}$. We seek to know when this has an integer solution. To this end we define:
+  <div class="thm"><b>Definition:</b> Let $a,b\in\mathbb{Z}$ be integers with $a$ nonzero. Say that <b> $a$ Divides $b$</b> if there is a solution to the Diophantine Equation $ax-b=0$. Write $a|b$ for this, read "$a$ divides $b$". We might also say that $b$ is a <b>Multiple</b> of $a$. If $a$ does not divide $b$, write $a\nmid b$.</div>
+  All we have done is provide ourselves with a streamlined way to talk about when $ax-b=0$ has a solution. We can then use the form of this equation to provide some structure to the solutions via the following theorem.
+  <div class="thm"><b>Theorem:</b> Let $a,b,c\in \mathbb{Z}$ be integers, with $a$ nonzero. We have the following results about divisibility:
+  <ol>
+    <li> For all $c$ we have $c|c$, $1|c$ and $c|0$, even if $c=0$.</li>
+    <li>  If $a|b$ and $b\ne 0$ then $|a|\leq |b|$. </li>
+    <li> If $a|b$ then $a|bc$.</li>
+    <li> If $a|b$ and $a|c$ then $a|(b+c)$.</li>
+    <li>  If $a|b$ and $b|c$ then $a|c$.</li>
+    <li> <b>HW:</b> If $|c| &lt |a|$ and $a|b$, then $a\nmid (b+c)$. </li>
+    <li> <b>HW:</b> If $a|b$ and $b|a$ then $a=\pm b$.</li>
+  </ol>
+  </div>
+  <div class = "thm"><b>Proof:/b>
+    <ol>
+      <li> If $c$ is any integer, then $x=1$ is a solution to $cx-c=0$, and $x=c$ is a solution to $1\cdot x-c=0$, and $x=0$ is a solution to $cx-0=0$. </li>
+      <li> Let $x=n$ be a solution to $ax-b=0$. Then $b=an$. If $b\ne 0$, then $n\ne 0$ and  $|n|\geq 1$, so $|b|=|an|\geq |a|$.</li>
+      <li> Let $x=n$ be a solution to $ax-b=0$ and $x=m$ a solution to $ax-c=0$. We then have $a(n+m)-(b+c)=an-b + am-c = 0+0$.</li>
+      <li> Let $x=n$ be a solution to $ax-b=0$ and $x=m$ a solution to $bx-c=0$. Then $anm -c=bn-c=0$.</li>
+    </ol>
+  </div>
+  This gives us some basic rules to work with divisibility and allows us to discuss solutions to these kinds of equations. Furthermore, these equations allow us to derive the arithmetic of fractions from their solutions. 
+  <div class="thm"><b>Theorem:</b> If $a,b\in\mathbb{Z}$ are integers, with $a$ nonzero and $a|b$, then let the symbol $x=\frac{b}{a}$ denote the solution to the equation $ax-b=0$. We then have the following arithmetic rules:
+  <ol>
+    <li> For integers $a,b,c$, with $a,c$ nonzero, we have $\frac{bc}{ac}=\frac{b}{a}$.</li>
+    <li> For integers $a,b,c,d$ with $a,c$ nonzero, we have $\frac{b}{a}\cdot \frac{d}{c}=\frac{bd}{ac}$</li>
+    <li> For integera $a,b,c$, with $a$ nonzero, we have $c\cdot \frac{b}{a}=\frac{cb}{a}$</li>
+    <li> For integers $a,b,c,d$ with $a,c$ nonzero, we have $\frac{b}{a}+ \frac{d}{c}=\frac{bc+ad}{ac}$</li>
+    <li> For an integer $b$ we have $\frac{b}{1}=b$ for all $b$ and  $\frac{0}{b}=0$, $\frac{b}{b}=1$, when $b\ne 0$</li?
+  </ol>
+  </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+</body>
+</html>
