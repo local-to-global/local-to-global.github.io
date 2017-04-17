@@ -71,10 +71,15 @@
     <li> For integers $a,b,c,d$ with $a,c$ nonzero, we have $\frac{b}{a}\cdot \frac{d}{c}=\frac{bd}{ac}$</li>
     <li> For integera $a,b,c$, with $a$ nonzero, we have $c\cdot \frac{b}{a}=\frac{cb}{a}$</li>
     <li> For integers $a,b,c,d$ with $a,c$ nonzero, we have $\frac{b}{a}+ \frac{d}{c}=\frac{bc+ad}{ac}$</li>
-    <li> For an integer $b$ we have $\frac{b}{1}=b$ for all $b$ and  $\frac{0}{b}=0$, $\frac{b}{b}=1$, when $b\ne 0$</li?
+    <li> For an integer $b$ we have $\frac{b}{1}=b$ for all $b$ and  $\frac{0}{b}=0$, $\frac{b}{b}=1$, when $b\ne 0$</li>
   </ol>
   </div>
-    
+    Of course we know that these symbols are fractions, but we haven't proved that yet, these are just symbols to represent particular integer solutions to particular equations. We can then prove basic results about how these objects combine and interact, and will discover fractions. So in the following proof, we cannot assume anything about fractions because we don't know that these are fractions. In fact, this is a way to actually construct the rational numbers, as all possibly symbols of this kind, even when a solution does not exist, and impose that these rules hold.
+    <div class="thm"><b>Proof:</b>
+      The basic idea to these is that each equation $ax-b=0$ has exactly one solution, so if we have a number $N$ and find that $aN-b=0$, that is $x=N$ is a solution, then we must conclude that $N=\frac{b}{a}$. So we do need to show that each of these equations has only one solution. If $x=N,M$ are solutions to $ax-b=0$ then $aN=b=aM$. Since $a$ is nonzero, we can cancel to get $N=M$.
+      <ol>
+        <li> We just need to show that $x=\frac{bc}{ac}$ is a solution to $ax-b=0$. By definition of this symbol, we have $ac\cdot\frac{bc}{ac}-bc=0$, from which we can pull out a $c$ to get $c(a\frac{bc}{ac}-b)=0$. Since $c\ne 0$, it follows that we must have $a\frac{bc}{ac}-b=0$, which means that $x=\frac{bc}{ac}$ is a solution to $ax-b=0$, which implies (as mentioned above) that $\frac{bc}{ac}=\frac{b}{a}$.</li>
+        <li>
 
 
 
