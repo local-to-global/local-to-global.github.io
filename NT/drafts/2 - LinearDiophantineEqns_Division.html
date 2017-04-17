@@ -35,16 +35,19 @@
   We will just take these basic properties of arithmetic for granted. Number Theoretic questions begin to naturally pop-out when you ask certain kinds of questions about the integers. In particular, questions about Diophantine Equations motivate many results in Number Theory and are the subjects of the hardest unanswered questions in the whole of math. A Diophantine Equation is an algebraic equation for which you only look for integer solutions. For example:
   $$
   \begin{eqnarray*}
-  x^2+y^2=z^2 && x^2-7y^2=1\\
-  x^7+y^7 +z^7+w^7=0 && y^2=x^3+x+1
+  x^2+y^2=z^2, &\;\;\;\;\;\;\;\;\;\;& x^2-7y^2=1\\
+  x^7+y^7 +z^7+w^7=0, &\;\;\;\;\;\;\;\;\;\;& y^2=x^3+x+1
   \end{eqnarray*}
   $$
   are all Diophantine Equations when you are searching only for the solutions that are integers. For example, the equation $x^2-2=0$ has an easy solution in the reals: $x=\pm\sqrt{2}$, but it takes some work to show that this has no solution as a Diophantine Equation, as $\sqrt{2}$ is irrational.
   </p>
   <p>
   Diophantine Equations are also responsible for much of our arithmetic. To this end, we will study Single Variable Linear Diophantine Equations and see how asking questions about these naturally leads to division and fundamental results about division. A Single Variable Linear Diophantine Equation is an equation of the form $ax-b=0$ for two fixed integer $a,b\in\mathbb{Z}$. We seek to know when this has an integer solution. To this end we define:
+    </p>
   <div class="thm"><b>Definition:</b> Let $a,b\in\mathbb{Z}$ be integers with $a$ nonzero. Say that <b> $a$ Divides $b$</b> if there is a solution to the Diophantine Equation $ax-b=0$. Write $a|b$ for this, read "$a$ divides $b$". We might also say that $b$ is a <b>Multiple</b> of $a$. If $a$ does not divide $b$, write $a\nmid b$.</div>
+    <p>
   All we have done is provide ourselves with a streamlined way to talk about when $ax-b=0$ has a solution. We can then use the form of this equation to provide some structure to the solutions via the following theorem.
+    </p>
   <div class="thm"><b>Theorem:</b> Let $a,b,c\in \mathbb{Z}$ be integers, with $a$ nonzero. We have the following results about divisibility:
   <ol>
     <li> For all $c$ we have $c|c$, $1|c$ and $c|0$, even if $c=0$.</li>
@@ -64,22 +67,108 @@
       <li> Let $x=n$ be a solution to $ax-b=0$ and $x=m$ a solution to $bx-c=0$. Then $anm -c=bn-c=0$.</li>
     </ol>
   </div>
+    <p>
   This gives us some basic rules to work with divisibility and allows us to discuss solutions to these kinds of equations. Furthermore, these equations allow us to derive the arithmetic of fractions from their solutions. 
+    </p>
   <div class="thm"><b>Theorem:</b> If $a,b\in\mathbb{Z}$ are integers, with $a$ nonzero and $a|b$, then let the symbol $x=\frac{b}{a}$ denote the solution to the equation $ax-b=0$. We then have the following arithmetic rules:
   <ol>
     <li> For integers $a,b,c$, with $a,c$ nonzero, we have $\frac{bc}{ac}=\frac{b}{a}$.</li>
     <li> For integers $a,b,c,d$ with $a,c$ nonzero, we have $\frac{b}{a}\cdot \frac{d}{c}=\frac{bd}{ac}$</li>
-    <li> For integera $a,b,c$, with $a$ nonzero, we have $c\cdot \frac{b}{a}=\frac{cb}{a}$</li>
     <li> For integers $a,b,c,d$ with $a,c$ nonzero, we have $\frac{b}{a}+ \frac{d}{c}=\frac{bc+ad}{ac}$</li>
     <li> For an integer $b$ we have $\frac{b}{1}=b$ for all $b$ and  $\frac{0}{b}=0$, $\frac{b}{b}=1$, when $b\ne 0$</li>
   </ol>
   </div>
+    <p>
     Of course we know that these symbols are fractions, but we haven't proved that yet, these are just symbols to represent particular integer solutions to particular equations. We can then prove basic results about how these objects combine and interact, and will discover fractions. So in the following proof, we cannot assume anything about fractions because we don't know that these are fractions. In fact, this is a way to actually construct the rational numbers, as all possibly symbols of this kind, even when a solution does not exist, and impose that these rules hold.
+    </p>
     <div class="thm"><b>Proof:</b>
       The basic idea to these is that each equation $ax-b=0$ has exactly one solution, so if we have a number $N$ and find that $aN-b=0$, that is $x=N$ is a solution, then we must conclude that $N=\frac{b}{a}$. So we do need to show that each of these equations has only one solution. If $x=N,M$ are solutions to $ax-b=0$ then $aN=b=aM$. Since $a$ is nonzero, we can cancel to get $N=M$.
       <ol>
         <li> We just need to show that $x=\frac{bc}{ac}$ is a solution to $ax-b=0$. By definition of this symbol, we have $ac\cdot\frac{bc}{ac}-bc=0$, from which we can pull out a $c$ to get $c(a\frac{bc}{ac}-b)=0$. Since $c\ne 0$, it follows that we must have $a\frac{bc}{ac}-b=0$, which means that $x=\frac{bc}{ac}$ is a solution to $ax-b=0$, which implies (as mentioned above) that $\frac{bc}{ac}=\frac{b}{a}$.</li>
+        <li>Following a similar line of reasoning, we have that
+          $$
+          \begin{eqnarray*}
+          ac\cdot \frac{b}{a}\cdot\frac{d}{c} - bd &=& a\frac{b}{a}\cdot c\frac{d}{c} -bd \\
+          &=& b\cdot d -bd \\
+          &=&0
+          \end{eqnarray*}
+          $$
+          So $x=\frac{b}{a}\cdot\frac{d}{c}$ is a solution to $acx-bd=0$ and so we must have $\frac{b}{a}\cdot\frac{d}{c}=\frac{bd}{ac}$.
+        </li>
+        <li>Direct computation shows:
+          $$
+          \begin{eqnarray*}
+          ac\left(\frac{b}{a}+ \frac{d}{c}\right) -(bc+ad) &=& ca\frac{b}{a} + ac\frac{d}{c} -bc-ad\\
+          &=& cb+ad-bc-ad\\
+          &=& 0
+          \end{eqnarray*}
+          $$
+          So $x=\frac{b}{a}+ \frac{d}{c}$ is a solution to $acx-(bc+ad)$ so we conclude that $\frac{b}{a}+ \frac{d}{c}=\frac{bc+ad}{ac}$.
+        </li>
         <li>
+          These all follow from immediate computations.
+        </li>
+      </ol>
+    </div>
+    <p>
+      This illustrates something crucial and central in Number Theory: Diophantine Equations are fundamentally linked to arithmetic. Simple Diophantine Equations, such as these, provide us with fraction arithmetic, other classes of Diophantine Equations even give us subtraction and negative numbers, and very quickly the more complicated a Diophantine Equation becomes, the more sophisticated and abstract the corresponding arithmetic becomes. Equations like $x^n+y^n=z^n$ are incredibly difficult and it took 300 years of active study to really pin down what the associated arithmetic is and how it behaves. So, while we could introduce some of the content in this section without refering to Diophantine Equations, framing it in this context will help us connect with the bigger picture and see how questions in Number Theory arise.
+    </p>
+    <p>
+      So we have seen how Diophantine Equations help us understand divisibility, let's now investigate how frequent solutions can appear. This will result in Euclidean Division, which is the standard division-with-remainder. This is a very nice property of the integers that we will liberally take advantage of going forward. It states:
+    </p>
+    <div class="thm"><b>Theorem (Euclidean Division):</b> Let $a,b,c$ be integers, with $a$ positive nonzero. For any list $c,c+1,c+2,...,c+(a-1)$ of $a$ consecutive integers, there is exactly one $0\leq k &lt a$ so that $a|b-(c+k)$. Said another way, there is a unique $0\leq k &lt a$ so that $ax-(b-c-k)=0$ has a solution. 
+      
+Specializing to $c=0$, there is a unique $0\leq r &lt a$, called the <b>Remainder</b> and a unique integer $q$, called the <b>Quotient</b>, so that $b=aq+r$.
+    </div>
+    <div class = "thm"><b>Proof: </b> 
+      <p>We can first show that there can be at most one $0\leq k &lt a$ so that  $ax-(b-c-k)=0$ has a solution. If $0\leq k,\ell &lt a$ are two such numbers, then there are integers $n,m$ so that $an=b-c-k$ and $am=b-c-\ell$. It then follows that $an-am=\ell-k$. That is, $a|\ell-k$. Since  $0\leq k,\ell &lt a$, we have that $|\ell-k| &lt |a|$. So $a$ divides a less than it in absolute value. By one of our previous results, this can only happen if $\ell-k=0$, or $\ell=k$. This shows that there is at most one $c,c+1,...,c+(a-1)$ so that $ax-(b-c-k)=0$ has a solution.
+      </p>
+      <p>We must now show that a solution exists. For this, let $K=\{b-c-an\;|\; n\in\mathbb{Z}\}$. This is the set of all $k\in \mathbb{Z}$ so that $ax-(b-c-k)=0$ has a solution, unrestricted by size. We need to show that there is some $k\in K$ with $0\leq k &lt a$. In general, this set will have arbitrarily large positive and negative values. But because the natural numbers $\mathbb{N}=\{0,1,2,3,...\}$ is a Well-Ordered Set (every subset has a smallest element), it follows that there is a smallest non-negative element of $K$. Call it $k$. There is then some $n$ so that $an-b+c+k=0$. Assume that $k\geq a$. We can then rearrange $an-b+c+k=0$ as $b-c-a(n+1)=k-a$. This means that $k-a&lt k$ is nonnegative and also in $K$. But this cannot happen because we assumed that $k$ was the smallest such element of $K$. Therefore, we must have $0\leq k &lt a$.
+      </p>
+    </div>
+    <p>
+      We now know how frequent $ax-b=0$ will have a solution. By this result,  exactly one $b$ in every $|a|$ possible $b$s will offer a solution. Additionally, any two solutions will be a multiple of $a$ apart from each other. Inutitively, then, for fixed $a$,  $1/a$ equations of the form $ax-b=0$ will have solutions. Furthermore, the arithmetic rules of the divisibility relation are nontrivial and will allow us to create a new kind arithmetic, called Modular Arithmetic, on these different classes of remainders.
+    </p>
+    <p>
+      Overall, even Single Variable Linear Diophantine Equations can provide us with rich arithmetic structure. We aren't even done exploring the possibilities of these, but it will wait for later. We will next up the number of variables to two and encounter some fairly deep results in return.
+    </p>
+    <h3>Practice Problems</h3>
+    <ol>
+      <li>  If $|c| &lt |a|$ and $a|b$, then $a\nmid (b+c)$. </li>
+      <li>  If $a|b$ and $b|a$ then $a=\pm b$.</li>
+      <li>  Show that if $a|b$ and $a|c$, then either $b=c$ or $|b-c|\geq |a|$. </li>
+      <li>  Call the unique integer $0\leq r &lt a$ so that $b=aq+r$ for some $q$ the "remainder for $b/a$". Show that is $b/a$ and $c/a$ have the same remainder, then $a|(b-c)$.</li>
+      <li>  Show that for all integers $a$, that $3|a^3-a$.</li>
+      <li> Show that $\frac{a}{b}=\frac{c}{d}$ if and only if $ad=bc$.</li>
+      <li>  <b>Create Subtraction and Negative Integers: </b> Consider the natural numbers $\mathbb{N}=\{0,1,2,3,...\}$ together with addition and multiplication. All variables and solutions will be in $\mathbb{N}$, no negative numbers allowed. Equations of the form $x+a=b$, for $a,b\in\mathbb{N}$, do not always have solutions. Say that $a\leq b$ if $x+a=b$ has a solution in $\mathbb{N}$. Using this definition, show that:
+        <ol>
+          <li> For all $a,b,c\in\mathbb{N}$ if $a\leq b$ then $a\leq (b+c)$.</li>
+          <li> For all $a,b,c\in\mathbb{N}$ if $a\leq b$ and $b\leq c$ then $a\leq c$.</li>
+          <li> For all $a,b\in \mathbb{N}$ if $a\leq b$ and $b\leq a$ then $a=b$. Say that $a &lt b$ if $a\leq b$ and $a\ne b$.</li>
+          <li> For all $a,b\in\mathbb{N}$, show that exactly one of the following is true: $a=b$, $a&lt b$ or $b&lt a$.</li>
+          <li> For all $a\in\mathbb{N}$ we have $0\leq a$.</li>
+        </ol>
+        In the case $a\leq b$, let the symbol $x=b-a$ denote the solution to $x+a=b$. Show that:
+        <ol>
+          <li> $a-(b+c) = (a-b)-c$</li>
+          <li> $a-(b-c) = (a-b)+c$ </li>
+          <li> $(a-b) + (c-d) = (a+c)-(b+c)</li>
+          <li> $(a-b)\cdot(c-d) = (ac+bd)-(ad+bc)</li>
+          <li> $a(b-c) = (ab)-(ac)$</li>
+          <li> $(a+b) - (c+b) = a-c</li>
+        </ol>
+        Consider the set of all pairs $(a,b)$ for $a,b\in\mathbb{N}$. Consider the relation $~$ on these pairs where $(a,b)~(c,d)$ if $b+c=d+a$. Show that this is an equivalence relation. Let $[b-a]$ denote the equivalence class of $(a,b)$. Show that the operations defined by 
+        $$
+        \begin{eqnarray*}
+        [b-a] + [c-d] & :=& [(b+c)-(a+d)]\\
+        [b-a]\cdot [c-d] & :=& [(ac+bd)-(ad+bc)]
+        \end{eqnarray*}
+        $$
+        Are well defined, that is, they do not depend on the choice of representative for the equivalence classes. Further, show that every equivalence class can be uniquely represented as $[n-0]$ or $[0-n]$ for a unique $n\in\mathbb{N}$. Congratulations, you have created the integers $\mathbb{Z}$ using Diophantine Equations and the natural numbers $\mathbb{N}$. Try to find an analogous way to create the rational numbers $\mathbb{Q}$ from $\mathbb{Z}$.
+      </li>
+    </ol>
+   
+  
 
 
 
