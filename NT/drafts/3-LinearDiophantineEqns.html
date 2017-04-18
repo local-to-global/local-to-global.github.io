@@ -1,0 +1,69 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Linear Diophantine Equations</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Linear Diophantine Equations</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  <p>
+  Last post, we looked at single variable Diophantine equations and used them to define and explore the arithmetic of division, coming up with divisibility, fraction arithmetic and division-with-remainder from those simple equations. Now we look at higher variable equations. A general linear Diophantine equation is an equation of the form
+  $$
+  a_1x_1+a_2x_2+\cdots+a_nx_n = b
+  $$
+  where $a_i\in\mathbb{Z}$ and we seek solutions with $x_i\in\mathbb{Z}$. We wish to, first and foremost, figure out when these equations actually have solutions and this will be determined by figuring out the numbers $b$ that take the form $a_1x_1+a_2x_2+\cdots+a_nx_n $ for some fixed $a_i$. We'll uncover many fundamental results in Number Theory from studying this equation.
+  </p>
+  <h3>Linear Combinations and Common Divisors</h3>
+  <p>
+  Given integers $a_1,...,a_n$, assumed nonzero for simplicity, we wish to find the $b$ so that there is an integer solution to $a_1x_1+a_2x_2+\cdots+a_nx_n =b$. There are then two types of numbers to consider when investigating this. The first is the set of <b>Linear Combinations</b> of the $a_i$. These are the numbers of the form $a_1x_1+a_2x_2+\cdots+a_nx_n$ for some integers $x_i$, or, said another way, it is the numbers $b$ so that $a_1x_1+a_2x_2+\cdots+a_nx_n=b$ has a solution. All we're doing is giving a name to the numbers we want to find. Note that in the $n=1$ case, the linear combinations of $a_1$ are just the multiples of $a_1$, that is, the $b$ so that $a_i|b$, so the notion of a Linear Combination generalizes the previous notion of divisibility.
+  </p>
+  <p>
+  On the other hand, note that if $c$ is an integer so that for each $i$ we have $c|a_i$, then for any linear combination $b$ we automatically get $c|b$. We then say that if $c|a_i$ for $i=1,...,n$, then $c$ is a <b>Common Divisor</b> of $a_1,...,a_n$. We immediately get the result:
+  </p>
+  <div class="thm"><b>Proposition:</b> Let $a_1,...,a_n$ be nonzero integers and $b$ any linear combination of these $a_i$ and $c$ any common divisor. Then $c|b$.
+  </div>
+  <p>
+  We then see that $b$ is a multiple of every common divisor of the $a_i$. A natural question to ask is if there is a discrepancy between the common divisors and linear combinations. That is, is ever number that is a multiple of each common divisor also a linear combination?
+  </p>
+  <p> 
+  Towards this end, we would like to classify all linear combinations and all common divisors. Since the common divisors must divide each of the $a_i$, it follows that the biggest they can get is the size of the smallest of the $a_i$. Therefore, there is then a unique largest common divisor. The <b>Greatest Common Divisor</b> of the integers $a_1,...,a_n$ is the unique largest common divisor of these $a_i$. We denote this by $GCD(a_1,...,a_n)$. On the other hand, since every linear combination is a multiple of each common divisor, it follows that each nonzero linear combination must be larger than or equal to, in absolute value,  $GCD(a_1,...,a_n)$. So there is a unique smallest positive linear combination. Let the <b>Principle Combination</b> of the integers $a_1,...,a_n$ be the unique smallest positive linear combination of the $a_i$. We denote this by $PC(a_1,...,a_n)$. We then have $GCD(a_1,...,a_n) | PC(a_1,...,a_n)$. The question is then, how far apart are $GCD(a_1,...,a_n)$ and  $PC(a_1,...,a_n)$? This, and more, are answered by the following:
+  </p>
+    <div class="thm"><b>Theorem: </b> Let $a_1,...,a_n$ be nonzero integers. Then
+    $$
+    GCD(a_1,...,a_n) = PC(a_1,...,a_n)
+    $$
+    </div>
+    <div class="thm"><b>Proof: </b>
+    </div>
+    <p>
+    This result allows us to completely classify all common divisors and linear multiples. In particular, we have
+    <div class="thm"><b>Corollary: </b> Let $a_1,...,a_n$ be nonzero integers. The number $b\in\mathbb{Z}$ is a linear combination of the $a_i$ if and only if $b$ is a multiple of $GCD(a_1,...,a_n)$. Additionally, $c\in\mathbb{Z}$ is a common divisor of the $a_i$ if and only if $c|GCD(a_1,...,a_n)$. 
+    </div>
+    <div class="thm"><b>Proof: </b>
+    </div>
+
+
+
+  </div>
+
+
+
+</body>
+</html>
