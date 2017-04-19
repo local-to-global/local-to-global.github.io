@@ -51,12 +51,38 @@
     $$
     </div>
     <div class="thm"><b>Proof: </b>
+      <p>
+        Since we know that $GCD(a_1,...,a_n) | PC(a_1,...,a_n)$, this implies that $GCD(a_1,...,a_n) \leq PC(a_1,...,a_n)$, so all we need to do is show that $PC(a_1,...,a_n)\leq GCD(a_1,...,a_n)$. We will do this by showing that $PC(a_1,...,a_n)$ is a common divisor of the $a_1,...,a_n$.
+      </p>
+      <p>
+        For each $a_i$, we can then perform Euclidean Division with $PC(a_1,...,a_n)$. So let $q_i,r_i$ be integers, with $0\leq r_i &lt PC(a_1,...,a_n)$, so that $a_i = q_iPC(a_1,...,a_n)+r_i$. Now, $PC(a_1,...,a_n)$ is a linear combination of the $a_i$, in fact it is the smallest positive linear combination, so there are integers $x_1,...,x_n$ so that $a_1x_1+\cdots+a_nx_n=PC(a_1,...,a_n)$. From Euclidean Division, we can then write
+        $$
+        r_i = a_i - q_i (a_1x_1+\cdots+a_nx_n)
+        $$
+        The right side can be written as a linear combination of the $a_i$. Set $y_j=-q_ix_j$ for $i\ne j$ and $y_i=1-q_ix_i$, then we get
+        $$
+        r_i = y_1a_1+\cdots + y_na_n
+        $$
+        So $r_i$ is a linear combination of $a_1,...,a_n$. But $r_i$ is strictly less than $PC(a_1,...,a_n)$, since this is the smallest positive linear combination. Our only conclusion is then that $r_i$ is not positive and the only way for this to happen is $r_i=0$. This means that $a_i=q_iPC(a_1,...,a_n)$, which means that for all $i$ we have $PC(a_1,...,a_n)|a_i$, which means it is a common divisor of the $a_i$, which means that we must have $PC(a_1,...,a_n)\leq GCD(a_1,...,a_n)$.
+      </p>
+      <p>
+        We then conclude that $GCD(a_1,...,a_n) = PC(a_1,...,a_n)$.
+      </p>
     </div>
     <p>
     This result allows us to completely classify all common divisors and linear multiples. In particular, we have
     <div class="thm"><b>Corollary: </b> Let $a_1,...,a_n$ be nonzero integers. The number $b\in\mathbb{Z}$ is a linear combination of the $a_i$ if and only if $b$ is a multiple of $GCD(a_1,...,a_n)$. Additionally, $c\in\mathbb{Z}$ is a common divisor of the $a_i$ if and only if $c|GCD(a_1,...,a_n)$. 
     </div>
     <div class="thm"><b>Proof: </b>
+      <p> We already know that if $b$ is a linear combination of the $a_i$, then we must have $GCD(a_1,...,a_n)|b$, so we need to prove the other direction. Assume that $b$ is a number so that $GCD(a_1,...,a_n)|b$. This means that $b=c\cdot GCD(a_1,...,a_n)$. But, from the theorem, $GCD(a_1,...,a_n)$ is a linear combination of the $a_i$. We can then write $GCD(a_1,...,a_n)=a_1x_1+\cdots+a_nx_n$ for some integers $x_i$. This means that if we set $y_i=cy_i$ then we can write 
+        $$
+        b = a_1y_1+\cdots +a_ny_n
+        $$
+        And so $b$ is a linear combination.
+      </p>
+      <p>
+        It is clear from the fact that $a|b$ and $b|c$ implies $a|c$, that if $d|GCD(a_1,...,a_n)$, then $d|a_i$ for each $i$ and so is a common divisor. For the other direction, let $d$ be an arbitrary common divisor of the $a_i$. We already know that every common divisor divides every linear combination, and by the theorem $GCD(a_1,...,a_n)$ is a linear combination, so $d|GCD(a_1,...,a_n)$.
+      </p>
     </div>
 
 
