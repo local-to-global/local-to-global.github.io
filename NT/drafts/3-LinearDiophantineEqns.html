@@ -70,7 +70,7 @@
       </p>
     </div>
     <p>
-    This result allows us to completely classify all common divisors and linear multiples. In particular, we have
+    From now on, in light of this theorem, we will only reference $GCD(a_1,...,a_n)$ rather than $PC(a_1,...,a_n)$. This result allows us to completely classify all common divisors and linear multiples. In particular, we have
     <div class="thm"><b>Corollary: </b> Let $a_1,...,a_n$ be nonzero integers. The number $b\in\mathbb{Z}$ is a linear combination of the $a_i$ if and only if $b$ is a multiple of $GCD(a_1,...,a_n)$. Additionally, $c\in\mathbb{Z}$ is a common divisor of the $a_i$ if and only if $c|GCD(a_1,...,a_n)$. 
     </div>
     <div class="thm"><b>Proof: </b>
@@ -84,9 +84,45 @@
         It is clear from the fact that $a|b$ and $b|c$ implies $a|c$, that if $d|GCD(a_1,...,a_n)$, then $d|a_i$ for each $i$ and so is a common divisor. For the other direction, let $d$ be an arbitrary common divisor of the $a_i$. We already know that every common divisor divides every linear combination, and by the theorem $GCD(a_1,...,a_n)$ is a linear combination, so $d|GCD(a_1,...,a_n)$.
       </p>
     </div>
+    <p>
+      What this result says is that the solutions to $a_1x_1+\cdots+a_nx_1=b$ are totally characterized by a single number: $GCD(a_1,..,a_n)$. A necessary and sufficient condition for there to exist a solution is simply $GCD(a_1,...,a_n)|b$. This, essentially, takes the $n$-variable equation $a_1x_1+\cdots+a_nx_1=b$ and reduces it to the $1$-variable equation $GCD(a_1,...,a_n)\cdot x - b=0$. The former has a solution if and only if the latter does.
+    </p>
+    <p>
+      I also feel that the fact that every common divisor divides the greatest common divisor is often taken for granted. At the start, we only know that every common divisor is less than or equal to the GCD, it requires a nontrivial theorem, such as this or the Fundamental Theorem of Arithmetic, to prove.
+    </p>
+    <p>
+      The classical statement of this result is known as Bezout's Identity and specializes it to the two-variable case (you can do induction from there to get the general case). It is also the most used case of the theorem, so we'll state it for completeness and reference:
+    </p>
+    <div class="thm"><b>Bezout's Identity: </b> 
+      <p>
+        Let $a,b$ be integers with greatest common divisor $d$. There exists a solution to 
+        $$
+        ax+by=c
+        $$
+        If and only if $d|c$.
+      </p>
+    </div>
+    <p>
+    We now know how to figure out whether an equation like $ax+by=c$ has a solution. But how do we find a solution? For this we'll need to know a few arithmetic results about the GCD. 
+    </p>
+    <div class="thm"><b>Proposition: </b>
+      
+    </div>
+    <div class="thm"><b>Proof: </b>
+      
+    </div>
+    <p>
+      Armed with these results, we can devise a method to easily compute the GCD of a pair of numbers, and then find a solution to the associated Bezout Identity.
+  </p>
+    <div class="thm"><b>The Euclidean Algorithm: </b>
+      
+    </div>
+    <div class = "thm"><b>Proof: </b>
+    
+    </div>
 
-
-
+      
+      HW: More GCD Properties, Define LCM, get LCM properties. Find explicit form for all solutions.
   </div>
 
 
