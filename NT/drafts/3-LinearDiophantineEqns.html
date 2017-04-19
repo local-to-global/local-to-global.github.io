@@ -37,8 +37,20 @@
   <p>
   On the other hand, note that if $c$ is an integer so that for each $i$ we have $c|a_i$, then for any linear combination $b$ we automatically get $c|b$. We then say that if $c|a_i$ for $i=1,...,n$, then $c$ is a <b>Common Divisor</b> of $a_1,...,a_n$. We immediately get the result:
   </p>
-  <div class="thm"><b>Proposition:</b> Let $a_1,...,a_n$ be nonzero integers and $b$ any linear combination of these $a_i$ and $c$ any common divisor. Then $c|b$.
+  <div class="thm"><b>Proposition: </b> Let $a_1,...,a_n$ be nonzero integers and $b$ any linear combination of these $a_i$ and $c$ any common divisor. Then $c|b$.
   </div>
+    <div class="thm"><b>Proof: </b>
+      <p>
+        Since $b$ is a linear combination of the $a_i$, we can write $a_1x_1+\cdots+a_nx_n=b$ for integers $x_i$. Since $c|a_i$ for each $i$, we can write $a_i=cA_i$ for some integer $A_i$. We then get
+        $$
+        \begin{eqnarray*}
+        b &=& a_1x_1+\cdots+a_nx_n\\
+        &=& c(A_1x_1+\cdots+A_nx_n)
+        \end{eqnarray*}
+        $$
+        It then follows that $c|b$.
+      </p>
+    </div>
   <p>
   We then see that $b$ is a multiple of every common divisor of the $a_i$. A natural question to ask is if there is a discrepancy between the common divisors and linear combinations. That is, is ever number that is a multiple of each common divisor also a linear combination?
   </p>
@@ -94,14 +106,13 @@
       The classical statement of this result is known as Bezout's Identity and specializes it to the two-variable case (you can do induction from there to get the general case). It is also the most used case of the theorem, so we'll state it for completeness and reference:
     </p>
     <div class="thm"><b>Bezout's Identity: </b> 
-      <p>
         Let $a,b$ be integers with greatest common divisor $d$. There exists a solution to 
         $$
         ax+by=c
         $$
         If and only if $d|c$.
-      </p>
     </div>
+    <h3>The Euclidean Algorithm</h3>
     <p>
     We now know how to figure out whether an equation like $ax+by=c$ has a solution. But how do we find a solution? For this we'll need to know a few arithmetic results about the GCD. 
     </p>
