@@ -1,0 +1,51 @@
+
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Coprimality and  the Chinese Remainder Theorem</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Coprimality and  the Chinese Remainder Theorem</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  <p>
+  Last time we saw how to figure out when there was an integer solution to equations like $ax+by=c$. In particular, there is a solution if and only if $c$ is a multiple of the greatest common divisor of $a$ and $b$. We'll introduce notation here to express this in a more flexible way. We let $\mathbb{Z}$ denote the set of all integers, and $n\mathbb{Z}$ the set of all multiples of $n$. So  an element of $n\mathbb{Z}$ is of the form $na$ for some $a\in\mathbb{Z}$. Almost trivially, we have that $m|n$ if and only if $m\in n\mathbb{Z}$. We can rewrite Bezout's Identity along similar lines.
+  </p>
+  <p>
+  If $a,b\in\mathbb{Z}$, then we write $a\mathbb{Z}+b\mathbb{Z}$ for the set of all linear combinations of $\mathbb{Z}$. That is, an element of $a\mathbb{Z}+b\mathbb{Z}$ is of the form $ax+by$ for some integer $x,y\in\mathbb{Z}$. If $d=GCD(a,b)$, then Bezout's Identity can be written as:
+  $$
+  a\mathbb{Z} + b \mathbb{Z} = d\mathbb{Z}
+  $$
+  The interesting thing about this is it takes $a\mathbb{Z}+b\mathbb{Z}$, which has two components and can seem fairly complex, and turns it into the much simples $d\mathbb{Z}$. The fact that we can do this is nontrivial and depends on Euclidean division, as seen in the proofs on the previous post. Higher order number systems do not necessarily have Euclidean division, and we can't do this. In Ring Theory, we say that $\mathbb{Z}$ is a "Principle Ideal Domain". We can conceptualize $d$ as the "overlap" between $a$ and $b$, and the addition $a\mathbb{Z}+b\mathbb{Z}$ as the process of overlapping them (not intersecting).
+  </p>
+  <p>
+  Our focus in this section will be ono the case when $GCD(a,b)=1$. This is when we can reconstruct all of $\mathbb{Z}$ from $a\mathbb{Z}+b\mathbb{Z}$, when every integer is a linear combination of $a$ and $b$. This will be when $a$ and $b$ don't multiplicatively overlap at all. To this end, we say that $a$ and $b$ are <b>Coprime</b> if $GCD(a,b)=1$. This is when
+  $$
+  a\mathbb{Z} + b\mathbb{Z} = \mathbb{Z}
+  $$
+    
+
+
+
+  </div>
+
+
+
+</body>
+</html>
