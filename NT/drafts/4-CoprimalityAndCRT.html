@@ -35,14 +35,31 @@
   The interesting thing about this is it takes $a\mathbb{Z}+b\mathbb{Z}$, which has two components and can seem fairly complex, and turns it into the much simples $d\mathbb{Z}$. The fact that we can do this is nontrivial and depends on Euclidean division, as seen in the proofs on the previous post. Higher order number systems do not necessarily have Euclidean division, and we can't do this. In Ring Theory, we say that $\mathbb{Z}$ is a "Principle Ideal Domain". We can conceptualize $d$ as the "overlap" between $a$ and $b$, and the addition $a\mathbb{Z}+b\mathbb{Z}$ as the process of overlapping them (not intersecting).
   </p>
   <p>
-  Our focus in this section will be ono the case when $GCD(a,b)=1$. This is when we can reconstruct all of $\mathbb{Z}$ from $a\mathbb{Z}+b\mathbb{Z}$, when every integer is a linear combination of $a$ and $b$. This will be when $a$ and $b$ don't multiplicatively overlap at all. To this end, we say that $a$ and $b$ are <b>Coprime</b> if $GCD(a,b)=1$. This is when
-  $$
-  a\mathbb{Z} + b\mathbb{Z} = \mathbb{Z}
-  $$
-    
+  Our focus in this section will be ono the case when $GCD(a,b)=1$. This is when we can reconstruct all of $\mathbb{Z}$ from $a\mathbb{Z}+b\mathbb{Z}$, when every integer is a linear combination of $a$ and $b$. This will be when $a$ and $b$ don't multiplicatively overlap at all. To this end, we say that $a$ and $b$ are <b>Coprime</b> if $GCD(a,b)=1$. This happens when $ a\mathbb{Z} + b\mathbb{Z} = \mathbb{Z}$. We have the following fundamental results about coprimality:
+    </p>
+    <div class="thm"><b>Proposition: </b> 
+      <ol>
+        <li>If $d=GCD(a,b)$, then $a/d$ and $b/c$ are coprime.
+        <li>Let $a$ and $b$ be coprime. If $a|bc$ then $a|c$.</li> 
+        <li> Conversely, if $a$ and $b$ are not coprime, then there is some $c$ so that $a\nmid c$ and $a|bc$. </li>
+      </ol>
+    </div>
+    <div class="thm"><b>Proof: </b>
+      <ol>
+        <li>Write $ax+by=d$. Dividing this through by $d$ gives $\left(\frac{a}{d}\right)x+\left(\frac{b}{d}\right)y=1$, which is equivalent to $a/d$ and $b/d$ being coprime.</li>
+        <li>If $a|bc$, then we have an integer $n$ so that $an=bc$. Since $a$ and $b$ are coprime, write $ax+by=1$ or some integers $x,y$. Then we have that 
+        $$
+        any=ybc=c-axc
+        $$
+        which can be rearranged to $a(ny+xc)=c$. This means that $a|c$.
+      </li>
+      <li>
+        If $d=GCD(a,b)$ and $d>1$, then we can find a number $e$ so that $a|e$ and $b|e$ and $e &lt ab$. Take $e=(a/d)b=a(b/d)$. So $a|bc$ where $c=a/d$. Since $c|a$, the only way we that $a|c$ is if $a=c$, which is not the case since $d>1$.
+        </li>
+      </ol>
 
 
-
+        HW: Pairwise coprime. LCM expressions/equivalences.
   </div>
 
 
