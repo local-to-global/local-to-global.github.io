@@ -57,9 +57,32 @@
         If $d=GCD(a,b)$ and $d>1$, then we can find a number $e$ so that $a|e$ and $b|e$ and $e &lt ab$. Take $e=(a/d)b=a(b/d)$. So $a|bc$ where $c=a/d$. Since $c|a$, the only way we that $a|c$ is if $a=c$, which is not the case since $d>1$.
         </li>
       </ol>
+    </div>
+    <p>
+      This result demonstrates how coprimality can be used to say something about divisibility, and vice versa. This proposition will also be key to understanding the multiplicative structure that we'll encounter in Modular Arithmetic. The next result is central to much of Number Theory, even if it seems a little innocuous at the moment. We usually wait until we get to Modular Arithmetic to state it, but it can be seen as a statement of linear Diophantine equations in a fairly elementary setting:
+    </p>
+    <div class="thm"><b> The Chinese Remainder Theorem: </b> Let $a$ and $b$ be coprime and $A,B$ any fixed integers. There exist a solution $x,y,z$ to the following system of equations:
+      $$
+      \begin{eqnarray*}
+      x + ay &=& A\\
+      x + bz &=& B
+      \end{eqnarray*}
+      $$
+      More generally, if $d=GCD(a,b)$ and $d|(A-B)$ then there is a solution to the above system of equations.
+    </div>
+    <div class="thm"><b>Proof: </b>
+      <p>
+        Clearly the coprime statement follows from the more general one. We can use the elementary method of "Elimination" to  eliminate the $x$, resulting in the single equation
+        $$
+        ay-bz=A-B
+        $$
+        Since $d|(A-B)$, this equation has a solution.
+      </p>
+    </div>
+    <p> The importance of this is finding a single number $x$ that has a given remainder after dividing by $a$ and another given remainder after dividing by $b$. When $a$ and $b$, you can do this regardless of the remainders you have chosen. This, in effect, allows us to break apart difficult problems into many easier problems on coprime parts.
+    </p>
 
-
-        HW: Pairwise coprime. LCM expressions/equivalences.
+        HW: Pairwise coprime. LCM expressions/equivalences. Converse of CRT
   </div>
 
 
