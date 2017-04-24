@@ -1,0 +1,104 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>The Quadratic Formula 2</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">The Quadratic Formula 2</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+    <p>
+    We've already looked at one way to approach solving the quadratic formula, but this method has the drawback that we can't really use it to get solutions for cubics or anything. It can help simplify the problem, but not find solutions. We'll look at an alternate method that is a little more adaptable to higher order equations.
+    </p>
+    <h3>Viete's Equations</h3>
+    <p>
+    As before, the problem is to solve the equation $x^2+bx+c=0$. To do this, we will investigate the algebraic behavior of the roots, rather than their geometric behavior. To this end, let's label the roots, even though we don't know them yet. Let's say that $r,s$ are the two roots to $x^2+bx+c=0$, and since one has to be smaller than the other, let's just say that $r\leq s$. How, then, do the roots $r,s$ relate to the coefficients $b,c$? We can answer this by observing that since  $r$ and $s$ are roots, then we can factor $x^2+bx+c$ are $(x-r)(x-s)$. So we have
+    $$
+    x^2+bx+c=(x-r)(x-s)
+    $$
+  This is how finding roots and factoring polynomials relate. We can then use this equation to relate the zeros to the coefficients. Notably, we can expand the right side of this equation to get
+  $$
+  x^2+bx+c = x^2-(r+s)x+rs
+  $$
+  The only way these two polynomials can be equal is if
+  $$
+  \begin{eqnarray*}
+  -b &=& r+s\\
+  c &=& rs
+  \end{eqnarray*}
+  $$
+  These two equations are the fundamental relationships beween the zeros and coefficients, called Viete's Equations, that we can use to find $r$ and $s$. But as it stands now, we don't have enough to work with to actually solve for $r$ and $s$ given $b$ and $c$. One thing to note is that $-b=r+s$ is a linear equation, and if we can find a different linear equation involving $r$ and $s$, the we could actually use the resulting system of linear equations to find $r$ and $s$.
+  </p>
+  <h3>The Distance Between Roots</h3>
+  <p>
+  To this end, let $D$ be the distance between the roots $r$ and $s$. This means that $D=s-r$. This is a different linear equation, so we have the system of linear equations
+    $$
+  \begin{eqnarray*}
+  -b &=& r+s\\
+  D &=& s-r
+  \end{eqnarray*}
+  $$
+  which we can solve for $r$ and $s$. Using your favorite method, elimination or substitution, we find that 
+  $$
+  \begin{eqnarray*}
+  r &=& \frac{-b -D}{2}\\
+  s &=& \frac{-b+D}{2}
+  \end{eqnarray*}
+  $$
+  This means that we have reduced the problem of finding the two variables $r$ and $s$, to the problem of finding the one unknown $D$. The mechanics to finding $D$ are not hard, and it can be figured out by asking "What happens if we square $D$?" Doing this we get
+  $$
+  \begin{eqnarray*}
+  D^2 &=& (s-r)^2\\
+      &=& s^2-2rs +r^2 \\
+      &=& s^2 + 2rs + r^2 - 4rs\\
+      &=& (s+r)^2-4rs\\
+      &=& b^2-4c
+  \end{eqnarray*}
+  $$
+  The trick to do $(x-y)^2=(x+y)^2 -4xy$ is a good algebraic trick, and can be good to keep in your back-pocket. This is what we have used here to find the coefficients within the equation. Finally, since $D$ must be positive, we get
+  $$
+  D = \sqrt{b^2-4c}
+  $$
+  This means that the solutions to the formula $x^2+bx+c=0$ are
+  $$
+  \begin{eqnarray*}
+  r &=& \frac{-b -\sqrt{b^2-4c}}{2}\\
+  s &=& \frac{-b +\sqrt{b^2-4c}}{2}
+  \end{eqnarray*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+</body>
+</html>
