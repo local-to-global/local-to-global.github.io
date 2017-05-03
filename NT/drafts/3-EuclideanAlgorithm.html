@@ -76,16 +76,16 @@
     <p>
       The Euclidean Algorithm tells us how to figure out if $ax+by=c$ has a solution, but how do we find it? Luckily, we have everything we need and just need to piece together a solution by working the Euclidean Algorithm in reverse. This will hinge on the proposition:
     </p>
-    <div class="thm"><b>Proposition: </b> Let $a,b,c$ be integers and let $q,r$ be integers so that $b=aq+r$.  If $x=s$ and $y=t$ are integer solutions to $rx+ay=c$, then $x=t-qs$ and $y=s$ is a solution to $ax+by=c$.
+    <div class="thm"><b>Proposition: </b> Let $a,b,c$ be integers and let $q,r$ be integers so that $b=aq+r$.  If $x=t$ and $y=s$ are integer solutions to $rx+ay=c$, then $x=s-qt$ and $y=t$ is a solution to $ax+by=c$.
     </div>
     <div class="thm"><b>Proof: </b>
       <p>
         This follows by replacing $r$ in $rx+ay=c$ with $r=b-aq$:
         $$
         \begin{eqnarray*}
-        c &=& rs+at \\
-          &=& (b-aq)s + at\\
-          &=& a(t-qs) + bs
+        c &=& rt+as \\
+          &=& (b-aq)t + as\\
+          &=& a(s-qt) + bt
         \end{eqnarray*}
         $$
     </div>
@@ -110,10 +110,7 @@
     </div>
     <div class="thm"><b>Proof: </b>
       <p>
-        Since $r_N=GCD(a,b)$ and $r_{N+1}=0$, then we have $r_{N+1}t_0+r_Ns_0=GCD(a,b)$ and $r_Nt_1 + r_{N-1}s_1=GCD(a,b)$. So the result is valid for the first two base cases. Let $0\leq k \leq N-2$ and assume that 
-        $$
-        r_{k+2}t_{N-k-1}+r_{nk+1}s_{N-k-1}=GCD(a,b)
-        $$
+        Since $r_N=GCD(a,b)$ and $r_{N+1}=0$, then we have $r_{N+1}t_0+r_Ns_0=GCD(a,b)$ and $r_Nt_1 + r_{N-1}s_1=GCD(a,b)$. So the result is valid for the first two base cases. Let $0\leq k \leq N-2$ and assume that $x=t_{N-k-1}$ and $y=S_{N-k-1}$ is a solution to $r_{k+2}x+r_{k+1}y=GCD(a,b)$. Since we have $r_{k-1} = r_nq_n+r_{k+1}$, the proposition says that $x=
        We then have
         $$
         \begin{eqnarray*}
