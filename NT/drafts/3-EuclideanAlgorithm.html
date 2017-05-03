@@ -1,0 +1,82 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>The Euclidean Algorithm</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">The Euclidean Algorithm</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+    
+    <p>
+    We now know how to, in theory, figure out whether an equation like $ax+by=c$ has a solution. But there are still some computational holes in this. The equation has a solution if and only if $GCD(a,b)$ divides $c$, so how do we find $GCD(a,b)$? Furthermore, once we have determined that a solution exists, how do we find it? Figuring this out will give us an opportunity to get more familiar with these objects. Firstly, need to know a few arithmetic results about the GCD. 
+    </p>
+    <div class="thm"><b>Proposition: </b>
+      Let $a,b,c\in\mathbb{Z}$ be nonzero integers.
+      <ol>
+        <li> If there is an integer $q$ so that $a=bq+c$, then $GCD(a,b)=GCD(b,c)$.</li>
+        <li> We have $GCD(a,ba)=a$, $GCD(a,1)=1$ and $GCD(a,0)=a$.</li>
+      </ol>
+    </div>
+    <div class="thm"><b>Proof: </b>
+      <ol>
+        <li>Note that $a$ is a linear combination of $b$ and $c$, so every common divisor of $b$ and $c$ divides $a$. This means that every common divisor of $b$ and $c$ is also a common divisor of $a$ and $b$. On the other hand, we can write $c=a-bq$, so $c$ is a linear combination of $a$ and $b$. A similar argument shows that every common divisor of $a$ and $b$ is also a common divisor of $b$ and $c$. So these two sets of common divisors are the same, so they must have the same GCD.</li>
+        <li> We're just writing this for reference, proving it will be left to the reader</li>
+      </ol>
+    </div>
+    <p>
+      Armed with these results, we can devise a method to easily compute the GCD of a pair of numbers, and then find a solution to the associated Bezout Identity.
+  </p>
+    <div class="thm"><b>The Euclidean Algorithm: </b> Let $a$ and $b$ be nonzero integers. Create the sequence $r_0=b$, $r_1=a$ and $r_{n+1}$ is obtained from Euclidean Division by $r_{n-1}=r_nq_n + r_{n+1}$ for $0\leq r_{n+1}&lt r_n$. Then we have that there is some $N>0$ so that $r_N>0$ and for any $n > N$ we have $r_n=0$. Furthermore $r_N=GCD(a,b)$. <br>
+      
+      
+    </div>
+    <div class = "thm"><b>Proof: </b>
+      <p>
+        The sequence $r_n$ is eventually always zero since if $r_n\ne 0$ then $0\leq r_{n+1} &lt r_n$, forcing it to eventually be zero. Furthermore, if $r_N$ is the last nonzero element, then we have, by the proposition and the fact that we can write $r_{n+1}=r_{n-1}-r_nq_n$ for $n &lt N$, that 
+        $$
+        \begin{eqnarray*}
+         r_N &=& GCD(r_N,r_{N+1})\\
+             &=& GCD(r_{N-1},r_N)\\
+             &=& GCD(r_{N-2},r_{N-1})\\
+             &\vdots& \\
+             &=& GCD(r_0,r_1)\\
+             &=& GCD(a,b).
+        \end{eqnarray*}
+        $$ 
+    
+    </div>
+  <p>
+    This result gives us a fairly efficient way to compute the GCD of two numbers through simple division with remainder. With this result it shouldn't be too hard to determine whether or not an equation like $ax+by=c$ has a solution or not, since we can now quickly compute the GCD of $a$ and $b$. As an example:
+    <div class="thm"><b>Example: </b>
+      
+    </div>
+    <p>
+      Once we know whether or not there is a solution to $ax+by=c$, how can we find it? Luckily, we have everything we need and just need to piece together a solution by working the Euclidean Algorithm in reverse.
+    </p>
+    <div class="thm"><b>The Extended Euclidean Algorithm: </b> Let $a$ and $b$ be nonzero integers, and $r_n$ and $q_n$ the sequence as in the statement of the original Euclidean Algorithm.
+    
+
+
+  </div>
+
+
+
+</body>
+</html>
