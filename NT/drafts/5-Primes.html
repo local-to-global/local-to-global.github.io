@@ -1,0 +1,61 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Prime Numbers</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Prime Numbers</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  <p>
+  Last time we briefly discussed coprimality and saw how they represent a lack of "multiplicative overlap". This can be used to simplify and understand many results and concepts going forward, and is part of our  basic vocabulary. We now discuss a type of number that is one of the most studied, yet mysterious objects in number theory: Prime numbers. The idea is that coprimality is a very nice property that two numbers can have, so numbers that are coprime to as many numbers as possible would be really nice to work with. This is the basic idea about primes: They are coprime to as many numbers as they possible can be. They have really nice properties and have shaped how we study object in number theory by allowing us to break up hard problems into many smaller, easier problems associated to nothing more than a single prime. They are defined by the following thoerem:
+  </p>
+  <div class="thm"><b>Theorem: </b> Let $p$ be a nonzero number, not equal to $\pm 1$ and $a,b$ any integers. The following are equivalent:
+  <ol>
+  <li> If $p|ab$ then $p|a$ or $p|b$</li>
+  <li> $a|p$ if and only if $|a|=1$ or $|a|=|p|$</li>
+  <li> If $0 &lt |a|&lt|p|$ then $GCD(a,p)=1$</li>
+  <li> If $0&lt|a|&lt|p|$ then $ax+py=1$ has a solution</li>
+  <li> If $GCD(a,p)>1$ then $p|a$ </li>
+  </ol>
+  </div>
+  <div><b>Proof: </b> Some of these are fairly obvious, but are good to be stated for reference and clarity.
+  <ul>
+    <li> $(1\rightarrow 2)$ It is clear that $a=1,-1,p,-p$ all divide $p$, regardless of what $p$ is. So assume that $a|p$ so that $p=ac$ for some integer $c$. This means that $p|ac$ and so $p|a$ or $p|c$. If $p|c$, then $c=dp$ and we can write $p=adp$, which means that $ad=1$ and this can only happen if $a=\pm 1$. Now assume that $p|a$ and write $a=pd$. This means that $p=pdc$ and so we need $dc=1$ which can only happen if $|d|=1$ and so $|a|=|p|$.</li>
+    <li> $(2\rightarrow 3)$ Assume that $|a|<|p|$ and $d=GCD(a,p)$. Since $d|p$, it follows that $d=1$ or $d=p$. If $d=1$ then we're done, so assume that $d=p$. In this case $p|a$ and so $|p|\leq |a|$, which can't happen. So $d=1$.</li>
+    <li> $(3\leftrightarrow 4)$ The case 4 is equivalent to 4 directly from Bezout's Identity.</li>
+    <li> $(4\rightarrow 5)$ Assume that $d=GCD(a,p)>1$. Write $a=pq+r$ for $0\leq r &lt |p|$. From our previous result, we have $d=GCD(r,p)$. Since $r&lt |p|$, if $r\ne 0$ then $d=1$ by assumption, but this is not the case. The only way for $d>1$ is if $r=0$ in which case $d=p$ and so $p|a$.</li>
+    <li> $(5\rightarrow 6)$ Assume that $p|ab$ and that $p\nmid a$. By assumption, we must have $GCD(a,p)=1$ and so there are some $x,y$ so that $px+ay=1$. Assume that $GCD(p,b)=1$, and so there is some $s,t$ so that $ps+bt=1$. This implies that we have
+    $$
+    1 = (px+ay)(ps+bt) = p(pxs+xbt+ays) +ab(ty)
+    $$
+    which means that there is a solution to $pX+abY=1$ which implies that $GCD(p,ab)=1$, which is not the case since $GCD(p,ab)=|p|$. It then follows that $GCD(p,b)>1$ and so, by our assumption, $p|b$.</li>
+    </ul>
+    <p>We say that a number that satisfies the above equivalent conditions is <b>Prime</b>.</p>
+    
+    
+
+
+
+  </div>
+
+
+
+</body>
+</html>
