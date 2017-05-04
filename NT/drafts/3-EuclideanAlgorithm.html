@@ -51,7 +51,7 @@
       r_{n+1} &=& r_{n-1} - r_nq_n
       \end{eqnarray*}
       $$
-      where $r_{n+1}$ is obtained from Euclidean Division as the remainder of $r_{n-1}$ divided by $r_n$ so that $0\leq r_{n+1}&lt |r_n|$. Note that if $r_n=0$ then $r_{n+1}=0$ by default. Under these conditions, there is some $N>0$ so that if n\leq N$ then $r_n>0$ and if $n > N$ then $r_n=0$. Furthermore $r_N=GCD(a,b)$.  
+      where $r_{n+1}$ is obtained from Euclidean Division as the remainder of $r_{n-1}$ divided by $r_n$ so that $0\leq r_{n+1}&lt |r_n|$. Note that if $r_n=0$ then $r_{n+1}=0$ by default. Under these conditions, there is some $N>0$ so that if $n\leq N$ then $r_n>0$ and if $n > N$ then $r_n=0$. Furthermore $r_N=GCD(a,b)$.  
     </div>
     <div class = "thm"><b>Proof: </b>
       <p>
@@ -76,7 +76,7 @@
     <p>
       The Euclidean Algorithm tells us how to figure out if $ax+by=c$ has a solution, but how do we find it? Luckily, we have everything we need and just need to piece together a solution by working the Euclidean Algorithm in reverse. This will hinge on the proposition:
     </p>
-    <div class="thm"><b>Proposition: </b> Let $a,b,c$ be integers and let $q,r$ be integers so that $b=aq+r$.  If $x=t$ and $y=s$ are integer solutions to $rx+ay=c$, then $x=s-qt$ and $y=t$ is a solution to $ax+by=c$.
+    <div class="thm"><b>Proposition: </b> Let $a,b,c$ be integers and let $q,r$ be integers so that $b=aq+r$.  If $(t,s)$ is an integer solutions to $rx+ay=c$, then $(s-qt,t)$ is a solution to $ax+by=c$.
     </div>
     <div class="thm"><b>Proof: </b>
       <p>
@@ -91,34 +91,23 @@
     </div>
     <p>
       From the Euclidean Algorithm, we already have $1\cdot r_N + 0 r_{N+1} = GCD(a,b)$, and so we will use the expression $r_{n-1}=r_nq_n+r_{n+1}$ to lift this solution up to one for $ax+by=GCD(a,b)$. This is the Extended Euclidean Algorithm: 
-    <div class="thm"><b>The Extended Euclidean Algorithm: </b> Let $a$ and $b$ be nonzero integers, and let $r_n$ and $N$ be as in the statement of the original Euclidean Algorithm. Further, let $q_n$ be the quotient so that $r_{n+1}=r_{n-1}-r_nq_n$. Define the sequences:
+    <div class="thm"><b>The Extended Euclidean Algorithm: </b> Let $a$ and $b$ be nonzero integers, and let $r_n$ and $N$ be as in the statement of the original Euclidean Algorithm. Further, let $q_n$ be the quotient so that $r_{n+1}=r_{n-1}-r_nq_n$. Define the sequence:
       $$
       \begin{eqnarray*}
-      s_0 = 1 && t_0 = 0\\
-      s_1 = 0 && t_1 = 1\\
-      s_{n+1} = s_{n-1} - q_ns_n && t_{n+1} = t_{n-1} - q_nt_n
+      s_0 &=& 0 \\
+      s_1 &=& 1\\
+      s_{n+1} &=& s_{n-1} - q_ns_n
       \end{eqnarray*}
       $$
-    Then for $0\leq k \leq N$ we have that $x=t_{N-k}$ and $y=s_{N-k}$ is a solution to $r_{k+1}x+r_{k}y=GCD(a,b)$. That is, 
-      $$
-      r_{k+1}t_{N-k}+r_ks_{N-k}=GCD(a,b)
-      $$
+    Then for $0\leq k \leq N$ we have that $(s_{N-k},s_{N-k+1})$ is a solution to $r_{k+1}x+r_{k}y=GCD(a,b)$.
       In particular, we have
       $$
-      as_N + bt_N=GCD(a,b)
+      bs_N + as_{N-1}=GCD(a,b)
       $$
     </div>
     <div class="thm"><b>Proof: </b>
       <p>
-        Since $r_N=GCD(a,b)$ and $r_{N+1}=0$, then we have $r_{N+1}t_0+r_Ns_0=GCD(a,b)$ and $r_Nt_1 + r_{N-1}s_1=GCD(a,b)$. So the result is valid for the first two base cases. Let $0\leq k \leq N-2$ and assume that $x=t_{N-k-1}$ and $y=S_{N-k-1}$ is a solution to $r_{k+2}x+r_{k+1}y=GCD(a,b)$. Since we have $r_{k-1} = r_nq_n+r_{k+1}$, the proposition says that $x=
-       We then have
-        $$
-        \begin{eqnarray*}
-        GCD(a,b) &=& r_{k+1}t_{N-k}+r_ks_{N-k}\\
-                 &=& 
-        \end{eqnarray*}
-        $$
-        
+        Since $r_N=GCD(a,b)$ and $r_{N+1}=0$, then we have $r_{N+1}s_0+r_Ns_1=GCD(a,b)$.
       </p>
     </div>
   
