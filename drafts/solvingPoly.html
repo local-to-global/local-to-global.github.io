@@ -1,0 +1,91 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Solving Polynomials</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Solving Polynomials</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  <p>The Quadratic Equation is an important equation because it allows you a way to take an arbitrary quadratic polynomial $ax^2+bx+c$ and figure out all the numbers $r$ so that $ar^2+br+c=0$. These are the roots and they are explicitly given by
+  $$
+  r= \frac{-b\pm \sqrt{b^2-4ac}}{2a}
+  $$
+  What we have done is found the solutions to an arbitrary quadratic in terms of square roots. This means that using nothing more than simple arithmetic combinations of the coefficients, along with a square root, we can find the solutions to the associated quadratic. The general challege is trying to do an analog of this for more complicated polynomials. That is, given an aribtrary polynomial of higher degree, can we find its solutions using nothing more than simple arithmetic combinations of its coefficients, along with the $n$th-root operation? 
+  </p>
+  <p>
+  The famous Abel-Ruffini Theorem says that the answer to this is "No". You can solve arbitrary polynomials of degree $2,3,4$ using this process, but there is no general solution for polynomials of higher degree. That is, there is no analog of the quadratic equation for polynomials of degree 5 or higher.
+  </p>
+  <p>
+  But if we start to think about this, then it makes sense that it should be impossible. This is because $n$th roots like $\sqrt[n]{A}$ are, themselves, solutions to very specific kinds of polynomials, those of the form $x^n-A$. These are really simple polynonmials, so it doesn't really make sense for them to be powerful enough to solve some possibly complicated expressions like
+  $$
+  x^5+3x^4-12x^3+43x^2-12x+3=0
+  $$
+    This is way more complicated than something like $x^n-A=0$, so we shouldn't expect to be able to solve the hard one using only these simple ones. But to give these simple expressions more problem-solving power, we can iterate them. That is, we can allow for expressions like
+    $$
+    \sqrt[3]{1+\sqrt{5}}
+    $$
+    This way we are combining the power of the cube root and the square root to open more possibilities. So the question is then whether or not these iterated roots are powerful enough to solve arbitrary polynomials. Our gut should say no, but we'll need to investigate more if we want to be definitive about it.
+    </p>
+    <h3>Ladders of Roots</h3>
+    <p>
+    The idea to solving this is to view each iteratation of the roots as a ladder that allows us to build complicated expressions from less complicated ones through $n$th rooting. So let's say that someone has given us some polynomial and we want to find its zeros. 
+    <ul>
+    <li> <b>Base Layer:</b> We start at the ground layer to work with. This is just the simple arithmetic combinations of its coefficients, which means our ground layer has things like addition and multiplication, by no $n$th roots. There's a chance that the roots could be here, but in general they won't be.</li>
+    <li> <b>Layer 1: </b> In our next layer, we pick some expression in our base layer and build this layer as the expressions we can make through simple arithmetic combinations of the coefficients and the $n$th root of this particular expression. For example, if we have the polynomial $ax^2+bx+c=0$, then we can choose the expression $b^2-4ac$ and build Layer 1 as the arithmetic combinations of the coefficients, along with $\sqrt{b^2-4ac}$. This is the layer that the solution to an arbitrary quadratic lives.</li>
+    <li> <b>Layer 2:</b> We continue to build upon Layer 1. This time we pick an expression in Layer 1, and build this as the layer of all expressions of simple arithmetic combinations of the things in Layer 1, along with the $m$th roots of this special expression. So we can make things like $3+\sqrt[7]{1+\sqrt[3]{4}}$ in this layer.</li>
+    <li> <b>Etc...</b> We continue this process for as many layers as we want, eventually stopping somewhere. The number of layers is then the number of the deepest nested root.</li>
+    </ul>
+    <p>
+    Next, we can try to characterize the "complexity" of each layer. This will give us an idea of how complicated the expression we can make will get. 
+    <h3>The "Complexity" of the Ladders</h3>
+    <p>
+    How complicated can our expressions from these ladders get? To figure this out, we can take a closer look at what is happening at each level. 
+    </p>
+    <p>If we're at "Layer $N$", then what we have done is take an expression in "Layer $N-1$", say $E$, and included its $n$th roots, for some $n$. That is, we have included the roots to $x^n-E=0$. The thing about these roots is that they interact very nicely. You can think about them as living equally spaced on a circle and, importantly, we can exchange the roots by rotating the circle. 
+    </p>
+    PIC
+    <p>
+    As a simple example, the roots to $x^2-2=0$ are $x=\sqrt{2}$ and $x=-\sqrt{2}$. These are two points that are equally spaced on a circle, so they are on opposite ends of it. Rotating this circle corresponds to multiplication by $-1$. This accounts for the $\pm$ in front of the square root in the quadratic equation: We're rotating the two roots around the circle to get another solution. 
+    </p>
+    <p>
+    This is what happens in general. We can take an expression on Layer $N$ and rotate the $n$th roots around to get a different expression. So we have a "Circle of Expressions" for each expression. The circle then encode the complexity at that level. The entire ladder is then a giant machine built from all these circles, like a magnificent Steampunk device with gears all over the place.
+    </p>
+    <p>
+    The very key thing about this if we do have a solution to the polynomial in the final layer, then if we rotate any of these wheels, the the resulting expression must also be a solution to the polynomial. This characterizes all expressions that can be built using these ladders of roots. An expression is obtained from a sequence of roots if and only if there is one of these Steampunk circular devices that characterizes it.
+    </p>
+    <h3>The "Complexity" of Arbitrary Roots </h3>
+    <p>
+    Now that we know that iterated roots are completely described by these circular ladder mechanisms, how can we describe the "complexity" of the roots to an arbitrary polynomial? The key thing about the above characterization is that if we take any root to a polynomial that lives on one of these layers, then rotating these wheels only produced other roots. That is, it is the complexity of how we can exchange roots around that characterizes how complex these ladders can get. If we have an arbitrary polynomial, can we figure out the complexity of how we can exchange its roots?
+    </p>
+    <p> 
+    The answer is "Yes". If you have a polynomial with arbitrary coefficients, then we can figure out precisely how we are allowed to exchange the roots around. In general, if the polynomial is arbitrary, then any possible way that we can imagine to switch the roots around is allowed. This may seem nice, but it is the nail in the coffin for our attempts at solving polynomials in terms of roots. For arbitrary polynomials, we are completely unrestricted in how we can exchange the roots, which means that the complexity of the roots is as high as possible. On the other hand, if we can  solve a polynomial using roots, then we are restricted by only being able to exchange them via one of these circle devices. The complexity is restricted.
+    </p>
+    <p>
+    It turns out that you can build a circle device when you don't have too many roots. If you have 2,3 or 4 roots, then you can always build a circle device. This means that circle devices can get as complex as possible in these cases. But for 5 or more roots, you can't. The circle devices are not complicated enough to characterize all possible ways to exchange roots. This is why we have quadratic, cubic and quartic equations, but can't have anymore.
+    </p>
+
+
+
+  </div>
+
+
+
+</body>
+</html>
