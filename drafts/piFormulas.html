@@ -12,7 +12,7 @@
 
 
 
-<title>TITLE</title>
+<title>Surprising Pi</title>
 </head>
 <body>
   <div class="title">
@@ -24,7 +24,7 @@
   <div class="post-content">
   <div class="post-date">11/21/2016</div>
     <p>
-    The number $\pi$ can seem to pop up in a lot of seemingly unrelated places. Of note, we have the formulas
+    The number $\pi$ can pop up in places that seem unrelated to anything dealing with circles. From the inverse sum of squares, to strange equalities involving non-integer factorials, all the way to the probabilities associated with the Gaussian. These are probably the most famous instances of a surprise pi. Written explicitly, these are as follows:
     $$
     \begin{eqnarray*}
     \sum_{n=1}^{\infty}\frac{1}{n^2}  &=& \frac{\pi^2}{6}\\
@@ -32,9 +32,117 @@
     \int_{-\infty}^{\infty} e^{-x^2}dx &=& \sqrt{\pi}
     \end{eqnarray*}
     $$
-    These are three of the most commonly cited instances of $\pi$ showing up where it "shouldn't". We'll show how all three of these have $\pi$ in them for the same reason. Some of the technicalities of this reason require some more advanced math, but it can be understood intuitively relatively easily. This reason is: Up to a "scale" $\sin(x)$ is only one "nice" function on the Complex Plane that equals zero at exactly the integers. That is, if $f(x)$ is some differentiable functions on the Complex Plane so that $f(n)=0$ for every integer $n$, and there are no other zeros, then $f(x)$ is some "scale" of $\sin(x)$.
-
-
+    First we'll look, individually, at why we shouldn't be too surprized by pi in these formulas and then formulate a framework where pi appears in each of these for the same underlying reason!
+      
+      
+    <h3>A Unifying "Reason"</h3>
+    <p>
+      What follows is a single unifying heuristic on why pi appears in all these formulas. The key idea are the zeros of functions. If you recall, a polynomial is almost completely determined by where it equals zero. Provide a list of zeros and, up to a scaling factor, there is only one polynomial with those zeros. For instance, the zeros $x=i,-i,1,2,2$ uniquely define, up to a scale, the polynomial
+      $$
+      p(x) = (x^2+1)(x-1)(x-2)^2
+      $$
+      Any other polynomial with exactly this list of zeros, including the multiplicity, will be a scalar multiple of this one. This is a really nice property of polynomials and can really help us distill information about them into managable chuncks.
+    </p>
+    <p>
+      The magic of Complex Numbers, and particularly Calculus on Complex Numbers, is that a similar thing happens for functions on the whole complex plane that are differentiable. That is, if you provide a list of zeros, possibly infinitely long (but with no "clumps"), then, up to a ""scale"" there is only one differentiable function on the complex plane with those zeros. There are a few technical catches to this. For instance, amoung other technicalities, the ""scale"" can be a function itself, but only a specific kind of function. But the moral is still the same: It is the zeros that determine our function, up to a ""scale"". This result goes by the name of the <a href="https://en.wikipedia.org/wiki/Weierstrass_factorization_theorem">Weierstrass Factorization Theorem</a>.
+    </p>
+    <p>
+      This seems to have nothing to do with pi, so we should probably expect it to popup somehow. The thing about the circle and, particularly, how we measure angles, is that it is very regular and periodic. This is captured in the trigonometric functions through the equations
+      $$
+      \begin{eqnarray*}
+      \sin(x+\pi) &=& -\sin(x)\\
+      \cos(x+\pi) &=& -\cos(x)
+      \end{eqnarray*}
+      $$
+      Which, of course, turns into the full periodic condition when we increase the argument by $2\pi$. This condition can turn into a condition on the zeros of sine and cosine. In particular, if $\sin(x)$ equals zero then so does $\sin(x+\pi)$. This means that sine has nicely, evenly spaced zeros along the real line. If we have any other evenly spaced set of numbers on the real line, then we can always scale and shift the real line until the zeros of sine line up with this other set. This manifests in sine as the a factor $\sin(ax+b)$. The Weierstrass Factorization Theorem then tells us that, up to ""scale"" (and some other unimportant technical things), the only differentiable functions whose zeros are nicely and evenly spaced along the real line are the functions of the form $\sin(ax+b)$. Note that cosine is a function with nicely and evenly spaced zeros on the real line, and that we can write it as $\cos(x)=\sin(x+\pi/2)$.
+    </p>
+    <p>
+      There is a particularly important and distinguished set of evenly spaced numbers living on the real line: The integers. From what we just said, it then follows that, aside from our minor technicalities that I would be remiss to pretend don't exist even if they don't factor into this discussion, $\sin(\pi x)$ is the only differentiable function, up to ""scale"", on the Complex Plane whose zeros are the exactly the integers. What this means is that $\sin(\pi x)$ somehow "encodes" the integers in a precise way.
+    </p>
+    <p>
+      It is then through this encoding of the integers into $\sin(\pi x)$ that pi will appear in our formulas.
+    </p>
+    <h3>The Formulas</h3>
+    <p>
+      The way that sine pops into these formulas is through the factorial, or, more precisely, the Gamma Function. The idea is to try to see what it means to talk about the factorial of things that are not nonnegative integers. The key property of factorials is the following formula:
+      $$
+      n! = n\cdot(n-1)!
+      $$
+      Which relates higher factorials to lower factorials. But we can make this formula go backwards by writing it as $(n-1)!=n!/n$. So, for instance, if we wanted to know what $0!$ was, we could use this formula to get $0!=1!/1$ which is, of course $1!, and so we have $0!=1$. What if we want to know what $(-1)!$ was? Using this, we find that $(-1)!=0!/0$ which is $1/0$ which equals infinity. If we press on from here and continue, we get that $(-2)!=(-1)!/(-1)$ which is still infinity and, in a similar way, we get $(-n)!=\infty$. This is secretly a good thing, because if there were any function that extended the factorial to nonnegative integers, then it would have to be infinite at the negative integers. In particular, its reciprocal would have to have zeros at the negative integers.
+    </p>
+    <p>
+      We then define the Gamma Function, $\Gamma(z)$, to be such a function. In particular, we define $1/\Gamma(z)$ is the unique function whose zeros are $z=0,-1,-2,-3,...$ and <a href="https://proofwiki.org/wiki/Equivalence_of_Definitions_of_Gamma_Function#Weierstrass_Form">setting our scales</a> so that $\Gamma(1)=1$ and that $\Gamma(z)=z\Gamma(z-1)$. From this it follows that $\Gamma(n)=(n-1)!$. So this function, defined purely by its zeros and inspired by the infinities associated to the factorial, is the correct function that extends the factorial. 
+    </p>
+    <p>
+      The thing about the zeros $z=0,-1,-2,...$ is that they are nicely, evenly spaced. But the difference between them and the zeros of $\sin(\pi x)$ is that the only go out in one direction, whereas the zeros of $\sin(\pi x)$ go out in both directions. But maybe we can use this fact that these zeros are pretty closely related to the integers to relate $\sin(\pi x)$ and $\Gamma(z)$ which might give us a relation between factorials and $\pi$. The trick to this is to flip the zeros $z=0,-1,-2,...$ around via the function $1/\Gamma(1-z)$. This will have zeros whenever $1-z=0,-1,-2,...$ which happens when $z=1,2,3,...$ This means that the zeros of the function 
+      $$
+      \frac{1}{\Gamma(z)\Gamma(1-z)}
+      $$
+      are exactly the integers. After quickly checking that the technicalities don't get in our way, this means that there is some scale so that $\frac{c}{\Gamma(z)\Gamma(1-z)} = \sin(\pi z)$. This can be computed directly by comparing how the zeros behave (divide it through by $z$ and compute the limit of each side at $z=0$ to find $c$), and we get $c=\pi$. Therefore, we have
+      $$
+      \Gamma(z)\Gamma(1-z) = \frac{\pi}{\sin(\pi z)}
+      $$
+      This is Euler's Reflection Formula. The amazing thing about this is that all you need is information about the zeros and scale for the Gamma Function to compute it. This will be what gives pi in all the mentioned formulas.
+    </p>
+    <p>
+      Firstly what happens when $z=1/2$? Plugging this into this formula gives $\Gamma(1/2)^2 = \frac{\pi}$. Since $\Gamma(z)$ is positive for positive $z$ this means that $\Gamma(1/2)=\sqrt{\pi}$. So 
+      $$
+      (1/2)! = \Gamma(1+1/2) = \frac{\sqrt{\pi}}{2}
+      $$
+    </p>
+    <p>
+      Next we can look at the Gaussian Integral. Using a change of variables, we get
+      $$
+      \begin{eqnarray*}
+      \int_{-\infty}^{\infty} e^{-x^2}dx &=& 2 \int_{0}^{\infty} e^{-x^2}dx \\
+                                         &=& \int_0^{\infty}u^{-1/2}e^{-u}du
+      \end{eqnarray*}
+      $$
+      This is related to the integral expression for $\Gamma(z)$:
+      $$
+      \Gamma(z) = \int_0^{\infty} x^{z-1}e^{-x}dx
+      $$
+      In particular, it equals $\Gamma(1/2)=\sqrt{\pi}$. 
+    </p>
+    <p>
+      At this point, it should be noted that there is a fundamental formula relating the sum $1+\frac{1}{4}+\frac{1}{9}+\cdots$ to the Gamma function, but it is not obvious and can seem a little out of the blue, so it won't help illustrate the big idea. We'll look at this case separately next. But, it should be said, through this formula the $\pi$ in $1+\frac{1}{4}+\frac{1}{9}+\cdots=\frac{\pi^2}{6}$ comes from similar calculuations as this.
+    </p>
+      
+      
+    <h3>Sum of Inverse Squares</h3>
+    <p>
+      To see how this all relates to $1+\frac{1}{4}+\frac{1}{9}+\cdots=\frac{\pi^2}{6}$, we'll construct a function that naturally has this sum as part of its Taylor series. To do this, we create the function
+      $$
+      \begin{eqnarray*}
+      f(z) &=& \left(1-\frac{z}{1}\right) \left(1+\frac{z}{1}\right) \left(1-\frac{z}{2}\right) \left(1+\frac{z}{2}\right)\cdots\\
+           &=& \left(1-\frac{z^2}{1^2}\right) \left(1-\frac{z^2}{2^2}\right) \left(1-\frac{z^2}{3^2}\right) \left(1-\frac{z^2}{4^2}\right)\cdots
+      \end{eqnarray*}
+      $$
+      Technically, the original formula isn't actually correct, but the second one actually works. Note that the zeros of $f(z)$ are the nonnegative integers. Now, if we expand these products, we can recover the Taylor series for $f(z)$. The constant term will be obtained by just multiplying all the 1s together. There is no way to produce a $z^1$ term from this, since all the $z$s are squared. The $z^2$ term will happen by selecting just one non-$1$ term and adding them all together. In particular, we have
+      $$
+      f(z) = 1 - \left(1+\frac{1}{2^2}+\frac{1}{3^2}+\cdots\right)z^2 +\cdots
+      $$
+      Since the zeros of $f(z)$ are practically the zeros of $\sin(\pi z)$, we should be able to relate them. We can get rid of one of the zeros of $\sin(\pi z)$ by dividing by $z$. This means that $\sin(\pi z)/z$ and $f(z)$ have the same zeros, so should be the same up to a scale. We can figure out what this scale is by comparing the respective values at $z=0$. We then get 
+      $$
+      f(z) = \frac{\sin(\pi z)}{\pi z}
+      $$
+      In particular, they have the same Taylor series. The Taylor seris of $\sin(\pi z)/\pi z$ is computed from sine's as
+      $$
+      \frac{\sin(\pi z)}{\pi z} = 1 - \frac{\pi^2}{6}z^2 +\cdots
+      $$
+      Comparing coefficients then gives our formula:
+      $$
+      1+\frac{1}{2^2}+\frac{1}{3^2}+\cdots = \frac{\pi^2}{6}
+      $$
+    <h3>Conclusion</h3>
+    <p>
+      The appearance of $\pi$ in many formulas can then be attributed to the fact that $\sin(\pi x)$ is the "only" function whose zeros are the integers. Many functions naturally need these to be their zeros as well, and so end up obtaining a pi-formula. It should also be noted that this same pi, found through the Gamma Function in this way, is the same pi that pops up in other places, like Stirling's Approximation, the probability that a number is squarefree or two numbers are coprime, and so on.
+    </p>
+    <p>
+      This is a nice unified setting for all this, but a good practice is to not be surprised when you find a pi where it might not be expected. Instead, try to figure out how that formula works and see how it relates back to the circle. Anytime you see pi, you can trace things back to circles. In this case, it was the regularity of the circle that is shared by the regularity of the integers that gave us neatly placed zeros that "uniquely" defines a function.
+    </p>
+    
+      
 
   </div>
 
