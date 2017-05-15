@@ -1,0 +1,102 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Polynomials and Integers</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Polynomials and Integers</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  <p>
+  A lot of what happens in a typical College Algebra or PreCalculus course is centered around exploring how polynomials behave a lot like integers. The shame is that this is not explained, but this is an attempt to do just that. Polynomials behave so much like integers that they are honorary objects of study in Number Theory, alongside integers.  Many of the fundamental results about integers transfer directly to polynomials, and sometimes we even have more tools to study these results in the context of polynomials. We'll first explore what some of these results in the integer-context, and then see how these ideas transfer to polynomials, and how this might manifest in a math class.
+  </p>
+  <h3>Fundamental Results about Integers</h3>
+  <p>
+  There are a few results about integers that make them powerful and mysterious. Many of these results are known to gradeschool students who may mistaken them as "easy". The results we'll focus on are Division-with-Remainder, Mixed Numbers, Prime Numbers and Prime Factorization in the context of the Fundamental Theorem of Arithmetic. As well as touching on Greatest Common Divisors and Coprimeness.
+  </p>
+   <h4>The Structure of the Integers</j4>
+   <p>
+   Before jumping in, we should know a little bit about the structure of the integers. There are three main types of numbers in the integer: Zero, Units, Non-Units. Zero is obviously special, as it is a kind of black hole for multiplication, and the only number that does this. A unit is any integer whose multiplicative inverse is also an integer. That is, the integers $n$ so that there exists another integer $m$ so that $nm=1$. For the integers, the only units are $\pm 1$. These are the numbers that are void of the kind of multiplicative information we seek, so they are excluded from many results. They also help us reduce the number of numbers that we have to work with. This is because $n$ and $-n$ both have the same multiplicative information, and we get between them through the multiplication of a unit. We can then only focus on what happens in the positive integers, since the same thing will happen with negative integers, except you throw a minus sign out front.
+   </p>
+   <p>
+   Note that if two numbers $A$ and $B$ differ by multiplication by a unit, then $|A|=|B|$. This means that multiplication by units does not change the "size" of integers. These are the only such numbers that do this.
+   </p>
+  <h4>Division-with-Remainder</h4>
+  <p>
+  Division with remainder, also  known as Euclidean Division, is one of the most powerful results about integers. Naively, this is the process of taking two numbers $A$ and $B$, finding how many times $B$ fits into $A$ and then figuring out how much is left over. For example, if $A=23$ and $B=4$, then $B$ fits into $A$ five times, but there will be three leftover. That is $23\div 4$ is equal to $5$ remainder $3$. We can take this and rewrite it as the equation
+  $$
+  23 = 4\times 5 + 3
+  $$
+  Having this in equation form means that we can understand it better. If we put $Q=5$ and $R=3$, then this equation is
+  $$
+  A = BQ + R
+  $$
+  The goal of Euclidea Division is to take two numbers $A$ and $B$ and find the corresponding $Q$ and $R$ that fit into this equation. Since $R$ is what is leftover, we require that $0\leq R &lt B$, otherwise we could fit in another copy of $B$. The fact that we can do this for any nonzero choice of $B$ is a what the Euclidean Division Theorem says. Algorithmically, this gives us the first version of gradeschool division that we encounter. While middle schoolers may think that long division, of decimals, is harder to do, this form of division is much more powerful and is required for everything else that we will discuss.
+  </p>
+  <h4>Mixed Numbers</h4>
+  <p>
+  Armed with Euclidean Division, we can talk about Mixed Numbers. Recall that an "Improper Fraction" is one whose numerator is no smaller than the  denominator. A "Proper Fraction" is one whose numerator is smaller than its denominator. A "Mixed Number" is a number $M$ of the form 
+  $$
+  M = Q + \frac{R}{B}
+  $$
+  where $Q$ is an integer and $R/B$ is a proper fraction. For instance, $23/4 = 5 + 3/4$ is a mixed number. Typically, when working with mixed numbers, we suppress the plus-sign and just write $23/4=5\frac{3}{4}$. But it is imperitive to not forget that there is a hidden plus sign there. Now, the fact that we can take any improper raction and rewrite it as a Mixed Number is a statement that is equivalent to Euclidean Division. If $A/B$ is an improper fraction, then we can use Euclidean Division to write $A=BQ+R$ with $R&lt B$. This then means that
+  $$
+  \frac{A}{B} = \frac{BQ+R}{B} = Q+\frac{R}{B}
+  $$
+   This demonstrates how Euclidean Division and Mixed Numbers are actually the same concept.
+   </p>
+   <h4>Prime Numbers</h4>
+   <p>
+   Prime numbers are a class of numbers that probably require no introduction. These are the numbers that are as multiplicatively simple as they can get. There are two fundamental characterizations of them. Firstly, $p$ is a prime number if it has exactly two (positive) divisors: Itself and 1. We can say this is a more flexible way. The number $p$ is prime if it is not $\pm 1$ and whenever $n$ is a number that divides $p$ then we get that $n=\pm 1$ or $n=\pm p$. This is the standard characterization of primes.
+   </p>
+   <p>
+   A less well-known but equally important characterization of primes is as follows: A non $\pm 1$ number $p$ is prime if whenver $p$ divides a produce $AB$, then we get that $p$ divides either $A$ or $B$. That is, primes are numbers so that when they divide products, they divide one of the numbers that is in the product. For instance, $6$ is not prime because $6$ divides the product $4\cdot 3$, but $6$ does not divide $4$ or $3$. 
+   </p>
+   <p>
+   It is actually nontrivial and requires Euclidean Division to show that these two definitions of primeness are the same. If you go into alternative number systems that don't have Euclidean Division, then these two definitions can give two different kinds of numbers. So it is a very integer-like property that both of these definitions describe the same numbers.
+   </p>
+   <h4>The Fundamental Theorem of Arithmetic</h4>
+   <p>
+   The Fundamental Theorem of Arithmetic is responsible for us being able to completely factor integers into primess. The Fundamental Theorem of Arithmetic says that every integer larger than 1 can be written in exactly one way as a product of prime numbers. This says that $60=2^4\cdot 3\cdot 5$ is the only way to reduce $60$ as a product of primes. While this theorem may seem intuitive and obvious, it is far from that. Euclidean Division allows us to do this and when you get to more exotic number systems, you lose this ability. In fact, a lot of higher number theory is trying to control or understand how much this result fails. Big results like Fermat's Last Theorem are hard precisely because this theorem fails in more exotic number systems.
+   </p>
+   <p>
+   Generally, it is hard to take a number and find its prime factorization. Many algorithms are out there that try to do this efficiently, but they all have limits and the toughness of doing this is what makes most of our internet security actually secure. If it were easy to factor, then almost nothing would be secure anymore.
+   </p>
+  <h3>The Arithmetic of Polynomials<h3>
+  <p>
+  We will be concerned with polynomials that have real coefficients. These are then polynomials like $x^2+1$, $x^3+\pi x-2$ and $ex^6+x$. The collection of all such polynomials is a central object of study in College Algebra and Precalculus, and a lot time in those classes spent on exploring how alike these polynomials are to integers.
+  </p>
+  <p>
+  Most obviously, they are the same because you have a notion of addition of polynomials and multiplication of polynomials. The important thing about these arithmetic operations is that they obey the typical rules of associativity and distribution that are fundamental how we think about addition and multiplication. 
+  </p>
+  <h4>The Structure of Polynomials</h4>
+  <p>
+  The first thing that is similar between integers and polynomials is the classification of elements. There are three types of polynomials: Zero, Units and Non-units. These different types play the same role for polynomials as they did for integers. Clearly zero is just zero. But the units are the polynomials that can get multiplied by another polynomial to get 1. The only such polynomials that do this are the constant polynomials. These are polynomials like $f(x)=5$ or $g(x)=4/3$ etc. In otherwords, the units are basically just the nonzero real numbers, just viewed as polynomials. Clearly there are a lot more of these units than in the integers, but they play the same role. In particlar, they can help us simplify the polynomials we choose to work with. Just as units allowed us to only talk about positive integers, units in polynomials allow us to only talk about "Monic Polynomials". These are the polynomials whose leading coefficient is 1. So $x^2+3$, $x^7-2x+3$ are monic polynomials, but $-x^2+3$ and $8x^7+9x$ are not. However, if you have a non-monic polynomial, you can turn it into a monic polynomial by just multiplying through by some unit. Just like how multiplying a negative number by a unit gives us a positive number. In all, we can think of monic polynomials as polynomial analogs of positive integers, and can think of nonzero constant polynomials as analogs of $\pm 1$. 
+  </p>
+  <p>
+  Another important characer
+
+
+
+  </div>
+
+
+
+</body>
+</html>
