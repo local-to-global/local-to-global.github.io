@@ -32,12 +32,12 @@
     \int_{-\infty}^{\infty} e^{-x^2}dx &=& \sqrt{\pi}
     \end{eqnarray*}
     $$
-    First we'll look, individually, at why we shouldn't be too surprized by pi in these formulas and then formulate a framework where pi appears in each of these for the same underlying reason!
+    It turns out that the pi in each of these appears for related reasons. We'll look at a framework that allows us to obtain pi naturally in each of these for more-or-less the same reason.
       
       
-    <h3>A Unifying "Reason"</h3>
+    <h3>Zeros and Functions</h3>
     <p>
-      What follows is a single unifying heuristic on why pi appears in all these formulas. The key idea are the zeros of functions. If you recall, a polynomial is almost completely determined by where it equals zero. Provide a list of zeros and, up to a scaling factor, there is only one polynomial with those zeros. For instance, the zeros $x=i,-i,1,2,2$ uniquely define, up to a scale, the polynomial
+      What follows is a single unifying heuristic on why pi appears in all these formulas. The key idea is how the zeros of a function determine the function itself. If you recall, a polynomial is almost completely determined by where it equals zero. Provide a list of zeros and, up to a scaling factor, there is only one polynomial with those zeros. For instance, the zeros $x=i,-i,1,2,2$ uniquely define, up to a scale, the polynomial
       $$
       p(x) = (x^2+1)(x-1)(x-2)^2
       $$
@@ -47,7 +47,14 @@
       The magic of Complex Numbers, and particularly Calculus on Complex Numbers, is that a similar thing happens for functions on the whole complex plane that are differentiable. That is, if you provide a list of zeros, possibly infinitely long (but with no "clumps"), then, up to a ""scale"" there is only one differentiable function on the complex plane with those zeros. There are a few technical catches to this. For instance, amoung other technicalities, the ""scale"" can be a function itself, but only a specific kind of function. But the moral is still the same: It is the zeros that determine our function, up to a ""scale"". This result goes by the name of the <a href="https://en.wikipedia.org/wiki/Weierstrass_factorization_theorem">Weierstrass Factorization Theorem</a>.
     </p>
     <p>
-      This seems to have nothing to do with pi, so we should probably expect it to popup somehow. The thing about the circle and, particularly, how we measure angles, is that it is very regular and periodic. This is captured in the trigonometric functions through the equations
+      So, the important takeaway from this is that the zeros of a function almost completely determine what that function is in the first place. This means that if we have two functions with the same zeros, then they must be related in some way and can use one to describe the others. A very important thing to all of this is that we are working with differentiable functions on the entire complex plane. Outside of this context, the result is not true.
+    </p>
+    <h3> Trigonometry and Factorials</h3>
+    <p>Next, we're going to use the above characterization of functions through their zeros to create functions that serve as the link between trigonometry and other problems in different contexts.
+    </p>
+    <h4>Sine</h4>
+    <p>
+      As great as this result is, it seems to have nothing to do with pi, so we should probably expect it to popup somehow. The thing about the circle and, particularly, how we measure angles, is that it is very regular and periodic. This is captured in the trigonometric functions through the equations
       $$
       \begin{eqnarray*}
       \sin(x+\pi) &=& -\sin(x)\\
@@ -62,7 +69,7 @@
     <p>
       It is then through this encoding of the integers into $\sin(\pi x)$ that pi will appear in our formulas.
     </p>
-    <h3>The Formulas</h3>
+    <h4>The Gamma Function</h4>
     <p>
       The way that sine pops into these formulas is through the factorial, or, more precisely, the Gamma Function. The idea is to try to see what it means to talk about the factorial of things that are not nonnegative integers. The key property of factorials is the following formula:
       $$
@@ -84,34 +91,50 @@
       $$
       This is Euler's Reflection Formula. The amazing thing about this is that all you need is information about the zeros and scale for the Gamma Function to compute it. This will be what gives pi in all the mentioned formulas.
     </p>
+    <h3>Finding Pi</h3>
     <p>
-      Firstly what happens when $z=1/2$? Plugging this into this formula gives $\Gamma(1/2)^2 = \pi$. Since $\Gamma(z)$ is positive for positive $z$ this means that $\Gamma(1/2)=\sqrt{\pi}$. So 
+      With this toolbox and this fundamental relationship between the Gamma Function and sine, we can begin to see how pi pops up in seemingly unrelated contexts</p>
+    <h4>Half-Integer Factorial Values</h4>
+    <p>
+      One place that pi appear is in half-integer factorial values. That is, if $N$ is a positive integer, then 
+      $$
+      (N-\frac{1}{2})!= \frac{(2N)!}{4^N N!}\sqrt{pi}
+      $$
+      In particular, when $N=1$, we get $(1/2)!=\sqrt{\pi}/2$. We'll be able to obtain this formula by computing $\Gamma(1/2)$ using Euler's Reflection Formula.
+    </p>
+    <p>
+      Plugging $z=1/2$ into this formula gives $\Gamma(1/2)^2 = \pi$. Since $\Gamma(z)$ is positive for positive $z$ this means that $\Gamma(1/2)=\sqrt{\pi}$. So 
       $$
       (1/2)! = \Gamma(1+1/2) = \frac{\sqrt{\pi}}{2}
       $$
+      To obtain the general formula of $(N-1/2)!$, we note that $(N-1/2)!=\Gamma(N+1/2)$ and that 
+      $$
+      \Gamma(N+1/2)=\frac{2N-1}{2}\Gamma((N-1)+1/2)
+      $$
+      Repeatedly applying this will give the above general formula.
     </p>
+    <h4>The Gaussian Integral</h4>
     <p>
-      Next we can look at the Gaussian Integral. Using a change of variables, we get
-      $$
-      \begin{eqnarray*}
-      \int_{-\infty}^{\infty} e^{-x^2}dx &=& 2 \int_{0}^{\infty} e^{-x^2}dx \\
-                                         &=& \int_0^{\infty}u^{-1/2}e^{-u}du
-      \end{eqnarray*}
-      $$
-      This is related to the integral expression for $\Gamma(z)$:
+      Next we can look at the Gaussian Integral. This relates back to the Gamma function through a simple change of variables. The key is that we can prove that the zero-based definition of the Gamma function is equivalent to the formula 
       $$
       \Gamma(z) = \int_0^{\infty} x^{z-1}e^{-x}dx
       $$
-      In particular, it equals $\Gamma(1/2)=\sqrt{\pi}$. 
+      We can then use a change of variables in the Gaussian integral to recover a particlar value of the Gamma function. In particular, we get
+      $$
+      \begin{eqnarray*}
+      \int_{-\infty}^{\infty} e^{-x^2}dx &=& 2 \int_{0}^{\infty} e^{-x^2}dx \\
+                                         &=& \int_0^{\infty}u^{-1/2}e^{-u}du\\
+                                         &=& \Gamma(1/2)\\
+                                         &=& \sqrt{\pi}
+      \end{eqnarray*}
+      $$
     </p>
+    <h4>Sum of Inverse Squares</h4>
     <p>
       At this point, it should be noted that there is a fundamental formula relating the sum $1+\frac{1}{4}+\frac{1}{9}+\cdots$ to the Gamma function, but it is not obvious and can seem a little out of the blue, so it won't help illustrate the big idea. We'll look at this case separately next. But, it should be said, through this formula the $\pi$ in $1+\frac{1}{4}+\frac{1}{9}+\cdots=\frac{\pi^2}{6}$ comes from similar calculuations as this.
     </p>
-      
-      
-    <h3>Sum of Inverse Squares</h3>
     <p>
-      To see how this all relates to $1+\frac{1}{4}+\frac{1}{9}+\cdots=\frac{\pi^2}{6}$, we'll construct a function that naturally has this sum as part of its Taylor series. To do this, we create the function
+      But, to see how this all relates to $1+\frac{1}{4}+\frac{1}{9}+\cdots=\frac{\pi^2}{6}$, we'll construct a function that naturally has this sum as part of its Taylor series. To do this, we create the function
       $$
       \begin{eqnarray*}
       f(z) &=& \left(1-\frac{z}{1}\right) \left(1+\frac{z}{1}\right) \left(1-\frac{z}{2}\right) \left(1+\frac{z}{2}\right)\cdots\\
