@@ -80,6 +80,7 @@
     <p>
       We then define the Gamma Function, $\Gamma(z)$, to be such a function. In particular, we define $1/\Gamma(z)$ is the unique function whose zeros are $z=0,-1,-2,-3,...$ and <a href="https://proofwiki.org/wiki/Equivalence_of_Definitions_of_Gamma_Function#Weierstrass_Form">setting our scales</a> so that $\Gamma(1)=1$ and that $\Gamma(z)=z\Gamma(z-1)$. From this it follows that $\Gamma(n)=(n-1)!$. So this function, defined purely by its zeros and inspired by the infinities associated to the factorial, is the correct function that extends the factorial. 
     </p>
+    <h4>Euler's Reflection Formula</h4>
     <p>
       The thing about the zeros $z=0,-1,-2,...$ is that they are nicely, evenly spaced. But the difference between them and the zeros of $\sin(\pi x)$ is that the only go out in one direction, whereas the zeros of $\sin(\pi x)$ go out in both directions. But maybe we can use this fact that these zeros are pretty closely related to the integers to relate $\sin(\pi x)$ and $\Gamma(z)$ which might give us a relation between factorials and $\pi$. The trick to this is to flip the zeros $z=0,-1,-2,...$ around via the function $1/\Gamma(1-z)$. This will have zeros whenever $1-z=0,-1,-2,...$ which happens when $z=1,2,3,...$ This means that the zeros of the function 
       $$
@@ -89,7 +90,7 @@
       $$
       \Gamma(z)\Gamma(1-z) = \frac{\pi}{\sin(\pi z)}
       $$
-      This is Euler's Reflection Formula. The amazing thing about this is that all you need is information about the zeros and scale for the Gamma Function to compute it. This will be what gives pi in all the mentioned formulas.
+      This is Euler's Reflection Formula. This, right here, should be an example of a "surprising pi", since we have taken a function that extends factorials and related it to this simple trigonometric function. The reason for such a connection lies in how the zeros of each function relate to each other. This formula will be what gives pi in all the mentioned formulas.
     </p>
     <h3>Finding Pi</h3>
     <p>
