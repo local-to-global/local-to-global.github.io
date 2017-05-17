@@ -92,7 +92,39 @@
   <p>
   Another important tool for polynomials is that we can measure their "size". The size of an integer is obvious: It's absolute values. This "size" tool for integers allows us to actually do things like Euclidean division, because it is sufficiently well behaved. For polynomials, we can measure their "size" to be the degree. The degree of a polynomial is the largest exponent. So the degree of $x^{32}+3x^{31}+9x+1$ is 32. Note that if $p(x)$ is a polynomial and $c$ is a nonzero constant, then the degree of $p(x)$ is equal to the degree of $cp(x)$. Since the constants are the units, this is like how positive and negative numbers have the same absolute value.
     </p>
+    <h4>Euclidean Division</h4>
+    <p>
+      There is similarity between the structure of integers and the structure of polynomials. This similarity is close enough that we can talk about Euclidean Division, but for polynomials. That is, polynomials have "Division-with-Remainder" just like integers, and this is one of the strongest results about integers that allows us to easily discuss everything else.
+    </p>
+    <p>
+      Explicitly, if $A(x)$ and $B(x)$ are polynomials, then we can divide them to get a quotient and remainder. For integers, the restriction on the remainder was that it needs to be smaller than the thing you're dividing by. The same thing happens for polynomials, just with size measured by degree rather than absolute value. We can then find polynomials $Q(x)$ and $R(x)$ so that
+      $$
+      A(x) = B(x)\cdot Q(x) + R(x)
+      $$
+      where $R(x)$ is the "Remainder" and has degree smaller than $B(x)$. For example, if $A(x)=x^3+x^2+x+2$ and $B(x) = x^2+x$ then we have
+      $$
+      x^3+x^2+x+2 = (x^2+x)\cdot x + (x+2)
+      $$
+      And so $(x^3+x^2+x+2) \div (x^2+x)$ is equal to $x$ remainder $x+2$. Algorithmically, I think that it is easier to compute these through the standard method, since you can use fraction for your coefficients instead of having to rely on how well you know your multiplication tables. But functionally, there is little difference between this division and the ordinary division-with-remainder that you do in 3rd grade. 
+    </p>
+    <h4>Mixed Polynomials</h4>
+    <p>
+      Riding on the back of Euclidean Division, we can talk about Mixed Polynomials. For integers, mixed numbers take fractions $a/b$ and use Euclidean Division to rewrite them in a way that reflects division-with-remainder. Particularly, you take $A=BQ+R$ to rewrite $A/B$ as $Q+R/B$, where $R/B$ is a proper fraction, meaning the size of the numerator is smaller than the size of the denominatory. 
+    </p>
+    <p>
+      For polynomials we can do the same thing. If $A(x)=B(x)\cdot Q(x) + R(x)$, then we can rewrite the rational function $A(x)/B(x)$ as
+      $$
+      \frac{A(x)}{B(x)} = Q(x) + \frac{R(x)}{B(x)}
+      $$
+      Here $R(x)/B(x)$ is a "proper rational function" because the numerator has degree smaller than the denominator. Arithmetically, there is nothing going on here than with the integers. As an example, we have
+      $$
+      \frac{x^3+x^2+x+2}{x^2+x} = x + \frac{x+2}{x^2+x}$
+      $$
+      But here is where we can see something different between integers and polynomials. Polynomials are functions, so they have graphs. This decomposition can then help us understand what the graphs of these functions will do, particularly what happens at infinity. 
+      
 
+      
+      
 
 
   </div>
