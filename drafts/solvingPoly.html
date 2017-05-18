@@ -12,7 +12,7 @@
 
 
 
-<title>Solving Polynomials</title>
+<title>How to Solve Polynomials</title>
 </head>
 <body>
   <div class="title">
@@ -20,9 +20,79 @@
   </div>
   <hr id="titlebreak">
   
-  <h2 id = "titleheading">Solving Polynomials</h2>
+  <h2 id = "titleheading">How to Solve Polynomials</h2>
   <div class="post-content">
   <div class="post-date">11/21/2016</div>
+    <p>
+      A classic problem in math is to find the zeros of a polynomial. This problem can drive a lot of interesting mathematical results and create fun mathematical tools. For instance, solving simple equations like $3x-2=0$ are what give us fractions. But the problem is much more general than this. Given any polynomial, can we find a way to "solve" it and find its roots?
+    </p>
+    <p>
+      To answer this question, we need to know what we mean when we try to "solve" a polynomial equation. There is a class of simple equations that we can do this for, the equations of the form $x^n-A=0$. When $A$ is a positive real number, we can find another positive real number that satisfies this equation. We call this number the "$n$th root of A", denoted $\sqrt[n]{A}$. The method to find this number is generally through approximation, but we take it as an assumtion that we can find these numbers. Perhaps more ambitiously, we assume that we can find $\sqrt[n]{A}$ whenever $A$ is any complex number. While there is some nuance to this, we'll assume that this is something we can do.
+    </p>
+    <p>
+      To "solve" a polynomial equation like 
+      $$
+      a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0=0
+      $$
+      we then seek to describe its solutions using nothing more than the simple arithmetic operations of addition/multiplication etc, and the operation of $n$th-rooting. One thing that can help us in this process is that we can iterate the $n$th-root operation. This means that we can creat numbers like
+      $$
+      \sqrt{\frac{5+\sqrt{5}}}{8}}
+      $$
+      which is a root to $16x^4-20x^2+5=0$. But this challenge is actually pretty tough. What we're asking to do is to solve arbitrary, complicated polynomials in terms of the roots to the extremely simple polynomials $x^n-A$. A lot of the time, you can reduce hard problems to easy ones, but it's never obvious that it should work. In fact, intuitively, this shouldn't work. Polynomials can get very complicated, so it is might presumptuous to think that their solutions can be expressed using the simplest ones we can think of.
+    </p>
+    <p>
+      The main result is that this intuition is correct. You cannot solve arbitrary polynomials using only roots. You can do it for degrees 2,3,4, but you can't for anything larger. To understand why this is the case, we need to know how we can create solutions to polynomials using only $n$th roots. This will illuminate a characterizing structure for "solvable" polynomials, and we just have to show that polynomials of large enough degree do have this characterization.
+    </p>
+    <h3>The Structure of $n$th-Roots</h3>
+    <p>
+      Before going on, there is something we need to know about the roots to $x^n-A=0$. Just as there are two solutions to $x^2-2=0$, there are $n$ solutions to $x^n-A=0$, the number $\sqrt[n]{A}$ is just one of them. For square roots, we can get all the other root using a minus sign: The solutions to $x^2-2=0$ are $x=\sqrt{2},-\sqrt{2}$. There is a similar story for higher orders. Instead of using $-1$, which satisfies $x^2=1$, we use $\zeta_n$, which satisfies $x^n=1$. The great thing about this, is that we can choose this so that the values $\zeta_n,\zeta_n^2,...,\zeta_n^{n-1},1$ are all of the solutions to $x^n=1$. These are known as the "$n$th Roots of Unity", and they do for arbitrary $n$ what $-1$ does for $2$. 
+    </p>
+    <p>
+      Visually, the $n$th roots of unity have a nice interpretation: On the complex plane, they form the verticies for the regular polygons. That is, fix an $n$, graph all the $\zeta_n^k$ and you get the $n$th regular polygon in the complex plane, with diameter $1$. Of particular note is that they are $n$-equally spaced points on a circle.
+    </p>
+    <p>
+      If we have $\sqrt[n]{A}$ and want to find all the solutions to $x^n-A=0$, then we can use the $n$th roots of unity. In particular, the numbers
+      $$
+      \sqrt[n]{A}, \zeta_n \sqrt[n]{A}, \zeta_n^2\sqrt[n]{A}, \zeta_n^3\sqrt[n]{A},...,\zeta_n^{n-1}\sqrt[n]{A}
+      $$
+      are all the solutions to $x^n-A=0$. Just like we write $x=\pm \sqrt{2}$ for the solutions to $x^2-2=0$, we might write $x=\zeta_n^k\sqrt[n]{A}$ for the solutions to $x^n-A=0$. These have a nice visual interpretation as well, they are the verticies on an $n$-regular polygon with radius given by the magnitude of $A$. An interesting thing about this circle of points is that it can rotate. If we multiply each of the $n$th roots of $x^n-A=0$ by $\zeta_n$, then it rotates this polygon around counter-clockwise by one vertex. What we then have is a rotating wheel of roots, all solutions to $x^n-A=0$.
+      <p>
+      Now consider the number
+      $$
+      c_1=1+\sqrt{8-\sqrt[3]{2}}
+      $$
+      This is a root to the polynomial 
+        $$
+        p(x) = x^6 - 6 x^5 - 9 x^4 + 76 x^3 + 63 x^2 - 294 x - 341
+        $$
+       If we know that $c_1$ is a root, can we find the others? It may seem complicated, but we can understand it better using these wheels. The idea is to take inspiration from the quadratic formula. We can go between roots by switching the sign on the square root. In this one, we should be able to go between all the roots by swapping the root of unity in front of the respective roots in the expression for $c_1$. Doing this gives the numbers
+      $$
+        \begin{eqnarray*}
+        c_1 &=& 1+\sqrt{8-\sqrt[3]{2}}\\
+        c_2 &=& 1+\sqrt{8-\zeta_3\sqrt[3]{2}}\\
+        c_3 &=& 1+\sqrt{8-\zeta_3^2\sqrt[3]{2}}\\
+        c_4 &=& 1-\sqrt{8-\sqrt[3]{2}}\\
+        c_5 &=& 1-\sqrt{8-\zeta_3\sqrt[3]{2}}\\
+        c_6 &=& 1-\sqrt{8-\zeta_3^2\sqrt[3]{2}}
+        \end{eqnarray*}
+      $$
+    This then actually gives all the roots to the polynomial $p(x)$. What we did was plug our known root into the wheel-machine given by all the roots of unity, and spun the wheels to get all the roots. Since there were two $n$th roots, a square root and a cube root, there were two wheels, one with two points on it and one with three. This machine then had 6 total configurations, resulting in the roots.
+    </p>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
   <p>The Quadratic Equation is an important equation because it allows you a way to take an arbitrary quadratic polynomial $ax^2+bx+c$ and figure out all the numbers $r$ so that $ar^2+br+c=0$. These are the roots and they are explicitly given by
   $$
   r= \frac{-b\pm \sqrt{b^2-4ac}}{2a}
