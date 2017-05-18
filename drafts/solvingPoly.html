@@ -36,7 +36,7 @@
       $$
       we then seek to describe its solutions using nothing more than the simple arithmetic operations of addition/multiplication etc, and the operation of $n$th-rooting. One thing that can help us in this process is that we can iterate the $n$th-root operation. This means that we can creat numbers like
       $$
-      \sqrt{\frac{5+\sqrt{5}}}{8}}
+      \sqrt{\frac{5+\sqrt{5}}{8}}
       $$
       which is a root to $16x^4-20x^2+5=0$. But this challenge is actually pretty tough. What we're asking to do is to solve arbitrary, complicated polynomials in terms of the roots to the extremely simple polynomials $x^n-A$. A lot of the time, you can reduce hard problems to easy ones, but it's never obvious that it should work. In fact, intuitively, this shouldn't work. Polynomials can get very complicated, so it is might presumptuous to think that their solutions can be expressed using the simplest ones we can think of.
     </p>
@@ -53,7 +53,7 @@
     <p>
       If we have $\sqrt[n]{A}$ and want to find all the solutions to $x^n-A=0$, then we can use the $n$th roots of unity. In particular, the numbers
       $$
-      \sqrt[n]{A}, \zeta_n \sqrt[n]{A}, \zeta_n^2\sqrt[n]{A}, \zeta_n^3\sqrt[n]{A},...,\zeta_n^{n-1}\sqrt[n]{A}
+      \sqrt[n]{A}, \;\;\;\zeta_n \sqrt[n]{A}, \;\;\;\zeta_n^2\sqrt[n]{A}, \;\;\;\zeta_n^3\sqrt[n]{A},\;\;\;...,\;\;\;\zeta_n^{n-1}\sqrt[n]{A}
       $$
       are all the solutions to $x^n-A=0$. Just like we write $x=\pm \sqrt{2}$ for the solutions to $x^2-2=0$, we might write $x=\zeta_n^k\sqrt[n]{A}$ for the solutions to $x^n-A=0$. These have a nice visual interpretation as well, they are the verticies on an $n$-regular polygon with radius given by the magnitude of $A$. An interesting thing about this circle of points is that it can rotate. If we multiply each of the $n$th roots of $x^n-A=0$ by $\zeta_n$, then it rotates this polygon around counter-clockwise by one vertex. What we then have is a rotating wheel of roots, all solutions to $x^n-A=0$.
       <p>
