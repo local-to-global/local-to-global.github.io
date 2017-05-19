@@ -1,0 +1,78 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Proofs of Fermat's Last Theorem</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Proofs of Fermat's Last Theorem</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+    <p>
+      Wiles gave the first successful proof of Fermat's Last Theorem. But what he actually proved seems to have little to do with Fermat's equation $a^n+b^n=c^n$. Instead, Wiles proved a technical result about how to parameterize and associate modular forms with elliptic curves, explicitly known as the Taniyama-Shimura Conjecture. In general, Fermat's Last Theorem follows from a few different very deep and difficult results like the Taniyama-Shimura Conjecture. In this article, we'll look at three different cases like this and prove Fermat's Last Theorem assuming that the hard part is done.
+    </p>
+    <p>
+      First we'll go at it from the left-field and prove it via the ABC-Conjecture which, at this point, may or may not be a theorem of Mochizuki. The proof via the ABC-Conjecture is fairly simple, as the ABC Conjecture reduces it to finitely many cases that can be easily checked. Next we will prove it only assuming Serre's Modularity Conjectures, now known as the Khare-Witenberger Theorem. This is related to Wiles' approach, but distinct. Next we'll investigate Wiles' approach, assuming the Taniyama-Shimura Conjecture, along with Ribet's Theorem which was known as Serre's Epsilong Conjecture, since it is a very weak form of Serre's Modularity Conjecture, that gives just enough to allow us to prove Fermat's Last Theorem via Wiles' approach.
+    </p>
+    <h3>Via the ABC Conjecture</h3>
+    <p>
+      The ABC-Conjecture is a very deep conjecture that, on the surface, gives us information about what happens to prime factorizations through addition. If you know the prime factorization of two numbers, then it is really simple to find the prime factorization of their product. From this, if we generally attack solving equations by figuring out how to turn them into products somehow. For instance, we can take the expression $x^2+y^2$ and factor it as $x^2+y^2=(x+iy)(x-iy)$. Finding integer solutions to this then reduces too discussing multiplicative properties of the Gaussian Integers. Equations that can't be reduced through some multiplicative factorization process are much harder to work with. One such equation is Fermat's Equation $x^n+y^n=z^n$. 
+    </p>
+    <p>
+      But the ABC-Conjecture can give us multiplicative information through addition, by relating the primes of numbers to the primes of their sums. If $x$ is an integer, we let $rad(x)$ denote it's "radical", which is the product of all primes dividing it, essentially getting rid of all higher exponents. So $rad(12)=6$ since $12=2^2\cdot 3$, and getting rid of the higher exponents gives $2\cdot 3=6$. How $x$ compares to $rad(x)$ tells us something about how big the exponents appearing in the prime factorization of $x$ are. The ABC-Conjecture then says that for everey $\epsilon >0$ there is a constant $K_{\epsilon}$ so that for any coprime integers $A,B,C$ with $A+B=C$, we have
+      $$
+      C &lt K_{\epsilon}\cdot rad(ABC)^{1+\epsilon}
+      $$
+      This puts a bound on the ratio $C/rad(C)$, as we can rewrite this inequality as
+      $$
+      \frac{C}{rac(C)} %lt K_{\epsilon} rad(AB)^{1+\epsilon} \cdot rad(C)^{\epsilon}
+      $$
+      If the primes of $A$ and $B$ have large exponents, then $rad(A) \ll A$ and $rad(B)\ll B$, and so the right side of this can be thought of as relatively small, which means that $C/rad(C)$ should be relatively small, which means that $C$ can't have prime powers that are too big and is governed by the restricting constant $K_{\epsilon}$.
+    </p>
+    <p>Now consider a possible solution to Fermat's Equation, $a^n+b^n=c^$, with $a,b,c$ coprime. We can apply the ABC-Conjecture to this by setting $A=a^n$, $B=b^n$ and $C=c^n$. The ABC-Conjecture then says that
+      $$
+      c^n &lt K_{\epsilon} rad(a^nb^nc^n)^{1+\epsilon}
+      $$
+      Raising a number to a power does not change its radical, so we get $c^n &lt K_{\epsilon} rad(abc)^{1+\epsilon}$. Furthermore, $rad(a),rad(b),rad(c) \leq c$, since $a,b,c\leq c$, and we can split the radical through multiplication since $a,b,c$ are coprime. This reduces the equation to
+      $$
+      c^n &l5 K_{\epsilon} rad(a)^{1+\epsilon}rad(b)^{1+\epsilon}rad(c)^{1+\epsilon} &lt K_{\epsilon}c^{3+3\epsilon}
+      $$
+      Finally, using the fact that we must have $c\geq 3$, note that $\log_c(x) = \log(x)/\log(c) \leq \log(x)/\log(3)$. Putting this together, this means that for all $\epsilon > 0$ we have that Fermat's Last Theorem is true for all 
+      $$
+      n > 3 + 3\epsilon +\frac{\log(K_{\epsilon})}{\log(3)} 
+      $$
+      So the ABC-Conjecture is then true for all sufficiently large exponents. If we can then actually compute one of the $K_{\epsilon}$, for some $\epsilon$, then we would only have to check finitely many exponents to prove the theorem. This is what we can prove with the standard ABC-Conjecture on its own. In particular, it suggests that there can only be at most finitely many counter-examples to Fermat's Last Theorem. A more honest statement would then be that the ABC Conjecture implies the "Asymptotic Fermat's Last Theorem". At least, until we get managable results about the bounding constant.
+    </p>
+    <p>
+      However, a strong form of the ABC-Conjecture, which is not proved by Mochizuki, says that $K_1=1$. Plugging this into the final equation then shows that the Strong ABC-Conjecture shows that Fermat's Last Theorem is true for all $n>6$. Since the exponents $n=3,4,5,6$ all have their own individual proofs, we obtain the full version of Fermat's Last Theorem.
+    </p>
+    <h3>Via Serre's Modularity Conjecture</h3>
+    <p>
+      Serre's Modularity Conjectures are based off of ideas coming from Class Field Theory, Modular Forms, Galois Representations, Elliptic Curves, and some sophisticated Algebraic Geometry. Class Field Theory showed that there is a correspondence between 1-dimensional representations of Galois groups and 1-dimensional representations of other arithmetic objects. Serre's Modularity Conjecture is an attempt to extend this, somehow, to talk about 2-dimensional representations of Galois groups.
+    </p>
+    <p>
+      
+      
+
+
+  </div>
+
+
+
+</body>
+</html>
