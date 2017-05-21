@@ -141,7 +141,7 @@
       $$
       \Delta_E = 2^{-8}a^{2p}b^{2p}c^{2p}
       $$
-      Since $p$ is an odd prime, if $p|\Delta_E$, then it must divide $a$, $b$ or $c$. Since the exponent of each of these is $2p$, it follows that $v_p$ will be a multiple of $p$. Therefore, the level of this representation is $2$. Furthermore, if $\ell$ is an odd prime that dividess $\Delta_E$, then the same reasoning shows that $v_{\ell}$ is a multiple of $p$. This means that such an $\ell$ cannot divide $N_{E,p}$. So the only prime that can divide the conductor is $2$, which does divide it since $v_2=-8$, which is not a multiple of $p$. So $N_{E,p}$.
+      Since $p$ is an odd prime, if $p|\Delta_E$, then it must divide $a$, $b$ or $c$. Since the exponent of each of these is $2p$, it follows that $v_p$ will be a multiple of $p$. Therefore, the level of this representation is $2$. Furthermore, if $\ell$ is an odd prime that dividess $\Delta_E$, then the same reasoning shows that $v_{\ell}$ is a multiple of $p$. This means that such an $\ell$ cannot divide $N_{E,p}$. So the only prime that can divide the conductor is $2$, which does divide it since $v_2=-8$, which is not a multiple of $p$. So $N_{E,p}=2$.
     </p>
     <p>
       So from a counterexample to Fermat's Last Theorem, we can construct an irreducible mod $p$ representation of $G_{\mathbb{Q}}$. This satisfies the technical conditions of Serre's conjecture, and has level $2$ and conductor $2$. Serre's conjecture then says that there is a modular form $f(z)$ of level $2$, conductor $2$ and is an cuspidal eigenform. A standard exercise in a first treatment of modular forms is to compute the dimension of such vector spaces. In particular, the dimension formulas show that the vector space that $f(z)$ lives in is dimension zero. Since zero cannot be an eigenform, it follows that no such modular form exists, which is a contradiction to our construction. Therefore, there cannot be a counterexample to Fermat's Last Theorem.
@@ -149,12 +149,26 @@
 
     <p>
       For more details on Serre's Conjecture and Fermat's Last Theorem, see one of the following:
+    </p>
       <ul>
         <li> J.-P. Serre. "Sur les repr´esentations modulaires de degr´e 2 de Gal(Q/Q)." Duke Math. J., 54(1):179 – 230, 1987.</li>
         <li> <a href="http://www.nms.kcl.ac.uk/misja.steinmetz/Steinmetz_partiii_essay.pdf">An essay on Serre's Conjecture, which discusses Serre's paper in English</a></li>
     </ul>
+    <h3>Via Taniyama-Shimura</h3>
+    <p>
+      The proof using Serre's conjecture requires the full power of Serre's conjecture, which is highly nontrivial and very powerful. It wasn't proved to the extent needed for Fermat's Last Theorem until 2006, so it couldn't be what allowed Wiles to prove the theorem in the first place. Instead, Wiles used a very tiny and restricted version of Serre's Conjecture, known as the Serre Epsilon Conjecture, now Ribet's Theorem, along with the Taniyama-Shimura Conjecture. The Taniyama-Shimura takes the place of the modularity results of Serre's Conjecture, and Ribet's Theorem allows us to say something about the conductor and level of the resulting modular form. Tanyiama-Shimura alone is not enough to prove Fermat's Last Theorem, and Ribet's Theorem is not enough to prove Fermat's Last Theorem, but together they can be combined to play the role of Serre's Conjecture in the above proof. It should be noted that Serre's Conjecture implies the Taniyama-Shimura conjecture, but under Serre's Conjecture, it isn't needed to prove Fermat's Last Theorem, as shown above.
     </p>
-    
+    <h4>The Theorems</h4>
+    <p>
+      The Taniyama-Shimura Conjecture states that for every elliptic curve defined over the rationals, there is a corresponding modular form with the same arithmetic information. In Serre's conjecture, we worked with mod $p$ representations, but the Taniyama-Shimura implies something about higher order representations. In particular, if we have an elliptic curve $E$, then we can consider the $p^n$-torsion points $E[p^n]$. Over the algebraic closure, this group is isomorphic to $\mathbb{Z}/p^n\mathbb{Z}\times \mathbb{Z}/p^n\mathbb{Z}$. So we get a representation
+      $$
+      \overline{\rho_{E,p^n}}: G_{\mathbb{Q}}\rightarrow GL_2(\mathbb{Z}/p^n\mathbb{Z})
+      $$
+      This system of representations is compatible with each other and can lift to a representation on the $p$-adic numbers $\mathbb{Q}_p$ to get a representation
+      $$
+      \rho_{E,p}:G_{\mathbb{Q}}\rightarrow GL_2(\mathbb{Q}_p)
+      $$
+      So, in this case, we are not working with representations over finite fields, but $p$-adic representations over $p$-adic fields.
       
       
       
