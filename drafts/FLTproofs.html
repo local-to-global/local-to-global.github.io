@@ -76,16 +76,28 @@
       $$
       y^2 = x(x-A)(x+B)
       $$
-      These curves satisfy some nice properties and we can explicitly compute a lot of invariants associated to it. One such invariant is the discriminant $\Delta_E$, which comes out to be
+      These curves are semisimple and satisfy some nice properties and we can explicitly compute a lot of invariants associated to it. One such invariant is the discriminant $\Delta_E$, which comes out to be
       $$
-      \Delta_E = 
+      \Delta_E = 2^{-8}A^2B^2C^2
       $$
-      The discriminant parameterizes the primes where the elliptic curve has "Bad Reduction". What this means is that if you look at the curve modulo one of these primes, then you don't end up with a nice looking elliptic curve. 
-      and in the cases we'll need, the conductor of this elliptic curve can be computed to be $N_E=rad(ABC)$. This means that $E$ has bad reduction exactly at the primes dividing $abc$ and at $2$. It should be noted that there is a version of the ABC-Conjecture for elliptic curves, called the Szpiro Conjecture, that discusses the conductor. 
+      The discriminant parameterizes the primes where the elliptic curve has "Bad Reduction". What this means is that if you look at the curve modulo one of these primes, then you don't end up with a nice looking elliptic curve.
     </p>
     <p>
-      From this curve $E$, we can create the Galois representation $\rho_{E,p}:G_{\mathbb{Q}}\rightarrow GL_2(\mathbb{F}_p)$, where $G_{\mathbb{Q}}$ is the absolute Galois group of $\mathbb{Q}$. This is constructed by noting that the $p$-torsion points on $E$ over $\overline{\mathbb{Q}}$, denoted $E[p](\overline{\mathbb{Q}})$, is isomorphic to $\mathbb{F}_p^2$. The $G_{\mathbb{Q}}$ action on $E[p](\overline{\mathbb{Q}})$ can then be expressed as a matrix in $GL_2(\mathbb{F}_p)$. In one of his main papers discussing his conjecture, Serre proves that, in this case, $E$ is an irreducible representation and computes the conductor $N_{E,p}$ of this representation, along with other invariants. What he shows is that 2 divides the conductor and that odd primes $\ell$ divide the conductor if and only if the exponent of $\ell$ in $ABC$ is not a multiple of $p$.
+      The curve $E$ forms a group, and if we look at all of its algebraic points, denoted $E(\overline{\mathbb{Q}})$, then this group has torsion subgroups. In particular, if $E[n](\overline{\mathbb{Q}})$ are points killed by multiplication by $n$, then 
+      $$
+      E[n](\overline{\mathbb{Q}}) \simeq \left(\mathbb{Z}/n\mathbb{Z}\right)^2
+      $$
+      noncanonically. If $p$ is prime, then  $E[p](\overline{\mathbb{Q}})$ is a two dimensional vector space over $\mathbb{F}_p$. If $G_{\mathbb{Q}}$ is the absolute Galois group over the rationals, then this acts naturally on $E[p](\overline{\mathbb{Q}})$ by acting on the coordinates. Since this latter group is a vector space over $/mathbb{F}_p$, it follows that this action can be represented as a matrix, producing a representation
+      $$
+      \rho_{E_p}:G_{\mathbb{Q}}\rightarrow GL_2(\mathbb{F}_p)
+      $$
+      This representation is irreducible, and we can explicitly compute a couple of invariants associated to it. Firstly we have a "level" associated to the curve. This is a value $k$ that discusses how the determinant behaves. The important thing is that if $v_p$ is the exponent of $p$ in $\Delta_E$, then if $p|v_p$ we have $k=2$, otherwise we have $k=p+1$. The other invariant that we are concerned with is the conductor of the representation, denoted $N_{E,p}$. Since $E$ is semisimple, $N_{E,p}$ is squarefree and so is determined by the primes that divide it. The only primes that can divide it are those that divide $\Delta_E$. If $\ell$ is a prime that divides $\Delta_E$, then it will divide $N_{E,p}$ exactly when $v_{\ell}$ is not a multiple of $p$.
     </p>
+    <p>
+    So from our curve we've created this representation. The key is that the invariants $k$ and $N_{E,p}$ depend on the exponents of $\Delta_E$. 
+    </p>
+    
+     
  
     <h3>Via Serre's Modularity Conjecture</h3>
     <p>
