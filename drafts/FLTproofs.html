@@ -91,7 +91,7 @@
       $$
       \rho_{E,p}:G_{\mathbb{Q}}\rightarrow GL_2(\mathbb{F}_p)
       $$
-      This representation is irreducible, and we can explicitly compute a couple of invariants associated to it. Firstly we have a "level" associated to the curve. This is a value $k$ that discusses how the determinant behaves. The important thing is that if $v_p$ is the exponent of $p$ in $\Delta_E$, then if $p|v_p$ we have $k=2$, otherwise we have $k=p+1$. The other invariant that we are concerned with is the conductor of the representation, denoted $N_{E,p}$. Since $E$ is semisimple, $N_{E,p}$ is squarefree and so is determined by the primes that divide it. The only primes that can divide it are those that divide $\Delta_E$. If $\ell$ is a prime that divides $\Delta_E$, then it will divide $N_{E,p}$ exactly when $v_{\ell}$ is not a multiple of $p$.
+      This representation is irreducible, and we can explicitly compute a couple of invariants associated to it. Firstly we have a "level" associated to the curve. This is a value $k$ that encodes some very sophisticated information about ramification at $p$. The important thing is that if $v_p$ is the exponent of $p$ in $\Delta_E$, then if $p|v_p$ we have $k=2$, otherwise we have $k=p+1$. The other invariant that we are concerned with is the conductor of the representation, denoted $N_{E,p}$. Since $E$ is semisimple, $N_{E,p}$ is squarefree and so is determined by the primes that divide it. The only primes that can divide it are those that divide $\Delta_E$. If $\ell$ is a prime that divides $\Delta_E$, then it will divide $N_{E,p}$ exactly when $v_{\ell}$ is not a multiple of $p$.
     </p>
     <p>
     So from our curve we've created this representation. The key is that the invariants $k$ and $N_{E,p}$ depend on the exponents of $\Delta_E$. 
@@ -101,22 +101,34 @@
  
     <h3>Via Serre's Modularity Conjecture</h3>
     <p>
-      Serre's Modularity Conjectures are based off of ideas coming from Class Field Theory, Modular Forms, Galois Representations, Elliptic Curves, and some sophisticated Algebraic Geometry. Class Field Theory showed that there is a correspondence between 1-dimensional representations of Galois groups and 1-dimensional representations of other arithmetic objects. Serre's Modularity Conjecture is an attempt to extend this, somehow, to talk about 2-dimensional representations of Galois groups.
+      Serre's Modularity Conjectures are based off of some very sophisticated ideas that were buzzing around in the mid 1900s about Number Theory. Class Field Theory had showed that there is a correspondence between 1-dimensional representations of Galois groups and 1-dimensional representations of other arithmetic objects. There was a push, then, to figure out how to generalize this to higher dimensions. This was not easy and, in general, resulted in Langlands Program. Serre's Modularity Conjecture follows this philosophy by discussing two dimensional Galois representations into finite fields. 
     </p>
     <p>
-      Serre's conjecture discusses two types of representations. Firstly, we have Galois representations over finite fields. In particular, we care about irreducible, odd (complex conjugation acts like -1) representations
+      The idea is to link such 2-dimensional representations of Galois groups with another arithmetic object. Particularly Modular Forms. There were many result pointing towards modular forms as the correct object to link with these Galois representations, including preliminary results by Serre.
+    </p>
+    <p>
+      More explicitly, Serre's conjecture discusses two types of representations. Firstly, we have Galois representations over finite fields. In particular, we care about irreducible, odd (complex conjugation acts like -1) representations
       $$
       \rho: G_{\mathbb{Q}}\rightarrow GL_2(\mathbb{F})
       $$
-      where $\mathbb{F}$ is a finite field of characteristic $p$, for some prime $p$. These naturally arise in many contexts, in particular from elliptic curves.
+      where $\mathbb{F}$ is a finite field of characteristic $p$, for some prime $p$. These naturally arise in many contexts, in particular, as we saw, from elliptic curves.
     </p>
     <p>
-      On the other hand, we have representations associated to Modular Forms. In particular, we are concerned with modular forms $f(z)$ that are cusp eigenforms. This means that they have good behavior at cusps and are the eigenvectors for certain natural operators on the space of modular forms. Along with some other technical conditions, we say that a representation 
+      On the other hand, we have representations associated to Modular Forms. We are specifically concerned with modular forms $f(z)$ that are cusp eigenforms. This means that they have good behavior at cusps and are the eigenvectors for certain natural operators on the space of modular forms. Along with some other technical conditions, we say that a representation 
       $$
       \rho_f: G_{\mathbb{Q}}\rightarrow GL_2(\mathbb{F})
       $$
-      is associated to a such modular form $f(z)$ if the trace of the Frobenius above $\ell$ is equal to $a_{\ell}$, the $\ell$th Fourier coefficient of $f(z)$, modulo an appropriate prime above $p$. The main spirit of the Serre conjectures is that every such Galois representation can be associated to some modular form in this way. Serre's do conjectures get more precise. Importantly, given a Galois representation $\rho$, the predict the conductor and level of the modular form that should be associated to it. 
+      is associated to a such modular form $f(z)$ if certain arithmetic invariants of the representation match those of the modular form. Precicly, the trace of the Frobenius above $\ell$ should be equal to the $\ell$th Fourier coefficient of $f(z)$, modulo an appropriate prime above $p$, the characteristic of $\mathbb{F}$. 
     </p>
+    <p>The basic statement of Serre's conjectures is that every such Galois representation can be associated to some modular form in this way. Serre's conjectures do get more precise. Importantly, given a Galois representation $\rho$, the conjectures give us formulas that tell us the conductor and level of the modular form that should be associated to it. 
+    </p>
+    <p>
+      To construct the conductor, you can go through a whole process of keeping track of the ramification and behavior at primes of the given Galois representation. This will give the Artin Conductor of the representation. Serre's Conjectures then state that the conductor of the modular form associated with the given Galois representation will be equal to the Artin conductor of the representation. Finally, the level of the modular form is, by Serre's conjecture, the  level associated to the representation mentioned above. The important thing is that this can be computed by looking at the behavior of the representation at the prime $p$.
+    </p>
+    <p>
+      So Serre's Conjectures then say that you can associate a modular form to any Galois representation of a certain type. Moreover, the level and conductor of the modular form can be computed as arithmetic invariants of the representation.
+    </p>
+    
     <p>
       To then prove Fermat's Last Theorem, we consider the representation $\rho_{E,p}$ described above associated to a possible counter example of Fermat's Last Theorem. In particular, if $a^p+b^p=c^p$, then we can take $A=a^p$, $B=b^p$ and $C=c^p$. From the above description, we know what the conductor of this representation looks like. Since $ABC$ is, itself, a $p$-power, it follows that every odd prime will have an exponent that is a multiple of $p$. So the only prime that divides the conductor is 2. By Serre's Conjectures, there is a modular form associated to this representation and, furthermore, from the description of the conductor and other invariants of this representation, it follows that this modular form must have conductor 2 and level 2. The issue is that no such modular form exists. Therefore, the existence of a counterexample to Fermat's Last Theorem provides a counterexample to Serre's Conjectures, which have been proved to be true. So Fermat's Last Theorem must true.
     </p>
