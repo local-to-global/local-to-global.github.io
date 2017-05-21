@@ -40,7 +40,7 @@
       $$
       This puts a bound on the ratio $C/rad(C)$, as we can rewrite this inequality as
       $$
-      \frac{C}{rac(C)} %lt K_{\epsilon} rad(AB)^{1+\epsilon} \cdot rad(C)^{\epsilon}
+      \frac{C}{rad(C)} %lt K_{\epsilon} rad(AB)^{1+\epsilon} \cdot rad(C)^{\epsilon}
       $$
       If the primes of $A$ and $B$ have large exponents, then $rad(A) \ll A$ and $rad(B)\ll B$, and so the right side of this can be thought of as relatively small, which means that $C/rad(C)$ should be relatively small, which means that $C$ can't have prime powers that are too big. This is one of the main results that Mochizuki has allegedly proved in his mysterious papers back in 2012.
     </p>
@@ -60,7 +60,7 @@
       $$
       c^n &lt K_{1/6}^8
       $$
-      Therefore, for any fixed exponent, there can only be finitely many counterexamples. Furthermore, since for high enough exponents we have $c^n > 2^n > K_{1/6}^8$, it follows that there are no counterexamples for large enough exponent. What we have then proved is that there are only finitely many counterexamples to Fermat's Last Theorem and, in particular, there is some integer $n_0$ so that Fermat's Last Theorem holds for all exponents larger than $n_0$. This is the Asymptotic Fermat's Last Theorem and it says that Fermat's Last Theorem is eventually true. This is what the ABC-Conjecture and Mochizuki's "proof" can show. 
+      Therefore, for any fixed exponent, there can only be finitely many counterexamples. Furthermore, since for high enough exponents we have $c^n \geq 2^n > K_{1/6}^8$, it follows that there are no counterexamples for large enough exponent. What we have then proved is that there are only finitely many counterexamples to Fermat's Last Theorem and, in particular, there is some integer $n_0$ so that Fermat's Last Theorem holds for all exponents larger than $n_0$. This is the Asymptotic Fermat's Last Theorem and it says that Fermat's Last Theorem is eventually true. This is what the ABC-Conjecture and Mochizuki's "proof" can show. 
     </p>
     <p>
       In principle, then, if we can compute any one of these $K_{\epsilon}$, and it is small enough, we could then fill in the gaps by proving Fermat's Last Theorem for each exponent up to the one it bounds. This is where the Strong ABC-Conjecture comes in. This says that $K_1=1$. Plugging this in gives us $c^n &lt c^6$, which automatically means that Fermat's Last Theorem is true for all $n\geq 6$. Since we have proofs for the exponents $n=3,4,5$, the full version of Fermat's Last Theorem follows.
@@ -87,9 +87,9 @@
       $$
       E[n](\overline{\mathbb{Q}}) \simeq \left(\mathbb{Z}/n\mathbb{Z}\right)^2
       $$
-      noncanonically. If $p$ is prime, then  $E[p](\overline{\mathbb{Q}})$ is a two dimensional vector space over $\mathbb{F}_p$. If $G_{\mathbb{Q}}$ is the absolute Galois group over the rationals, then this acts naturally on $E[p](\overline{\mathbb{Q}})$ by acting on the coordinates. Since this latter group is a vector space over $/mathbb{F}_p$, it follows that this action can be represented as a matrix, producing a representation
+      noncanonically. If $p$ is prime, then  $E[p](\overline{\mathbb{Q}})$ is a two dimensional vector space over $\mathbb{F}_p$. If $G_{\mathbb{Q}}$ is the absolute Galois group over the rationals, then this acts naturally on $E[p](\overline{\mathbb{Q}})$ by acting on the coordinates. Since this latter group is a vector space over $\mathbb{F}_p$, it follows that this action can be represented as a matrix, producing a representation
       $$
-      \rho_{E_p}:G_{\mathbb{Q}}\rightarrow GL_2(\mathbb{F}_p)
+      \rho_{E,p}:G_{\mathbb{Q}}\rightarrow GL_2(\mathbb{F}_p)
       $$
       This representation is irreducible, and we can explicitly compute a couple of invariants associated to it. Firstly we have a "level" associated to the curve. This is a value $k$ that discusses how the determinant behaves. The important thing is that if $v_p$ is the exponent of $p$ in $\Delta_E$, then if $p|v_p$ we have $k=2$, otherwise we have $k=p+1$. The other invariant that we are concerned with is the conductor of the representation, denoted $N_{E,p}$. Since $E$ is semisimple, $N_{E,p}$ is squarefree and so is determined by the primes that divide it. The only primes that can divide it are those that divide $\Delta_E$. If $\ell$ is a prime that divides $\Delta_E$, then it will divide $N_{E,p}$ exactly when $v_{\ell}$ is not a multiple of $p$.
     </p>
