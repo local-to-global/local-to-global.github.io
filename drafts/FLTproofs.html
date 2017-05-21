@@ -73,29 +73,7 @@
     <h3>Frey Curves</h3>
     <p>
       The remaining proofs rely on creating an elliptic curve from a possible counterexample to Fermat's Last Theorem. These are known as Frey Curves. In general, if $A+B=C$, then we can create the elliptic curve $E$ given by the equation
-      $$
-      y^2 = x(x-A)(x+B)
-      $$
-      These curves are semisimple and satisfy some nice properties and we can explicitly compute a lot of invariants associated to it. One such invariant is the discriminant $\Delta_E$, which comes out to be
-      $$
-      \Delta_E = 2^{-8}A^2B^2C^2
-      $$
-      The discriminant parameterizes the primes where the elliptic curve has "Bad Reduction". What this means is that if you look at the curve modulo one of these primes, then you don't end up with a nice looking elliptic curve.
-    </p>
-    <p>
-      The curve $E$ forms a group, and if we look at all of its algebraic points, denoted $E(\overline{\mathbb{Q}})$, then this group has torsion subgroups. In particular, if $E[n](\overline{\mathbb{Q}})$ are points killed by multiplication by $n$, then 
-      $$
-      E[n](\overline{\mathbb{Q}}) \simeq \left(\mathbb{Z}/n\mathbb{Z}\right)^2
-      $$
-      noncanonically. If $p$ is prime, then  $E[p](\overline{\mathbb{Q}})$ is a two dimensional vector space over $\mathbb{F}_p$. If $G_{\mathbb{Q}}$ is the absolute Galois group over the rationals, then this acts naturally on $E[p](\overline{\mathbb{Q}})$ by acting on the coordinates. Since this latter group is a vector space over $\mathbb{F}_p$, it follows that this action can be represented as a matrix, producing a representation
-      $$
-      \rho_{E,p}:G_{\mathbb{Q}}\rightarrow GL_2(\mathbb{F}_p)
-      $$
-      This representation is irreducible, and we can explicitly compute a couple of invariants associated to it. Firstly we have a "level" associated to the curve. This is a value $k$ that encodes some very sophisticated information about ramification at $p$. The important thing is that if $v_p$ is the exponent of $p$ in $\Delta_E$, then if $p|v_p$ we have $k=2$, otherwise we have $k=p+1$. The other invariant that we are concerned with is the conductor of the representation, denoted $N_{E,p}$. Since $E$ is semisimple, $N_{E,p}$ is squarefree and so is determined by the primes that divide it. The only primes that can divide it are those that divide $\Delta_E$. If $\ell$ is a prime that divides $\Delta_E$, then it will divide $N_{E,p}$ exactly when $v_{\ell}$ is not a multiple of $p$.
-    </p>
-    <p>
-    So from our curve we've created this representation. The key is that the invariants $k$ and $N_{E,p}$ depend on the exponents of $\Delta_E$. 
-    </p>
+    
     
      
  
@@ -112,7 +90,7 @@
       $$
       \rho: G_{\mathbb{Q}}\rightarrow GL_2(\mathbb{F})
       $$
-      where $\mathbb{F}$ is a finite field of characteristic $p$, for some prime $p$. These naturally arise in many contexts, in particular, as we saw, from elliptic curves.
+      where $\mathbb{F}$ is a finite field of characteristic $p$, for some prime $p$. These naturally arise in many contexts, in particular from elliptic curves.
     </p>
     <p>
       On the other hand, we have representations associated to Modular Forms. We are specifically concerned with modular forms $f(z)$ that are cusp eigenforms. This means that they have good behavior at cusps and are the eigenvectors for certain natural operators on the space of modular forms. Along with some other technical conditions, we say that a representation 
@@ -131,8 +109,44 @@
     </p>
     <h4>Proving Fermat's Last Theorem</h4>
     <p>
-      To then prove Fermat's Last Theorem, we consider the representation $\rho_{E,p}$ described above associated to a possible counter example of Fermat's Last Theorem. In particular, if $a^p+b^p=c^p$, then we can take $A=a^p$, $B=b^p$ and $C=c^p$. From the above description, we know what the conductor of this representation looks like. Since $ABC$ is, itself, a $p$-power, it follows that every odd prime will have an exponent that is a multiple of $p$. So the only prime that divides the conductor is 2. By Serre's Conjectures, there is a modular form associated to this representation and, furthermore, from the description of the conductor and other invariants of this representation, it follows that this modular form must have conductor 2 and level 2. The issue is that no such modular form exists. Therefore, the existence of a counterexample to Fermat's Last Theorem provides a counterexample to Serre's Conjectures, which have been proved to be true. So Fermat's Last Theorem must true.
+      The idea of this proof is to construct an elliptic curve, find its associated mod $p$ Galois representation, compute the conductor and level of this representation, then apply Serre's conjecture to get a modular form of a specific conductor and level. The catch will be that a modular form with the level and conductor required by this representation through Serre's conjecture does not exist.
     </p>
+    <p>
+      But first we need to associate an elliptic curve to a possible counterexample to Fermat's Last Theorem. These are Frey curves. In general, given integers $A+B=C$, we can construct the elliptic curve $E$ defined by the equation:
+      $$
+      y^2 = x(x-A)(x+B)
+      $$
+      These curves are semisimple and satisfy some nice properties and we can explicitly compute a lot of invariants associated to it. One such invariant is the discriminant $\Delta_E$, which comes out to be
+      $$
+      \Delta_E = 2^{-8}A^2B^2C^2
+      $$
+      The discriminant parameterizes the primes where the elliptic curve has "Bad Reduction". What this means is that if you look at the curve modulo one of these primes, then you don't end up with a nice looking elliptic curve.
+    </p>
+    <p>
+      To get a Galois representation from this curve, we note that $E$ forms a group, and if we look at all of its algebraic points, denoted $E(\overline{\mathbb{Q}})$, then this group has torsion subgroups. In particular, if $E[n](\overline{\mathbb{Q}})$ are points killed by multiplication by $n$, then 
+      $$
+      E[n](\overline{\mathbb{Q}}) \simeq \left(\mathbb{Z}/n\mathbb{Z}\right)^2
+      $$
+      noncanonically. If $p$ is prime, then  $E[p](\overline{\mathbb{Q}})$ is a two dimensional vector space over $\mathbb{F}_p$. If $G_{\mathbb{Q}}$ is the absolute Galois group over the rationals, then this acts naturally on $E[p](\overline{\mathbb{Q}})$ by acting on the coordinates. Since this latter group is a vector space over $\mathbb{F}_p$, it follows that this action can be represented as a matrix, producing a representation
+      $$
+      \rho_{E,p}:G_{\mathbb{Q}}\rightarrow GL_2(\mathbb{F}_p)
+      $$
+      This representation is irreducible, and we can explicitly compute the level and conductor of this representation. Let $v_p$ denote the exponent of $p$ in $\Delta_E$. If we have $p|v_p$, then the level of the representation is $2$, otherwise it is $p+1$. We can next compute the Artin conductor of the representation, denoted $N_{E,p}$. Since $E$ is semisimple, $N_{E,p}$ is squarefree and so is determined by the primes that divide it. The only primes that can divide it are those that divide $\Delta_E$. If $\ell$ is a prime that divides $\Delta_E$, then it will divide $N_{E,p}$ exactly when $v_{\ell}$ is not a multiple of $p$.
+    </p>
+    <p>
+    So from our curve we've created this representation and we were able to compute the level and conductor associated to the representation and, in particular, these values depend on the exponents of $\Delta_E$. 
+    </p>
+    <p>
+      If $a^p+b^p=c^p$ is a counterexample to Fermat's Last Theorem, we can construct the Frey curve with $A=a^p$, $B=b^p$ and $C=c^p$. This means that the discriminant is
+      $$
+      \Delta_E = 2^{-8}a^{2p}b^{2p}c^{2p}
+      $$
+      Since $p$ is an odd prime, if $p|\Delta_E$, then it must divide $a$, $b$ or $c$. Since the exponent of each of these is $2p$, it follows that $v_p$ will be a multiple of $p$. Therefore, the level of this representation is $2$. Furthermore, if $\ell$ is an odd prime that dividess $\Delta_E$, then the same reasoning shows that $v_{\ell}$ is a multiple of $p$. This means that such an $\ell$ cannot divide $N_{E,p}$. So the only prime that can divide the conductor is $2$, which does divide it since $v_2=-8$, which is not a multiple of $p$. So $N_{E,p}$.
+    </p>
+    <p>
+      So from a counterexample to Fermat's Last Theorem, we can construct an irreducible mod $p$ representation of $G_{\mathbb{Q}}$. This satisfies the technical conditions of Serre's conjecture, and has level $2$ and conductor $2$. Serre's conjecture then says that there is a modular form $f(z)$ of level $2$, conductor $2$ and is an cuspidal eigenform. A standard exercise in a first treatment of modular forms is to compute the dimension of such vector spaces. In particular, the dimension formulas show that the vector space that $f(z)$ lives in is dimension zero. Since zero cannot be an eigenform, it follows that no such modular form exists, which is a contradiction to our construction. Therefore, there cannot be a counterexample to Fermat's Last Theorem.
+    </p>
+
     <p>
       For more details on Serre's Conjecture and Fermat's Last Theorem, see one of the following:
       <ul>
