@@ -61,11 +61,48 @@
     <p>
       However, a strong form of the ABC-Conjecture, which is not proved by Mochizuki, says that $K_1=1$. Plugging this into the final equation then shows that the Strong ABC-Conjecture shows that Fermat's Last Theorem is true for all $n>6$. Since the exponents $n=3,4,5,6$ all have their own individual proofs, we obtain the full version of Fermat's Last Theorem.
     </p>
+    <h3>Frey Curves</h3>
+    <p>
+      The remaining proofs rely on creating an elliptic curve to a possible counterexample to Fermat's Last Theorem. These are known as Frey Curves. In particular, if $A+B=C$, then we can create the elliptic curve $E$ given by the equation
+      $$
+      y^2 = x(x-A)(x+B)
+      $$
+      These curves satisfy some nice properties, and in the cases we'll need, the conductor of this elliptic curve can be computed to be $N_E=rad(ABC)$. This means that $E$ has bad reduction exactly at the primes dividing $abc$ and at $2$. It should be noted that there is a version of the ABC-Conjecture for elliptic curves, called the Szpiro Conjecture, that discusses the conductor. 
+    </p>
+    <p>
+      From this curve $E$, we can create the Galois representation $\rho_{E,p}:G_{\mathbb{Q}}\rightarrow GL_2(\mathbb{F}_p)$, where $G_{\mathbb{Q}}$ is the absolute Galois group of $\mathbb{Q}$. This is constructed by noting that the $p$-torsion points on $E$ over $\overline{\mathbb{Q}}$, denoted $E[p](\overline{\mathbb{Q}})$, is isomorphic to $\mathbb{F}_p^2$. The $G_{\mathbb{Q}}$ action on $E[p](\overline{\mathbb{Q}})$ can then be expressed as a matrix in $GL_2(\mathbb{F}_p)$. In one of his main papers discussing his conjecture, Serre proves that, in this case, $E$ is an irreducible representation and computes the conductor $N_{E,p}$ of this representation, along with other invariants. What he shows is that 2 divides the conductor and that odd primes $\ell$ divide the conductor if and only if the exponent of $\ell$ in $ABC$ is not a multiple of $p$.
+    </p>
+ 
     <h3>Via Serre's Modularity Conjecture</h3>
     <p>
       Serre's Modularity Conjectures are based off of ideas coming from Class Field Theory, Modular Forms, Galois Representations, Elliptic Curves, and some sophisticated Algebraic Geometry. Class Field Theory showed that there is a correspondence between 1-dimensional representations of Galois groups and 1-dimensional representations of other arithmetic objects. Serre's Modularity Conjecture is an attempt to extend this, somehow, to talk about 2-dimensional representations of Galois groups.
     </p>
     <p>
+      Serre's conjecture discusses two types of representations. Firstly, we have Galois representations over finite fields. In particular, we care about irreducible, odd (complex conjugation acts like -1) representations
+      $$
+      \rho: G_{\mathbb{Q}}\rightarrow GL_2(\mathbb{F})
+      $$
+      where $\mathbb{F}$ is a finite field of characteristic $p$, for some prime $p$. These naturally arise in many contexts, in particular from elliptic curves.
+    </p>
+    <p>
+      On the other hand, we have representations associated to Modular Forms. In particular, we are concerned with modular forms $f(z)$ that are cusp eigenforms. This means that they have good behavior at cusps and are the eigenvectors for certain natural operators on the space of modular forms. Along with some other technical conditions, we say that a representation 
+      $$
+      \rho_f: G_{\mathbb{Q}}\rightarrow GL_2(\mathbb{F})
+      $$
+      is associated to a such modular form $f(z)$ if the trace of the Frobenius above $\ell$ is equal to $a_{\ell}$, the $\ell$th Fourier coefficient of $f(z)$, modulo an appropriate prime above $p$. The main spirit of the Serre conjectures is that every such Galois representation can be associated to some modular form in this way. Serre's do conjectures get more precise. Importantly, given a Galois representation $\rho$, the predict the conductor and level of the modular form that should be associated to it. 
+    </p>
+    <p>
+      To then prove Fermat's Last Theorem, we consider the representation $\rho_{E,p}$ described above associated to a possible counter example of Fermat's Last Theorem. In particular, if $a^p+b^p=c^p$, then we can take $A=a^p$, $B=b^p$ and $C=c^p$. From the above description, we know what the conductor of this representation looks like. Since $ABC$ is, itself, a $p$-power, it follows that every odd prime will have an exponent that is a multiple of $p$. So the only prime that divides the conductor is 2. By Serre's Conjectures, there is a modular form associated to this representation and, furthermore, from the description of the conductor and other invariants of this representation, it follows that this modular form must have conductor 2 and level 2. The issue is that no such modular form exists. Therefore, the existence of a counterexample to Fermat's Last Theorem provides a counterexample to Serre's Conjectures, which have been proved to be true. So Fermat's Last Theorem must true.
+    </p>
+    <p>
+      For more details on Serre's Conjecture and Fermat's Last Theorem, see one of the following:
+      <ul>
+        <li> J.-P. Serre. "Sur les repr´esentations modulaires de degr´e 2 de Gal(Q/Q)." Duke Math. J., 54(1):179 – 230, 1987.</li>
+        <li> <a href="http://www.nms.kcl.ac.uk/misja.steinmetz/Steinmetz_partiii_essay.pdf">An essay on Serre's Conjecture, which discusses Serre's paper in English</a></li>
+    </ul>
+    </p>
+    
+      
       
       
 
