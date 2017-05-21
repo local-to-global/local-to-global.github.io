@@ -72,11 +72,16 @@
  
     <h3>Frey Curves</h3>
     <p>
-      The remaining proofs rely on creating an elliptic curve to a possible counterexample to Fermat's Last Theorem. These are known as Frey Curves. In particular, if $A+B=C$, then we can create the elliptic curve $E$ given by the equation
+      The remaining proofs rely on creating an elliptic curve from a possible counterexample to Fermat's Last Theorem. These are known as Frey Curves. In general, if $A+B=C$, then we can create the elliptic curve $E$ given by the equation
       $$
       y^2 = x(x-A)(x+B)
       $$
-      These curves satisfy some nice properties, and in the cases we'll need, the conductor of this elliptic curve can be computed to be $N_E=rad(ABC)$. This means that $E$ has bad reduction exactly at the primes dividing $abc$ and at $2$. It should be noted that there is a version of the ABC-Conjecture for elliptic curves, called the Szpiro Conjecture, that discusses the conductor. 
+      These curves satisfy some nice properties and we can explicitly compute a lot of invariants associated to it. One such invariant is the discriminant $\Delta_E$, which comes out to be
+      $$
+      \Delta_E = 
+      $$
+      The discriminant parameterizes the primes where the elliptic curve has "Bad Reduction". What this means is that if you look at the curve modulo one of these primes, then you don't end up with a nice looking elliptic curve. 
+      and in the cases we'll need, the conductor of this elliptic curve can be computed to be $N_E=rad(ABC)$. This means that $E$ has bad reduction exactly at the primes dividing $abc$ and at $2$. It should be noted that there is a version of the ABC-Conjecture for elliptic curves, called the Szpiro Conjecture, that discusses the conductor. 
     </p>
     <p>
       From this curve $E$, we can create the Galois representation $\rho_{E,p}:G_{\mathbb{Q}}\rightarrow GL_2(\mathbb{F}_p)$, where $G_{\mathbb{Q}}$ is the absolute Galois group of $\mathbb{Q}$. This is constructed by noting that the $p$-torsion points on $E$ over $\overline{\mathbb{Q}}$, denoted $E[p](\overline{\mathbb{Q}})$, is isomorphic to $\mathbb{F}_p^2$. The $G_{\mathbb{Q}}$ action on $E[p](\overline{\mathbb{Q}})$ can then be expressed as a matrix in $GL_2(\mathbb{F}_p)$. In one of his main papers discussing his conjecture, Serre proves that, in this case, $E$ is an irreducible representation and computes the conductor $N_{E,p}$ of this representation, along with other invariants. What he shows is that 2 divides the conductor and that odd primes $\ell$ divide the conductor if and only if the exponent of $\ell$ in $ABC$ is not a multiple of $p$.
