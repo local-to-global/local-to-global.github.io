@@ -150,7 +150,13 @@
     </p>
     <h4>The Theorems</h4>
     <p>
-      The Taniyama-Shimura Conjecture states that for every elliptic curve defined over the rationals, there is a corresponding modular form with the same arithmetic information. In Serre's conjecture, we worked with mod $p$ representations, but the Taniyama-Shimura implies something about higher order representations. In particular, if we have an elliptic curve $E$, then we can consider the $p^n$-torsion points $E[p^n]$. Over the algebraic closure, this group is isomorphic to $\mathbb{Z}/p^n\mathbb{Z}\times \mathbb{Z}/p^n\mathbb{Z}$. So we get a representation
+      While we could directly apply Serre's Conjecture to the Galois representation associated to a Frey curve to immediately get a contradiction, we can't do this with Taniyama-Shimura. The helpful thing about Serre's Conjecture is that, not only does it give us a modular form corresponding to the representation, it is the conductor of the representation allows immediate computation of the conductor of the modular form. The Taniyama-Shimura Conjecture, however, specifies the conductor of the modular form off of the conductor of the elliptic curve itself. In our case, this conductor is larger than 2, and so we it is possible to pull a modular form from a nonzero vector space, but pulling a nonzero modular form from a zero vector space is where the contradiction arose in Serre's conjecture.
+    </p>
+    <p>
+      So this proof will use two theorems: One to get a modular form, and another to lower the conductor of the modular form enough to get a contradiction. Serre's Conjecture is much more powerful, these are just patches of it.
+    </p>
+    <p>
+      The first ingredient is the Taniyama-Shimura Conjecture, which associates a modular form to a given rational elliptic curve. As with Serre's Conjecture, this can be discussed through represenations. But this time, the representations will be over much larger fields. In particular, if we have an elliptic curve $E$, then we can consider the $p^n$-torsion points $E[p^n]$. Over the algebraic closure, this group is isomorphic to $\mathbb{Z}/p^n\mathbb{Z}\times \mathbb{Z}/p^n\mathbb{Z}$. So we get a representation
       $$
       \overline{\rho_{E,p^n}}: G_{\mathbb{Q}}\rightarrow GL_2(\mathbb{Z}/p^n\mathbb{Z})
       $$
@@ -158,8 +164,39 @@
       $$
       \rho_{E,p}:G_{\mathbb{Q}}\rightarrow GL_2(\mathbb{Q}_p)
       $$
-      So, in this case, we are not working with representations over finite fields, but $p$-adic representations over $p$-adic fields.
-      
+      So, in this case, we are not working with representations over finite fields, but $p$-adic representations over $p$-adic fields. We can still discuss whether or not a representation over $p$-adic fields can be associated to a modular form or not, in a similar way. We, in general, compare values associated to the modular form with the trace and determinant of the representation on the Frobenius elements. The Taniyama-Shimura Conjecture then says that for every rational elliptic curve, $E$, with conductor $N_E$, there is a modular eigenform $f(z)$ of level 2 and conductor $N_E$ associated to the representation $\rho_{E,p}$.
+    </p>
+    <p>
+      Obviously, the conductor is too large to get a contradiction. Our second ingredient is Ribet's Theorem, also known as Serre's Epsilon Conjecture, because it is a tiny version of Serre's Conjecture and discusses how we can lower the conductor of such representations to get conductors more like the ones predicted by Serre's Conjecture.
+    </p>
+    <p>Explicitly, if $f(z)$ is a modular form of weight 2 and level $qN$, and $\rho_{f,p}$ is the representation associated to $f(z)$ as above, then if $\rho_{f,p}$ satisfies some technical conditions, $q$ does not divide $N$ and $\rho_{f,p}$ does not behave "bad" at $q$, then we can find a modular form $g(z)$ of weight $N$ so that $\rho_{f,p}\simeq \rho_{g,p}$. This means that, as long as everything is "nice", we can divide out squarefree primes from the conductor without changing the associated representation.
+    </p>
+    <h4>Proving Fermat's Last Theorem</h4>
+    <p>
+      As before, given a counterexample to Fermat's Last Theorem, $a^p+b^p=c^p$, we can create the Frey curve, $E$, with $A=a^p$, $B=b^p$ and $C=c^p$. We can compute the conductor of $E$ to be 
+      $$
+      N_E = rad(abc)
+      $$
+      By Taniyama-Shimura, there is an associated modular form $f(z)$ of level 2 and conductor $N_E$ associated to the representation $\rho_{E,p}$. Note that $N_E$ is squarefree. If $\ell$ is any odd prime, then it satisfies the "niceness" conditions of Ribet's Theorem (this is due to the particularly nice nature of the elliptic curve $E$, notably that it is semisimple). However, $2|N_E$ and we cannot get rid of it through Ribet's Theorem. So, using Ribet's Theorem, there is a modular cuspform $g(z)$ of weight 2 and conductor $N=2$ so that $\rho_{E,p}$ is associated to $g(z)$. But the vector space of weight 2, conductor 2 cusp forms is zero. This contradicts our construction based on the existence of a counterexample to Fermat's Last Theorem, so Fermat's Last Theorem must be true.
+    </p>
+    <h3>Conclusion</h3>
+    <p>
+      These proofs then allow us to reduce the question of proving Fermat's Last Theorem to a couple other theorems. For instance, if you can prove Serre's Conjecture, you will now be able to get the full proof of Fermat's Last Theorem. There are obviously a lot of subtleties and technicalities brushed over in these proofs, but there are a few good references to look up and study them in more detail:
+      <ul>
+        <li><b>Serre's Conjecture:</b>
+          <ul>
+            <li>Serre's paper outlining everything about it: J.-P. Serre. <i>Sur les representations modulaires de degre 2 de Gal(Q/Q).</i> Duke Math. J., 54(1):179 – 230, 1987.</li>
+            <li><a href = "http://www.nms.kcl.ac.uk/misja.steinmetz/Steinmetz_partiii_essay.pdf">English overview of above paper</a></li>
+            <li><a href = "http://wstein.org/papers/serre/ribet-stein.pdf">Lectures on Serre's Conjectures</a></li>
+          </ul></li>
+        <li><b>Taniyama-Shimura Conjecture:</b>
+          <ul>
+            <li><a href="http://math.bu.edu/people/ghs/papers/FermatOverview.pdf">Glenn Stevens' Overview of Fermat's Last Theorem</a>. Can't get a better overview of all the ingredients, including the basic strategy of Wiles' contribution.</li>
+            <li>
+          </ul></li>
+    </ul>
+    
+    
       
       
 
