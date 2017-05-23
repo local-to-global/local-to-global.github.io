@@ -1,0 +1,78 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Taylor Polynomials and Derivatives</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Taylor Polynomials and Derivatives</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  <h3>Tangent Lines and Derivatives</h3>
+  <p>
+  Typically, if $f(x)$ is a function, then (if it exists), the derivative of $f(x)$ at $x=a$ is typically defined a
+  $$
+  f'(a) = \lim_{h\rightarrow 0} \frac{f(a+h)-f(a)}{h}
+  $$
+    The Tangent Line at $x=a$ is then defined as the polynomial
+    $$
+    P(x) = f(a) + f'(a)(x-a)
+    $$
+    This is the linear approximation for $f(x)$ at $x=a$. This suggests that it is the line passing through the point $(a,f(a))$ that approximates the function $f(x)$ around $x=a$ the best. Our question is then: Does this work in reverse? Can we define the Tangent Lines at $x=a$ to be the line that approximates $f(x)$ near $x=a$ and then recover the traditional definition for the derivative?
+    </p>
+    <p>
+    To do this, we need to know what a "best approximating line" even means. Obviously such a line will have to pass through the point $(a,f(a))$ and so will be of the form $L(x)=f(a) + m(x-a)$ for some number $m$. If we let $O(x)$ be the difference between $f(x)$ and $L(x)$, then we have 
+    $$
+    f(x) = f(a) + m(x-a) + O(x)
+    $$
+    We want to make this error as small as we possibly can. Obviously, $\lim_{x\rightarrow a}O(x)=0$. This means it vanishes of at least order 0 at $x=a$. But what about what happens when we try to cancel out this vanishing by considering the limit $\lim_{x\rightarrow a}\frac{O(x)}{x-a}$? If this is still zero, then it has at least a double zero there, otherwise it just has a single zero. Since $O(x)=f(x)-L(x)$, we say that $L(x)$ is a <b>Tangent Line</b> if 
+    $$
+    \lim_{x\rightarrow a}\frac{f(x)-L(x)}{x-a} = 0
+    $$
+    Intuitively, this means that $L(x)$ is not just a 0th order approximation of $f(x)$, but a 1st order approximation since the approximation survives an operation that can cancel out the other approximations. We claim that this can happen and, if it does, then there is exactly <i>one</i> slope $m$ that works.
+    </p>
+    <p>
+    
+    To see that this can actually happen, take any line $L(x)=f(a)+m(x-a)$ and let $O(x)=f(x)-L(x)$. So we have $\lim_{x\rightarrow a}O(x)=0$. Our assumption is then that the limit 
+    $$
+    \lim_{x\rightarrow a} \frac{O(x)}{x-a} = c
+    $$
+     also exists and equals $c$. With this assumption, we can write $O(x)=c(x-a)+o(x)$, where $\lim_{x\rightarrow a}o(x)/(x-a)=0$. We can plug this into $f(x)=f(a)+m(x-a) + O(x)$ to get
+     $$
+     f(x) = f(a) + M(x-a) +o(x)
+     $$
+     where $M=m+c$. If we set $T(x)=f(a)+M(x-a)$, the it is easy to check that $\lim_{x\rightarrow a} \frac{f(x)-T(x)}{x-a} = 0$. So under the assumption that $\lim_{x\rightarrow a} \frac{O(x)}{x-a}$ exists for some lime $L(x)$, means that we can find one that satisfies the optimization condition. We can show that there is only a single $M$ that will make this work by finding a formula for $M$. Taking the equation $f(x)=f(a)+M(x-a)+o(x)$ and solving for $M$ gives
+     $$
+     M = \frac{f(x)-f(a)}{x-a} - \frac{o(x)}{x-a}
+     $$
+     Note that the left side does not depend on $x$, so we are free to take the limit of this expression at $x=a$ without changing $M$. Since the limit of the second term on the right is zero, doing this then gives
+     $$
+     M = \lim_{x\rightarrow a}\frac{f(x)-f(a)}{x-a}
+     $$
+     Which can be turned into the typical expression for the derivative through the change of variables $h=x-a$. 
+     </p>
+     <p>
+     This means that the definintions around all this are not ad hoc. The derivative arises naturally as the slope of the unique line that approximats a function the <i>best</i> around a point.
+     
+
+  </div>
+
+
+
+</body>
+</html>
