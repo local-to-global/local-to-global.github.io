@@ -3,3 +3,8 @@ More generally, you can let A,B be integers, and D=GCD(A,B). Set C=AB/D. Then sh
 For this, write n=Cq+r, with 0<=r<C. r is a common multiple of A and B and is less than C. So r=xA=yB for some integers x,y. This means that A/B = y/x. If we set a=A/D and b=B/D, then a/b=A/B=y/x. Since a/b is reduced, it follows that there is some integer z so that y=za, x=zb. We then get that r=zbA=zaB. But bA=aB=C. So there is some integer z so that r=zC. The only way that this can happen with r<C is if z=0, which implies r=0, which implies that C|n. 
 
 This is the proof that AB=GCD(A,B)LCM(A,B).
+
+
+--
+
+Derivatives and taylor polynomials
