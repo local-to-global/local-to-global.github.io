@@ -129,9 +129,30 @@
       So this polynomial is unique.
     </div>
     <p>
-      Note that this proof is nearly identical to our above proof. This is because the degree 0 case is actually the base case, and $P(x)=f(a)$ is the unique degree 0 Taylor polynomial. Repeating the above with $P(x)=f(a)$ and $n=1$ gives us the Tangent Line proof. The only difference is that we don't really get the expression for the $n$th order derivative. This is actually important because you can have a degree $n$ Taylor polynomial without having an $n$th order derivative. The reason for this is that it might be the case that a function has a derivative only at $x=a$, but not at any point around $x=a$. In this case, it does not make sense to talk about the higher order derivatives, but it might make sense to talk about the higher order Taylor polynomials. 
-    </p>
+      Note that this proof is nearly identical to our above proof. This is because the degree 0 case is actually the base case, and $P(x)=f(a)$ is the unique degree 0 Taylor polynomial. Repeating the above with $P(x)=f(a)$ and $n=1$ gives us the Tangent Line proof. The only difference is that we don't really get the expression for the $n$th order derivative. This is actually important because you can have a degree $n$ Taylor polynomial without having an $n$th order derivative. The reason for this is that it might be the case that a function has a derivative only at $x=a$, but not at any point around $x=a$. In this case, it does not make sense to talk about the higher order derivatives, but it might make sense to talk about the higher order Taylor polynomials.    </p>
     <p>
+      Since the Taylor polynomials can exist without the $n$th order derivatives themselves existing, we can define a kind of generalized derivative in terms of the coefficients of the Taylor polynomials:
+    <div class="thm"><b>Definition: </b> Let $f(x)$ be a function and assume it has a degree $n$ Taylor polynomial 
+      $$
+      T(x)=m_n(x-a)^n + m_{n-1}(x-a)^{n-1}+\cdots+m_1(x-a)+m_0
+      $$
+      at $x=a$. For $k\leq n$, say that the <b>Generalized $k$th Order Derivative</b> at $x=a$, denoted $f^{[k]}(a)$, is equal to
+      $$
+      f^{[k]}(a) := m_k k!
+      $$
+      From the above theorem, this does not depend on the choice of $n$.
+    </div>
+    <p>
+      A main result on the theory of Taylor Series can then be seen as follows: If $f(x)$ is $n$-times differentiable, with $n$th derivative $f^{(n)}(a)$, then we have
+      $$
+      f^{(n)}(a)=f^{[n]}(a)
+      $$
+      Of course, the values $f^{[n]}(a)$ can exist without $f^{(n)}(a)$ existing.
+    </p>
+    <h3>Conclusion</h3>
+    <p>
+      The advantage of all of this is putting everything into terms of approximation. We define what we want a good linear approximation to be and then show that derivatives are then seen as important because of how they let us approximate functions in this way. Same thing for Taylor polynomials. We discuss what we want by a good polynomial approximation to a function, and see, as a corollary, that higher order derivatives accomplish this. An emphasis on approximation can make Calculus a lot more concrete and conceptually meaningful.
+    </p>
     
     
     
