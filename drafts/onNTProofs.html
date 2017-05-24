@@ -1,0 +1,76 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>On some basic Number Theory proofs</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">On some basic Number Theory proofs</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  <p>
+  There is a list of basic results in Number Theory that are proved in the first few weeks of any Elementary Number Theory course. There are three really big ones that lay the foundation for the rest of the study on integer arithmetic:
+  <ul>
+  <li><b>Euclidean Division:</b> Let $A$ and $B$ be any two positive integers. There then exist unique integers $Q$ and $R$, with $0\leq R &lt B$ so that $A=BQ+R$.</li>
+  <li><b>Bezout's Identity:</b> Let $A$, $B$ and $C$ be any three integers. There is an integer solution to the equation $Ax+By=C$ if and only $C$ is a multiple of the greatest common divisor of $A$ and $B$.</li>
+  <li><p>The Fundamental Theorem of Arithmetic: </li> For any positive integer $A$, there is a unique list of primes $p_i$ (possibly empty) so that $A=p_1^{n_1}...p_k^{n_k}$. That is, every positive integer has a unique factorization into prime numbers</li>
+  </ul>
+  These are all really great theorems and proofs. But the last one can be particularly powerful. It allows us to take delicate results and bash them with valid proofs. This can hide some of the interesting arithmetic that is actually going on behind some of these results. We'll look at a few such theorems and prove them using only the first two of these main theorems.
+  </p>
+  <h4>The GCD and LCM</h4>
+  <p>
+  Let $A$ and $B$ be positive integers. The number $gcd(A,B)$ is the greatest common divisor of $A$ and $B$, and is the largest number $d$ so that $d|A$ and $d|B$. The number $lcm(A,B)$ is the least common multiple of $A$ and $B$, and it is the smallest number $c$ so that $A|c$ and $B|c$. A fundamental result about these two numbers is that
+  $$
+  gcd(A,B)\cdot lcm(A,B) = AB
+  $$
+  When you look at the prime factorization of $A$ and $B$ this becomes really simple and, frankly, kinda boring. But we can prove it without appealing to primes.
+  </p>
+  <div class="thm"><b>Proof: </b> Let $A$ and $B$ be positive integers. Set $d=gcd(A,B)$ and define $c=AB/d$. Note that $A|c$ and $B|c$, since $c=A(B/d)$ and $c=B(A/d)$. We will show that if $n$ is a number so that $A|n$ and $B|n$, then $c|n$. This will mean that $c$ is the least common multiple of $A$ and $B$.
+  <br>
+  So assume that $A|n$ and $B|n$. Use Euclidean Division to write $n=cq+r$ with $0\leq r &lt c$. Since $n$ and $c$ are common multiples of $A$ and $B$, it follows that $r$ must be a common multiple of $A$ and $B$. This means that there are integers $x$ and $y$ so that $r=Ax=By$. We then have, as fractions, 
+  $$
+  \frac{A}{B} = \frac{y}{x}
+  $$
+  Now, $A/B$ is not necessarily a reduced fraction, since $d$ is a common divisor. But if we set $a=A/d$ and $b=B/d$, then
+  $$
+  \frac{a}{b} = \frac{y}{x}
+  $$
+  and the left fraction is reduced. Therefore, there is an integer $z$ so that $y=az$ and $x=bz$. Plugging these into $r=Ax=By$ gives
+  $$
+  r= Abz = Baz
+  $$
+  But $Ab=Ba=AB/d$, which is equal to $c$. Therefore, we can write $r=cz$ for some integer $z$. Since $0\leq r &lt c$, it follows that $z=0$, ie $r=0$ is the only possibility. Therefore, $c|n$. So $c=lcm(A,B)$, which implies
+  $$
+  gcd(A,B)lcm(A,B)=AB
+  $$
+  </div>
+  <p>
+  This illustrates the role of the "greatest" in the "greatest common divisor" and the "least" in the "least common divisor", and how we use the fundamental result on division to obtain this fundamental relation. This proof, in a way, gives us more insight into this relation, other than counting primes.
+  
+  
+  
+    
+
+
+
+  </div>
+
+
+
+</body>
+</html>
