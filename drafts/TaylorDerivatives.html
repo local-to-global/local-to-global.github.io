@@ -95,13 +95,16 @@
     </p>
     <div class = "thm"><b>Definition: </b> Let $f(x)$ be a function and let $T(x)$ be a polynomial of degree at most $n$. Say that $T(x)$ is a degree $n$ <b>Taylor Polynomial</b> at $x=a$ if 
       $$
-      \lim_{x\rightarrow a} \frac{f(x)-P(x)}{(x-a)^n} = 0
+      \lim_{x\rightarrow a} \frac{f(x)-T(x)}{(x-a)^n} = 0
       $$
     </div>
     <p>
       So a tangent line is a degree 1 Taylor polynomial. All we have done is increase the degree of any polynomial-type expression going in the tangent line definition. This definition then works to find the degree $n$ polynomial that best approximates our function around a given point. The question is then: Is this unique? and How does this relate to higher order derivatives? Let's address the uniqueness first.
     </p>
-    <div class="thm"><b>Theorem: </b>Let $f(x)$ be a function. For every point $x=a$, there is at most one Taylor polynomial of degree $n$ for $f(x)$ at $x=a$. Furthermore, if the Taylor polynomial of degree $n$ exists at $x=a$, so does the Taylor Polynomial of degree $n-1$ at $x=a$. Explicitly, if $T(x)$ is the degree $n$ Taylor polynomial for $f(x)$ at $x=a$ with leading coefficient $mx^(n)$, then $T(x)-mx^(n)$ is the degree $n-1$ Taylor polynomial for $f(x)$ at $x=a$.
+    <div class="thm"><b>Theorem: </b>Let $f(x)$ be a function. For every point $x=a$, there is at most one Taylor polynomial of degree $n$ for $f(x)$ at $x=a$. Furthermore, if the Taylor polynomial of degree $n$ exists at $x=a$, so does the Taylor Polynomial of degree $n-1$ at $x=a$. Explicitly, if $T(x)$ is the degree $n$ Taylor polynomial for $f(x)$ at $x=a$ with leading term $Mx^(n)$, then $P(x)=T(x)-Mx^n$ is the degree $n-1$ Taylor polynomial for $f(x)$ at $x=a$ and
+      $$
+      M = \lim_{x\rightarrow a}\frac{f(x)-P(x)}{(x-a)^n}
+      $$
     </div>
     <div class="thm"><b>Proof: </b> This will be done through induction. The base case is the Tangent Line theorem above. So assume that $n>1$ and assume that $P(x)$ is the degree $n-1$ Taylor polynomial at $x=a$. Let $Q(x)=P(x)+m(x-a)^n$ and write $O(x)=f(x)-Q(x)$. Assume that
       $$
@@ -127,7 +130,8 @@
     </div>
     <p>
       Note that this proof is nearly identical to our above proof. This is because the degree 0 case is actually the base case, and $P(x)=f(a)$ is the unique degree 0 Taylor polynomial. Repeating the above with $P(x)=f(a)$ and $n=1$ gives us the Tangent Line proof. The only difference is that we don't really get the expression for the $n$th order derivative. This is actually important because you can have a degree $n$ Taylor polynomial without having an $n$th order derivative. The reason for this is that it might be the case that a function has a derivative only at $x=a$, but not at any point around $x=a$. In this case, it does not make sense to talk about the higher order derivatives, but it might make sense to talk about the higher order Taylor polynomials. 
-      
+    </p>
+    <p>
     
     
     
