@@ -12,7 +12,7 @@
 
 
 
-<title>The Pi in the Gaussian</title>
+<title>The Gaussian Integral</title>
 </head>
 <body>
   <div class="title">
@@ -20,75 +20,68 @@
   </div>
   <hr id="titlebreak">
   
-  <h2 id = "titleheading">The Pi in the Gaussian</h2>
+  <h2 id = "titleheading">The Gaussian Integral</h2>
   <div class="post-content">
   <div class="post-date">11/21/2016</div>
   <p>
-  People are generally surprised to see the formula
-  $$
-  \int_{\infty}^{\infty}e^{-x^2}dx =\sqrt{\pi}
-  $$
-    Why is there a $\pi$ there? In a previous post, we have discussed some pretty abstract reasons why this should happen. But we can look at this equation in particular and see how the functional properties of $e^{x^2}$ necessitate pi.
+    The Gaussian Integral is the integral
+    $$
+    \int_{-\infty}^{\infty}e^{-x^2}dx = \sqrt{\pi}
+    $$
+    People are sometimes surprised to see a $\pi$ pop up in this, but we'll see that it comes quite naturally from the functional properties of the function $f(x)=e^{-x^2}$. 
     </p>
+    <h4>A General Gaussian Integral</h4>
     <p>
-    Consider a differentiable function $f(x)$ that is positive everywhere. If $(x,y)$ is a point on the coordinate grid, then we can consider the value $f(x)f(y)$. In particular, what happens when $f(x)f(y)=kf(r)$, where $r=\sqrt{x^2+y^2}$ and $k$ is some constant? This is a functional equation and it allows us to evaluate the integral of $f(x)$ rather nicely. If this is the case, then we can evaluate the integral rather nicely. If we set $I=\int_{-\infty}^{\infty}f(x)dx$, then we get
-    $$
-    \begin{eqnarray*}
-    I^2 &=& \left(\int_{-\infty}^{\infty}f(x)dx\right)\cdot \left(\int_{\infty}^{\infty}f(y)dy\right)\\
-    &=& \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x)f(y)dxdy\\
-    &=& \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}kf(\sqrt{x^2+y^2})dxdy
-    \end{eqnarray*}
-    $$
-    Transforming this into polar coordinates then gives
-    $$
-    \begin{eqnarray*}
-    I^2 &=& k\int_0^{\infty}\int_0^{2\pi}f(r)rd\theta dr\\
-    &=& 2\pi k\int_0^{\infty}f(r)rdr
-    \end{eqnarray*}
-    $$
-    This means that the integral $I$ will equal (plus or minus) the square root of $2\pi k$-times the radial integral. That is
-    $$
-    \int_{-\infty}^{\infty} f(x)dx = \sqrt{2\pi k} \left(\int_0^{\infty}f(x)xdx\right)^{\frac{1}{2}}
-    $$
-    If there is no $\pi$ in the integral of $f(x)xdx$ or $k$, then the integral of $f(x)dx$ will necessarily have a $\pi$ in it. So what functions satisfy the equation $f(x)f(y)=kf(r)$?
-    </p>
+      We will mimic the traditional proof of the Gaussian Integral, which can be found <a href="https://en.wikipedia.org/wiki/Gaussian_integral#By_polar_coordinates">Here</a>, but in a  more general setting. In particular, let $f(x)$ be a strictly positive function that has finite integral over the real line and satisfies the functional equation
+      $$
+      f(x)f(y)=G(r)
+      $$
+      for some positive function $G(r)$ and $r=\sqrt{x^2+y^}$. Note that $f(x)=e^{-x^2}$ satisfies $f(x)f(y)=f(r)$, so it is of this type. Let $I=\int_{-\infty}^{\infty}f(x)dx$ and $A = \int_0^{\infty}G(x)xdx$. We can compute $I$ to be a multiple of $\sqrt{\pi\cdot A}$.  We have
+      $$
+      \begin{eqnarray*}
+      I^2 &=& \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x)f(y)dxdy\\
+          &=& \int_0^{\infty}\int_0^{2\pi} f(x)f(y)rdrd\theta\\
+          &=& \int_0^{\infty}\int_0^{2\pi} G(r)rdrd\theta\\
+          &=& 2\pi \int_0^{\infty} G(r)rdr\\
+          &=& 2\pi  A
+      \end{eqnarray*}
+      $$
+      Since everything is positive, we have $I=\sqrt{2\pi \cdot A}$. We can then see that it is the angle invariance of the function $F(x,y)=f(x)f(y)=kf(r)$ that produces this pi. So it necessarily comes from the functional properties of the function in question.</p>
     <p>
-    Let's talk a bit more generally: What are the functions $f(x)$ so that $f(x)f(y)$ is independent of the angle of the point $(x,y)$ in the coordinate plane. So, which functions $f(x)$ are so that $f(x)f(y)$ only depends on the distance $(x,y)$ is from the origin? We'll assume differentiability, so we can consider then
-    $$
-    \frac{d}{d\theta}f(x)f(y) = 0
-    $$
-    Note that since $x=r\cos(\theta)$ and $y=r\sin(\theta)$, we get $\frac{dx}{d\theta} = -y$ and $\frac{dy}{d\theta}=x$. Using the chain rule, we can evaluate this derivative:
-    $$
-    \begin{eqnarray*}
-    \frac{d}{d\theta}f(x)f(y) &=& \frac{\frac{dx}{d\theta}f'(x)f(y) + \frac{dy}{d\theta}f(x)f'(y)}{(f(x)f(y))^2}\\
-    &=& \frac{-yf'(x)f(y) + xf(x)f'(y)}{(f(x)f(y))^2}
-    \end{eqnarray*}
-    $$
-    For the derivative to be zero, we then just need $xf(x)f'(y)=yf'(x)f(y)$. Rearranging this, we get 
-    $$
-    x\frac{f(x)}{f'(x)} = y\frac{f(y)}{f'(y)}
-    $$
-    so the value $x\frac{f(x)}{f'(x)}$ is independent of the value $x$ that we input, so there is some constant $c$ so that such a function satisfies the differential equation
-    $$
-    f'(x) = cxf(x)
-    $$
-    The similarity to the equation $f'(x)=cf(x)$ should be noted, and this equation is the "infinitesimal" version of the additive formula $h(x+y)=h(x)h(y)$ that defines and makes exponential functions so important. In fact, the change of variables $x=\sqrt{t}$, while noting that $\frac{dx}{dt}=\frac{1}{2x}$, shows that
-    $$
-    \begin{eqnarray*}
-    \frac{df(x)}{dt} &=&  f'(x)\frac{dx}{dt}\\
-    &=& cxf(x)\frac{dx}{dt}\\
-    &=& \frac{c}{2} f(x)
-    \end{eqnarray*}
-    $$
-    That is, if $F(t)=f(\sqrt{t})$, then $F'(t) = \frac{c}{2}f=F(t)$, which is the "infinitesimal" additive formula. So $F(t)=ke^{ct/2}$. What this means is that we must have $f(x) = ke^{Cx^2}$ for some constance $k$ and $C$. 
+      A natural question then is: What functions satisfy the functional equation $f(x)f(y)=G(r)$?
     </p>
+    <h4>Finding the Gaussian</h4>
     <p>
-    So imposing just angle independence on $f(x)f(y)$ requires us to get a Gaussian-type function. On the other hand, if $f(x)=ke^{Cx^2}$, then we will get $f(x)f(y)=kf(r)$ since we have $x^2+y^2=r^2$. In a way, then $f(x)f(y)=kf(r)$ can be thought of as a "Multiplicative Distance Formula".
-    </p>
-    <p>
-    Because the Gaussian is the unique type of function whose 2D product is angularly independent, it follows that we necessarily get the $\pi$ as a consequence of this independence.
-    </p>
-
+      We seek to find the functions, $f(x)$, so that  $f(x)f(y)$ is invariant of the angle $\theta$. We will assume that $G(r)$ is differentiable and that $f(x)$ is nonconstant. The invariance on $\theta$ can then be expressed as:
+      $$
+      \frac{\partial G}{\partial \theta} = 0
+      $$
+      Note that if $F(x,y)$ is any function, then
+      $$
+      \frac{\partial F}{\partial \theta} = \frac{\partial F}{\partial x}\frac{\partial x}{\partial \theta} + \frac{\partial F}{\partial y}\frac{\partial y}{\partial \theta}
+      $$
+      And since $x=r\cos(\theta)$ and $y=r\sin(\theta)$, then $\frac{\partial x}{\partial \theta}=-y$ and $\frac{\partial y}{\partial \theta}=x$. Using all this then means that
+      $$
+      0 = -f'(x)f(y)y + f(x)f'(y)x
+      $$
+      Rearranging gives
+      $$
+      \frac{f'(x)}{xf(x)} = \frac{f'(x)}{xf(x)}
+      $$
+      Since the left side depends only on $x$ and the right only on $y$, it follows that there is some constant $c$ so that
+      $$
+      f'(x)=2cxf(x)
+      $$
+      The solution to this differential equation is
+      $$
+      f(x) = ke^{cx^2}
+      $$
+      for some constant $k$. What this means is that, not only does the angle invariance of $f(x)f(y)$ give us a pi in our formula, but the only function that will satisfy this invarance are these Gaussian-like functions. Saying that a function $f(x)$ is so that $f(x)f(y)$ is independent of the angle is equivalent to saying that $f(x)$ is Gaussian. So the Gaussian has a definition in terms of circles, so the pi should not be mysterious.
+      
+    
+    
+    
+    
 
   </div>
 
