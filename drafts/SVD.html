@@ -30,8 +30,9 @@
   SVD can be much more interesting when viewed through the lense of abstract linear algebra. Fromm this point of view, it is the consequence of three very important concepts: 
   <ul>
   <li>Linear Transformations and Invariant Subspaces</li>
-   <li>Adjoints and Dual Spaces<li>
-   <li>Inner Product Spaces and the Spectral Theorem</li>
+   <li>Inner Products and Dual Spaces</li>
+   <li>The Spectral Theorem</li>
+   <li>Bases and the Standard SVD</li>
    </ul>
    Let's look at each of these ingrediants and see how each provides new insight into the abstract behaviour of SVD.
    </p>
@@ -75,7 +76,7 @@
    $$
    \begin{eqnarray*}
    && ST : U\rightarrow U\\
-   && TS : V\rightarrw V
+   && TS : V\rightarrow V
    \end{eqnarray*}
    $$
    Both of these maps have their own invariant decomposition, and Singular Value Decomposition says that these two invariant decompositions are <i>compatible</i>. This can be seen as a Proto-SVD. Explicitly, if 
@@ -101,10 +102,54 @@
    $$
    Which means that restriction behaves well with composition. This is, really, the fundamental behaviour of SVD. The rest of the statements are then just this applied to particular cases with some added structure.
 
-
-
-
-
+<h3>Inner Products and Dual Spaces</h3>
+<p>
+If $V$ is a vector space over the field $F$, then $V^*$ denotes its "Dual Space". This is the set of all linear functions of the form $\phi:V\rightarrow F$. If $T:V\rightarrow W$ is a linear map, then this induces a function $T^*:W^*\rightarrow V^*$ defined as follows: If $\phi:W\rightarrow F$, then $T^*(\phi)$ will have to be a function $V\rightarrow F$, it is defined as
+$$
+T^*(\phi)(v) := \phi(T(v))
+$$
+We essentially precompose the functions in $W^*$ with $T$ to get a function in $V^*$. The function $T^*$ is called the "Adjoint Map" of $T$. This process says that we can view the relationship between $V$ and $W$ determined by $T:V\rightarrow W$ in reverse between $V^*$ and $W^*$ via $T^*:W^*\rightarrow V^*$. 
+</p>
+<p>
+In finite dimensions, $V$ and $V^*$ are isomorphic, but generally not in a meaningful way that is useful. More of as a matter of convenience. However, there is a way to see them as meaningfully isomorphic. But we'll need the extra ingredient of an Inner Product. In the most standard of situation, $V=\mathbb{R}^n$, we can view the Dot Product as a function $\cdot:V\times V\rightarrow \mathbb{R}$ that satisfies certain properties. These properties are:
+<ul>
+<li>For all $v\in V$ we have $v\cdot v \geq 0$, and only equal to zero if $v=0$</li>
+<li>For all $v_0\in V$, the function $v \mapsto v_0\cdot v$ is linear</li>
+<li>For all $v_1,v_2\in V$ we have $v_1\cdot v_2 = v_2\cdot v_1$ </li>
+</ul>
+These are all the properties that make dot products useful. An Inner Product is a function on a real or complex vector space that obeys these rules (the only caveat is that in the complex case, switching the order means you need to complex conjugate). 
+</p>
+<p>
+If $\langle,\rangle$ is an Inner Product on $V$ and $v_0\in V$, then the second properties implies that the function $\phi_{v_0}$ defined by
+$$
+\phi_{v_0}(v) = \langle v_0,v\rangle
+$$
+is a linear function from $V$ into the base field. In other words, $\phi_{v_0}\in V^*$. This means actually defines a map from $V\rightarrow V^*$, by sending $v_0$ to $\phi_{v_0}$ that is always an isomorphism for finite dimensional $V$. So inner products mean that $V$ and $V^*$ are meaningfully isomorphic.
+</p>
+<p>
+If $V$ and $W$ both have inner products, we have a map $T:V\rightarrow W$ and we identify $V=V^*$ and $W=W^*$ through the above isomorphism, then we get a map $T^*:W\rightarrow V$. When we are identifying spaces with their dual, we'll write $T^*=T^T$ and call $T^T$ the "Transpose" of $T$. This is the unique map so that
+$$
+\langle w, T(v)\rangle_W = \langle T^T(w),v\rangle_V
+$$
+for all $v\in V$ and $w\in W$. If we represent $T$ as a matrix, then the matrix for $T^T$ is the transpose of that matrix. 
+</p>
+<p>
+We can now think of SVD. Before, we were able to say something about two maps going between the same two spaces in opposite directions. Now, if $V$ and $W$ are two inner product spaces and we have a map $T:V\rightarrow W$, then we get a reverse map for free, $T^T:W\rightarrow V$. So from a single map, we can get an SVD statement. Namely, if $T:V\rightarrow W$ is a map between two inner product spaces, then we can decompose $V$ and $W$ as
+$$
+\begin{eqnarray*}
+V &=& V_1\oplus\cdots\oplus V_n\\
+W &=& W_1\oplus \cdots \oplus W_n
+\end{eqnarray*}
+$$
+so that the $V_i$ is the invariant decomposition of $V$ for the map $T^TT$ and the $W_i$ is the invariant decomposition for the map $TT^T$ and, furthermore
+$$
+\begin{eqnarray*}
+T(V_i)&\subseteq & W_i\\
+T^T(W_i)&\subseteq & V_i
+\end{eqnarray*}
+$$
+This one then tells us information strictly about $T$, not how it might interact with another map $S$. 
+</p>
   </div>
 
 
