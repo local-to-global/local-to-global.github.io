@@ -1,0 +1,113 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Singular Value Decomposition</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Singular Value Decomposition</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  <p>
+  Singular Value Decomposition (SVD) is a great way to decompose a linear transformation with tons of applications. Generally, to get some kind of intuition about how the decomposition works and what each term means, SVD is often explained through nice visuals of how each term behaves in simple terms. This is good if you simply want to apply SVD to a problem, but how should we think of it mathematically?
+  </p>
+  <p>
+  SVD can be much more interesting when viewed through the lense of abstract linear algebra. Fromm this point of view, it is the consequence of three very important concepts: 
+  <ul>
+  <li>Linear Transformations and Invariant Subspaces</li>
+   <li>Adjoints and Dual Spaces<li>
+   <li>Inner Product Spaces and the Spectral Theorem</li>
+   </ul>
+   Let's look at each of these ingrediants and see how each provides new insight into the abstract behaviour of SVD.
+   </p>
+   <h3>Linear Transformations and Invariant Subspaces</h3>
+   <p>
+   Let $V$ be a vector space over some field, and $T:V\rightarrow V$ a linear transformation on $V$. Such a map, from a space into itself, is an endomorphism. In general, $T$ can be difficult to understand, especially if the dimension of $V$ is large. The idea of Invariant Subspaces is to find smaller subspaces of $V$ that we can use to understand a bit of $T$. 
+   </p>
+   <p>
+   An <b>Invariant Subspace</b> of $T$ is a nontrivial subspace $W\subset V$ so that $T(W)\subseteq W$. That is, $T$ sends every element of $W$ back into $W$. This means that we can restrict $T$ to a smaller subspace and still have an endomorphism. This means that the function $T$ behaves nicely with the inclusion $W\subset V$.
+   </p>
+   <p>As an example, if $T$ is a 3D rotation, then it has two invariant subspaces: The axis of the rotation, and the plane of rotation. $T$ doesn't do anything to the elements on the axis of rotation, and $T$ reduces to a 2D rotation on the plane of rotation. So to understand a 3D rotation, we just need to know how to find the plane of rotation, and then understand 2D rotations.
+   </p>
+   <p>
+   As with the above example, it may be possible to find two invariant subspaces $W_1,W_2$ of the map $T$ so that $V=W_1\oplus W_2$. If $T_1,T_2$ are the maps when we restrict $T$ to $W_1$ and $W_2$, then we say that we can decompose $T$ as
+   $$
+   T = T_1\oplus T_2
+   $$
+   To figure out how $T$ behaves on $v\in V$, we can just write $v=w_1+w_2$, with $w_i\in W_i$, and we have
+   $$
+   T(v) = T_1(w_1)+T_2(w_2)
+   $$
+   So understanding $T$ reduces to understanding $T_1$ and $T_2$. In general, if $T:V\rightarrow V$ is any linear transformation, then there are unique invariant subspaces $W_1,...,W_n$ (up to reorder) so that 
+   $$
+   V=W_1\oplus W_2\oplus\cdots\oplus W_n
+   $$
+   and $T$ decomposes as 
+   $$
+   T=T_1\oplus T_2\oplus\cdots \oplus T_n
+   $$
+   and, furthermore, we cannot further decompose any of the maps $T_i$. This is the <b>Invariant Decomposition</b> of $T$. This allows us to write $T$ as a block-diagonal matrix, each block corresponding to a $T_i$. An important case of this is when each $W_i$ has dimension 1, in which case this decomposition is identical to the eigenvalue decomposition of $T$, and the block diagonal matrix is just the diagonalization of $T$.
+   </p>
+   <p>
+   Now we can see what the invariant decomposition of a map says about SVD. In this case, we have two vector spaces $U,V$, and two maps:
+   $$
+   \begin{eqnarray*}
+   &&T:U\rightarrow V\\
+   &&S:V\rightarrow U
+   \end{eqnarray*}
+   $$
+   We can compose these in two different ways to get two different endomorphisms:
+   $$
+   \begin{eqnarray*}
+   && ST : U\rightarrow U\\
+   && TS : V\rightarrw V
+   \end{eqnarray*}
+   $$
+   Both of these maps have their own invariant decomposition, and Singular Value Decomposition says that these two invariant decompositions are <i>compatible</i>. This can be seen as a Proto-SVD. Explicitly, if 
+   $$
+   \begin{eqnarray*}
+   U &=& U_1\oplus\cdots\oplus U_m\\
+   V &=& V_1\oplus\cdots\oplus V_n
+   \end{eqnarray*}
+   $$
+   are the invariant decompositions of $ST$ and $TS$, then $m=n$ and we can order them so that
+   $$
+   \begin{eqnarray*}
+   T(U_i) &\subseteq & V_i\\
+   S(V_i) &\subseteq & U_i
+   \end{eqnarray*}
+   $$
+   In a way, then, this extends the notion of "Invariant Subspace" to non-endomorphisms. We can look at this a bit more functionally as well. If $T_i$ is $T$ restricted to $U_i$, $S_i$ is $S$ restricted to $V_i$, $(ST)_i$ is $ST$ restricted to $U_i$ and $(TS)_i$ is $TS$ restricted to $V_i$, then we have the functional equations:
+   $$
+   \begin{eqnarray*}
+   (ST)_i &=& S_iT_i\\
+   (TS)_i &=& T_i S_i
+   \end{eqnarray*}
+   $$
+   Which means that restriction behaves well with composition. This is, really, the fundamental behaviour of SVD. The rest of the statements are then just this applied to particular cases with some added structure.
+
+
+
+
+
+  </div>
+
+
+
+</body>
+</html>
