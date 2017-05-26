@@ -54,13 +54,13 @@
    $$
    T(v) = T_1(w_1)+T_2(w_2)
    $$
-   So understanding $T$ reduces to understanding $T_1$ and $T_2$. In general, if $T:V\rightarrow V$ is any linear transformation, then there are unique invariant subspaces $W_1,...,W_n$ (up to reorder) so that 
+   So understanding $T$ reduces to understanding $T_1$ and $T_2$. In general, if $T:V\rightarrow V$ is any linear transformation, then there are unique invariant subspaces $V_1,...,V_n$ (up to reorder) so that 
    $$
-   V=W_1\oplus W_2\oplus\cdots\oplus W_n
+   V=K\oplus V_1\oplus V_2\oplus\cdots\oplus V_n
    $$
-   and $T$ decomposes as 
+   where $K$ is the kernel, and $T$ decomposes as 
    $$
-   T=T_1\oplus T_2\oplus\cdots \oplus T_n
+   T=0\oplus T_1\oplus T_2\oplus\cdots \oplus T_n
    $$
    and, furthermore, we cannot further decompose any of the maps $T_i$. This is the <b>Invariant Decomposition</b> of $T$. This allows us to write $T$ as a block-diagonal matrix, each block corresponding to a $T_i$. An important case of this is when each $W_i$ has dimension 1, in which case this decomposition is identical to the eigenvalue decomposition of $T$, and the block diagonal matrix is just the diagonalization of $T$.
    </p>
@@ -82,18 +82,18 @@
    Both of these maps have their own invariant decomposition, and Singular Value Decomposition says that these two invariant decompositions are <i>compatible</i>. This can be seen as a Proto-SVD. Explicitly, if 
    $$
    \begin{eqnarray*}
-   U &=& U_1\oplus\cdots\oplus U_m\\
-   V &=& V_1\oplus\cdots\oplus V_n
+   U &=& U_0\oplus U_1\oplus\cdots\oplus U_m\\
+   V &=& V_0\oplus V_1\oplus\cdots\oplus V_n
    \end{eqnarray*}
    $$
-   are the invariant decompositions of $ST$ and $TS$, then $m=n$ and we can order them so that
+   are the invariant decompositions of $ST$ and $TS$, where $U_0$ and $V_0$ are the kernels, then $m=n$ and we can order them so that for $i>0$ we have
    $$
    \begin{eqnarray*}
-   T(U_i) &\subseteq & V_i\\
-   S(V_i) &\subseteq & U_i
+   T(U_i) &=& V_i\\
+   S(V_i) &= & U_i
    \end{eqnarray*}
    $$
-   In a way, then, this extends the notion of "Invariant Subspace" to non-endomorphisms. We can look at this a bit more functionally as well. If $T_i$ is $T$ restricted to $U_i$, $S_i$ is $S$ restricted to $V_i$, $(ST)_i$ is $ST$ restricted to $U_i$ and $(TS)_i$ is $TS$ restricted to $V_i$, then we have the functional equations:
+     And $T(U_0)\subseteq V_0$ and $S(V_0)\subseteq U_0$. In a way, then, this extends the notion of "Invariant Subspace" to non-endomorphisms. We can look at this a bit more functionally as well. If $T_i$ is $T$ restricted to $U_i$, $S_i$ is $S$ restricted to $V_i$, $(ST)_i$ is $ST$ restricted to $U_i$ and $(TS)_i$ is $TS$ restricted to $V_i$, then we have the functional equations:
    $$
    \begin{eqnarray*}
    (ST)_i &=& S_iT_i\\
@@ -137,15 +137,15 @@ for all $v\in V$ and $w\in W$. If we represent $T$ as a matrix, then the matrix 
 We can now think of SVD. Before, we were able to say something about two maps going between the same two spaces in opposite directions. Now, if $V$ and $W$ are two inner product spaces and we have a map $T:V\rightarrow W$, then we get a reverse map for free, $T^T:W\rightarrow V$. So from a single map, we can get an SVD statement. Namely, if $T:V\rightarrow W$ is a map between two inner product spaces, then we can decompose $V$ and $W$ as
 $$
 \begin{eqnarray*}
-V &=& V_1\oplus\cdots\oplus V_n\\
-W &=& W_1\oplus \cdots \oplus W_n
+V &=& V_0\oplus V_1\oplus\cdots\oplus V_n\\
+W &=& W_0\oplus W_1\oplus \cdots \oplus W_n
 \end{eqnarray*}
 $$
-so that the $V_i$ is the invariant decomposition of $V$ for the map $T^TT$ and the $W_i$ is the invariant decomposition for the map $TT^T$ and, furthermore
+so that the $V_i$ is the invariant decomposition of $V$ for the map $T^TT$ and the $W_i$ is the invariant decomposition for the map $TT^T$ and, furthermore $T(V_0)\subseteq W_0$ and $T^T(W_0)\subseteq V_0$ and for $i>0$ we have
 $$
 \begin{eqnarray*}
-T(V_i)&\subseteq & W_i\\
-T^T(W_i)&\subseteq & V_i
+T(V_i)&= & W_i\\
+T^T(W_i)&= & V_i
 \end{eqnarray*}
 $$
 This one then tells us information strictly about $T$, not how it might interact with another map $S$. 
@@ -159,12 +159,22 @@ This one then tells us information strictly about $T$, not how it might interact
       Which means that $L$ is its own transpose/adjoint. These are the maps that satisfy $\langle Lv_1,v_2\rangle = \langle v_1,Lv_2\rangle$ for the inner product on $V$. These maps are of interest to us because both $T^TT$ and $TT^T$ are Hermitian.
     </p>
     <p>
-      Explicitly, the Spectral Theorem says that if $L:V\rightarrow V$ is a Hermitian map and if $V=V_1\oplus\cdots\oplus V_n$ is the invariant decomposition of $L$, then:
+      Explicitly, the Spectral Theorem says that if $L:V\rightarrow V$ is a Hermitian map and if $V=V_0\oplus V_1\oplus\cdots\oplus V_n$ is the invariant decomposition of $L$, then:
       <ul>
-        <li> Each of the spaces $V_i$ is one dimensionsal</li>
-        <li> For each $i$ there is a scalar $\lambda_i$ so that if $v_i\in V_i$, then $L(v_i)=\lambda_i v_i$, when $V$ is a complex vector space, the $\lambda_i$ are real</li>
+        <li> For $i>0$, the spaces $V_i$ are one dimensionsal</li>
+        <li> For each $i>0$ there is a scalar $\lambda_i$ so that if $v_i\in V_i$, then $L(v_i)=\lambda_i v_i$, when $V$ is a complex vector space, the $\lambda_i$ are real</li>
         <li> If $v_i\in V_i$ and $v_j\in V_j$ and $i\ne j$ then $\langle v_i,v_j\rangle =0$</li>
         </ul>
+  This allows us to refine what we learned in the previous section. If $T:V\rightarrow W$ is a linear map between inner product spaces, then the maps $T^TT:V\rightarrow V$ and $TT^T:W\rightarrow W$ are Hermitian. The Spectral Theorem then says that we can decompose the spaces into kernel+one dimensional subspaces:
+  $$
+  \begin{eqnarray*}
+  V &=& V_0\oplus V_1\oplus\cdots \oplus V_n\\
+  W &=& W_0\oplus W_1 \oplus\cdots \oplus W_n
+  \end{eqnarray*}
+  $$
+  Furthermore, for $i>0$ there is a $\lambda_i\ne 0$ so that for $v_i\in V_i$ we have $T^TT(v_i)=\lambda_i v_i$ and there is a $\delta_i\ne 0$ so that for $w_i\in W_i$ we have $TT^T(w_i)=\delta_i w_i$. 
+  
+  </p>
           
   </div>
 
