@@ -173,8 +173,31 @@ This one then tells us information strictly about $T$, not how it might interact
   \end{eqnarray*}
   $$
   Furthermore, for $i>0$ there is a $\lambda_i\ne 0$ so that for $v_i\in V_i$ we have $T^TT(v_i)=\lambda_i v_i$ and there is a $\delta_i\ne 0$ so that for $w_i\in W_i$ we have $TT^T(w_i)=\delta_i w_i$. 
+  </p>
+<p>
+  The Spectral Theorem does a little bit more for us. Since each of these subspaces are 1-dimensional and since we have an inner product, we are in the position to talk about a natural basis. This is a basis chosen for us by the theory, rather than us making choices to find one. Any single vector in $V_i$ or $W_i$ for $i>0$ will form a basis for that particular space. So if we choose a single $v_i\in V_i$ and $w_i\in W_i$ for $i>0$, then the sets $\{v_1,...,v_n\}$ and $\{w_1,...,w_n\}$ form bases for the nonkernel subspaces:
+  $$
+  \begin{eqnarray*}
+  V_1\oplus\cdots \oplus V_n &\subseteq& V\\
+  W_1\oplus\cdots \oplus W_n &\subseteq& W
+  \end{eqnarray*}
+  $$
+  Furthermore, by the Spectral Theorem, this is an orthogonal basis. Since we have an inner product, we can choose these elements so that $\langle v_i,v_i\rangle =1$ and $\langle w_i,w_i\rangle =1$, so that we get an orthonormal basis. This basis will allow us to investigate $T$ and $T^T$ a bit more.
+</p>
+<p>
+  Since $T(V_i)=W_i$, it follows that there is some nonzero number $a_i$ so that $T(v_i)=a_iw_i$ (where the $v_i$ and $w_i$ are our orthonormal bases). Conversely, since $T^T(W_i)=V_i$, there is some nonzero number $a^*_i$ so that $T^T(w_i)=a^*_iv_i$. These $a_i$ and $a^*_i$ are the Singular Values for $T$, and standard results about inner products show that $a^*_i$ is the complex conjugate of $a_i$ (so equal to $a_i$ if the vector space is real). Furthermore, since we can relate these to the eigenvalues for $T^TT$ and $TT^T$ by applying them in succession. From this, we get that 
+  $$
+  \begin{eqnarray*}
+  \lambda_i &=& a_ia^*_i\\
+  \delta_i &=& a^*_ia_i
+  \end{eqnarray*}
+  $$
+  In particular, $\lambda_i=\delta_i$, and $\lambda_i=|a_i|^2$. Since these are all positive, we say that $T^TT$ and $TT^T$ are positive Hermitian map.
   
   </p>
+<h3>Bases and the Standard SVD</h3>
+<p>
+  Now that we have explored all the theory and know exactly how our maps segment our vector spaces, we can talk about bases. The Spectra
           
   </div>
 
