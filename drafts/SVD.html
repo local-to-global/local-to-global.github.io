@@ -149,7 +149,23 @@ T^T(W_i)&\subseteq & V_i
 \end{eqnarray*}
 $$
 This one then tells us information strictly about $T$, not how it might interact with another map $S$. 
-</p>
+  </p>
+  <h3>The Spectral Theorem<h3>
+    <p>
+      The Spectral Theorem is an important theorem about certain kinds of linear transformations on inner product spaces. In particular, it tells us exactly how the invariant decompositions work for these maps. The maps of interest are "Hermitian" or "Symmetric" maps. These are linear transformations $L:V\rightarrow V$, where $V$ is an inner product space, so that
+      $$
+      L^T=L
+      $$
+      Which means that $L$ is its own transpose/adjoint. These are the maps that satisfy $\langle Lv_1,v_2\rangle = \langle v_1,Lv_2\rangle$ for the inner product on $V$. These maps are of interest to us because both $T^TT$ and $TT^T$ are Hermitian.
+    </p>
+    <p>
+      Explicitly, the Spectral Theorem says that if $L:V\rightarrow V$ is a Hermitian map and if $V=V_1\oplus\cdots\oplus V_n$ is the invariant decomposition of $L$, then:
+      <ul>
+        <li> Each of the spaces $V_i$ is one dimensionsal</li>
+        <li> For each $i$ there is a scalar $\lambda_i$ so that if $v_i\in V_i$, then $L(v_i)=\lambda_i v_i$, when $V$ is a complex vector space, the $\lambda_i$ are real</li>
+        <li> If $v_i\in V_i$ and $v_j\in V_j$ and $i\ne j$ then $\langle v_i,v_j\rangle =0$</li>
+        <\ul>
+          
   </div>
 
 
