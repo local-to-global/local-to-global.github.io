@@ -192,12 +192,31 @@ This one then tells us information strictly about $T$, not how it might interact
   \delta_i &=& a^*_ia_i
   \end{eqnarray*}
   $$
-  In particular, $\lambda_i=\delta_i$, and $\lambda_i=|a_i|^2$. Since these are all positive, we say that $T^TT$ and $TT^T$ are positive Hermitian map.
-  
+  In particular, $\lambda_i=\delta_i$, and $\lambda_i=|a_i|^2$. Since these are all positive, we say that $T^TT$ and $TT^T$ are positive Hermitian map.</p>
+<p>
+  We can extend this discussion to the whole spaces $V$ and $W$ by noting that $ker(T^TT)=ker(T)$. This is thanks to the Fundamental Theorem of Linear Algebra. So if we choose any orthonormal basis for $V_0$, then $T$ acts on this basis by multiplication by zero. Similarly or $W_0$. So if $v_{-m},...,v_0$ is an orthonormal basis for $V_0$, then $v_{-m},...,v_0,v_1,...,v_n$ is an orthonormal basis for $V$, and for each $i\geq -m$ there is a number $a_i$ so that 
+  $$
+  T(v_i) = a_i
+  $$
+  and if $i\leq 0$ then $a_i=0$. Similarly for $T^T$. This provides a complete description of the map $T$. 
   </p>
 <h3>Bases and the Standard SVD</h3>
 <p>
-  Now that we have explored all the theory and know exactly how our maps segment our vector spaces, we can talk about bases. The Spectra
+  Now that we have explored all the theory and know exactly how our maps segment our vector spaces, we can talk about the case when we begin with an arbitrary basis. In this case, we can assume $V=K^n$ and $W=K^m$, where $K=\mathbb{R},\mathbb{C}$. With these bases, we can represent $T$ by an $m\times n$ matrix $M_T$. SVD then says that there exist unitary matrices $A$ and $B$, so that $A$ is an $n\times n$ matrix and $B$ is an $m\times m$ matrix, and an $m\times n$ diagonal matrix $D$ so that
+  $$
+  M_T = B D A
+  $$
+  The fact that $A$ and $B$ are unitary means that $A^T=A^{-1}$ and $B^T=B^{-1}$. The reason for this kind of decomposition is all of the theoretical descriptions and decompositions of the previous sections. We can read this as follows:
+  <ul>
+    <li> The matrix $A$ takes the basis we begin with in $V$ to our orthonormal eigendecomposition given by the Spectral Theorem. The fact that it is unitary follows from the fact that it transforms into an orthonormal basis. </li>
+    <li> The matrix $D$ is the action of $T$ given directly by the invariant decomposition, which the Spectral Theorem says is given by 1-dimensional subspaces and so must be diagonal</li>
+    <li> The matrix $B$ then takes our orthonormal basis in $W$ to the basis we begin with. It is unitary for the same reasons as the matri $A$.</li>
+</ul>
+The entries in $D$ are the Singular Values for the transformation $T$. If you take their norm, you then recover the eigenvalues for $T^TT$. If you transpose the entire SVD equation, you get the identical statement but for the map $T^T$ instead.
+</p>
+<p>
+So this decomposition is actually a compact way to write the above story. But this is illuminating only if you know what the story is in the first place. In fact, pretty much any matrix decomposition theorem can be interpreted at a higher level in terms of decompositions and actions of linear transformations.
+</p>
           
   </div>
 
