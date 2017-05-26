@@ -1,0 +1,93 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Exponentiation: Extending repeated multiplication</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Exponentiation: Extending repeated multiplication</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+    <p>
+    If exponentiation is just "repeated multiplication", what the heck does something like $3^{-3}$ or $3^{3/4}$ or $3^{\pi}$ actually represent? We know the rules on how to compute these, but why??
+    </p>
+    <p>
+    We'll explore this in some detail. The main goal of this is to establish an "extension philosophy" for exponents. Ie, a philosophy to figure out what exponents of new numbers actually "should" mean. While we'll only be looking at real exponents here, the reason we will focus on this philosophy is so that we can figure out how to answer the question "What should $A^{x+iy}$ be?", which we'll do in another post.
+    </p>
+    <p>
+    The key thing about exponents that will allow us to extend it to powers where "repeated multiplication" doesn't make sense is its additive property. If $A$ is any positive real number and $n,m$ are positive integers, then it by simply counting the $A$s total in the repeated multiplication shows that
+    $$
+    A^mA^n = A^{n+m}
+    $$
+    This is the "Additive Property of Exponents". It turns out that this equation is the entire reason that exponents are important in the first place. All theoretical and practical uses of exponents fall back on this being fundamental. The moral of this is that the Additive Property is <i>more</i> important to exponents being exponents than "repeated multiplication" is. So extensions do not have to preserve the "repeated multiplication" part of exponents, they have to preserve the "Additive Property" part. 
+    </p>
+    <h3>From the Additive Property to Repeated Addition</h3>
+    <p>
+    To see that the Additive Property is just as important as "Repeated Multiplication", we can actually define exponentiation as "Something that obeys the additive property on positive integers" and recover "Repeated Multiplication". Explicitly, let $A$ be a positive real number and let's have $f(n)$ be a function that inputs only positive integers so that
+    $$
+    \begin{eqnarray*}
+    f(1) &=& A\\
+    f(n+m) &=& f(n)f(m)
+    \end{eqnarray*}
+    $$
+    Then it will follow that we <i>must</i> have $f(n)=A^n$. This is easy to show since we have
+    $$
+    \begin{eqnarray*}
+    f(n) &=& f(1+1+1+\cdots +1)\\
+    &=& f(1)f(1)\cdots f(1)\\
+    &=& A\cdot A\cdota A\\
+    &=& A^n
+    \end{eqnarray*}
+    $$
+    We can then conclude that the additive rule is just as fundamentally important to exponentiation as "repeated addition" is. The only difference is that the additive rule makes sense for numbers that are not integers!
+    </p>
+    <h3>Zero and Negative Exponents</h3>
+    <p>
+    If we just know that $A^n$ is just $A$ multiplied by itself $n$ times, what should $A^0$ be? Forgetting about repeated multiplication leaves us with nothing except the additive rule. So what does the additive rule say about $A^0$? Even though $A^0$ does not have a value at the moment, let's pretend that it does and see if we can figure out what it should be via the additive rule. We'll do this by computing $A^1=A^{1+0}$. 
+    </p>
+    <p>
+    On one hand $A^1$ is just $A$. On the other hand we can use the additive rule to write 
+    $$
+    A^1 = A^{1+0} = A^1\cdot A^0 = A\cdot A^0
+    $$
+    So we have the equation $A=A\cdot A^0$. To figure out what $A^0$ needs to be, we can simply solve for it in this equation. After dividing by $A$ (since it is nonzero), we get
+    $$
+    A^0=1
+    $$
+    So, if $A^0$ is to mean something that obeys they Additive Rule for exponents, then it must be $1$. Further, note that $A\ne 0$ was key, so $0^0$ is still ambiguous, and it can mean different things in different contexts, so we can't meaningfully assign a single value.
+    </p>
+    <p>Now that we know what $A^0$ should be, can we figure out what $A^{-n}$ should be? Again, we'll pretend that it has a value and see what the additive rule says it should be. We'll do this by computing $A^0$ in two ways. We already know that $A^0=1$, but we also know that $A^0=A^{n-n}$. Therefore, we havee
+    $$
+    A^0 = A^{n-n} = A^{n}A^{-n}
+    $$
+    which means we have the equation $1=A^{n}A^{-n}$. We know what $A^{n}$ is, so we can solve this for $A^{-n}$ to see what it should be:
+    $$
+    A^{-n} = \frac{1}{A^n}
+    $$
+    So if $A^{-n}$ is to have any value and still be consistent with the Additive Rule for exponents, then that value <i>must</i> be $1/A^n$.
+    <h3>Rational Exponents</h3>
+    <p>
+
+
+
+  </div>
+
+
+
+</body>
+</html>
