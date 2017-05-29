@@ -122,7 +122,7 @@
       $$
    You input a vector, and covector and output whatever value you get when you apply the input vector to the input covector. In fact, if $L$ is any linear function from $V$ into $V$, which means that it inputs vectors in $V$, outputs vectors in $V$, and obeys a linearity relation, then we can  create the $(1,1)$-tensor $T_L$ defined as
       $$
-      T_L(\alpha, v) = \alpha(Tv)
+      T_L(\alpha, v) = \alpha(L(v))
       $$
       First apply $T$ to $v$ to get a new vector in $V$, then apply $\alpha$ to the result. What is not-at-all obvious is that every $(1,1)$-tensor can be written in this way. That is, every linear transformation can be interpreted uniquely as a $(1,1)$-tensor, and every $(1,1)$-tensor can be interpreted as a linear transformation. These are, a prior, different objects that can be interpreted as each other. This does not mean that linear transformations are $(1,1)$-tensors, just that we have this interpretation. This is similar to how vectors can be interpreted as $(1,0)$-tensors. The thing that tensors generalize are covectors, and through this generalization, we find that we can interpret other, unrelated objects, in this context. This is helpful, but makes the description "Tensors generalize vectors and matrices" misleading, because we're not generalizing the vector-ness of a vector, or the linear transformation-ness of a matix, we're generalizing them only once we throw them into a totally different context. Again, this description of a tensor should really just be "Tensors generalize covectors", since we are generalizing the function-ness inherent to covectors, something that vectors are not assumed to have.
     </p>
@@ -133,11 +133,20 @@
       $$
       It cannot be overemphsized that we got this by trying to generalize the notion of a covector, particularly how they behave as functions, not from generalizing scalars, vectors or matrices. Explicitly,
     </p>
-  <div class="thm"><b>Definition:</b> Let $V$ be a vector space over a field $F$. A <b>$(n,m)$-Tensor</b> is a multilinear function
+  <div class="thm"><b>Definition:</b> Let $V$ be a vector space over a field $F$. A <b>$(k,\ell)$-Tensor</b> is a multilinear function
     $$
-    T : V^m\times (V^*)^n \rightarrow F
+    T : V^{\ell}\times (V^*)^k \rightarrow F
     $$
   </div>
+  <h3>Bases and Multidimensional Arrays</h3>
+  <p>
+    If tensors are multilinear functions, where do all these other notions of tensors come from? 
+  </p>
+  <p>
+    Some vector spaces are very large and it is hard to describe what the elements look like. But this isn't the case for others. In some vector spaces, you can describe every vector by knowing only a few vectors. For example, we can have $V$ be the vector space of all degree 2 polynomials. There are infinitely many such polynomials, so it might seem hard to describe them if this is how you're thinking of size. But we can write down every degree 2 polynomial as a "linear combination" of the vectors $1,x,x^2$. For instance, something like $3x^2-2x+1$. So we only need to know three numbers to describe this entire function, so if we keep in mind that we are using the vectors $1,x,x^2$, then we can write $3x^2-2x+1$ as $[1,-2,3]^T$, where $T$ is the transpose.
+  </p>
+  <p>
+    This representation is necessarily ambiguous. We can choose three different vectors to represent all these vectors.</p>
     <h3>Applications 1</h3>
     <p> Since most people looking at this will probably be non-mathematicians, your head is probably hurting from all this abstract talk, and you really want some application to get a feel for all this talk. I'll then reward you with what a mathematician would consider an "application". </p>
     <h4>The Cauchy-Stress Tensor</h4>
