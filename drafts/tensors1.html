@@ -51,11 +51,20 @@
       \alpha(r\cdot v) &=& r\cdot\alpha(v)
       \end{eqnarray*}
       $$
-    The set of all functions that satisfy these equations forms a vector space, and we call it $V^*$, the dual space of $V$. These vectors are sometimes called "Linear Functionals", because they work a lot like basic linear functions from high school algebra, but we're going to call them "Covectors". While a covector $\alpha$ is actually a vector, since it is an element of the vector space $V^(*)$, calling it a covector emphasizes its relationship to $V$ as a function.
+    The set of all functions that satisfy these equations forms a vector space, and we call it $V^*$, the dual space of $V$. These vectors are sometimes called "Linear Functionals", because they work a lot like basic linear functions from high school algebra, but we're going to call them "Covectors". While a covector $\alpha$ is actually a vector, since it is an element of the vector space $V^*$, calling it a covector emphasizes its relationship to $V$ as a function.
     </p>
     <p>
       As a quick example, we can find a pretty nice covector for the vector space of differentiable functions. This will have to be a function that inputs differentiable functionos and outputs a real number. We can make the covector $ev_0$ which, when input the function $f(x)$, outputs the number $f(0)$. So $ev_0(f)=f(0)$. It is not too difficult to check that this satisfies the requisites for a covector, so it is an element of the dual space of differentiable functions. In fact, for any real number $r$, we can get the covector $ev_r(f)=f(r)$. The function $ev_r$ is called the "evaluation at $r$" function. We input different functions and see what value they output at this particular point. Similarly, we can make $dev_r(f)=f'(r)$, which outputs the value of the derivative at $r$. This is also a covector. While dual spaces for this infinite dimensional space doesn't work as nicely as in the finite dimensional case, these are great examples of what covectors can be.
     </p>
+    <p>
+      To summarize, we write:
+    <div class="thm"><b>Definition: </b> Let $V$ be vector space over some field. Then
+      <ul>
+        <li>A <b>Vector</b> of $V$ is any element of $V$</li>
+        <li> A <b>Covector</b> of $V$ is any element of $V^*$. That is, a linear function $\alpha(v)$ from $V$ into the base field.</li>
+      </ul>
+    </div>
+      </p>
     <h3> Rank-1 Tensors</h3>
     <p>
       Now that we know what vectors and covectors are, and we are free from thinking of vectors as arrows, or arrays or something, we can start talking about tensors.
@@ -85,8 +94,14 @@
     <p>So every vector $v$ in $V$ can be interpreted as a tensor, but this description is not fundamental to being a vector since vectors are no a priori functions, but tensors are. This means that tensors are not generalizations of a vector, instead they are generalization of covectors, which are functions, a priori. It is just a really nice and convenience that vectors can be interpreted as tensors as well. The corrected statement to "Tensors generalize vectors" is then "Tensors generalize covectors".
     </p>
     <p>
-      To summarize, $(0,1)$-Tensors are covectors, linear functions that take in vectors and output real (or complex) numbers, and $(1,0)$-Tensors are cocovectors, linear functions that take in covectors and output real (or complex) numbers. Furthermore, each $(1,0)$-Tensor has a unique description as a vector, particularly the evaluation function at a particular vector. When we are being lax with these distinctions (as we often do), we can say that rank-1 Tensors are functions, and $(0,1)$-Tensors are covectors and $(1,0)$-Tensors "are" vectors. The emphasis, however, should be on the fact that tensors are functions. This is the big idea of this whole thing.
+      To summarize, $(0,1)$-Tensors are covectors, linear functions that take in vectors and output real (or complex) numbers, and $(1,0)$-Tensors are cocovectors, linear functions that take in covectors and output real (or complex) numbers. Furthermore, each $(1,0)$-Tensor has a unique description as a vector, particularly the evaluation function at a particular vector. When we are being lax with these distinctions (as we often do), we can say that rank-1 Tensors are functions, and $(0,1)$-Tensors are covectors and $(1,0)$-Tensors "are" vectors. The emphasis, however, should be on the fact that tensors are functions. This is the big idea of this whole thing. Explicitly:
     </p>
+  <div class="thm"><b>Definition:</b> Let $V$ be a vector space over a field $F$. Then
+    <ul>
+      <li> A <b>$(0,1)$-Tensor</b> is a linear function $T:V\rightarrow F$. That is, a covector.</li>
+      <li> A <b>$(1,0)$-Tensor</b> is a linear function $T:V^* \rightarrow F$ and can be naturally identified with a vector in $V$.</li>
+    </ul>
+      </div>
     <h3>Tensors</h3>
     <p>
       An arbitrary tensor is a generalization of a covector, and other rank-1 tensors, to multivariable functions. In this context, "multivariable" means that we input multiple vectors/covectors. In this way, a $(k,\ell)$-Tensor will be some kind of function that inputs $\ell$ vectors and $k$ covectors and outputs real (or complex) numbers. The difficulty is then figuring out how to generalize the linearity relations to multiple inputs. The simplest way to achieve this is to say that they satisfy these equations individually in each variable separately. Such functions are called "Multilinear", and so a $(k,\ell)$-Tensor is a multilinear function  that inputs $\ell$ vectors and $k$ covectors and outputs a real (or complex) number.
