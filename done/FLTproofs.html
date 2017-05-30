@@ -27,22 +27,22 @@
       Wiles gave the first successful proof of Fermat's Last Theorem. But what he actually proved seems to have little to do with Fermat's equation $a^n+b^n=c^n$. Instead, Wiles proved a technical result about how to parameterize and associate modular forms with elliptic curves, explicitly known as the Taniyama-Shimura Conjecture. In general, Fermat's Last Theorem follows from a few different very deep and difficult results like the Taniyama-Shimura Conjecture. In this article, we'll look at three different cases like this and prove Fermat's Last Theorem assuming that the hard part is done.
     </p>
     <p>
-      First we'll go at it from the left-field and prove it via the ABC-Conjecture which, at this point, may or may not be a theorem of Mochizuki. The proof via the ABC-Conjecture is fairly simple, as the ABC Conjecture reduces it to finitely many cases that can be easily checked. Next we will prove it only assuming Serre's Modularity Conjectures, now known as the Khare-Witenberger Theorem. This is related to Wiles' approach, but distinct. Next we'll investigate Wiles' approach, assuming the Taniyama-Shimura Conjecture, along with Ribet's Theorem which was known as Serre's Epsilong Conjecture, since it is a very weak form of Serre's Modularity Conjecture, that gives just enough to allow us to prove Fermat's Last Theorem via Wiles' approach.
+      First we'll go at it from the left-field and prove it via the ABC-Conjecture which, at this point, may or may not be a theorem of Mochizuki. The proof via the ABC-Conjecture is fairly simple, as the ABC Conjecture reduces it to finitely many cases that can be easily checked. Next we will prove it only assuming Serre's Modularity Conjectures, now known as the Khare-Witenberger Theorem. This is related to Wiles' approach, but distinct. Finally we'll investigate Wiles' approach, assuming the Taniyama-Shimura Conjecture, along with Ribet's Theorem which was known as Serre's Epsilon Conjecture, since it is a very weak form of Serre's Modularity Conjecture that gives just enough to allow us to prove Fermat's Last Theorem via Wiles' approach.
     </p>
     <h3>Via the ABC Conjecture</h3>
     <p>
-      The ABC-Conjecture is a very deep conjecture that, on the surface, gives us information about what happens to prime factorizations through addition. If you know the prime factorization of two numbers, then it is really simple to find the prime factorization of their product. From this, if we generally attack solving equations by figuring out how to turn them into products somehow. For instance, we can take the expression $x^2+y^2$ and factor it as $x^2+y^2=(x+iy)(x-iy)$. Finding integer solutions to this then reduces too discussing multiplicative properties of the Gaussian Integers. Equations that can't be reduced through some multiplicative factorization process are much harder to work with. One such equation is Fermat's Equation $x^n+y^n=z^n$. But the ABC-Conjecture can give us multiplicative information through addition, by relating the primes of numbers to the primes of their sums. 
+      The ABC-Conjecture is a very deep conjecture that, on the surface, gives us information about what happens to prime factorizations through addition. If you know the prime factorization of two numbers, then it is really simple to find the prime factorization of their product. From this, if we generally attack solving equations by figuring out how to turn them into products somehow. For instance, we can take the expression $x^2+y^2$ and factor it as $x^2+y^2=(x+iy)(x-iy)$. Finding integer solutions to this then reduces to discussing multiplicative properties of the Gaussian Integers. Equations that can't be reduced through some multiplicative factorization process are much harder to work with. One such equation is Fermat's Equation $x^n+y^n=z^n$. We can reduce this to a product, and this approach has lead to proofs of particular cases, but the multiplicative structure becomes difficult to regulate, which prevents us from using it to prove Fermat's Last Theorem in general. The ABC-Conjecture addresses the issue in another way, by giving us multiplicative information through addition, by relating the primes of numbers to the primes of their sums. 
     </p>
     <h4>The "Theorem"</h4>
-    <p>If $x$ is an integer, we let $rad(x)$ denote it's "radical", which is the product of all primes dividing it, essentially getting rid of all higher exponents. So $rad(12)=6$ since $12=2^2\cdot 3$, and getting rid of the higher exponents gives $2\cdot 3=6$. How $x$ compares to $rad(x)$ tells us something about how big the exponents appearing in the prime factorization of $x$ are. The ABC-Conjecture then says that for every $\epsilon >0$ there is a constant $K_{\epsilon}$ so that for any coprime integers $A,B,C$ with $A+B=C$, we have
+    <p>If $x$ is an integer, we let $\textrm{rad}(x)$ denote it's "radical". This is the product of all primes dividing it, getting rid of all higher exponents. So $\textrm{rad}(12)=6$ since $12=2^2\cdot 3$, and getting rid of the higher exponents gives $2\cdot 3=6$. How $x$ compares to $\textrm{rad}(x)$ tells us something about how big the exponents appearing in the prime factorization of $x$ are. The ABC-Conjecture then says that for every $\epsilon >0$ there is a constant $K_{\epsilon}$ so that for any coprime integers $A,B,C$ with $A+B=C$, we have
       $$
-      C &lt K_{\epsilon}\cdot rad(ABC)^{1+\epsilon}
+      C &lt K_{\epsilon}\cdot \textrm{rad}(ABC)^{1+\epsilon}
       $$
-      This puts a bound on the ratio $C/rad(C)$, as we can rewrite this inequality as
+      This puts a bound on the ratio $C/\textrm{rad}(C)$, as we can rewrite this inequality as
       $$
-      \frac{C}{rad(C)} %lt K_{\epsilon} rad(AB)^{1+\epsilon} \cdot rad(C)^{\epsilon}
+      \frac{C}{\textrm{rad}(C)} &lt K_{\epsilon} \textrm{rad}(AB)^{1+\epsilon} \cdot \textrm{rad}(C)^{\epsilon}
       $$
-      If the primes of $A$ and $B$ have large exponents, then $rad(A) \ll A$ and $rad(B)\ll B$, and so the right side of this can be thought of as relatively small, which means that $C/rad(C)$ should be relatively small, which means that $C$ can't have prime powers that are too big. This is one of the main results that Mochizuki has allegedly proved in his mysterious papers back in 2012.
+      If the primes of $A$ and $B$ have large exponents, then $\textrm{rad}(A) \ll A$ and $\textrm{rad}(B)\ll B$, and so the right side of this can be thought of as relatively small, which means that $C/\textrm{rad}(C)$ should be relatively small, which means that $C$ can't have prime powers that are too big. This is one of the main results that Mochizuki has allegedly proved in his mysterious papers back in 2012.
     </p>
     <p>
       There is, however, a stronger version of the ABC-Conjecture. This is not addressed by Mochizuki. The strong version says that not only does the constant $K_{\epsilon}$ exist, but, in particular, we can take $K_1=1$. This is consistent with computations, but we do not even have an alleged proof of this version. 
@@ -50,9 +50,9 @@
     <h4>Proving Fermat's Last Theorem</h4>
     <p>Consider a possible solution to Fermat's Equation, $a^n+b^n=c^n$, with $a,b,c$ coprime. We can apply the ABC-Conjecture to this by setting $A=a^n$, $B=b^n$ and $C=c^n$. The ABC-Conjecture then says that
       $$
-      c^n &lt K_{\epsilon} rad(a^nb^nc^n)^{1+\epsilon}
+      c^n &lt K_{\epsilon} \textrm{rad}(a^nb^nc^n)^{1+\epsilon}
       $$
-      Raising a number to a power does not change its radical, so we get $c^n &lt K_{\epsilon} rad(abc)^{1+\epsilon}$. Furthermore, $rad(a),rad(b),rad(c) \leq c$, since $a,b,c\leq c$, and we can split the radical through multiplication since $a,b,c$ are coprime. This means that we can reduce the above formula to
+      Raising a number to a power does not change its radical, so we get $c^n &lt K_{\epsilon} \textrm{rad}(abc)^{1+\epsilon}$. Furthermore, $\textrm{rad}(a),\textrm{rad}(b),\textrm{rad}(c) \leq c$, since $a,b,c\leq c$, and we can split the radical through multiplication since $a,b,c$ are coprime. This means that we can reduce the above formula to
       $$
       c^n  &lt K_{\epsilon}c^{3+3\epsilon}
       $$
@@ -77,26 +77,26 @@
     </p>
     <h4>The Theorem</h4>
     <p>
-      The idea is to link such 2-dimensional representations of Galois groups with another arithmetic object. Particularly Modular Forms. There were many result pointing towards modular forms as the correct object to link with these Galois representations, including preliminary results by Serre.
+      The idea is to link such 2-dimensional representations of Galois groups with modular forms, another arithmetic object. There were many result pointing towards modular forms as the correct object to link with these Galois representations, including preliminary results by Serre.
     </p>
     <p>
-      More explicitly, Serre's conjecture discusses two types of representations. Firstly, we have Galois representations over finite fields. In particular, we care about irreducible, odd (complex conjugation acts like -1) representations
+      Serre's conjecture tells us how to link Galois representations with modular forms. We consider Galois representations that are  irreducible, odd (complex conjugation acts like -1) and map into $GL_2(\mathbb{F})$ for some finite field $\mathbb{F}$:
       $$
       \rho: G_{\mathbb{Q}}\rightarrow GL_2(\mathbb{F})
       $$
-      where $\mathbb{F}$ is a finite field of characteristic $p$, for some prime $p$. These naturally arise in many contexts, in particular from elliptic curves.
+      $\mathbb{F}$ is a finite field of characteristic $p$, for some prime $p$. These naturally arise in many contexts, in particular from elliptic curves.
     </p>
     <p>
-      On the other hand, we have representations associated to Modular Forms. We are specifically concerned with modular forms $f(z)$ that are cusp eigenforms. This means that they have good behavior at cusps and are the eigenvectors for certain natural operators on the space of modular forms. Along with some other technical conditions, we say that a representation 
+      On the other hand, we can associate Galois representations to modular forms. We are specifically concerned with modular forms $f(z)$ that are cusp eigenforms. This means that they have good behavior at cusps and are the eigenvectors for certain natural operators on the space of modular forms. Along with some other technical conditions, we say that a representation 
       $$
       \rho_f: G_{\mathbb{Q}}\rightarrow GL_2(\mathbb{F})
       $$
-      is associated to a such modular form $f(z)$ if certain arithmetic invariants of the representation match those of the modular form. Precicly, the trace of the Frobenius above $\ell$ should be equal to the $\ell$th Fourier coefficient of $f(z)$, modulo an appropriate prime above $p$, the characteristic of $\mathbb{F}$. 
+      is associated to a such modular form $f(z)$ if certain arithmetic invariants of the representation match those of the modular form. Particularly the trace of the Frobenius above $\ell$ should be equal to the $\ell$th Fourier coefficient of $f(z)$, modulo an appropriate prime above $p$, and the determinant of the Galois representation should match the character associated to the modular form. 
     </p>
-    <p>The basic statement of Serre's conjectures is that every such Galois representation can be associated to some modular form in this way. Serre's conjectures do get more precise. Importantly, given a Galois representation $\rho$, the conjectures give us formulas that tell us the conductor and level of the modular form that should be associated to it. 
+    <p>The basic statement of Serre's conjectures is that every Galois representation under consideration can be associated to some modular form in this way. But this statement is not strong enough for Fermat's Last Theorem, but Serre's conjectures do get more precise. Importantly, given a Galois representation $\rho$, the conjectures give us instructions to use the arithmetic invariants of the Galois representation to computing the conductor and level of the associated modular form. 
     </p>
     <p>
-      To construct the conductor, you can go through a whole process of keeping track of the ramification and behavior at primes of the given Galois representation. This will give the Artin Conductor of the representation. Serre's Conjectures then state that the conductor of the modular form associated with the given Galois representation will be equal to the Artin conductor of the representation. Finally, the level of the modular form is, by Serre's conjecture, the  level associated to the representation mentioned above. The important thing is that this can be computed by looking at the behavior of the representation at the prime $p$.
+      To construct the conductor, you can go through a whole process of keeping track of the ramification and behavior at primes of the given Galois representation. This will give the Artin Conductor of the representation. Serre's Conjectures then state that the conductor of the modular form associated with the given Galois representation will be equal to the Artin conductor of the representation. This is a fairly strong constraint on the conductor, stronger than the one predicted by the Taniyama-Shimura conjecture. The level of the modular form can be constructed by tracking the behavior of the ramification of the Galois representation above the prime $p$, which is the characteristic of $\mathbb{F}$. A lot of the time, when working in a field of characteristic $p$, it is easy to discuss primes $\ell$ different from $p$, but hard to understand what happens at $p$. So this process is fairly technical but the important thing is that the level of the modular form is associated to this arithemtic behavior of the Galois representations. We'll refer to this number, computed from the Galois representation, as the "Level of the Galois Representation". The takeaway is that this can be computed by looking at the behavior of the representation at the prime $p$.
     </p>
     <p>
       So Serre's Conjectures then say that you can associate a modular form to any Galois representation of a certain type. Moreover, the level and conductor of the modular form can be computed as arithmetic invariants of the representation.
@@ -135,7 +135,7 @@
       $$
       \Delta_E = 2^{-8}a^{2p}b^{2p}c^{2p}
       $$
-      Since $p$ is an odd prime, if $p|\Delta_E$, then it must divide $a$, $b$ or $c$. Since the exponent of each of these is $2p$, it follows that $v_p$ will be a multiple of $p$. Therefore, the level of this representation is $2$. Furthermore, if $\ell$ is an odd prime that dividess $\Delta_E$, then the same reasoning shows that $v_{\ell}$ is a multiple of $p$. This means that such an $\ell$ cannot divide $N_{E,p}$. So the only prime that can divide the conductor is $2$, which does divide it since $v_2=-8$, which is not a multiple of $p$. So $N_{E,p}=2$.
+      Since $p$ is an odd prime, if $p|\Delta_E$, then it must divide $a$, $b$ or $c$. Since the exponent of each of these is $2p$, it follows that $v_p$ will be a multiple of $p$. From our description of the level above, we find that the level of this representation is $2$. Furthermore, if $\ell$ is an odd prime that dividess $\Delta_E$, then the same reasoning shows that $v_{\ell}$ is a multiple of $p$. This means that such an $\ell$ cannot divide $N_{E,p}$. So the only prime that can divide the conductor is $2$, which does "divide" it since $v_2=-8$, which is not a multiple of $p$. So $N_{E,p}=2$.
     </p>
     <p>
       So from a counterexample to Fermat's Last Theorem, we can construct an irreducible mod $p$ representation of $G_{\mathbb{Q}}$. This satisfies the technical conditions of Serre's conjecture, and has level $2$ and conductor $2$. Serre's conjecture then says that there is a modular form $f(z)$ of level $2$, conductor $2$ and is an cuspidal eigenform. A standard exercise in a first treatment of modular forms is to compute the dimension of such vector spaces. In particular, the dimension formulas show that the vector space that $f(z)$ lives in is dimension zero. Since zero cannot be an eigenform, it follows that no such modular form exists, which is a contradiction to our construction. Therefore, there cannot be a counterexample to Fermat's Last Theorem.
@@ -146,11 +146,11 @@
     </p>
     <h3>Via Taniyama-Shimura</h3>
     <p>
-      The proof using Serre's conjecture requires the full power of Serre's conjecture, which is highly nontrivial and very powerful. It wasn't proved to the extent needed for Fermat's Last Theorem until 2006, so it couldn't be what allowed Wiles to prove the theorem in the first place. Instead, Wiles used a very tiny and restricted version of Serre's Conjecture, known as the Serre Epsilon Conjecture, now Ribet's Theorem, along with the Taniyama-Shimura Conjecture. The Taniyama-Shimura takes the place of the modularity results of Serre's Conjecture, and Ribet's Theorem allows us to say something about the conductor and level of the resulting modular form. Tanyiama-Shimura alone is not enough to prove Fermat's Last Theorem, and Ribet's Theorem is not enough to prove Fermat's Last Theorem, but together they can be combined to play the role of Serre's Conjecture in the above proof. It should be noted that Serre's Conjecture implies the Taniyama-Shimura conjecture, but under Serre's Conjecture, it isn't needed to prove Fermat's Last Theorem, as shown above.
+      The proof using Serre's conjecture requires the full power of Serre's conjecture, which is highly nontrivial and very powerful. It wasn't proved to the extent needed for Fermat's Last Theorem until 2006, so it couldn't be what allowed Wiles to prove the theorem in the first place. Instead, Wiles used a very tiny and restricted version of Serre's Conjecture, known as  Serre's Epsilon Conjecture, now Ribet's Theorem, along with the Taniyama-Shimura Conjecture. The Taniyama-Shimura takes the place of the modularity results of Serre's Conjecture, and Ribet's Theorem allows us to say something restrictive about the conductor of the resulting modular form. Tanyiama-Shimura alone is not enough to prove Fermat's Last Theorem, and Ribet's Theorem is not enough to prove Fermat's Last Theorem, but together they can be combined to play the role of Serre's Conjecture in the above proof. It should be noted that Serre's Conjecture implies the Taniyama-Shimura conjecture, but under Serre's Conjecture, it isn't needed to prove Fermat's Last Theorem, as shown above.
     </p>
     <h4>The Theorems</h4>
     <p>
-      While we could directly apply Serre's Conjecture to the Galois representation associated to a Frey curve to immediately get a contradiction, we can't do this with Taniyama-Shimura. The helpful thing about Serre's Conjecture is that, not only does it give us a modular form corresponding to the representation, it is the conductor of the representation allows immediate computation of the conductor of the modular form. The Taniyama-Shimura Conjecture, however, specifies the conductor of the modular form off of the conductor of the elliptic curve itself. In our case, this conductor is larger than 2, and so we it is possible to pull a modular form from a nonzero vector space, but pulling a nonzero modular form from a zero vector space is where the contradiction arose in Serre's conjecture.
+      While we could directly apply Serre's Conjecture to the Galois representation associated to a Frey curve to immediately get a contradiction, we can't do this with Taniyama-Shimura. The helpful thing about Serre's Conjecture were the explicit constraints on the associated modular form. The Taniyama-Shimura Conjecture, however, specifies the conductor of the modular form from the conductor of the elliptic curve itself, rather than the Artin Conductor of the associated Galois representation. In our case, this conductor is larger than 2, and so we it is possible to pull a modular form from a nonzero vector space.
     </p>
     <p>
       So this proof will use two theorems: One to get a modular form, and another to lower the conductor of the modular form enough to get a contradiction. Serre's Conjecture is much more powerful, these are just patches of it.
@@ -158,7 +158,7 @@
     <p>
       The first ingredient is the Taniyama-Shimura Conjecture, which associates a modular form to a given rational elliptic curve. As with Serre's Conjecture, this can be discussed through represenations. But this time, the representations will be over much larger fields. In particular, if we have an elliptic curve $E$, then we can consider the $p^n$-torsion points $E[p^n]$. Over the algebraic closure, this group is isomorphic to $\mathbb{Z}/p^n\mathbb{Z}\times \mathbb{Z}/p^n\mathbb{Z}$. So we get a representation
       $$
-      \overline{\rho_{E,p^n}}: G_{\mathbb{Q}}\rightarrow GL_2(\mathbb{Z}/p^n\mathbb{Z})
+      \overline{\rho}_{E,p^n}: G_{\mathbb{Q}}\rightarrow GL_2(\mathbb{Z}/p^n\mathbb{Z})
       $$
       This system of representations is compatible with each other and can lift to a representation on the $p$-adic numbers $\mathbb{Q}_p$ to get a representation
       $$
@@ -167,7 +167,7 @@
       So, in this case, we are not working with representations over finite fields, but $p$-adic representations over $p$-adic fields. We can still discuss whether or not a representation over $p$-adic fields can be associated to a modular form or not, in a similar way. We, in general, compare values associated to the modular form with the trace and determinant of the representation on the Frobenius elements. The Taniyama-Shimura Conjecture then says that for every rational elliptic curve, $E$, with conductor $N_E$, there is a modular eigenform $f(z)$ of level 2 and conductor $N_E$ associated to the representation $\rho_{E,p}$.
     </p>
     <p>
-      Obviously, the conductor is too large to get a contradiction. Our second ingredient is Ribet's Theorem, also known as Serre's Epsilon Conjecture, because it is a tiny version of Serre's Conjecture and discusses how we can lower the conductor of such representations to get conductors more like the ones predicted by Serre's Conjecture.
+      This conductor is too large to get a contradiction. Our second ingredient is Ribet's Theorem, also known as Serre's Epsilon Conjecture, because it is a tiny version of Serre's Conjecture and discusses how we can lower the conductor of such representations to get conductors more like the ones predicted by Serre's Conjecture.
     </p>
     <p>Explicitly, if $f(z)$ is a modular form of weight 2 and level $qN$, and $\rho_{f,p}$ is the representation associated to $f(z)$ as above, then if $\rho_{f,p}$ satisfies some technical conditions, $q$ does not divide $N$ and $\rho_{f,p}$ does not behave "bad" at $q$, then we can find a modular form $g(z)$ of weight $N$ so that $\rho_{f,p}\simeq \rho_{g,p}$. This means that, as long as everything is "nice", we can divide out squarefree primes from the conductor without changing the associated representation.
     </p>
@@ -175,7 +175,7 @@
     <p>
       As before, given a counterexample to Fermat's Last Theorem, $a^p+b^p=c^p$, we can create the Frey curve, $E$, with $A=a^p$, $B=b^p$ and $C=c^p$. We can compute the conductor of $E$ to be 
       $$
-      N_E = rad(abc)
+      N_E = \textr{rad}(abc)
       $$
       By Taniyama-Shimura, there is an associated modular form $f(z)$ of level 2 and conductor $N_E$ associated to the representation $\rho_{E,p}$. Note that $N_E$ is squarefree. If $\ell$ is any odd prime, then it satisfies the "niceness" conditions of Ribet's Theorem (this is due to the particularly nice nature of the elliptic curve $E$, notably that it is semisimple). However, $2|N_E$ and we cannot get rid of it through Ribet's Theorem. So, using Ribet's Theorem, there is a modular cuspform $g(z)$ of weight 2 and conductor $N=2$ so that $\rho_{E,p}$ is associated to $g(z)$. But the vector space of weight 2, conductor 2 cusp forms is zero. This contradicts our construction based on the existence of a counterexample to Fermat's Last Theorem, so Fermat's Last Theorem must be true.
     </p>
@@ -185,7 +185,6 @@
       <ul>
         <li><b>Serre's Conjecture:</b>
           <ul>
-            <li>Serre's paper outlining everything about it: J.-P. Serre. <i>Sur les representations modulaires de degre 2 de Gal(Q/Q).</i> Duke Math. J., 54(1):179 – 230, 1987.</li>
             <li><a href = "http://www.nms.kcl.ac.uk/misja.steinmetz/Steinmetz_partiii_essay.pdf">English overview of above paper</a></li>
             <li><a href = "http://wstein.org/papers/serre/ribet-stein.pdf">Lectures on Serre's Conjectures</a></li>
           </ul></li>
@@ -194,6 +193,10 @@
             <li><a href="http://math.bu.edu/people/ghs/papers/FermatOverview.pdf">Glenn Stevens' Overview of Fermat's Last Theorem</a>. Can't get a better overview of all the ingredients, including the basic strategy of Wiles' contribution.</li>
           </ul></li>
     </ul>
+    Finally, the form of the conductor of the Frey curve should be interesting. If we form a Frey curve from $A+B=C$, then we get conductor $N_E=\textrm{rad}(ABC)$, which is reminiscent of one of the main terms in the ABC-Conjecture. There is a more general version of the ABC-Conjecture that, instead, discusses the conductors and discriminants of elliptic curves. This is known as the Szpiro Conjecture, and is what Mochizuki actually alleges to prove. This says that for every $\epsilon>0$ there is some constant $K_{\epsilon}$ so that
+    $$
+    |\Delta_E| \leq K_{\epsilon} N_E^{6+\epsilon}
+    $$
     
     
       
