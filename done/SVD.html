@@ -27,7 +27,7 @@
   Singular Value Decomposition (SVD) is a great way to decompose a linear transformation with tons of applications. Generally, to get some kind of intuition about how the decomposition works and what each term means, SVD is often explained through nice visuals of how each term behaves in simple terms. This is good if you simply want to apply SVD to a problem, but how should we think of it mathematically?
   </p>
   <p>
-  SVD can be much more interesting when viewed through the lense of abstract linear algebra. Fromm this point of view, it is the consequence of three very important concepts: 
+  SVD can be much more interesting when viewed through the lense of abstract linear algebra. From this point of view, it is the consequence of some very important concepts: 
   <ul>
   <li>Linear Transformations and Invariant Subspaces</li>
    <li>Inner Products and Dual Spaces</li>
@@ -41,28 +41,28 @@
    Let $V$ be a vector space over some field, and $T:V\rightarrow V$ a linear transformation on $V$. Such a map, from a space into itself, is an endomorphism. In general, $T$ can be difficult to understand, especially if the dimension of $V$ is large. The idea of Invariant Subspaces is to find smaller subspaces of $V$ that we can use to understand a bit of $T$. 
    </p>
    <p>
-   An <b>Invariant Subspace</b> of $T$ is a nontrivial subspace $W\subset V$ so that $T(W)\subseteq W$. That is, $T$ sends every element of $W$ back into $W$. This means that we can restrict $T$ to a smaller subspace and still have an endomorphism. This means that the function $T$ behaves nicely with the inclusion $W\subset V$.
+   An <b>Invariant Subspace</b> of $T$ is a nontrivial subspace $W\subset V$ so that $T(W)\subseteq W$. That is, $T$ sends every element of $W$ back into $W$. This means that we can restrict $T$ to a smaller subspace and still have an endomorphism and so the function $T$ behaves nicely with the inclusion $W\subset V$.
    </p>
    <p>As an example, if $T$ is a 3D rotation, then it has two invariant subspaces: The axis of the rotation, and the plane of rotation. $T$ doesn't do anything to the elements on the axis of rotation, and $T$ reduces to a 2D rotation on the plane of rotation. So to understand a 3D rotation, we just need to know how to find the plane of rotation, and then understand 2D rotations.
    </p>
    <p>
-   As with the above example, it may be possible to find two invariant subspaces $W_1,W_2$ of the map $T$ so that $V=W_1\oplus W_2$. If $T_1,T_2$ are the maps when we restrict $T$ to $W_1$ and $W_2$, then we say that we can decompose $T$ as
+   As with the above example, it may be possible to find two invariant subspaces $V_1,V_2$ of the map $T$ so that $V=V_1\oplus V_2$. If $T_1,T_2$ are the maps when we restrict $T$ to $V_1$ and $V_2$, then we say that we can decompose $T$ as
    $$
    T = T_1\oplus T_2
    $$
-   To figure out how $T$ behaves on $v\in V$, we can just write $v=w_1+w_2$, with $w_i\in W_i$, and we have
+   To figure out how $T$ behaves on $v\in V$, we can just write $v=v_1+v_2$, with $v_i\in V_i$, and we have
    $$
-   T(v) = T_1(w_1)+T_2(w_2)
+   T(v) = T_1(v_1)+T_2(v_2)
    $$
    So understanding $T$ reduces to understanding $T_1$ and $T_2$. In general, if $T:V\rightarrow V$ is any linear transformation, then there are unique invariant subspaces $V_1,...,V_n$ (up to reorder) so that 
    $$
-   V=K\oplus V_1\oplus V_2\oplus\cdots\oplus V_n
+   V=V_0\oplus V_1\oplus V_2\oplus\cdots\oplus V_n
    $$
-   where $K$ is the kernel, and $T$ decomposes as 
+   where $V_0$ is the kernel of $T$, and $T$ decomposes as 
    $$
    T=0\oplus T_1\oplus T_2\oplus\cdots \oplus T_n
    $$
-   and, furthermore, we cannot further decompose any of the maps $T_i$. This is the <b>Invariant Decomposition</b> of $T$. This allows us to write $T$ as a block-diagonal matrix, each block corresponding to a $T_i$. An important case of this is when each $W_i$ has dimension 1, in which case this decomposition is identical to the eigenvalue decomposition of $T$, and the block diagonal matrix is just the diagonalization of $T$.
+   and, furthermore, we cannot further decompose any of the maps $T_i$. This is the <b>Invariant Decomposition</b> of $T$. This allows us to write $T$ as a block-diagonal matrix, each block corresponding to a $T_i$. Note that since we're lumping the kernel into its own subspace, each of the $T_i$ is an isomorphism. An important case of this is when each $V_i$ has dimension 1, in which case this decomposition is identical to the eigenvalue decomposition of $T$, and the block diagonal matrix is just the diagonalization of $T$.
    </p>
    <p>
    Now we can see what the invariant decomposition of a map says about SVD. In this case, we have two vector spaces $U,V$, and two maps:
@@ -102,7 +102,7 @@
    $$
    Which means that restriction behaves well with composition. This is, really, the fundamental behaviour of SVD. The rest of the statements are then just this applied to particular cases with some added structure.
 
-<h3>Inner Products and Dual Spaces</h3>
+<h3>Dual Spaces and Inner Products</h3>
 <p>
 If $V$ is a vector space over the field $F$, then $V^*$ denotes its "Dual Space". This is the set of all linear functions of the form $\phi:V\rightarrow F$. If $T:V\rightarrow W$ is a linear map, then this induces a function $T^*:W^*\rightarrow V^*$ defined as follows: If $\phi:W\rightarrow F$, then $T^*(\phi)$ will have to be a function $V\rightarrow F$, it is defined as
 $$
@@ -124,7 +124,7 @@ If $\langle,\rangle$ is an Inner Product on $V$ and $v_0\in V$, then the second 
 $$
 \phi_{v_0}(v) = \langle v_0,v\rangle
 $$
-is a linear function from $V$ into the base field. In other words, $\phi_{v_0}\in V^*$. This means actually defines a map from $V\rightarrow V^*$, by sending $v_0$ to $\phi_{v_0}$ that is always an isomorphism for finite dimensional $V$. So inner products mean that $V$ and $V^*$ are meaningfully isomorphic.
+is a linear function from $V$ into the base field. In other words, $\phi_{v_0}\in V^*$. This  defines a map from $V\rightarrow V^*$, which sends $v_0$ to $\phi_{v_0}$, and this is always an isomorphism for finite dimensional $V$. So inner products allow us to say that $V$ and $V^*$ are meaningfully isomorphic.
 </p>
 <p>
 If $V$ and $W$ both have inner products, we have a map $T:V\rightarrow W$ and we identify $V=V^*$ and $W=W^*$ through the above isomorphism, then we get a map $T^*:W\rightarrow V$. When we are identifying spaces with their dual, we'll write $T^*=T^T$ and call $T^T$ the "Transpose" of $T$. This is the unique map so that
@@ -196,9 +196,9 @@ This one then tells us information strictly about $T$, not how it might interact
 <p>
   We can extend this discussion to the whole spaces $V$ and $W$ by noting that $ker(T^TT)=ker(T)$. This is thanks to the Fundamental Theorem of Linear Algebra. So if we choose any orthonormal basis for $V_0$, then $T$ acts on this basis by multiplication by zero. Similarly or $W_0$. So if $v_{-m},...,v_0$ is an orthonormal basis for $V_0$, then $v_{-m},...,v_0,v_1,...,v_n$ is an orthonormal basis for $V$, and for each $i\geq -m$ there is a number $a_i$ so that 
   $$
-  T(v_i) = a_i
+  T(v_i) = a_i w_i
   $$
-  and if $i\leq 0$ then $a_i=0$. Similarly for $T^T$. This provides a complete description of the map $T$. 
+  and if $i\leq 0$ then $a_i=0$. Similarly for $T^T$, except $T^T(w_i)=a_i^*v_i$. This provides a complete description of the map $T$. 
   </p>
 <h3>Bases and the Standard SVD</h3>
 <p>
@@ -208,9 +208,9 @@ This one then tells us information strictly about $T$, not how it might interact
   $$
   The fact that $A$ and $B$ are unitary means that $A^T=A^{-1}$ and $B^T=B^{-1}$. The reason for this kind of decomposition is all of the theoretical descriptions and decompositions of the previous sections. We can read this as follows:
   <ul>
-    <li> The matrix $A$ takes the basis we begin with in $V$ to our orthonormal eigendecomposition given by the Spectral Theorem. The fact that it is unitary follows from the fact that it transforms into an orthonormal basis. </li>
-    <li> The matrix $D$ is the action of $T$ given directly by the invariant decomposition, which the Spectral Theorem says is given by 1-dimensional subspaces and so must be diagonal</li>
-    <li> The matrix $B$ then takes our orthonormal basis in $W$ to the basis we begin with. It is unitary for the same reasons as the matri $A$.</li>
+    <li> The matrix $A$ takes the basis we begin with in $V$ to the orthonormal basis given by the Spectral Theorem. The fact that it is unitary follows from the fact that it transforms into an orthonormal basis. </li>
+    <li> The matrix $D$ is the action of $T$ given directly by the invariant decomposition, which the Spectral Theorem says is given by 1-dimensional subspaces, so $D$ is diagonal</li>
+    <li> The matrix $B$ then takes our orthonormal basis in $W$ to the basis we begin with. It is unitary for the same reasons as the matrix $A$.</li>
 </ul>
 The entries in $D$ are the Singular Values for the transformation $T$. If you take their norm, you then recover the eigenvalues for $T^TT$. If you transpose the entire SVD equation, you get the identical statement but for the map $T^T$ instead.
 </p>
