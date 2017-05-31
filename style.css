@@ -6,9 +6,6 @@ body{
   font-size: large;
 }
 
-h1{
-
-}
 
 hr{
   width = 75%;
@@ -41,6 +38,7 @@ img {
 
 h3{
   color: #006699;
+  text-decoration: underline;
 }
 
 h4 {
