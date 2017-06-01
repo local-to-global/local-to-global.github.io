@@ -99,3 +99,9 @@ h4 {
   font-family: "Open Sans";
   font-size: x-small;
 }
+
+.title-link{
+    color: black;
+    text-decoration: none;
+}
+
