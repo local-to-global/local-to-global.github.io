@@ -62,7 +62,7 @@
    $$
    T=0\oplus T_1\oplus T_2\oplus\cdots \oplus T_n
    $$
-   and, furthermore, we cannot further decompose any of the maps $T_i$. This is the <b>Invariant Decomposition</b> of $T$. This allows us to write $T$ as a block-diagonal matrix, each block corresponding to a $T_i$. Note that since we're lumping the kernel into its own subspace, each of the $T_i$ is an isomorphism. An important case of this is when each $V_i$ has dimension 1, in which case this decomposition is identical to the eigenvalue decomposition of $T$, and the block diagonal matrix is just the diagonalization of $T$.
+   and, furthermore, we cannot further decompose any of the maps $T_i$. This is the <b>Invariant Decomposition</b> of $T$. It should be noted that these spaces are not necessarily uniquely determined, though certain blocks of them are and the number $n$ is. This allows us to write $T$ as a block-diagonal matrix, each block corresponding to a $T_i$. Note that since we're lumping the kernel into its own subspace, each of the $T_i$ is an isomorphism. An important case of this is when each $V_i$ has dimension 1, in which case this decomposition is identical to the eigenvalue decomposition of $T$, and the block diagonal matrix is just the diagonalization of $T$.
    </p>
    <p>
    Now we can see what the invariant decomposition of a map says about SVD. In this case, we have two vector spaces $U,V$, and two maps:
@@ -79,14 +79,14 @@
    && TS : V\rightarrow V
    \end{eqnarray*}
    $$
-   Both of these maps have their own invariant decomposition, and Singular Value Decomposition says that these two invariant decompositions are <i>compatible</i>. This can be seen as a Proto-SVD. Explicitly, if 
+   Both of these maps have their own invariant decomposition, and Singular Value Decomposition says that we can choose these decompositions so that they are <i>compatible</i>. This can be seen as a Proto-SVD. Explicitly, if 
    $$
    \begin{eqnarray*}
    U &=& U_0\oplus U_1\oplus\cdots\oplus U_m\\
    V &=& V_0\oplus V_1\oplus\cdots\oplus V_n
    \end{eqnarray*}
    $$
-   are the invariant decompositions of $ST$ and $TS$, where $U_0$ and $V_0$ are the kernels, then $m=n$ and we can order them so that for $i>0$ we have
+   are invariant decompositions of $ST$ and $TS$, where $U_0$ and $V_0$ are the kernels, then $m=n$ and we pick them so that for $i>0$ we have
    $$
    \begin{eqnarray*}
    T(U_i) &=& V_i\\
@@ -175,7 +175,7 @@ This one then tells us information strictly about $T$, not how it might interact
   Furthermore, for $i>0$ there is a $\lambda_i\ne 0$ so that for $v_i\in V_i$ we have $T^TT(v_i)=\lambda_i v_i$ and there is a $\delta_i\ne 0$ so that for $w_i\in W_i$ we have $TT^T(w_i)=\delta_i w_i$. 
   </p>
 <p>
-  The Spectral Theorem does a little bit more for us. Since each of these subspaces are 1-dimensional and since we have an inner product, we are in the position to talk about a natural basis. This is a basis chosen for us by the theory, rather than us making choices to find one. Any single vector in $V_i$ or $W_i$ for $i>0$ will form a basis for that particular space. So if we choose a single $v_i\in V_i$ and $w_i\in W_i$ for $i>0$, then the sets $\{v_1,...,v_n\}$ and $\{w_1,...,w_n\}$ form bases for the nonkernel subspaces:
+  The Spectral Theorem does a little bit more for us. Since each of these subspaces are 1-dimensional and since we have an inner product, we are in the position to talk about a natural basis. This is a basis chosen for us by the theory, rather than us making choices to find one, and depends only on our choice of compatible decomposition (if the eigenvalues are all distinct, then there is only one way to decompose them).  Any single vector in $V_i$ or $W_i$ for $i>0$ will form a basis for that particular space. So if we choose a single $v_i\in V_i$ and $w_i\in W_i$ for $i>0$, then the sets $\{v_1,...,v_n\}$ and $\{w_1,...,w_n\}$ form bases for the nonkernel subspaces:
   $$
   \begin{eqnarray*}
   V_1\oplus\cdots \oplus V_n &\subseteq& V\\
