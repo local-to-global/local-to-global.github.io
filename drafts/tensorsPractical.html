@@ -1,0 +1,71 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Tensors in Physics and Engineering</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Tensors in Physics and Engineering</h1>
+  </div>
+  <hr id="titlebreak">
+
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+    <p>
+      The concept of a "Tensor" is used a lot in physics and engineering, but what they actually are is left pretty mysterious. Vague descriptions as generalization of scalars, vectors, matrices, or as "multidimensional arrays" are all inaccurate being rooted in truth just enough to get students to stop asking what tensors are, without actually taking the time to discuss them. I hope to clear that up. 
+    </p>
+    <p>
+      This will be a description of what tensors are, in the context of how they are used in physics and engineering. The solid math behind them is more complex and not particularly helpful for someone without a very solid backing in rigorous linear and abstract algebra. In particular, we will use naive notions of what vectors are, sticking with the special case of column arrays. This description assumes that we have already selected a basis of the vector space and are working with it. We'll have to discuss what happens when we change our basis. I'll also write column vectors as $(1,2,3)^T$, since it's really annoying to actually write them vertically.
+    </p>
+    <h3>Row Vectors, Column Vectors and Dot Products</h3>
+    <p>
+      Tensors are not "generalizations of scalars, vectors, matrices" or "multidimensional arrays", instead they can most intuitively thought of as follows:
+    </p>
+    <div class="thm"><b>Tensors are glorified Dot Products</b></div>
+    <p> 
+      If we have a column vector $\mathbf{v}$ and a row vector $\mathbf{w}$, then we can use the traditional matrix multiplication of $\mathbf{w}\mathbf{v}$ to get out a number. For example, if $\mathbf{v}=(1,2,3)^T$ and $\mathbf{w}=(3,2,1)$ then
+      $$
+      \mathbf{w}\mathbf{v} = (3,2,1)(1,2,3)^T = 3\cdot 1 + 2\cdot 2 + 1\cdot 3 = 10
+      $$
+      This means that combining a row vector and column vector through matrix multiplication gives us a real number. And this process is "linaer", meaning that it interacts well with scalar multiplication and vector addition. This allows us to  discuss the dot product of two column vectors or two row vectors. If $\mathbf{a},\mathbf{b}$ are both column vectors, then their dot product is defined through matrix multiplication as:
+      $$
+      \mathbf{a}\cdot\mathbf{b} = \mathbf{a}^T\mathbf{b}
+      $$
+      If $\mathbf{c}$ and $\mathbf{d}$ are row vectors, then their dot product is defined through matrix multiplication as
+      $$
+      \mathbf{c}\cdot \mathbf{d} = \mathbf{c}\mathbf{d}^T
+      $$
+      We then have three operations: The "Dot Product" of a row vector and column vector, the "Dot Product" of two column vectors and the "Dot Product" of two row vectors. These dot products are, respectively, examples of a $(1,1)$-Tensor, a $(2,0)$-Tensor and a $(0,2)$-Tensor. The important thing is that these are functions that take in column/row vectors and output numbers, in a nice and linear fashion. We'll then work on generalizing <i>this</i> idea to understand what tensors are. 
+    </p>
+    <h3>Vectors, Linear Transformations and Tensors</h3>
+    <p>
+      If tensors are glorified dot products, then why do people relate them to vectors and matricies? People make this false equivalency because we can obtain tensors <i>from</i> vectors and linear transformations. But there is a big difference between saying that tensors generalize vectors, matrices etc, without mentioning their actual definitional nature, and providing you with a decent intuitive definition and illustrating how to obtain tensors from these objects
+    </p>
+    <p>
+      Our mantra is that tensors are glorified dot products. That is, functions that take in column/row vectors and output numbers. Where dot products only input two vectors, we can have tensors input any number of vectors. With this in mind, is someone gives us a row vector, then we can create a $(1,0)$-Tensor from it. That is, if $\mathbf{c}$ is a row vector, we can create the tensor $T_{\mathbf{c}}(\mathbf{a})$, where $\mathbf{a}$ is a column vector, defined through matrix multiplication as
+      $$
+      T_{\mathbf{c}}(\mathbf{a}) = \mathbf{c}\mathbf{a}
+      $$
+      So we can create a tensor from a row vector.
+    </p>
+    
+   
+      
+
+  </div>
+
+
+
+</body>
+</html>
