@@ -1,0 +1,76 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Bernoulli Numbers and Geometric Series</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading"><a href="index.html" class="title-link">Local-to-Global</a></h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Bernoulli Number and Geometric Series</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+    <p>
+    What is so great about the Bernoulli numbers? They appear in a surprising number of places, especially in Number Theory. But why? We'll see the answer has to do with how they relate to a geometric series of exponential functions, and their importance is related to the behavior of this series.
+    </p>
+    <p>
+    Consider the following function
+    $$
+    F(x,q) = \log(q) \left(q^{x-1}+q^{x-2}+q^{x-3}+\cdots\right) = \log(q) q^{x-1}\left(1+q^{-1}+q^{-2}+\cdots\right)
+    $$
+    which is just a geometric series in $q$ that has shifted terms. If $|q|<1$ then, by the expression for Geometric Series, this converges to
+    $$
+    F(x,q) = \frac{\log(q) q^x}{q-1}
+    $$
+    An important thing about this function is how it relates to the finite geometric sum $f_n(q)=q+q^2+\cdots+q^n$. Since we can write this as $f_n(q) = q\frac{q^n-1}{q-1}$ it follows, from splitting up the sum in the numerator, that
+    $$
+    f_n(q) = \frac{1}{\log q} \left(F(n+1,q) - F(1,q)\right)
+    $$
+    This is cool because it expresses the finite family of functions $f_n(q)$ basically as values of $F(x,q)$. The key to this is that, up to scale and shift, increasing the first value of $F(n,q)$ is the same thing as adding on another term for the sum $q+q^2+\cdots + q^n$. Parameterizing the partial sums of a series into a function like this is pretty cool. We will be interested in using this to examine the sums $S_n(k)=1^k+2^k+\cdots+n^k$. Instead of looking at this single sum, we will fix $n$ and consider the family of sums $S_n(0),S_n(1),...$. The idea behind this is that we can create some nice Taylor series from this sequence of expressions due to the fact that we have
+    $$
+    S_n(k)t^k = t^k + (2t)^k + \cdots (nt)^k
+    $$
+    which is a homogeneity condition. With this in mind, we note that 
+    $$
+    S_n(k)\frac{t^k}{k!} = \frac{t^k}{k!} + \frac{(2t)^k}{k!} + \cdots \frac{(nt)^k}{k!}
+    $$
+    So if we construct the generating function $E_n(t):=\sum_{k=0}^{\infty}S_n(k)\frac{t^k}{k!}$, then we can group the factors that have the same multipile of $x$ to get
+    $$
+    E_n(t) = \sum_{m=1}^n \sum_{k=0}^{\infty}\frac{(mt)^k}{k!} = \sum_{m=1}^{n} e^{mt}
+    $$
+    So we have $E_n(t)=e^t+e^{2t}+\cdots+e^{nt}$, which should look familiar. If we set $q=e^t$ then we have $E_n(t)=f_n(e^t)$. Using what we learned earlier we then get
+    $$
+    E_n(t) = \frac{1}{t} \left( F(n+1,e^t) - F(1,e^t)\right)
+    $$
+    Since the Taylor series of $E_n(t)$ encodes the sums of powers up to $n$, this means that the coefficients in the Taylor series of $F(x,e^t)$ in the variable $t$ should have some arithmetic significance. Set $\mathcal{B}(x,t)=F(x,e^t)$ and set
+    $$
+    \mathcal{B}(x,t) = \sum_{k=0}^{\infty}B_k(x)\frac{t^k}{k!}
+    $$
+    Combining our equations then gives
+    $$
+    S_n(k) = \frac{B_{k+1}(n+1)-B_{k+1}(1)}{k+1}
+    $$
+    This formula is based in the arithmetic properties of geometric series of exponential functions. 
+    
+    
+
+
+  </div>
+
+
+
+</body>
+</html>
