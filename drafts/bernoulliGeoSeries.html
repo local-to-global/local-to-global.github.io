@@ -70,9 +70,19 @@
     <p>
       Relating the polynomials $B_k(x)$ to sums of powers is nice, but the real arithmetic significance comes from the relationship to the values of the Riemann Zeta Function. We'll work a little more generally and consider the Hurwitz Zeta Function:
       $$
-      \zeta(s,b) = \sum_{m=0}\frac{1}{(m+b)^s}
+      \zeta(s,b) = \sum_{m=0}^{\infty}\frac{1}{(m+b)^s}
       $$
       where $b>0$. This sum converges for $s>1$, but as we'll see, we can make sense of the values $\zeta(-n,b)$. Also, the Riemann Zeta Function is $\zeta(s)=\zeta(s,1)$, so results will translate. Intuitively, it looks like $\zeta(-n,b)$ is an infinite sum of the form $b^n+(1+b)^n+(2+b)^n+\cdots$, which obviously diverges. But it hints that if this does have a value, then it should be related to the values of $B_k(x)$. 
+    </p>
+    <p>
+      To see how the Bernoulli Numbers relate to the Hurwitz Zeta Function, we will find an alternative construction for the function $\zeta(s,b)$ using the function $\mathcal{B}(x,t)$. The reconstruction of the zeta function will, of course, be tied to the properties of the exponential geometric series in $\mathcal{B}(x,t)$. Consider a typical term in the expression
+      $$
+      \mathcal{B}(1-b,t) = \sum_{n=0}^{\infty} te^{-t(n+b)}
+      $$
+      It is of the form $te^{ty}$ for some $y$, so should have some nice integration properties. In particular, we will find an integral of these terms of the form $\frac{1}{y^s}\cdot A(s)$, where $A^(s)$ is some factor independent of $y$. This will be done through a change of variables along with the integral formula for the Gamma function:
+      $$
+      \Gamma(s) = \int_0^{\infty} e^{-t}t^{s-1}ds
+      $$
       
 
 
