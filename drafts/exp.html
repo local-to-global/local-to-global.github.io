@@ -92,11 +92,14 @@
     Next, we'll show that $\exp_3(x)$ satisfies the initial value problem $f'(x)=f(x)$ with $f(0)=1$ and, since this is a first order linear equation, we must have $\exp_2(x)=\exp_3(x)$. We note that we can differntiate power series term-by-term. Doing this with the power series expression $\exp_3(x)=\sum_{k=0}^{\infty}\frac{x^k}{k!}$, we find that $\exp_3'(x)=\exp_3(x)$. Furthermore, direct computation shows that $\exp_3(0)=1$. 
     </p>
    <p> 
-    So these functions are all the same, but how do we know that they are an actual exponential function? To prove $\exp(x)=e^x$, we will show that $\exp(x)$ is a continuous function so that $\exp(x+y)=\exp(x)\exp(y)$. A famous result by Cauchy then shows $\exp(x)=\exp(1)^x$. We know that $\exp(x)$ is continuous and nonzero, so we just need to show additivity. We will show that by showing that the condition $f'(x)=Af(x)$ for some nonzero $A$ is equivalent to $f(x+y)f(0)=f(x)f(y)$ for any differntiable $f(x)$, when $f(0)\ne 0$. We already saw (with a few modifications) that $f(x+y)f(0)=f(x)f(y)$ implies $f'(x)=Af(x)$ where 
+    So these functions are all the same, but how do we know that they are an actual exponential function? To prove $\exp(x)=e^x$, we will show that $\exp(x)$ is a continuous function so that $\exp(x+y)=\exp(x)\exp(y)$. A famous result by Cauchy then shows $\exp(x)=\exp(1)^x$. We know that $\exp(x)$ is continuous and nonzero, so we just need to show additivity. We will show that by showing that the condition $f'(x)=Af(x)$ for some nonzero $A$ is equivalent to $f(x+y)f(0)=f(x)f(y)$ for any differntiable $f(x)$, when $f(0)\ne 0$. For simplicity, we can define $F(x)=f(x)/f(0)$, in which case we still have $F'(x)=AF(x)$, but $F(x+y)=F(x)F(y)$. We already saw that $F(x+y)=F(x)F(y)$ implies $F'(x)=AF(x)$ where 
     $$
-    A=\frac{1}{f(0)}\lim_{h\rightarrow 0}\frac{f(h) - f(0)}{h}
+    A=\lim_{h\rightarrow 0}\frac{F(h) - 1}{h}
     $$
-    So this is contingent on $A$ existing and being finite. It should be noted that for our function, since we already demonstrated that it is differentiable, then this $A$ must exist, but we'd like to show this in more generality. 
+    So this is contingent on $A$ existing and being finite. It should be noted that for our function, since we already demonstrated that it is differentiable, then this $A$ must exist, but we'd like to show this in more generality. Note that $f(x)$ is never zero, since this would imply that is always zero. Since $F(x)=f(x)/f(0)$ and $f(x)$ and $f(0)$ must have the same sign, it follows that $F(x)$ is positive. First, we show that for all $x>0$ the sign of $F(x)-1$ is the same. Assume that $0&lt x&lt y$ and that $F(x)>1$ but $F(y)&lt 1$. Then $F(x+y)=(1+X)(1-Y)=1+X-Y-XY$, where $X=F(x)-1>0$ and $Y=1-F(y)>0$. Since $F(x+y)=1+X-Y-XY>0$, we find that we must have $X>0$ and $0&lt Y &lt 1$  
+                
+                
+                Then $F(x+y) = F(x)F(y) > F(y)$. So if $z > y$ we have $F(y) &lt F(z)$
     
     
     </div>
