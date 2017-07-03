@@ -1,0 +1,113 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>The Exponential and Logarithmic Functions</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading"><a href="index.html" class="title-link">Local-to-Global</a></h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">The Exponential and Logarithmic Function</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+    <p>
+    One of the fundmantal constants in math is Euler's number $e$. Though, its importance is not really anything to do with the number itself, rather it is the function $\exp(x)=e^x$ that is important, along with its inverse function $\log(x)$ (where the base is $e$). We'll look at the many definitions of these functions and see how they are all equivalent. Each of these definitions can be used to highlight different important aspects of these functions.
+    </p>
+    <h3> The Exponential Function</h3>
+    <p>Let us first look at the exponential function. We'll explore variouos possible definitions of it and the proof that they are all actually the same function. We'll also discuss the context of each of these and what they say about the function, or $e$, theoretically.
+    </p>
+    <p>Our first definition is related the one where $e$ first appeared explicitly. In this case, we define
+    $$
+    \exp(x) := \lim_{N\rightarrow\infty} \left(1+\frac{x}{N}\right)^N
+    $$
+    The term on the inside of the parentheses goes to zero, whereas the exponent goes to infinity, and these two behaviours balance out for every real value $x$. This is not obviously a function of the form $A^x$, for some $A$, but it will be shown that $\exp(x)=e^x$. An interesting thing about this is that it is valid for all real $x$ but only requires integer exponents. In a way, we can then use this as the definition of negative, rational or real valued exponents through the expression $A^x:=\exp(\log(A)x)$. Historically, this expression pops up when studing compound interest and probability. The famous $A=Pe^{rt}$ formula comes directly from evaluating this limit, and in probability, if you have some event that succeeds with a chance of $1/N$, then $(1-1/N)^N$ are the chances that you fail exactly $N$ times. Hence $\exp(-1)$ is the limit of this as $N$ goes to infinity.
+    </p>
+    <p>
+    Next, we define $\exp(x)$ via its functional properties. Firstly, consider a continuous, nonzero function $f(x)$ that obeys the additive rule $f(x+y)=f(x)f(y)$. We can check the differentiable properties of such a function:
+    $$
+    \begin{eqnarray}
+    f'(x) &=& \lim_{h\rightarrow 0} \frac{f(x+h)-f(x)}{h} \\
+          &=& \lim_{h\rightarrow 0} \frac{f(x)f(h)-f(x)}{h}\\
+          &=& L_f\cdot f(x)
+    \end{eqnarray}
+    $$
+    where
+    $$
+    L_f = \lim_{h\rightarrow 0} \frac{f(h)-1}{h}
+    $$
+    if it exists (which it does, as we'll see later). The equation $f'(x)=L_f f(x)$ can then be thought of as the infinitesimal version of the Additive Rule. We define $\exp(x)$ to be the function so that $\frac{d}{dx}\exp(x)=\exp(x)$ and $\exp(0)=1$. Ie, the additive function so that $L_{\exp}=1$. (We'll see that for differentiable functions $f(x+y)=f(x)f(y)$ is equivalent to $f'(x)=L_f f(x)$.) This definition roots the exponential function to its functional properties. We see that the additive rule, and/or its infinitesimal equivalent, are fundamental to the function and this property alone can be used to explain many instances of exponentials in other areas and be generalized heavily.
+    </p>
+    <p>
+    We can also define the exponential function via infinite series. Explicitly, 
+    $$
+    \exp(x) := \sum_{n=0}^{\infty} \frac{x^n}{n!}
+    $$
+    This definition has the advantage of being very flexible. This definition allows us to analytically define the exponential function in many different arithmetic systems. Most notably, for matricies, complex numbers and $p$-adic numbers. The expression for $\exp(-1)$ through this can arise from combinatorics as well, when countind derrangements. 
+    <h3>Proofs of Equivalence</h3>
+    We can now prove the following result about the above three defintions:
+    <div class="thm"><b>Theorem: </b> Define the functions $\exp_1(x)$, $\exp_2(x)$ and $\exp_3(x)$ as above. Then each of these is defined for all real $x$ and, moreover, we have 
+    $$
+    \exp_1(x)=\exp_2(x)=\exp_3(x)
+    $$
+    Let $\exp(x)$ denote this function. Furthermore, if $e=\exp(1)$, then we have $\exp(x)=e^x$ where this exponentiation is traditionally defined. 
+    </div>
+    <div class="thm><b>Proof:</b> We will prove $\exp_1(x)=\exp_3(x)$ and $\exp_2(x)=\exp_3(x)$. 
+    <p>
+    Consider the term $(1+x/N)^N$. We can expand this using the Binomial Theorem as
+    $$
+    (1+x/N)^N = \sum_{k=0}^N \binom{N}{k} \frac{x^k}{N^k}
+    $$
+    We find that $\binom{N}{k}\frac{1}{N^k} = \frac{N(N-1)\cdots(N-k+1)}{k!N^k}$. The numerator of this will be of the form 
+    $$
+    N(N-1)\cdot (N-k+1) = N^k + (\textrm{Lower Order Terms})
+    $$
+    That is, the numerator is a polynomial of degree $k$ in the variable $N$ with leading term $N^k$. When dividing this through by $N^k$, we find that this is the only term that doesn't have an $N$ in the numerator. Therefore, we have 
+    $$
+    \binom{N}{k}\frac{1}{k!} = \frac{1}{k!} + \frac{1}{N}s_{N,k}
+    $$
+    where $s_{N,k}$ is some expressions so that $\lim_{N\rightarrow \infty} s_{N,k} &lt \infty$. We then can write
+    $$
+    \left(1+\frac{x}{N}\right)^N = \sum_{k=0}^N \frac{x^k}{k!} + \frac{x^k}{N}s_{N,k}
+    $$
+    The second term goes to zero in the limit $N\rightarrow\infty$ and so we have
+    $$
+    \lim_{N\rightarrow\infty}\left(1+\frac{x}{N}\right)^N = \sum_{k=0}^{\infty}\frac{x^k}{k!}
+    $$
+    and we get $\exp_1(x)=\exp_3(x)$. It should be noted that the convergence of the power series is easy to demonstrate for all $x$, and this equality allows us to say that the limit of $(1+x/N)^N$ exists for all $x$ as well.
+    </p>
+    <p>
+    Next, we'll show that $\exp_3(x)$ satisfies the initial value problem $f'(x)=f(x)$ with $f(0)=1$ and, since this is a first order linear equation, we must have $\exp_2(x)=\exp_3(x)$. We note that we can differntiate power series term-by-term. Doing this with the power series expression $\exp_3(x)=\sum_{k=0}^{\infty}\frac{x^k}{k!}$, we find that $\exp_3'(x)=\exp_3(x)$. Furthermore, direct computation shows that $\exp_3(0)=1$. 
+    </p>
+   <p> 
+    So these functions are all the same, but how do we know that they are an actual exponential function? To prove $\exp(x)=e^x$, we will show that $\exp(x)$ is a continuous function so that $\exp(x+y)=\exp(x)\exp(y)$. A famous result by Cauchy then shows $\exp(x)=\exp(1)^x$. We know that $\exp(x)$ is continuous and nonzero, so we just need to show additivity. We will show that by showing that the condition $f'(x)=Af(x)$ for some nonzero $A$ is equivalent to $f(x+y)f(0)=f(x)f(y)$ for any differntiable $f(x)$, when $f(0)\ne 0$. We already saw (with a few modifications) that $f(x+y)f(0)=f(x)f(y)$ implies $f'(x)=Af(x)$ where 
+    $$
+    A=\frac{1}{f(0)}\lim_{h\rightarrow 0}\frac{f(h) - f(0)}{h}
+    $$
+    So this is contingent on $A$ existing and being finite. It should be noted that for our function, since we already demonstrated that it is differentiable, then this $A$ must exist, but we'd like to show this in more generality. 
+    
+    
+    </div>
+    
+    
+
+
+
+  </div>
+
+
+
+</body>
+</html>
