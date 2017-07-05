@@ -90,7 +90,7 @@
         \begin{eqnarray*}
         \exp_3'(x) &=& \lim_{h\rightarrow 0}\frac{\exp_3(x+h)-\exp(x)}{h}\\
                    &=& \lim_{h\rightarrow 0}\frac{\exp_3(x)\exp_3(h)-\exp_3(x)}{h}\\
-                   &=& \exp_3(x)\lim_{h\rightarrow 0}\frac{\exp_3(h)-1}{h}
+                   &=& \exp_3(x)\lim_{h\rightarrow 0}\frac{\exp_3(h)-1}{h}\\
                    &=& c\exp_3(x)
         \end{eqnarray*}
         $$
@@ -98,7 +98,7 @@
       </li>
       </ol>
    <p> 
-    So these functions are all the same, but it would be good to know that $\exp(x)$ is actually an exponential function. That is, a function of the form $f(x)=A^x$ for some positive $A$. This follows from a famous result of Cauchy that we sketch here. This will use the fact that $\exp(x+y)=\exp(x)\exp(y)$. We will show that if $f(x+y)=f(x)f(y)$ and $f(x)$ is continuous, then $f(x)=A^x$ where $A=f(1)$. We already saw that $f(0)=1$. Induction immediately shows that for positive $N$ then $f(N)=f(1)^N$. It then follows that $1=f(N-N)=f(N)f(-N)$ which implies that $f(-N)=1/f(1)^N$. If $q$ is a rational number, then there is some positive integer $N$ so that $qN$ is an integer. So $f(qN)=f(1)^{qN}. But this also equals $f(qN)=f(q)^N$, so $f(q)^N=f(1)^{qN}$. There is then a unique positive $N$th root to this, and so we find that $f(q)$ is equal to the unique $N$th root of $f(1)^{qN}$, which is, of course, $f(1)^q$. Finally, if $x$ is real, then we can approximate it by a Cauchy sequence of rational numbers, $q_n$, for each of which $f(1)^{q_n}$ is defined. The limit of this is $f(1)^x$, and by continuity we get $f(x)=f(1)^x$. 
+    So these functions are all the same, but it would be good to know that $\exp(x)$ is actually an exponential function. That is, a function of the form $f(x)=A^x$ for some positive $A$. This follows from a famous result of Cauchy that we sketch here. This will use the fact that $\exp(x+y)=\exp(x)\exp(y)$. We will show that if $f(x+y)=f(x)f(y)$ and $f(x)$ is continuous, then $f(x)=A^x$ where $A=f(1)$. We already saw that $f(0)=1$. Induction immediately shows that for positive $N$ then $f(N)=f(1)^N$. It then follows that $1=f(N-N)=f(N)f(-N)$ which implies that $f(-N)=1/f(1)^N$. If $q$ is a rational number, then there is some positive integer $N$ so that $qN$ is an integer. So $f(qN)=f(1)^{qN}$. But this also equals $f(qN)=f(q)^N$, so $f(q)^N=f(1)^{qN}$. There is then a unique positive $N$th root to this, and so we find that $f(q)$ is equal to the unique $N$th root of $f(1)^{qN}$, which is, of course, $f(1)^q$. Finally, if $x$ is real, then we can approximate it by a Cauchy sequence of rational numbers, $q_n$, for each of which $f(1)^{q_n}$ is defined. The limit of this is $f(1)^x$, and by continuity we get $f(x)=f(1)^x$. 
       </p>
     </div>
     <p>
