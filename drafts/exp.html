@@ -29,33 +29,25 @@
     <h3> The Exponential Function</h3>
     <p>Let us first look at the exponential function. We'll explore variouos possible definitions of it and the proof that they are all actually the same function. We'll also discuss the context of each of these and what they say about the function, or $e$, theoretically.
     </p>
-    <p>Our first definition is related the one where $e$ first appeared explicitly. In this case, we define
+    <ol>
+    <li>Our first definition is related the one where $e$ first appeared explicitly. In this case, we define
     $$
     \exp(x) := \lim_{N\rightarrow\infty} \left(1+\frac{x}{N}\right)^N
     $$
     The term on the inside of the parentheses goes to zero, whereas the exponent goes to infinity, and these two behaviours balance out for every real value $x$. This is not obviously a function of the form $A^x$, for some $A$, but it will be shown that $\exp(x)=e^x$. An interesting thing about this is that it is valid for all real $x$ but only requires integer exponents. In a way, we can then use this as the definition of negative, rational or real valued exponents through the expression $A^x:=\exp(\log(A)x)$. Historically, this expression pops up when studing compound interest and probability. The famous $A=Pe^{rt}$ formula comes directly from evaluating this limit, and in probability, if you have some event that succeeds with a chance of $1/N$, then $(1-1/N)^N$ are the chances that you fail exactly $N$ times. Hence $\exp(-1)$ is the limit of this as $N$ goes to infinity.
-    </p>
-    <p>
-    Next, we define $\exp(x)$ via its functional properties. Firstly, consider a continuous, nonzero function $f(x)$ that obeys the additive rule $f(x+y)=f(x)f(y)$. We can check the differentiable properties of such a function:
-    $$
-    \begin{eqnarray}
-    f'(x) &=& \lim_{h\rightarrow 0} \frac{f(x+h)-f(x)}{h} \\
-          &=& \lim_{h\rightarrow 0} \frac{f(x)f(h)-f(x)}{h}\\
-          &=& L_f\cdot f(x)
-    \end{eqnarray}
-    $$
-    where
-    $$
-    L_f = \lim_{h\rightarrow 0} \frac{f(h)-1}{h}
-    $$
-    if it exists (which it does, as we'll see later). The equation $f'(x)=L_f f(x)$ can then be thought of as the infinitesimal version of the Additive Rule. We define $\exp(x)$ to be the function so that $\frac{d}{dx}\exp(x)=\exp(x)$ and $\exp(0)=1$. Ie, the additive function so that $L_{\exp}=1$. (We'll see that for differentiable functions $f(x+y)=f(x)f(y)$ is equivalent to $f'(x)=L_f f(x)$.) This definition roots the exponential function to its functional properties. We see that the additive rule, and/or its infinitesimal equivalent, are fundamental to the function and this property alone can be used to explain many instances of exponentials in other areas and be generalized heavily.
-    </p>
-    <p>
+    </li>
+    <li>
+    Next, we define $\exp(x)$ via differential equations. We can interpret differentiation as a linear operator on vector spaces of functions. It can be hard to understand linear operators, but one of the main tools we have is eigenvectors. In the special case of differentiable operators, we are interested in nonzero differentiable functions $f(x)$ that satisfy $f'(x)=cf(x)$ for some constant value $c$, this will make $f(x)$ an eigenvector and means that it interacts very nicely when differentiated. We can go a bit futher. If $f'(x)=cf(x)$, then, by the Chain Rule, this means that $f'(x/c)= f(x/c)$. This suggests from the particular eigenvector that has $c=1$, that we can recover all the others. So we defin $\exp(x)$ to be the unique nonzero differentiable function satistfying $\exp(0)=1$ and $\exp'(x)=\exp(x)$. If $f(x)$ is any other eigenvector with $f(0)=1$ and $f'(x)=cf(x)$ then $f(x)=\exp(cx)$. This means that $\exp(x)$ universally encodes all such functions.
+      </li>
+      <li> We now define the exponential function via its functional properties, which is done through functional equations. As an example of what this means, if $f(x)$ is any continuous function so that $f(x+y)=f(x)+f(y)$, then it must be that $f(x)=cx$ for some constant $c$. We will do the analogous for the exponential function. We first note that if $f(x)$ is a continuous function so that $f(x+y)=f(x)f(y)$, then it follows that $f(x)$ is differentiable. This requires some technical analysis of such functions, but we will take it for granted. So if $f(x)$ is such a function, then we can assume it is differentiable. Define, then $\exp(x)$ to be the unique continuous function so that $\exp(x+y)=\exp(x)\exp(y)$ and $\exp'(0)=1$.
+      </li>
+    <li>
     We can also define the exponential function via infinite series. Explicitly, 
     $$
     \exp(x) := \sum_{n=0}^{\infty} \frac{x^n}{n!}
     $$
     This definition has the advantage of being very flexible. This definition allows us to analytically define the exponential function in many different arithmetic systems. Most notably, for matricies, complex numbers and $p$-adic numbers. The expression for $\exp(-1)$ through this can arise from combinatorics as well, when countind derrangements. 
+      </li>
     <h3>Proofs of Equivalence</h3>
     We can now prove the following result about the above three defintions:
     <div class="thm"><b>Theorem: </b> Define the functions $\exp_1(x)$, $\exp_2(x)$ and $\exp_3(x)$ as above. Then each of these is defined for all real $x$ and, moreover, we have 
@@ -110,6 +102,8 @@
      $$
      And so we are done.
     </div>
+    <p>
+      These are all great definitions, which can be used in different contexts. 
 
 
 </body>
