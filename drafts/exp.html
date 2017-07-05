@@ -46,19 +46,20 @@
     $$
     \exp(x) := \sum_{n=0}^{\infty} \frac{x^n}{n!}
     $$
-    This definition has the advantage of being very flexible. This definition allows us to analytically define the exponential function in many different arithmetic systems. Most notably, for matricies, complex numbers and $p$-adic numbers. The expression for $\exp(-1)$ through this can arise from combinatorics as well, when countind derrangements. 
+    This definition has the advantage of being very flexible. This definition allows us to analytically define the exponential function in many different arithmetic systems. Most notably, for matricies, complex numbers and $p$-adic numbers. The expression for $\exp(-1)$ through this can arise from combinatorics as well, when counting derrangements. 
       </li>
+    </ol>
     <h3>Proofs of Equivalence</h3>
     We can now prove the following result about the above three defintions:
-    <div class="thm"><b>Theorem: </b> Define the functions $\exp_1(x)$, $\exp_2(x)$ and $\exp_3(x)$ as above. Then each of these is defined for all real $x$ and, moreover, we have 
+    <div class="thm"><b>Theorem: </b> Define the functions $\exp_1(x)$, $\exp_2(x)$, $\exp_3(x)$ and $\exp_4(x)$ as above. Then each of these is defined for all real $x$ and, moreover, we have 
     $$
-    \exp_1(x)=\exp_2(x)=\exp_3(x)
+    \exp_1(x)=\exp_2(x)=\exp_3(x)=\exp_4(x)
     $$
     Let $\exp(x)$ denote this function. Furthermore, if $e=\exp(1)$, then we have $\exp(x)=e^x$ where this exponentiation is traditionally defined. 
     </div>
-    <div class="thm"><b>Proof:</b> We will prove $\exp_1(x)=\exp_3(x)$ and $\exp_2(x)=\exp_3(x)$. 
-    <p>
-    Consider the term $(1+x/N)^N$. We can expand this using the Binomial Theorem as
+    <div class="thm"><b>Proof:</b> We will prove $\exp_1(x)=\exp_4(x)$ and $\exp_2(x)=\exp_4(x)$ and finally $\exp_3(x)=\exp_2(x)$. 
+    <ol>
+      <li>Consider the term $(1+x/N)^N$. We can expand this using the Binomial Theorem as
     $$
     (1+x/N)^N = \sum_{k=0}^N \binom{N}{k} \frac{x^k}{N^k}
     $$
@@ -78,29 +79,27 @@
     $$
     \lim_{N\rightarrow\infty}\left(1+\frac{x}{N}\right)^N = \sum_{k=0}^{\infty}\frac{x^k}{k!}
     $$
-    and we get $\exp_1(x)=\exp_3(x)$. It should be noted that the convergence of the power series is easy to demonstrate for all $x$, and this equality allows us to say that the limit of $(1+x/N)^N$ exists for all $x$ as well.
-    </p>
-    <p>
-    Next, we'll show that $\exp_3(x)$ satisfies the initial value problem $f'(x)=f(x)$ with $f(0)=1$ and, since this is a first order linear equation, we must have $\exp_2(x)=\exp_3(x)$. We note that we can differntiate power series term-by-term. Doing this with the power series expression $\exp_3(x)=\sum_{k=0}^{\infty}\frac{x^k}{k!}$, we find that $\exp_3'(x)=\exp_3(x)$. Furthermore, direct computation shows that $\exp_3(0)=1$. 
-    </p>
+    and we get $\exp_1(x)=\exp_4(x)$. It should be noted that the convergence of the power series is easy to demonstrate for all $x$, and this equality allows us to say that the limit of $(1+x/N)^N$ exists for all $x$ as well.
+    </li>
+    <li>
+    Next, we'll show that $\exp_4(x)$ satisfies the initial value problem $f'(x)=f(x)$ with $f(0)=1$ and, since this is a first order linear equation, we must have $\exp_2(x)=\exp_4(x)$. We note that we can differentiate power series term-by-term. Doing this with the power series expression $\exp_4(x)=\sum_{k=0}^{\infty}\frac{x^k}{k!}$, we find that $\exp_4'(x)=\exp_4(x)$. Furthermore, direct computation shows that $\exp_4(0)=1$. Hence $\exp_2(x)=\exp_4(x)$. 
+    </li>
+      <li>
+        Now consider $\exp_3(x)$. This is the differentiable function that satisfies $\exp_3(x+y)=\exp_3(x)\exp_3(y)$ and $\exp_3(0)=1$. We will show that $\exp_3(x)=\exp_2(x)$ by showing that $\exp_3(x)$ satisfies the initial value problem of $\exp_2(x)$. We then explicitly compute the derivative of $\exp_3(x)$:
+        $$
+        \begin{eqnarray*}
+        \exp_3'(x) &=& \lim_{h\rightarrow 0}\frac{\exp_3(x+h)-\exp(x)}{h}\\
+                   &=& \lim_{h\rightarrow 0}\frac{\exp_3(x)\exp_3(h)-\exp_3(x)}{h}\\
+                   &=& \exp_3(x)\lim_{h\rightarrow 0}\frac{\exp_3(h)-1}{h}
+                   &=& c\exp_3(x)
+        \end{eqnarray*}
+        $$
+        where $c$ is the limit. Note that we can pullout the $\exp_3(x)$ because the function is nonzero. We must, then, compute this limit. We have $\exp_3(x+y)=\exp_3(x)\exp_3(y)$. Applying this with $y=0$ gives $\exp_3(x)=\exp_3(x)\exp_3(0)$. Since the function is nonzero, we find that $\exp_3(0)=1$. So, using the fact that $\exp_3'(0)=1$, $\exp_3(0)=1$ and $\exp_3'(x)=c\exp_3(x)$, we get that $c=1$. This means that $\exp_3(x)$ satisfies the initial value problem for $\exp_2(x)$ and so $\exp_2(x)=\exp_3(x)$. It should be noted that the differential equation $f'(x)=cf(x)$ can be seen as the infinitesimal version of the functional equation $f(x+y)=f(x)f(y)$.
+      </li>
+      </ol>
    <p> 
-    So these functions are all the same, but how do we know that they are an actual exponential function? A famous result of Cauchy says that if $f(x)$ is any continuous function so that $f(x+y)=cf(x)f(y)$ for some nonzero $c$, then $f(x)=\frac{A^x}{c}$ for some positive real $A$. In particular, $c=1/f(0)$ and $A=f(1)/f(0)$. All we need to do, then, is show that $\exp(x+y)=\exp(x)\exp(y)$. We do this by using the power series definition to compute this. In general, if $f(x)=\sum_{n=0}^{\infty}a_n\frac{x^n}{n!}$ and $g(y)=\sum_{n=0}^{\infty}b_n\frac{y^n}{n!}$, then $f(x)g(y)=\sum_{n,m=0}^{\infty}\frac{a_n}{n!}\cdot\frac{b_{m}}{m!}x^ny^m$. We can rewrite this as
-     $$
-     f(x)g(y) = \sum_{N=0}^{\infty}\sum_{n+m=N} \frac{a_n}{n!}\cdot\frac{b_{m}}{m!} x^ny^m
-     $$
-     Note that if $n+m=N$ then $\frac{1}{n!m!}=\frac{1}{N!}\binom{N}{n}$. So we can rewrite this as
-     $$
-     f(x)g(y) = \sum_{N=0}^{\infty}\frac{1}{N!}\sum_{n=0}^N \binom{N}{n}a_n\b_{N-n} x^ny^{N-n}
-     $$
-     Turning to the case $f(x)=\exp(x)$ and $g(y)=\exp(y)$, and so $a_n=1$ and $b_n=1$, we get
-     $$
-     \exp(x)\exp(y) = \sum_{N=0}^{\infty}\frac{1}{N!} \sum_{n=0}^N\binom{N}{n} x^ny^{N-n}
-     $$
-     By the Binomial Theorem, the inner sum is $(x+y)^N$ and so we get
-     $$
-     \exp(x)\exp(y) = \sum_{N=0}^{\infty}\frac{(x+y)^N}{N!} = \exp(x+y)
-     $$
-     And so we are done.
+    So these functions are all the same, but it would be good to know that $\exp(x)$ is actually an exponential function. That is, a function of the form $f(x)=A^x$ for some positive $A$. This follows from a famous result of Cauchy that we sketch here. This will use the fact that $\exp(x+y)=\exp(x)\exp(y)$. We will show that if $f(x+y)=f(x)f(y)$ and $f(x)$ is continuous, then $f(x)=A^x$ where $A=f(1)$. We already saw that $f(0)=1$. Induction immediately shows that for positive $N$ then $f(N)=f(1)^N$. It then follows that $1=f(N-N)=f(N)f(-N)$ which implies that $f(-N)=1/f(1)^N$. If $q$ is a rational number, then there is some positive integer $N$ so that $qN$ is an integer. So $f(qN)=f(1)^{qN}. But this also equals $f(qN)=f(q)^N$, so $f(q)^N=f(1)^{qN}$. There is then a unique positive $N$th root to this, and so we find that $f(q)$ is equal to the unique $N$th root of $f(1)^{qN}$, which is, of course, $f(1)^q$. Finally, if $x$ is real, then we can approximate it by a Cauchy sequence of rational numbers, $q_n$, for each of which $f(1)^{q_n}$ is defined. The limit of this is $f(1)^x$, and by continuity we get $f(x)=f(1)^x$. 
+      </p>
     </div>
     <p>
       These are all great definitions, which can be used in different contexts. 
