@@ -130,13 +130,28 @@
           We can also define it in terms of its derivative. That is, we define $\log(x)$ to be the unique function so that $\frac{d}{dx}\log(x)=1/x$ and $\frac{d}{dx}\log(x)\right|_{x=0} = 1$. In this way, the equation $\frac{d}{dx}\log(x)=1/x$ can be seen as an infinitesimal version of the equation $\log(xy)=\log(x)+\log(y)$. 
         </li>
         <li>
-          Finally, we define it as area under a hyperbola. Explicitly, we have
+          A common definition used in higher level courses is to define it as area under a hyperbola. Explicitly, we have
           $$
           \log(x):= \int_{1}^{x}\frac{dt}{t}
           $$
         </li>
+        <li>
+          Finally, we define it via power series. For $0&lt x &lt 2$ we first define
+                                                              $$
+                                                              L(x):= -\sum_{n=1}^{\infty}\frac{(1-x)^n}{n}
+                                                              $$
+         But this is only value for $0&lt x&lt 2$. If $x>2$, note that there is some smallest integer $\ell_x$ so that $1&lt x^{1/\ell_x} &lt 2$. We then define
+          $$
+          \log(x) := \ell_x\cdot L(x^{1/\ell_x}) 
+          $$
+        </li>
     </ol>
           
+    <h4>Proofs of Equivalence</h4>
+    <p>
+      Just as before, we will now prove that each of these definitions are equivalent and, furthermore, they define an actual logarithm. That is, they satisfy $e^{\log(x)}=\log(e^x)=x$.
+    </p>
+    <div class="thm"><b>Theorem: </b>Let $
 
 
 </body>
