@@ -108,6 +108,35 @@
     <h3>The Logarithmic Function</h3>
     <p>
       We now turn to the logarithmic function, particularly the natural logarithm denoted $\log(x)$. This is a function just as natural as the exponential function, and, just as before, we'll look at a bunch of definitions of it in different contexts and prove that they are all the same. 
+      <ol>
+        <li>
+          We first define $\log(x)$ in a way that illuminates the derivative of an exponent more. Define, for $A>0$,
+          $$
+          \log(A) := \lim_{h\rightarrow 0} \frac{A^h-1}{h}
+          $$
+          Obviously, with this definition, we find that $\frac{dA^x}{dx}=\log(A)A^x$. Furthermore, we naturally have $\log(e)=1$, where $e=\exp(1)$. 
+        </li>
+        <li>
+          Relatedly, we can define 
+          $$
+          \log(A) := \left(\frac{dA^x}{dx}\right)/A^x
+          $$
+          While this is only very slightly different from the previous definition, we can naturally extend this definition to any function. In fact, the "Logarithmic Derivative" for a function $f(x)$ is defined to be $f'(x)/f(x)$. We'll show that this is constant  in $x$ if and only if $f(x)=A^x$ for some positive $A$, so that we can take this as the definition of the logarithm.
+        </li>
+        <li>
+          We can then turn to defining $\log(x)$ via its functional properties.  It should be noted that if a function is continuous and satisifes $f(xy)=f(x)+f(y)$, then it is differentiable. Explicitly, we define it as unique continuous function satisfying $\log(xy)=\log(x)+\log(y)$ so that we also have $\frac{d}{dx}\log(x)\right|_{x=0} = 1$.
+        </li>
+        <li>
+          We can also define it in terms of its derivative. That is, we define $\log(x)$ to be the unique function so that $\frac{d}{dx}\log(x)=1/x$ and $\frac{d}{dx}\log(x)\right|_{x=0} = 1$. In this way, the equation $\frac{d}{dx}\log(x)=1/x$ can be seen as an infinitesimal version of the equation $\log(xy)=\log(x)+\log(y)$. 
+        </li>
+        <li>
+          Finally, we define it as area under a hyperbola. Explicitly, we have
+          $$
+          \log(x):= \int_{1}^{x}\frac{dt}{t}
+          $$
+        </li>
+    </ol>
+          
 
 
 </body>
