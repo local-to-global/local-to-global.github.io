@@ -35,12 +35,13 @@
     \exp(x) := \lim_{N\rightarrow\infty} \left(1+\frac{x}{N}\right)^N
     $$
     The term on the inside of the parentheses goes to zero, whereas the exponent goes to infinity, and these two behaviours balance out for every real value $x$. This is not obviously a function of the form $A^x$, for some $A$, but it will be shown that $\exp(x)=e^x$. An interesting thing about this is that it is valid for all real $x$ but only requires integer exponents. In a way, we can then use this as the definition of negative, rational or real valued exponents through the expression $A^x:=\exp(\log(A)x)$. Historically, this expression pops up when studing compound interest and probability. The famous $A=Pe^{rt}$ formula comes directly from evaluating this limit, and in probability, if you have some event that succeeds with a chance of $1/N$, then $(1-1/N)^N$ are the chances that you fail exactly $N$ times. Hence $\exp(-1)$ is the limit of this as $N$ goes to infinity.
+      <br>
     </li>
     <li>
     Next, we define $\exp(x)$ via differential equations. We can interpret differentiation as a linear operator on vector spaces of functions. It can be hard to understand linear operators, but one of the main tools we have is eigenvectors. In the special case of differentiable operators, we are interested in nonzero differentiable functions $f(x)$ that satisfy $f'(x)=cf(x)$ for some constant value $c$, this will make $f(x)$ an eigenvector and means that it interacts very nicely when differentiated. We can go a bit futher. If $f'(x)=cf(x)$, then, by the Chain Rule, this means that $f'(x/c)= f(x/c)$. This suggests from the particular eigenvector that has $c=1$, that we can recover all the others. So we defin $\exp(x)$ to be the unique nonzero differentiable function satistfying $\exp(0)=1$ and $\exp'(x)=\exp(x)$. If $f(x)$ is any other eigenvector with $f(0)=1$ and $f'(x)=cf(x)$ then $f(x)=\exp(cx)$. This means that $\exp(x)$ universally encodes all such functions.
-      </li>
+      <br></li>
       <li> We now define the exponential function via its functional properties, which is done through functional equations. As an example of what this means, if $f(x)$ is any continuous function so that $f(x+y)=f(x)+f(y)$, then it must be that $f(x)=cx$ for some constant $c$. We will do the analogous for the exponential function. We first note that if $f(x)$ is a continuous function so that $f(x+y)=f(x)f(y)$, then it follows that $f(x)$ is differentiable. This requires some technical analysis of such functions, but we will take it for granted. So if $f(x)$ is such a function, then we can assume it is differentiable. Define, then $\exp(x)$ to be the unique continuous function so that $\exp(x+y)=\exp(x)\exp(y)$ and $\exp'(0)=1$.
-      </li>
+      <br></li>
     <li>
     We can also define the exponential function via infinite series. Explicitly, 
     $$
@@ -80,10 +81,10 @@
     \lim_{N\rightarrow\infty}\left(1+\frac{x}{N}\right)^N = \sum_{k=0}^{\infty}\frac{x^k}{k!}
     $$
     and we get $\exp_1(x)=\exp_4(x)$. It should be noted that the convergence of the power series is easy to demonstrate for all $x$, and this equality allows us to say that the limit of $(1+x/N)^N$ exists for all $x$ as well.
-    </li>
+    <br></li>
     <li>
     Next, we'll show that $\exp_4(x)$ satisfies the initial value problem $f'(x)=f(x)$ with $f(0)=1$ and, since this is a first order linear equation, we must have $\exp_2(x)=\exp_4(x)$. We note that we can differentiate power series term-by-term. Doing this with the power series expression $\exp_4(x)=\sum_{k=0}^{\infty}\frac{x^k}{k!}$, we find that $\exp_4'(x)=\exp_4(x)$. Furthermore, direct computation shows that $\exp_4(0)=1$. Hence $\exp_2(x)=\exp_4(x)$. 
-    </li>
+   <br> </li>
       <li>
         Now consider $\exp_3(x)$. This is the differentiable function that satisfies $\exp_3(x+y)=\exp_3(x)\exp_3(y)$ and $\exp_3(0)=1$. We will show that $\exp_3(x)=\exp_2(x)$ by showing that $\exp_3(x)$ satisfies the initial value problem of $\exp_2(x)$. We then explicitly compute the derivative of $\exp_3(x)$:
         $$
