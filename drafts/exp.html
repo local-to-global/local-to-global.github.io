@@ -124,10 +124,10 @@
           While this is only very slightly different from the previous definition, we can naturally extend this definition to any function. In fact, the "Logarithmic Derivative" for a function $f(x)$ is defined to be $f'(x)/f(x)$. We'll show that this is constant  in $x$ if and only if $f(x)=A^x$ for some positive $A$, so that we can take this as the definition of the logarithm.
         </li>
         <li>
-          We can then turn to defining $\log(x)$ via its functional properties.  It should be noted that if a function is continuous and satisifes $f(xy)=f(x)+f(y)$, then it is differentiable. Explicitly, we define it as unique continuous function satisfying $\log(xy)=\log(x)+\log(y)$ so that we also have $\frac{d}{dx}\log(x)\right|_{x=0} = 1$.
+          We can then turn to defining $\log(x)$ via its functional properties.  It should be noted that if a function is continuous and satisifes $f(xy)=f(x)+f(y)$, then it is differentiable. Explicitly, we define it as unique continuous function satisfying $\log(xy)=\log(x)+\log(y)$ so that we also have $\frac{d}{dx}\log(x)\Big|_{x=0} = 1$.
         </li>
         <li>
-          We can also define it in terms of its derivative. That is, we define $\log(x)$ to be the unique function so that $\frac{d}{dx}\log(x)=1/x$ and $\frac{d}{dx}\log(x)\right|_{x=0} = 1$. In this way, the equation $\frac{d}{dx}\log(x)=1/x$ can be seen as an infinitesimal version of the equation $\log(xy)=\log(x)+\log(y)$. 
+          We can also define it in terms of its derivative. That is, we define $\log(x)$ to be the unique function so that $\frac{d}{dx}\log(x)=1/x$ and $\frac{d}{dx}\log(x)\Big|_{x=0} = 1$. In this way, the equation $\frac{d}{dx}\log(x)=1/x$ can be seen as an infinitesimal version of the equation $\log(xy)=\log(x)+\log(y)$. 
         </li>
         <li>
           A common definition used in higher level courses is to define it as area under a hyperbola. Explicitly, we have
@@ -151,8 +151,40 @@
     <p>
       Just as before, we will now prove that each of these definitions are equivalent and, furthermore, they define an actual logarithm. That is, they satisfy $e^{\log(x)}=\log(e^x)=x$.
     </p>
-    <div class="thm"><b>Theorem: </b>Let $
+    <div class="thm"><b>Theorem: </b>Let $\log_{(i)}(x)$, for $i=1,...,6$ be the functions defined above. The parenthese are to distinguish them from log-base-$i$. Then we have
+      $$
+      \log_{(1)}(x)=\log_{(2)}(x)=\log_{(3)}(x)=\log_{(4)}(x)=\log_{(5)}(x)=\log_{(6)}(x)
+      $$
+      Call this single function $\log(x)$. This is defined for all $x>0$ and is the logarithm-base-$e$:
+      $$
+      \begin{eqnarray*}
+      e^{\log(x)}&=&x\\
+      \log(e^y)&=&y
+      \end{eqnarray*}
+      $$
+      for all $x>0$ and all real $y$.
+    </div>
+    <div class="thm"><b>Proof: </b> We will show this by proving
+      $$
+      \begin{eqnarray*}
+      \log_{(1)}(x) &=& \log_{(2)}(x)\\
+      \log_{(1)}(x) &=& \log_{(3)}(x)\\
+      \log_{(3)}(x) &=& \log_{(4)}(x)\\
+      \log_{(5)}(x) &=& \log_{(4)}(x)\\
+      \log_{(6)}(x) &=& \log_{(4)}(x)
+      \end{eqnarray*}
+      $$
+      <ol>
+        <li>
+          Showing $\log_{(1)}(x)=\log_{(2)}(x)$ follows directly from previous computations with the exponent. Particularly the equation $\frac{dA^x}{dx}=A^x\lim_{h\rightarrow 0}\frac{A^h - 1}{h}$, which we know to exist from the differentiablility of the exponent.
+        </li>
+        <li>
+          We show that $\log_{(1)}(x)=\log_{(3)}(x)$, by showing that $\log_{(1)}(x)$ satisfies $\log_{(1)}(xy)=\log_{(1)}(x)+\log_{(1)}(y)$ and that the derivative at $x=1$ is one. For this, we write $x=1+a$ and $y=1+b$. Then $(xy)^h = (1+a+b+ab)^h$. We can expand this using a Generalized Multinomial Theorem as:
+          $$
+          (1+a+b+ab)^h = 
+          $$
 
+     
 
 </body>
 </html>
