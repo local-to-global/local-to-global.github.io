@@ -38,7 +38,7 @@
       $$
       \mathbf{w}\mathbf{v} = (3,2,1)(1,2,3)^T = 3\cdot 1 + 2\cdot 2 + 1\cdot 3 = 10
       $$
-      This means that combining a row vector and column vector through matrix multiplication gives us a real number. And this process is "linaer", meaning that it interacts well with scalar multiplication and vector addition. This allows us to  discuss the dot product of two column vectors or two row vectors. If $\mathbf{a},\mathbf{b}$ are both column vectors, then their dot product is defined through matrix multiplication as:
+      This means that combining a row vector and column vector through matrix multiplication gives us a real number. And this process is "linear", meaning that it interacts well with scalar multiplication and vector addition. This allows us to  discuss the dot product of two column vectors or two row vectors. If $\mathbf{a},\mathbf{b}$ are both column vectors, then their dot product is defined through matrix multiplication as:
       $$
       \mathbf{a}\cdot\mathbf{b} = \mathbf{a}^T\mathbf{b}
       $$
@@ -53,13 +53,63 @@
       If tensors are glorified dot products, then why do people relate them to vectors and matricies? People make this false equivalency because we can obtain tensors <i>from</i> vectors and linear transformations. But there is a big difference between saying that tensors generalize vectors, matrices etc, without mentioning their actual definitional nature, and providing you with a decent intuitive definition and illustrating how to obtain tensors from these objects
     </p>
     <p>
-      Our mantra is that tensors are glorified dot products. That is, functions that take in column/row vectors and output numbers. Where dot products only input two vectors, we can have tensors input any number of vectors. With this in mind, is someone gives us a row vector, then we can create a $(1,0)$-Tensor from it. That is, if $\mathbf{c}$ is a row vector, we can create the tensor $T_{\mathbf{c}}(\mathbf{a})$, where $\mathbf{a}$ is a column vector, defined through matrix multiplication as
+      Our mantra is that tensors are glorified dot products. That is, functions that take in column/row vectors and output numbers, following certain restrictions. Where dot products only input two vectors, we can have tensors input any number of vectors. With this in mind, is someone gives us a row vector, then we can create a $(1,0)$-Tensor from it. That is, if $\mathbf{c}$ is a row vector, we can create the tensor $T_{\mathbf{c}}(\mathbf{a})$, where $\mathbf{a}$ is a column vector, defined through matrix multiplication as
       $$
       T_{\mathbf{c}}(\mathbf{a}) = \mathbf{c}\mathbf{a}
       $$
-      So we can create a tensor from a row vector.
+      So we can create a tensor from a row vector. This is an example of a $(1,0)$-Tensor, because the input is one column vector. In a similar way, if $\mathbf{d}$ is a column vector, then we can create a $(0,1)$-Tensor from $\mathbf{d}$ in a similar way. We define $T_{\mathbf{d}}$ to be a function that inputs a row vector $\mathbf{b}$ defined as follows:
+      $$
+      T_{\mathbf{d}}(\mathbd{b}) = \mathbf{b}\mathbf{d}
+      $$
+      This is a $(0,1)$-Tensor, because it inputs one row vector and behaves like a dot-product. So we see that vectors are not tensors themselves, but ingredients to create tensors. 
     </p>
-    
+    <p>
+      We can similarly look at matricies as ingredients for tensors. If $M$ is a square matrix, then we can create a $(1,1)$-Tensor from this. If $\mathbf{a}$ is a row vector and $\mathbf{c}$ is a column vector, then we can create the tensor $T_M(\mathbf{a},\mathbf{c})$ defined as:
+      $$
+      T_M(\mathbf{a},\mathbf{c}) = \mathbf{a}M\mathbf{c}
+      $$
+      This is a function that inputs one row vector, one column vector and outputs a real number in a way that behaves like a dot-procut. Note that if $M$ is the identity matrix, then this actually is the dot product of $\mathbf{a}$ and $\mathbf{c}$. Using transposes and the rank-1 tensors, you can mix and match all of these to create a wide variety of tensors, all of rank-1 or 2. But the key thing that all these have in common is not that they are arrays of numbers or anything, but that they are all functions that input vectors and output numbers in a way that behaves like the dot product. It should be noted that there are other ways to generalize dot products, namely inner products, and these can be seen as tensors. But inner products ensure to retain the geometric significance of the dot product, and can be viewed as tensors, but not all tensors are inner products.</p>
+    <h3>General Tensors</h3>
+    <p>
+      We have already seen what rank-1 and rank-2 tensors look like. They are functions that input one or two vectors (row or column) and output numbers while behaving like dot products. How do we generalize this to an arbitrary number of vectors?
+    </p>
+    <p>
+      Let $\mathbf{a}_1,...,\mathbf{a}_n$ be $n$-row vectors and $\mathbf{c}_1,...,\mathbf{c}_m$ be $m$-column vectors. We wish to describe what a rank $(m,n)$-Tensor is using these. A tensor of this rank will be a function of the form 
+      $$
+      T(\mathbf{a}_1,...,\mathbf{a}_n,\mathbf{c}_1,...,\mathbf{c}_m)
+      $$
+      The only thing we need to discuss is what it means to be "dot-product-like". The only thing that we need to enforce is that this function be linear in each variable. If $\mathbf{b}$ is a row vector, $\mathbf{d}$ is a column vector and $r$ is a real number, then we just need to have
+      $$
+      \begin{eqnarary*}
+      T(\mathbf{a}_1,...,\mathbf{b}+r\mathbf{a}_i...,\mathbf{a}_n,\mathbf{c}_1,...,\mathbf{c}_m) &=& T(\mathbf{a}_1,...,\mathbf{b},...,\mathbf{a}_n,\mathbf{c}_1,...,\mathbf{c}_m)\\&& + r T(\mathbf{a}_1,...,\mathbf{a}_i...,\mathbf{a}_n,\mathbf{c}_1,...,\mathbf{c}_m)\\
+      T(\mathbf{a}_1,...,\mathbf{a}_n,\mathbf{c}_1,...,\mathbf{d}+r\mathbf{c}_j...,\mathbf{c}_m) &=& T(\mathbf{a}_1,...,\mathbf{a}_n,\mathbf{c}_1,...,\mathbf{d},...,\mathbf{c}_m)\\&& + rT(\mathbf{a}_1,...,\mathbf{a}_n,\mathbf{c}_1,...,\mathbf{c}_j,...,\mathbf{c}_m)
+      \end{eqnarray*}
+      $$
+      And this is true regardless of where the sums happen. This is what it means for a function to be linear in each term. A $(n,m)$-Tensor is then a function that inputs $n$ row vectors and $m$ column vectors that is linear in every term. This is all that tensors are. 
+    </p>
+    <p>
+      Now, this condition is pretty abstract. It was helpful in the rank 1 and rank 2 cases to be able to use vectors and matricies to write down and explicitly compute tensors. This can, indeed, be done in the more general case. To be able to express these, it is helpful to explicitly write down a formula for the $(1,1)$-Tensor $T_M(\mathbf{a},\mathbf{c})$ created in the previous section. We say that $\mathbf{a}=(a^1,...,a^k)$, $\mathbf{b}=(b_1,...,b_k)^T$ and that the $i,j$th entry of $M$ is $M^i_j$. We can then write a formula for $T_M(\mathbf{a},\mathbf{c})$:
+      $$
+      T_M(\mathbf{a},\mathbf{c})$ = \sum_{i,j=1}^k M^i_ja^jc_i
+      $$
+      The superscripts and subscripts are there to keep track of how elements interact with each other. This kind of formula pops up a lot in all areas of math, because in forces a function to be linear. Particularly, we can express and compute arbitrary tensors using a similar formula. We have:
+      $$
+       T(\mathbf{a}_1,...,\mathbf{a}_n,\mathbf{c}_1,...,\mathbf{c}_m) = \sum_{i_1,...,i_n,j_1,...,j_m = 0}^{k} T_{j_1,...,j_n}^{i_1,...,i_m} a_1^{(i_1)}\cdots a_n^{(i_n)}c_{1,(j_1)}\cdots c_{m,(j_m)}
+      $$
+      This formula is kinda a mess, so if you are working in generality it it impractical, but if you have a particular tensor of small rank, then it can be really helpful in computing things. To compute with this formula, we have a huge $m+n$-dimensional array of numbers $T_{j_1,...,j_n}^{i_1,...,i_m}$ that we are using to compute this tensor. This is how "multidimensional arrays" get confused with tensors. We can use multidimensional arrays of numbers to construct and compute tensors, but they are, again, ingredients that are not needed for tensors, but are useful when talking about them.
+    </p>
+    <p>
+      Confusing tensors with matricies, or other multidimensional arrays of numbers, is the same thing as confusing a formula with a function. The expression $3x+1$ is not a function, but you can use it to create a function defined by $f(x)=3x+1$. The array $M^i_j$ is not a tensor, but you can use it to create the function $T_M$. 
+    </p>
+    <h3>Tensors are Functions</h3>
+    <p>
+      To drive home the fact that tensors are functions and not generalizations of vectors or multidimensional arrays, we investigate necessarily functional properties of them. Particularly, you often hear from physicists that tensors are "things that transform like tensors", which is unhelpful without context. But we have context now. If we have a matrix $M$ and create the tensor $T_M$ using it, then our formula for evaluating it, $T_M(\mathbf{a},\mathbf{c}) = \sum_{i,j=1}^k M^i_ja^jc_i$ depends on the basis that we are using for our vector spaces. If we change the basis, then the arrays used to represent $M$, $\mathbf{a}$ and $\mathbf{c}$ will change, but the actual vectors they represent and the actual linear transformation that $M$ represents will not change. And since $T_M$ is a function on vectors, not a function on arrays of numbers, then it follows that the value of $T_M(\mathbf{a},\mathbf{c}$ can not depend on how we decide to write down these components using bases and arrays. If we change our basis, then the value of $T_M(\mathbf{a},\mathbf{c})$ must remain the same. 
+    </p>
+    <p>
+      
+    <h3>A Note on Tensor Fields</h3>
+    <p>
+      
    
       
 
