@@ -24,10 +24,54 @@
   <div class="post-content">
   <div class="post-date">11/21/2016</div>
   <p>
-  What are Normal Subgroups? What about Quotient Groups? Their definitions can seem pretty abstract and hard to grasp intuitively. But when viewed as ways to understand homomorphisms, they become very natural. 
-
-
-
+  What are Normal Subgroups? What about Quotient Groups? Their definitions can seem pretty abstract and hard to grasp intuitively. But when viewed as ways to understand homomorphisms, they become very natural. In particular, normal subgroups totally characterize all possible kernels within a group and quotient groups totally characterize all possible images of a group.
+    </p>
+    <p>
+      If $G,H$ are groups and $f:G\rightarrow H$ is a homomorphism, then the kernel of $f$ is 
+      $$
+      \ker(f) = \{g\in G\;|\; f(g)=\mathrm{id}_H\}
+      $$
+      and is a subgroup of $f$. Not every subgroup, however, can be a kernel of a homomorphism. If $K=\ker(f)$ and $k\in K$, then for all $g\in G$ we find that
+      $$
+      f(gkg^{-1}) = f(g)f(k)f(g)^{-1} = f(g)f(g)^{-1} = \textrm{id}_H
+      $$
+      which means that $gkg^{-1}\in K$. Since the function $f$ kills all of $K$, it follows that $gkg^{-1}$ should be killed as well. In fact we have the following result:
+    <div class="thm">For all $g\in G$ we have $gKg^{-1}=K$.</div>
+    The question then becommes: Is this an if and only if statement? Can we use this internal condition of conjugation to find all kernels? To answer this, we'll need to know more about Quotient Groups. 
+    </p>
+  <p>
+    Let $f_1:G\rightarrow H_1$ and $f_2:G\rightarrow H_2$ be two homomorphisms and $\ker(f_1)=\ker(f_2)=K$. What can we say about the images $Im(f_1)$ and $Im(f_2)$? What we can find is that $Im(f_1)\simeq Im(f_2)$. We can set up this isomorphism by taking $f_1(g)\in Im(f_1)$ and mapping it to $f_2(g)\in Im(f_2)$. A lot of things must be checked on this, like being well defined, but all of this, includeing the isomorphism part, will follow from the fact that these two maps have the same kernel. This means that for every kernel $K$ there is, up to isomorphism, exactly one group, denoted $G/K$, such that there exists a map $f:G\rightarrow G/K$ with $\ker(f)=K$. This is the importance of the quotient group. Therefore, a subgroup $K\leq G$ will be a subgroup if and only if we can construct a partner quotient group $G/K$ and map $f:G\rightarrow G/K$ with kernel $K$.
+  </p>
+  <p>
+  We already saw that the condition $gKg^{-1}=K$ is necessary for this, but we will show that it is sufficient as well.
+  </p>
+  <p>
+    If $K$ is going to be a kernel, then what structure must the corresponding group $G/K$ have? The defining feature of it is that multiplication by anything in $K$ does nothing. If we do  have $f:G\rightarrow G/K$, then we can define an equivalence relation $g_1\equiv g_2$ exactly when $f(g_1)=f(g_2)$. In this way, we can view $G/K$ as the set of all equivalence classes, since $f$ acts as a set-bijection between elements of $G/K$ and equivalence classes. Can we find an alternate way of expression $g_1\equiv g_2$? If we can do this in a way that does not depend on $f$ or $G/K$, then maybe we can construct $G/K$ from scratch. Starting with $f(g_1)=f(g_2)$ and using the fact that $f$ is a homomorphism,  we find that $g_1\equiv g_2$ if and only if f(g_1g_2^{-1})=\textrm{id}$, which happens if and only if 
+    $$
+    g_1g_2^{-1} \in K
+    $$
+    This gives us a recipie for constructing the equivalence relation that produces $G/K$ using nothing but things from $G$. Let $K$ be any subgroup of $G$ and let $[G]_K$ be the set all the equivalence classes created in this way. We then want to figure out how we should turn $[G]_K$ into a group. 
+  </p>
+  <p>
+    If we do have $f:G\rightarrow G/K$, and $[g_1]$ and $[g_2]$ are equivalence classes given by $K$, then since $f(g_1)f(g_2)=f(g_1g_2)$, it follows that $[g_1][g_2]=[g_1g_2]$ and that this doesn't depend on the representatives we choose for these classes. So if $[G]_K$ is to have a consistent group structure, then the group operation on it needs to be defined by 
+    $$
+    [g_1][g_2]=[g_1g_2].
+    $$ 
+But the issue is that this depends on the elements $g_1,g_2$ that we choose to represent these classes. When is this operation actually defined on equivalence classes? If $[g_1]=[h_1]$, then since $g_1h_1^{-1}\in K$, we have $g_1=k_1h$_1 for some $k\in K$. Similarly, if $[g_2]=[h_2]$ then $g_2h_2^{-1}=k_2\in K$. We then require that $[g_1g_2]=[h_1h_2]$. This happens if and only if $g_1g_2h_2^{-1}h_1^{-1}\in K$. We can write this as
+    $$
+    g_1k_2h_1^{-1} \in K
+    $$
+    Using then the fact that $h_1^{-1}=g_1^{-1}k_1$ we find that $g_1k_2g_1^{-1}k_1\in K$ or, multiplying through by $k_1^{-1}$ on the right,
+    $$
+    g_1k_2g_1^{-1}\in K
+    $$
+    This must hold for all $g_i,k_i$ for this operation to be well-defined. Said another way, the operation $[g_1][g_2]=[g_1g_2]$ is true for all $g_i$ if and only if for all $g\in G$ we have $gKg^{-1}=K$. This is the Normal Subgroup condition. 
+  </p>
+  <h3>Conclusion</h3>
+  <p>
+    What we have then showed is a tight connection between kernels, images, normal subgroups and quotient groups. To state it more precisely: A subgroup $K\leq G$ is a kernel of some map if and only if $gKg^{-1}=K$. Additionally, all maps $f:G\rightarrow H$ with kernel $K$ have the images $f(G)$ isomorphic. An explicit description of this isomorphism class is given as the equivalence classes defined by $g_1\equiv g_2$ if and only if $g_1g_2^{-1}\in K$, with group operation $[g_1][g_2]=[g_1g_2]$, which is well-defined exactly when $K$ is a kernel ie is normal.
+  </p>
+   
   </div>
 
 
