@@ -114,6 +114,39 @@
       
     <h3>A Note on Tensor Fields</h3>
     <p>
+      What has been described is a purely algebraic look at tensors. These kinds of tensors are used a lot in engineering, as well as in physics. But in more sophisticated theories in physics, this concept of a tensor is expanded to "Tensor Fields" and a lot of the algebraic stuff is taken care of by the geometry.
+    </p>
+    <p>
+      For tensor fields, we start with an geometric object, perhaps a sphere, a cylinder, a torus, flat 3D space or even 4D spacetime. At every point on such objects, we can create a Tangent Space. The Tangent Space at a point is a vector space, with the same dimension as the object in question, and encodes how derivatives can behave at that point. Particularly, the elements of the tangent space are all possible directional derivatives at that point. There is also a twin space called the Cotangent Space that is also a vector space, but is the vector space of all possible "total derivatives" at that point. 
+    </p>
+    <p>
+      If the object has coordinates, then you can get an explicit basis for both the tangent space and cotangent space for free from the coordinates. If you change the object's coordinates, then you change the basis of tangent space and cotangent space, and this change of basis is mediated by the Jacobian matrix.
+    </p>
+    <p>
+      As an example, 3D Euclidean space has coordinates $(x,y,z)$ and if $P$ is a point in $3D$ space with tangent space $T\mathbb{R}^3_P$, then the elements of this tangent space look like
+      $$
+      \partial_v = v_x\frac{\partial}{\partial x}\big|_P + v_y\frac{\partial}{\partial y}\big|_P + v_z\frac{\partial}{\partial z}\big|_P
+      $$
+      If $f(x,y,z)$ is a function differentiable at the point $P$, then $\partial_v(f)$ isthe directional derivative in the direction of $\mathbf{v}=(v_x,v_y,v_z)^T$ evaluated at $P$. We can then view the tangent space as column vectors. On the other hand, an element of the cotantent space $T^*\mathbb{R}^3_P$ looks like
+      $$
+      dw = w_xdx_P + w_ydy_P + w_zdz_P
+      $$
+      If $f(x,y,z)$ is differentiable at $P$ then we get the total derivative $df=f_x(P)dx+f_y(P)dy+f_z(P)dz$, which is an element of the cotangent space at $P$. We can then view elements of the cotangent space as row vectors $(w_x,w_y,w_z)$ and, in particular, $df=(f_x(P),f_y(P),f_z(P))$. Note that the directional dereivative of $f(x,y,z)$ in the direction of $\mathbf v$ is just the dot product $df\cdot \mathbf{v}$. 
+    </p>
+    <p>
+      A vector field on an object is then a choice of a tangent vector in every tangent space, ie a tangent vector at every point. This choice of vector must "vary smoothly", which is a differentiability condition on these vectors. Similarly a covector field is a choice of covector at every point that varies smoothly. A Tensor Field follows this reasoning. It is a choice of tensor that inputs tangent and cotangent vectors at every point that varies smoothly. If you change coordinates of your object, then the coordinates of the array representing the tensor must change based on what the Jacobian matrix says. This is where the traditional formula for "A tensor is something that transforms like a tensor" comes from. 
+    </p>
+    <p>
+      When they talk about tensors in general relativity, they are referring to these tensor fields. Changing coordinates of the object then changes all the bases in all the tangent/cotangent spaces, forcing the arrays to represent the tensor at each point to change accordingly.
+    </p>
+    <h3>Conclusion</h3>
+    <p>
+      The best one-liner for what a tensor is is as follows:
+    <div class="thm"><b>A Tensor is a generalization of the Dot Product</b></div>
+    All of this, however, is just a taste of what is behind tensors. A lot is taken for granted and there is a lot of subtle linear algebra and differntial geometry behind all of this. The connection between raising and lowering indicies, transposition, dual spaces and inner products is vitally important to applications. Differentiability conditions on tensor fields, differential forms, and more are all key to things in general relativity. Abstract tensor products are not even mentioned here, but they are related to these as well. The goal of this is to provide a satisfying responce and subsequent explanation for those who inquire about the nature of tensors. Which is something absent from all literature about the topic in the undergraduate level.
+    </p>
+      
+      
       
    
       
