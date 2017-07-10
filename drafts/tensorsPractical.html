@@ -59,7 +59,7 @@
       $$
       So we can create a tensor from a row vector. This is an example of a $(1,0)$-Tensor, because the input is one column vector. In a similar way, if $\mathbf{d}$ is a column vector, then we can create a $(0,1)$-Tensor from $\mathbf{d}$ in a similar way. We define $T_{\mathbf{d}}$ to be a function that inputs a row vector $\mathbf{b}$ defined as follows:
       $$
-      T_{\mathbf{d}}(\mathbd{b}) = \mathbf{b}\mathbf{d}
+      T_{\mathbf{d}}(\mathbf{b}) = \mathbf{b}\mathbf{d}
       $$
       This is a $(0,1)$-Tensor, because it inputs one row vector and behaves like a dot-product. So we see that vectors are not tensors themselves, but ingredients to create tensors. 
     </p>
@@ -90,7 +90,7 @@
     <p>
       Now, this condition is pretty abstract. It was helpful in the rank 1 and rank 2 cases to be able to use vectors and matricies to write down and explicitly compute tensors. This can, indeed, be done in the more general case. To be able to express these, it is helpful to explicitly write down a formula for the $(1,1)$-Tensor $T_M(\mathbf{a},\mathbf{c})$ created in the previous section. We say that $\mathbf{a}=(a^1,...,a^k)$, $\mathbf{b}=(b_1,...,b_k)^T$ and that the $i,j$th entry of $M$ is $M^i_j$. We can then write a formula for $T_M(\mathbf{a},\mathbf{c})$:
       $$
-      T_M(\mathbf{a},\mathbf{c})$ = \sum_{i,j=1}^k M^i_ja^jc_i
+      T_M(\mathbf{a},\mathbf{c}) = \sum_{i,j=1}^k M^i_ja^jc_i
       $$
       The superscripts and subscripts are there to keep track of how elements interact with each other. This kind of formula pops up a lot in all areas of math, because in forces a function to be linear. Particularly, we can express and compute arbitrary tensors using a similar formula. We have:
       $$
@@ -103,9 +103,14 @@
     </p>
     <h3>Tensors are Functions</h3>
     <p>
-      To drive home the fact that tensors are functions and not generalizations of vectors or multidimensional arrays, we investigate necessarily functional properties of them. Particularly, you often hear from physicists that tensors are "things that transform like tensors", which is unhelpful without context. But we have context now. If we have a matrix $M$ and create the tensor $T_M$ using it, then our formula for evaluating it, $T_M(\mathbf{a},\mathbf{c}) = \sum_{i,j=1}^k M^i_ja^jc_i$ depends on the basis that we are using for our vector spaces. If we change the basis, then the arrays used to represent $M$, $\mathbf{a}$ and $\mathbf{c}$ will change, but the actual vectors they represent and the actual linear transformation that $M$ represents will not change. And since $T_M$ is a function on vectors, not a function on arrays of numbers, then it follows that the value of $T_M(\mathbf{a},\mathbf{c}$ can not depend on how we decide to write down these components using bases and arrays. If we change our basis, then the value of $T_M(\mathbf{a},\mathbf{c})$ must remain the same. 
+      To drive home the fact that tensors are functions and not generalizations of vectors or multidimensional arrays, we investigate necessarily functional properties of them. Particularly, you often hear from physicists that tensors are "things that transform like tensors", which is unhelpful without context. But we have context now. If we have a matrix $M$ and create the tensor $T_M$ using it, then our formula for evaluating it, $T_M(\mathbf{a},\mathbf{c}) = \sum_{i,j=1}^k M^i_ja^jc_i$ depends on the basis that we are using for our vector spaces. If we change the basis, then the arrays used to represent $M$, $\mathbf{a}$ and $\mathbf{c}$ will change, but the actual vectors they represent and the actual linear transformation that $M$ represents will not change. And since $T_M$ is a function on vectors, not a function on arrays of numbers, then it follows that the value of $T_M(\mathbf{a},\mathbf{c}$ can not depend on how we decide to write down these components using bases and arrays. If we change our basis, then the value of $T_M(\mathbf{a},\mathbf{c})$ must remain the same. The formula for "transforming like a tensor" is then just the change-of-basis formula for multidimensional arrays. 
     </p>
     <p>
+      But the important thing is that multiple arrays can represent the same tensor. Furthermore, depending on the basis, a single array can represent different tensors. They key thing about tensors is that they are actually functions, and it is sometimes convenient to use arrays to compute them. These two things are often confused. 
+    </p>
+    <p>
+      If, for instance, we have a function where you input the height a ball is dropped, and it outputs the speed of the ball after some time $t$. If we use standard units, then this function is given by $d(t) = -9.8t$. But if we decide to use feet instead of meters, then this becomes $d(t)=-32.2t$. This is the same function, but changing how we express the quantities changes how the function looks. The important thing is the function $d(t)$, not the coefficient out front, because it depends on the units we use. Same thing for tensors. Multidimensional arrays are glorified coefficients and they depend on the coordinates we choose, and  so the important thing is the actual function rather than the arrays.
+    </p>
       
     <h3>A Note on Tensor Fields</h3>
     <p>
