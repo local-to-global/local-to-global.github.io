@@ -1,0 +1,76 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Survey of Results on the Distribution of Primes: Classical Results</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading"><a href="index.html" class="title-link">Local-to-Global</a></h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Survey of Results on the Distribution of Primes: Classical Results</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  <p>The distribution of primes has been one of the most studied, yet still mysterious, topics in math. This will be a series that surveys some of the results and questions about the distribution of primes, along with the ideas behind the methods used to prove them. The main object of study in distributional results is the Prime Counting Function:
+  $$
+  \pi(x) = \#\{p<x\;|\;p:\textrm{ prime}\}
+  $$
+  Though, this is often times not the most natural function to look at when studying the distribution of primes and we'll frequently see the use of the Chebyshev function
+  $$
+  \psi(x) = \sum_{p^n} \log p
+  $$
+  This counts prime powers, rather than just primes, and weights them by the log of the base primes.
+  </p>
+  
+  <p>
+  <h3>Results from Antiquity</h3>
+  The earliest result that can be viewed as a distributional result, is Euclid's Theorem, the basic question being whether or not they persist throughout the number line or stop. Euclid famously proved that there are, indeed, infinitely many primes. His method of proof can be worked into a lower bound for $\pi(x)$. Particularly, we get
+  $$
+  \log\log(x) < \pi(x)
+  $$
+  See [SNYDER] for a brief discussion/proof about this. This is a pretty bad estimate, but serves to show that there are infinitely many primes and is, therefore, a nontrivial result. Generally, it is very hard to get results about the distribution of primes, and the tools needed to investigate them much finere than this would not be around for about two thousand years. Though, there is a related result that we can obtain that mimics this result, but shows off a slightly modified distributional question. This would be the question of what remainder primes have after dividing by a fixed number. These are questions about primes in arithmetic progressions. The simplest case of this is showing that there are infinitely many primes with remainder 3 after dividing by 4. That is, infinitely many primes of the form $4k-1$, or $p\equiv -1\mod 4$. Only a slight modification of Euclid's result is needed for this (See [PW1]).
+  </p>
+  <h3>Euler</h3>
+  <p> A couple millenia after Euclid, we find Euler with the next major breakthrough on the distributional result on primes. The idea of Euler is to transfer information about the divergence of the Harmonic Series into information about the primes. A basic comparison between sums and integrals can show that 
+  $$
+  \sum_{n=1}^N\frac{1}{n} = \log(N) + O(1)
+  $$
+    Euler's trick was to rewrite this (or, a related sum) as an expression involving primes and then extract the series $\sum_{p<N}\frac{1}{p}$, through logarithms, Taylor series and estimations, and get
+    $$
+    \sum_{p<N}\frac{1}{p} = \log\log(N) + O(1)
+    $$
+    Later, it should be noted, Mertens proved that the limit of the difference between these two terms exists using classical means. The relationship between primes and the harmonic series is through so-called "Euler Factorization":
+    $$
+    \prod_{p<N}\left(1-\frac{1}{p}\right)^{-1} = \sum_{n=1}^{N}\frac{1}{n} + O(1)
+    $$
+    This error bound was not found by Euler, who was actually quite messy in if proof by modern standards, but it can be shown. With this relationship, we can translate results from the harmonic series to results about primes. More precisely, when you take the logarithm of this expression and use Taylor expansions, the right side becomes
+    $$
+    \sum_{p<N} \frac{1}{p} + \sum_{n>1}\sum_{p<N} \frac{1}{np^n} = \log\log N + O(1)
+    $$
+    where we have applied the log to the otherside, along with the approximation on the harmonic series. The left-hand side is actually a sum involving prime-powers, weighted by the power. This is the first hint that it is more natural to work with prime powers weighted in a certain way, rather than just primes. In cases like this, then, what we have done is proved a result about weighted prime powers and wish to show that the contribution by the prime powers is negligible to translate it into a result about just primes. This can easily be done in this case and we get the desired result on primes.
+
+
+
+
+<h3>References</h3>
+http://math.columbia.edu/~nsnyder/thesismain.pdf
+https://proofwiki.org/wiki/Infinite_Number_of_Primes_of_form_4n_-_1
+  </div>
+  
+
+
+
+</body>
+</html>
