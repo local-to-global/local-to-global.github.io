@@ -49,17 +49,18 @@
   $$
     Euler's trick was to rewrite this (or, a related sum) as an expression involving primes and then extract the series $\sum_{p<N}\frac{1}{p}$, through logarithms, Taylor series and estimations, and get
     $$
-    \sum_{p<N}\frac{1}{p} = \log\log(N) + O(1)
+    \sum_{p&lt N}\frac{1}{p} = \log\log(N) + O(1)
     $$
     Later, it should be noted, Mertens proved that the limit of the difference between these two terms exists using classical means. The relationship between primes and the harmonic series is through so-called "Euler Factorization":
     $$
-    \prod_{p<N}\left(1-\frac{1}{p}\right)^{-1} = \sum_{n=1}^{N}\frac{1}{n} + O(1)
+    \prod_{p&lt N}\left(1-\frac{1}{p}\right)^{-1} = \sum_{n=1}^{N}\frac{1}{n} + O(1)
     $$
     This error bound was not found by Euler, who was actually quite messy in if proof by modern standards, but it can be shown. With this relationship, we can translate results from the harmonic series to results about primes. More precisely, when you take the logarithm of this expression and use Taylor expansions, the right side becomes
     $$
-    \sum_{p<N} \frac{1}{p} + \sum_{n>1}\sum_{p<N} \frac{1}{np^n} = \log\log N + O(1)
+    \sum_{p&lt N} \frac{1}{p} + \sum_{n>1}\sum_{p<N} \frac{1}{np^n} = \log\log N + O(1)
     $$
     where we have applied the log to the otherside, along with the approximation on the harmonic series. The left-hand side is actually a sum involving prime-powers, weighted by the power. This is the first hint that it is more natural to work with prime powers weighted in a certain way, rather than just primes. In cases like this, then, what we have done is proved a result about weighted prime powers and wish to show that the contribution by the prime powers is negligible to translate it into a result about just primes. This can easily be done in this case and we get the desired result on primes.
+                                                  </p>
 
 
 
