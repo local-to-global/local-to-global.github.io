@@ -1,0 +1,93 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Factorials and Volumes of Sphere</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading"><a href="index.html" class="title-link">Local-to-Global</a></h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Factorials and Volumes of Spheres</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  <p>
+  The traditional 3-dimensional unit ball is the set of points $(x,y,z)$ that satisfy
+  $$
+  x^2+y^2+z^2\leq 1
+  $$
+  This can be easily generalized to higher dimensions by adding more components. The traditional $n$-dimensional unit ball is the set of points $(x_1,...,x_n)$ that satisfy
+  $$
+  x_1^2+x_2^2+\cdots+x_n^2 \leq 1
+  $$
+  But these objects can be generalized in another way. This uses the traditional notion of Euclidean distance as determined by the Pythagorean Theorem. But if $p\geq 1$ is any positive integer, then we can create the $L_p$-unit ball in $n$ dimensions as the set of points $(x_1,...,x_n)$ satisfying
+  $$
+  |x_1|^p+|x_2|^p+\cdots +|x_n|^p =1
+  $$
+    Let $B_{n,p}$ denote such an object, and let $V_{n,p}$ be its volume. In the case $p=1$, the object is an $n$-dimensional version of an octahedron. But the volume of the $B_{n,1}$ is closely related to factorials. In particular, we have the formula
+    $$
+    V_{n,1} = \frac{2^n}{n!}
+    $$
+    What this does is allow us to find an alternative definition for the factorial, based on volume of the $L_1$-ball. There are many different formulas for the factorial, the number of permutations, the product of the first consecutive integers, or through a multiplicative recursion formula, and we can add to this list the factorial determined by these volumes:
+    $$
+    n! := \frac{2^n}{V_{n,1}}
+    $$
+    You can compute everything on the right-hand side independent of knowing what a factorial is, so this works as a definition of the factorial. The interesting thing what happens when we consider larger $p$.
+    </p>
+    <h3>Volumes of $L_p$ unit balls</h3>
+    <p>
+    We say that $V_{0,p}=1$ for all $p$ and set $\pi_p = V_{p,p}$. For a given $p$, we can relate $V_{n,p}$ to $V_{n-p,p}$ fairly directly through the formula
+    $$
+    V_{n,p}=V_{n-p,p}\frac{p\pi_p}{n}
+    $$
+    This follows from a change of variables in an integral, and the fact that we subtract out $p$ from $n$ is vital for this working out. When $n=kp$ is a multiple of $p$, this formula becomes
+    $$
+    V_{kp,p} = V_{(k-1)p,p} \frac{\pi_p}{k}
+    $$
+    This, along with $V_{0,p}=1$, is a recursion formula that allows us to compute
+    $$
+    V_{kp,p} = \frac{\pi_p^k}{k!}
+    $$
+    which is totally analogous to the $p=1$ case (since $\pi_1=2$). This, then, gives yet another working definition for the factorial:
+    $$
+    k! = \frac{\pi_p^k}{V_{kp,p}}
+    $$
+    But the very interesting thing about this formula is that the right side of this formula is valid for any $k$ so that $kp$ is an integer. That is, we can plug in $k=n/p$ for any integer $n$ and still have a computable and defined value on the right. This then gives us a way to define the factorial of any positive rational number:
+    $$
+    \left(\frac{n}{p}\right)\Big ! = \frac{\pi_p^{n/p}}{V_{n,p}}
+    $$
+    It takes work to show that the value does not depend on our choice of denominator, but it is valid. This, then, is a formula for any rational factorial. As an example, $V_{1,p}=2$ for any $p$ and so
+    $$
+    \left(\frac{1}{p}\right)\Big ! = \frac{\sqrt[p]{\pi_p}}{2}
+    $$
+    Which, of course, completely generalizes $(1/2)!=\sqrt{\pi}/2$. We can, further, define the Gamma Function on all positive real values by
+    $$
+    \Gamma(r) := \lim_{a/b\rightarrow r} (a/b)!
+    $$
+    While this may be a super inconvenient formula for the Gamma Function, it is still interesting to see it done using volumes of generalized unit balls.
+    
+    
+    
+    
+    
+    
+    
+
+  </div>
+
+
+
+</body>
+</html>
