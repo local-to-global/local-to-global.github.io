@@ -1,0 +1,120 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Euler's Number</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading"><a href="index.html" class="title-link">Local-to-Global</a></h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Euler's Number</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+    <p>
+    Euler's number, $e$, is one of the fundamental constants in math. But unlike $\pi$, its importance is not so immediately apparent and it is really never properly explained why it is important. Many people just take it for granted that it is important. Some may ask why, but the response is usually not satisfactory. A historically motivated reason is typically misguided, going back to interest rates or probabilistic arguments, but it wasn't really an important number in those times, so calling back to those times is not wholly representatitve. It is named Euler's Number because Euler was the first one to really use it in a more fundamental way, and the reason he did so is more subtle and interesting than continuously compounding interest. We'll explore these reasons.
+    </p>
+    
+    <h3>The Additive Rule</h3>
+    <p>
+    Exponential functions are the key. Exponential functions are important because of their many practical and theoretical applications. These applications include compound interest and exponential growth/decay on the practical side. On the theoretical side exponential functions are important because they transform addition into multiplication, giving a fundamental link between them. But the kicker is that the reason why exponential functions are used  in the practical applications is because of this theoretical property of turning addition into multiplication. It is this addition-to-multiplication behavior that is what makes compound interest so powerful. You add on a few years to your investment, and the amount it increases grows multiplicatively. With this in mind, we want to try to understand exponential functions better.
+    </p>
+    <p>
+    Since the addition-to-multiplication rule is what makes exponential functions important in the first place, we want to focus on this property which we call the Additive Rule. A function $f(x)$ satisfies the Additive Rule if it obeys the rule
+    $$
+    f(x+y)=f(x)f(y)
+    $$
+    which is how we express transforming addition into multiplication. In particular, we want to consider continuous functions on the entire real line that satisfy this equation. It is a classic problem to find all such functions. What we find is that if $f(x)$ is a continuous function that satisfies the additive rule on the entire real line, then we much have $f(x)=f(1)^x$. What this means is that, upon investigating these functions, we find that the entire function is completely determined by the single value $f(1)$. If $f(x)$ is a continuous function satisfying the additive rule, we say that $A_f=f(1)$.
+    </p>
+    <p>
+    So every additive function is completely determined by the single value $A_f$, which is pretty amazing. We might then ask whether or not there is a particular value of $A_f$ that is more "special" than the others. That is, is there a value for $A_f$ that gives us a "special" exponential function that nicely ties together all exponential functions? Really the only values that are special, at the moment, are $A_f=0$ or $A_f=1$, but these both give not-interesting additive functions, so they can't serve as "Master Exponential Functions". So the function $f(x)$ is completely determined by $A_f$, but there is no immediately obvious special value for $A_f$ that gives us a special exponential function.
+    </p>
+    <h3>The Infinitesimal Additive Rule</h3>
+    <p>
+    By saying that $f(x)$ is a continuous function that satisfies the additive rule, we've found that we can distill all the information about $f(x)$ into the single value $A_f=f(1)$. But, it turns out, that there is a second value associated with $f(x)$ that also completely determined $f(x)$. To extract this value, we need to turn to Calculus.
+    </p>
+    <p>
+    It turns out that every continuous function that satisfies the additive rule is necessarily differentiable. Computing the derivative, we get
+    $$
+    \begin{eqnarray*}
+    f'(x) &=& \lim_{h\rightarrow 0} \frac{f(x+h)-f(x)}{h}\\
+          &=& \lim_{h\rightarrow 0} \frac{f(x)f(h)-f(x)}{h}\\
+          &=& f(x) \lim_{h\rightarrow 0} \frac{f(h)-1}{h}
+    \end{eqnarray*}
+    $$
+    The limit does not depend on $x$, and so is some constant that we'll call $C_f$. So we have $f'(x)=C_ff(x)$, and to get this formula all we used was the additive property (and continuity). We then say that the Infinitesimal Additive Rule is
+    $$
+    f'(x)=Cf(x)
+    $$
+    for some constant $C$. Any function that satisfies the initial value problem $f'(x)=Cf(x)$ with $f(0)=1$ also satisfies the original additive rule, $f(x+y)=f(x)f(y)$, and vice versa. So this differential equation can be seen as an equivalent, infinitesimal version of the original additive rule. In particular, since this is a degree 1 homogeneous differential equation with fixed initial value, the theory of differential equations then tells us that there is only one function that satisfies it. This means that $f(x)$ is completely determined by the value $C_f$.
+    </p>
+    <h3>The Special Exponential Function</h3>
+    <p>
+    Differentiating provides an infinitesimal version of the additive rule. And just as a single value associated to the original additive rule completely determines the function in question, there is a corresponding single value for the infinitesimal version that also completely determines the function. We can think of $C_f$ as an infinitesimal version of $A_f$. In particular, if we choose an $A_f$, then there should be a way that $C_f$ is determined by this choice. Conversely, if we fix $C_f$, then the value $A_f$ should be determined by this choice. So there is a back-and-forth equivalence between these two values $A_f\leftrightarrow C_f$.
+    </p>
+    <p>
+    To this end, since we could find no special value for $A_f$, we might ask if there is a special value that we can choose for $C_f$. In this case, there is. If we choose $C_f=1$, then we completely simplify the equation $f'(x)=f(x)$. So we define $\exp(x)$ to be the function so that $C_{\exp}=1$, which means that $\exp'(x)=\exp(x)$. We then say that $e=A_{\exp}$, or $e=\exp(1)$. In this way, $e$ is the translation of the natural choice of the infinitesimal constant for exponential functions, into the ordinary additive context. This is the secret "special" value for $A_f$, since it corresponds to the obviously special value for $C_f$. It is the un-infinitesimalized version of the equation $C_f=1$. The ordinary additive equation is not written in a language that allows us to easily find the natural exponential function $\exp(x)$, and so $e$ looks weird because it is what happens when we shift the problem of finding the special exponential into infinitesimal form, solve it there, and then translate it back.
+    </p>
+    <p>
+    One might, then, wonder how $A_f$ and $C_f$ correspond and how the choice $C_f=1$ make things easy. Firstly, if we set $A_f$, then $C_f$ is determined by the formula
+    $$
+    C_f = \lim_{h\rightarrow 0} \frac{A_f^h-1}{h}
+    $$
+    What about vice-versa? If we fix $C_f$, how do we recover $A_f$. It turns out that an exponential function $f(x)$ is analytic, and so determined by its Taylor series, and the initial value problem $f'(x)=C_ff(x)$ and $f(0)=1$ can allow us to easily compute the Taylor series. Since $f^{(n)}=C_f^{n}f(x)$, it follows that after fixing $C_f$ that we get 
+    $$
+    f(x) = 1 + C_fx + \frac{C_f^2x^2}{2!} + \frac{C_f^3x^3}{3!} + \frac{C_f^4x^4}{4!} +\cdots = \sum_{n=1}^{\infty}\frac{C_f^nx^n}{n!}
+    $$
+    So, after choosing $C_f$, we find that $A_f = \sum_{n=1}^{\infty}\frac{C_f^n}{n!}$, which gives us the backwards correspondence. In particular, this shows that
+    $$
+    e = \sum_{n=1}^{\infty}\frac{1}{n!}
+    $$
+    This is what the choice $C_f=1$ looks like in the ordinary setting. So $C_f=1$ is equivalent to $e$, which means that $e$ is special only because $1$ is special.
+    </p>
+    <p>
+    Let's see why choosing $C_f=1$ is beneficial. If we have $f(x)$ and its corresponding $C_f$, we can create the function $F(x)=f(x/C_f)$. Using the fact that $f'(x)=C_ff(x)$, we can compute the derivative of $F(x)$ using the Chain Rule and get $F'(x)=F(x)$. This means that $f(x/C_f)=\exp(x)$, or $f(x)=\exp(C_f x)$. So using $\exp(x)$, we can write down every exponential function as 
+    $$
+    f(x) = e^{C_f x}
+    $$
+    So the choice $C_f=1$ gives us a function that allows us to universally represent all exponential functions. Furthermore, setting $x=1$ into the equation $f(x) = e^{C_f x}$, we find that $A_f=e^{C_f}$, or $C_f = \log(A_f)$, where $\log(x)$ is the logarithm base-$e$. This means that we can evaluate that complicated limit as
+    $$
+    \lim_{h\rightarrow 0} \frac{A_f^h-1}{h} = \log(A_f)
+    $$
+    And this allows us to write the equation $f'(x)=C_ff(x)$ as $f'(x)=\log(A_f)f(x)$, which is the more familiar form. While the formula $f(x)=e^{C_f x}$ can be seen as using $C_f$ to express the function $f(x)$ in the way that $A_f$ would, the function $f'(x)=\log(A_f)f(x)$ is using $A_f$ to express the function $f(x)$ in the way that $C_f$ normally would. And this is all simplified and possible because we are using $e=\exp(1)$.
+    </p>
+    <h3>Conclusion</h3>
+    <p>
+    There are two values that completely determine additive functions $A_f$ and $C_f$. These two values interact with each other in sophisticated ways. There is a natural choice for $C_f$, but no immediate natural choice for $A_f$. Choosing $C_f=1$ we find that $e$ is the translation of this choice back into $A_f$. 
+    </p>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+  </div>
+
+
+
+</body>
+</html>
