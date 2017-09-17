@@ -1,0 +1,51 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>How Chebyshev's Bias Works</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading"><a href="index.html" class="title-link">Local-to-Global</a></h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">How Chebyshev's Bias Works</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  <p>
+    Chebyshev's Bias says that, most of the time, for fixed $q$ there will be more primes less than $x$ congruent to a non-residue mod $q$ than congruent to a residue mod $q$. Of course this bias evens out as $x\rightarrow \infty$, but it is interesting to wonder why this bias exists for most finite $x$. 
+    </p>
+    <p>
+    The answer to this is relatively easy to state. There is a bias towards non-residues among primes because prime-powers are, on average, equidistributed. That is, for most $x$, the number of prime-powers less than $x$ are generally equidistributed mod $q$. Now, most prime powers less than a number are primes, fewer are squares and even less are higher powers. Chebyshev's Bias then comes from primes and squares of primes trying to equidistribute themselves mod $q$. But all of the prime squares have to be congruent to a quadratic residue mod $q$, which means there is less room for primes to be congruent to these residues, hence we get a bias for primes to be non-residues. 
+    </p>
+    <p>
+    This is a good intuition and heristic to have, but it is fun to look at how this works more explicitly.
+    </p>
+    <h3>The Prime-Power Residue Counting Function</h3>
+    <p>
+    If $\theta(x)=\sum_{p\leq x} \log p$ and $\psi(x) =\sum_{p^n\leq x}$, then one of the more interesting formulas seen in any intro Analytic Number Theory course is
+    $$
+    \psi(x) = \sum_{n=1}^{\infty} \theta(x^{1/n})
+    $$
+    This is at the heart of many early approximations to things like the Prime Number Theorem. But this gives information about all primes and prime powers, we want to get information about primes mod $q$.
+    
+
+
+
+  </div>
+
+
+
+</body>
+</html>
