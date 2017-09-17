@@ -34,15 +34,15 @@
     </p>
     <h3>The Prime-Power Residue Counting Function</h3>
     <p>
-    If $\theta(x)=\sum_{p\leq x} \log p$ and $\psi(x) =\sum_{p^n\leq x}$, then one of the more interesting formulas seen in any intro Analytic Number Theory course is
+    If $\theta(x)=\sum_{p\leq x} \log p$ and $\psi(x) =\sum_{p^n\leq x}\log p$, then one of the more interesting formulas seen in any intro Analytic Number Theory course is
     $$
     \psi(x) = \sum_{n=1}^{\infty} \theta(x^{1/n})
     $$
     This is at the heart of many early approximations to things like the Prime Number Theorem. But this gives information about all primes and prime powers, we want to get information about primes mod $q$. We then make the functions
       $$
       \begin{eqnarray*}
-      \theta(x,a;q) &=& \sum_{p<x\substack p\equiv a \mod q} \log(p)\\
-      \psi(x,a;q) &=& \sum_{p^n<x\substack p\equiv a \mod q} \log(p)
+      \theta(x,a;q) &=& \sum_{\substack{p<x \\ p\equiv a \mod q}} \log p\\
+      \psi(x,a;q) &=& \sum_{\substack{p^n<x \\ p\equiv a \mod q}} \log p 
       \end{eqnarray*}
       $$
     
