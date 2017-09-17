@@ -38,7 +38,13 @@
     $$
     \psi(x) = \sum_{n=1}^{\infty} \theta(x^{1/n})
     $$
-    This is at the heart of many early approximations to things like the Prime Number Theorem. But this gives information about all primes and prime powers, we want to get information about primes mod $q$.
+    This is at the heart of many early approximations to things like the Prime Number Theorem. But this gives information about all primes and prime powers, we want to get information about primes mod $q$. We then make the functions
+      $$
+      \begin{eqnarray*}
+      \theta(x,a;q) &=& \sum_{p<x\substack p\equiv a \mod q} \log(p)\\
+      \psi(x,a;q) &=& \sum_{p^n<x\substack p\equiv a \mod q} \log(p)
+      \end{eqnarray*}
+      $$
     
 
 
