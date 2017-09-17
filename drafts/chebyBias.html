@@ -53,6 +53,11 @@
       $$
       \psi(x,a;q) = \sum_{k=1}^{\infty} \theta_k(x,a;q)
       $$
+      What we want to do is use this to give an approximation for the number of primes, or prime powers, less than $x$ that are congruent to $a\mod q$. The connection to the counting functions is inspired by the connection to the prime counting function via the Riemann-Stieltjes Integral. We have $\pi(x) = \int_2^{x}\frac{d\theta(t)}{\log t}$. Following this reasoning, if $\pi_k(x,a;q)$ are the $k$th prime powers that are congruent to $a\mod q$ then we have
+      $$
+      \sum_{k=1}^{\infty}\frac{1}{k}\pi_k(x,a;q) = \int_2^x \frac{d\psi(t,a;q)}{\log t}
+      $$
+      This is a weighted sum to weight each prime power residue equally when they exit. 
 
 
   </div>
