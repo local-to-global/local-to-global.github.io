@@ -36,7 +36,7 @@
     <p>
     If $\theta(x)=\sum_{p\leq x} \log p$ and $\psi(x) =\sum_{p^n\leq x}\log p$, then one of the more interesting formulas seen in any intro Analytic Number Theory course is
     $$
-    \psi(x) = \sum_{n=1}^{\infty} \theta(x^{1/n})
+    \psi(x) = \sum_{k=1}^{\infty} \theta(x^{1/k})
     $$
     This is at the heart of many early approximations to things like the Prime Number Theorem. But this gives information about all primes and prime powers, we want to get information about primes mod $q$. We then make the functions
       $$
@@ -45,8 +45,14 @@
       \psi(x,a;q) &=& \sum_{\substack{p^n\leq x \\ p\equiv a \mod q}} \log p 
       \end{eqnarray*}
       $$
-    
-
+    We can't get an analogous formula as directly relating these two functions because there can be multiple residues for each $a\mod q$ that we have to account for. Towards this end, we can write
+      $$
+      \theta_k(x,a;q) &=& \sum_{\substack{b&lt q\\ b^k\equiv a \mod q}} \theta(x^{1/k},b;q)
+      $$
+      and this will be the appropriate analog for $\theta(x^{1/k})$ giving us the formula
+      $$
+      \psi(x,a;q) = \sum_{k=1}^{\infty} \theta_k(x,a;q)
+      $$
 
 
   </div>
