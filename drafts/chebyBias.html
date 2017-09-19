@@ -38,11 +38,7 @@
       $$
       \pi_k(x,a;q) - \frac{1}{\varphi(q)}\sum_{(b,q)=1} \pi_k(x,b;q)
       $$
-      Moreover, since we're interested in all powers simultaneously, we will want to combine this for all $k$. In particular, we will care about the sign of the value
-        $$
-        \sum_{k=1}^{\infty}E_k(x,a;q) 
-        $$
-      where
+      Moreover, since we're interested in all powers simultaneously, we will want to combine this for all $k$. In particular, we will care about the sign of the value $\sum_{k=1}^{\infty}E_k(x,a;q)$ where
       $$
       E_k(x,a;q) = \frac{\log x}{k\sqrt{x}}\left( \varphi(q)\pi_k(x,a;q) - \sum_{(b,q)=1} \pi_k(x,b;q)\right)
       $$
@@ -55,8 +51,9 @@
       $$
       Combining these and applying some approximations, we then find that 
         $$
-        \sum_{k=1}^{\infty}E_k(x,a;q) = \frac{1}{\sqrt{x}}\sum_{\chi\ne \textrm{id}} \overline{\chi}(a)\psi(x,\chi)
+        \sum_{k=1}^{\infty}E_k(x,a;q) = \frac{1}{\sqrt{x}}\sum_{\chi\ne \textrm{id}} \overline{\chi}(a)\psi(x,\chi) + O(1/\log x)
         $$
+      Following the heuristic of <a href="https://projecteuclid.org/euclid.em/1048515870">Rubenstein and Sarnack</a>, we see the term on the right as not having any significant bias towards any particular $a$. That is, the sign of this value will alternate at roughly the same rate, regardless of $a$. The bias then comes in when we try to approximate the $E_k(x,a;q)$.
    
 
   </div>
