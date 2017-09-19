@@ -34,6 +34,15 @@
     </p>
     <h3>The Prime-Power Residue Counting Function</h3>
     <p>
+      What we want to do is, for every $k$, compare the number of $k$th residues of $a$ mod $q$ less than a number $x$ to the average number of $k$th residues that exist over all $b$ mod $q$ less than $x$, where $(a,q)=(b,q)=1$. If we have $\pi_k(x,a;q)$ be the number of $k$th residues of $a$ mod $q$ that are less than $x$, so the $n&lt x$ so that $n^k\equiv a\mod q$, then we will be concerned with the sign of 
+      $$
+      \pi_k(x,a;q) - \frac{1}{\varphi(q)}\sum_{(b,q)=1} \pi_k(x,b;q)
+      $$
+      Moreover, since we're interested in all powers simultaneously, we will want to combine this for all $k$. In particular, we will care about the sign of the value
+        $$
+        \sum_{k=1}^{\infty}\frac{\log x}{n\sqrt{x}}\left( \varphi(q)\pi_k(x,a;q) - \sum_{(b,q)=1} \pi_k(x,b;q)\right) 
+        $$
+        Here the extra term out front is to weight things more evenly.
     If $\theta(x)=\sum_{p\leq x} \log p$ and $\psi(x) =\sum_{p^n\leq x}\log p$, then one of the more interesting formulas seen in any intro Analytic Number Theory course is
     $$
     \psi(x) = \sum_{k=1}^{\infty} \theta(x^{1/k})
