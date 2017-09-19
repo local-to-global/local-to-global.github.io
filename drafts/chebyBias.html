@@ -44,9 +44,19 @@
         $$
       where
       $$
-      E_k(x,a;q) = \frac{\log x}{n\sqrt{x}}\left( \varphi(q)\pi_k(x,a;q) - \sum_{(b,q)=1} \pi_k(x,b;q)\right)
+      E_k(x,a;q) = \frac{\log x}{k\sqrt{x}}\left( \varphi(q)\pi_k(x,a;q) - \sum_{(b,q)=1} \pi_k(x,b;q)\right)
       $$
-        Here the extra term out front is to weight things more evenly.
+        Here the extra term out front is to weight things more evenly. These expression come naturally when we combine and approximate a few key functions, which will provide us with a formula. These key expressions are 
+      $$
+      \begin{eqnarray*}
+      \psi(x,a;q) &=& \frac{1}{\varphi(q)}\psi(x) + \sum_{\chi\ne \textrm{id}} \overline{\chi}(a) \psi(x,\chi)\\
+      \int_2^{x} \frac{d\psi(t,a;q)}{\log t} &=& \sum_{k=1}^{\infty} \frac{1}{k} \pi_k(x,a;q)
+      \end{eqnarray*}
+      $$
+      Combining these and applying some approximations, we then find that 
+        $$
+        \sum_{k=1}^{\infty}E_k(x,a;q) = \frac{1}{\sqrt{x}}\sum_{\chi\ne \textrm{id}} \overline{\chi}(a)\psi(x,\chi)
+        $$
    
 
   </div>
