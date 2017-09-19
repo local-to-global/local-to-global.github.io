@@ -40,34 +40,14 @@
       $$
       Moreover, since we're interested in all powers simultaneously, we will want to combine this for all $k$. In particular, we will care about the sign of the value
         $$
-        \sum_{k=1}^{\infty}\frac{\log x}{n\sqrt{x}}\left( \varphi(q)\pi_k(x,a;q) - \sum_{(b,q)=1} \pi_k(x,b;q)\right) 
+        \sum_{k=1}^{\infty}E_k(x,a;q) 
         $$
+      where
+      $$
+      E_k(x,a;q) = \frac{\log x}{n\sqrt{x}}\left( \varphi(q)\pi_k(x,a;q) - \sum_{(b,q)=1} \pi_k(x,b;q)\right)
+      $$
         Here the extra term out front is to weight things more evenly.
-    If $\theta(x)=\sum_{p\leq x} \log p$ and $\psi(x) =\sum_{p^n\leq x}\log p$, then one of the more interesting formulas seen in any intro Analytic Number Theory course is
-    $$
-    \psi(x) = \sum_{k=1}^{\infty} \theta(x^{1/k})
-    $$
-    This is at the heart of many early approximations to things like the Prime Number Theorem. But this gives information about all primes and prime powers, we want to get information about primes mod $q$. We then make the functions
-      $$
-      \begin{eqnarray*}
-      \theta(x,a;q) &=& \sum_{\substack{p\leq x \\ p\equiv a \mod q}} \log p\\
-      \psi(x,a;q) &=& \sum_{\substack{p^n\leq x \\ p\equiv a \mod q}} \log p 
-      \end{eqnarray*}
-      $$
-    We can't get an analogous formula as directly relating these two functions because there can be multiple residues for each $a\mod q$ that we have to account for. Towards this end, we can write
-      $$
-      \theta_k(x,a;q) = \sum_{\substack{b &lt q\\ b^k\equiv a \mod q}} \theta(x^{1/k},b;q)
-      $$
-      and this will be the appropriate analog for $\theta(x^{1/k})$ giving us the formula
-      $$
-      \psi(x,a;q) = \sum_{k=1}^{\infty} \theta_k(x,a;q)
-      $$
-      What we want to do is use this to give an approximation for the number of primes, or prime powers, less than $x$ that are congruent to $a\mod q$. The connection to the counting functions is inspired by the connection to the prime counting function via the Riemann-Stieltjes Integral. We have $\pi(x) = \int_2^{x}\frac{d\theta(t)}{\log t}$. Following this reasoning, if $\pi_k(x,a;q)$ are the $k$th prime powers that are congruent to $a\mod q$ then we have
-      $$
-      \sum_{k=1}^{\infty}\frac{1}{k}\pi_k(x,a;q) = \int_2^x \frac{d\psi(t,a;q)}{\log t}
-      $$
-      This is a weighted sum to weight each prime power residue equally when they exit. 
-
+   
 
   </div>
 
