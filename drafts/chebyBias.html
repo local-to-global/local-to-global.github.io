@@ -48,12 +48,17 @@
         $$
       Following the heuristic of <a href="https://projecteuclid.org/euclid.em/1048515870">Rubenstein and Sarnack</a>, we see the term on the right as not having any significant bias towards any particular $a$. That is, the sign of this value will alternate at roughly the same rate, regardless of $a$. The bias then comes in when we try to approximate $E_k(x,a;q)$ for higher order $k$. We can approximate $E_k$ using Dirichlet's theorem on primes in arithmetic progressions, as we alluded to above. Particularly, Dirichlet's theorem says that
       $$
-      \pi_k(x,a;q) = \frac{kr_k(a;q)}{\varphi(q)} \frac{x^{1/k}}{\log x} + O\left(\frac{x}{\log x}\right)
+      \pi_k(x,a;q) = \frac{kr_k(a;q)}{\varphi(q)} \frac{x^{1/k}}{\log x} + O\left(\frac{x^{1/k}}{\log ^2x}\right)
       $$
    where $r_k(a;q)$ is the number of $k$th residues $a$ has mod $q$. This comes from the fact that there are $r_k(a;q)$ terms in the sum that can all be approximated in the same way. This gives us the approximation
       $$
-      E_k(x,a;q) = x^{\frac{1}{k}-\frac{1}{2}}\left( r_k(a;q) - \sum_{(b,q)=1} \frac{r_k(b;q)}{\phi(q)}\right)
+      E_k(x,a;q) = x^{\frac{1}{k}-\frac{1}{2}}\left( r_k(a;q) -1\right) + O(x^{\frac{1}{k}-\frac{1}{2}}/\log x)
       $$
+      If we approximate each term in the sum $\sum_{k=1}^{\infty} E_k(x,a;q)$ via this formula for all $k>1$, then $k=2$ will be the dominant term. Using our above approximation with this one, we get
+      $$
+      E_1(x,a;q) = (1-r_2(a;q)) + \frac{1}{\sqrt{x}}\sum_{\chi\ne \textrm{id}} \overline{\chi}(a)\psi(x,\chi) + O(1/\log x)
+      $$
+      It is this extra term that contributes to the bias and it comes directly from us approximating the higher order terms. So Chebyshev's bias come into play only when we ignore the higher powers as much as possible and see what happens to only the primes, and they get biased in and out of residue classes thanks to this extra term, which makes room for higher powers when needed.
 
   </div>
 
