@@ -34,7 +34,13 @@
     </p>
     <h3>The Prime-Power Residue Counting Function</h3>
     <p>
-      What we want to do is, for every $k$, compare the number of $k$th residues of $a$ mod $q$ less than a number $x$ to the average number of $k$th residues that exist over all $b$ mod $q$ less than $x$, where $(a,q)=(b,q)=1$. If we have $\pi_k(x,a;q)$ be the number of $k$th residues of $a$ mod $q$ that are less than $x$, so the $n&lt x$ so that $n^k\equiv a\mod q$, then we will be concerned with the sign of 
+      What we want to do is, for every $k$, compare the number of $k$th residues of $a$ mod $q$ less than a number $x$ to the average number of $k$th residues that exist over all $b$ mod $q$ less than $x$, where $(a,q)=(b,q)=1$. Let $\pi_k(x,a;q)$ be the number of $k$th residues of $a$ mod $q$ that are less than $x$, so the $n&lt x$ so that $n^k\equiv a\mod q$. We can express this via the ordinary prime counting function as
+      $$
+      \pi_k(x,a;q) = \sum_{b^k\equiv a \mod q} \pi(x^{1/k},b;q)
+      $$
+      where $\pi(x,a;q)=\pi_1(x,a;q)$ and the sum is over all $k$th residues of $a$ less than $q$.
+      
+      then we will be concerned with the difference
       $$
       \pi_k(x,a;q) - \frac{1}{\varphi(q)}\sum_{(b,q)=1} \pi_k(x,b;q)
       $$
