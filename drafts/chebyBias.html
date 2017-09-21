@@ -38,16 +38,12 @@
       $$
       \pi_k(x,a;q) = \sum_{b^k\equiv a \mod q} \pi(x^{1/k},b;q)
       $$
-      where $\pi(x,a;q)=\pi_1(x,a;q)$ and the sum is over all $k$th residues of $a$ less than $q$.
-      
-      then we will be concerned with the difference
-      $$
-      \pi_k(x,a;q) - \frac{1}{\varphi(q)}\sum_{(b,q)=1} \pi_k(x,b;q)
-      $$
-      Moreover, since we're interested in all powers simultaneously, we will want to combine this for all $k$. In particular, we will care about the sign of the value $\sum_{k=1}^{\infty}E_k(x,a;q)$ where
+      where $\pi(x,a;q)=\pi_1(x,a;q)$ and the sum is over all $k$th residues of $a$ less than $q$. Since $\pi(x^{1/k},b;q)$ can be approximated as $\frac{k}{\varphi(q)}\frac{x^{1/k}}{\log x}$, it follows that as we increase the power, then then this gets artificially inflated by the $k$. So when counting, we should weigh each count by $1/k$ to make different powers worth the same. We will then be considerd with the difference      
       $$
       E_k(x,a;q) = \frac{\log x}{k\sqrt{x}}\left( \varphi(q)\pi_k(x,a;q) - \sum_{(b,q)=1} \pi_k(x,b;q)\right)
       $$
+      This measures how many more or less $k$th prime powers are less than $x$ and congruent to $a$ mod $q$ compared to the average number of $k$th powers congruent to coprime elements mod $q$. The factor out front is the most useful scale, and the $1/k$ is there as discussed above.
+      
         Here the extra term out front is to weight things more evenly. These expression come naturally when we combine and approximate a few key functions, which will provide us with a formula. These key expressions are 
       $$
       \begin{eqnarray*}
