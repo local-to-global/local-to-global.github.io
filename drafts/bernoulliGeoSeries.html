@@ -24,6 +24,49 @@
   <div class="post-content">
   <div class="post-date">11/21/2016</div>
     <p>
+    We want to see what about the Bernoulli numbers makes them so important, from an elementary viewpoint. Our starting point will be their relationship to sums of consecutive powers $S_n(k) = 1^k+2^k+\cdots + n^k$.
+    </p>
+    <p>
+      A difficulty in understanding these sums is that the only way to change $n$ is to add on another term to this sum, making the connection between two values of $n$ disconnected. We with to connect these. But we'll start by working with geometric series, for reasons that will be made clear shortly. Particularly define the functions
+      $$
+      \begin{eqnarray*}
+      F(x,q) &=& \log(q) (q^{x-1} + q^{x-2} + \cdots )\\
+      f_n(q) &=& q+q^2+q^3+\cdots +q^n
+      \end{eqnarray*}
+      $$
+      Using traditional methods of geometric series, these can be rewritten as
+      $$
+      \begin{eqnarray*}
+      F(x,q) &=& \log(q) \frac{q^x}{q-1}\\
+      f_n(q) &=& \frac{q^{n+1} - q}{q-1}
+      \end{eqnarray*}
+      $$
+      This allows us to create the formula $f_n(q) = \frac{1}{\log q} (F(n+1,q) - F(1,q))$. The reason this is interesting and relevant is that to change $n$ in $f_n(q)$ we would normally have to add on a whole new term to the sum, but this formula gives us a way to talk about the parameter $n$ is a continuous way, connecting the entries in this series of functions in a smooth way. We could define $f_x(q)= \frac{1}{\log q} (F(x+1,q) - F(1,q))$ and have the same sequence on integers. The important aspect of this, though, is that evaluation of $f_n(q)$ can be done by quickly computing values of the larger function $F(x,q)$. 
+    </p>
+    <p>
+      We wish to use this connection to discuss the sum of consecutive integers. If $S_n(k)=1^k+2^k+\cdots n^k$, then we have
+      $$
+      S_n(k)\frac{t^k}{k!} = \frac{t^k}{k!} + \frac{(2t)^k}{k!} + \cdots \frac{(nt)^k}{k!}
+      $$
+      The $m$th term of this sum is the $k$th term in the power series for $e^{mt}$. We then have
+      $$
+      \sum_{k=0}^{\infty} S_n(k)\frac{t^k}{k!} = \sum_{m=1}^{n} e^{mt}
+      $$
+      Or, if $E_n(t)$ is the sum on the left, then $E_n(t) = f_n(e^t)$. So we have the relationship $E_n(t)=\frac{1}{t}(F(n+1,e^t)-F(1,e^t))$. If $B_n(x)$ is the coefficient of the Taylor series of $F(x,e^t)$ in the variable $t$, then we get
+      $$
+      S_n(k) = B_{k+1}(n+1)-B_{k+1}(1)
+      $$
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <p>
     What is so great about the Bernoulli numbers? They appear in a surprising number of places, especially in Number Theory. But why? We'll see the answer has to do with how they relate to a geometric series of exponential functions, and their importance is related to the behavior of this series.
     </p>
     <h3>Sums of Powers</h3>
