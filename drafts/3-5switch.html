@@ -12,7 +12,7 @@
 
 
 
-<title>TITLE</title>
+<title>The 3-5 Switch</title>
 </head>
 <body>
   <div class="title">
@@ -20,12 +20,26 @@
   </div>
   <hr id="titlebreak">
   
-  <h2 id = "titleheading">TITLE</h2>
+  <h2 id = "titleheading">The 3-5 Switch</h2>
   <div class="post-content">
   <div class="post-date">11/21/2016</div>
-    
-
-
+    The main result that Wiles proves in his work is the following:
+    <div class="thm"><b>Theorem (Wiles): </b> If $E$ is a rational, semistable elliptic curve such that there exists a prime $p\geq 3$ so that the natural representation $\overline{\rho}_{E,p}:G_{\mathbb{Q}} \rightarrow GL_2(\mathbb{Z}/p\mathbb{Z})$ is irreducible and modular, then $E$ is modular. 
+    </div>
+    <p>
+    Since Fermat's Last Theorem follows from the modularity of semistable rational elliptic curves, all we need to do to finish the proof is to show that for each such elliptic curve that we can find a prime $p\geq 3$ that satisfies the above conditions. But proving the modularity of residual representations is not an easy task. For the case $p=3$ an important result of Langlands and Tunnell says that if $\overline{\rho}_{E,3}$ is irreducible, then it is modular. This proves the modularity for all elliptic curves whose mod 3 representation is irreducible. But what happens when this representation is not irreducible? This is where we find the 3-5 switch, which fixes things when mod 3 representations are reducible. 
+    </p>
+    <p>
+      This works in a couple of steps. Firstly, in the case that the mod 3 representation of an elliptic curve is reducible it is first proved that the mod 5 representation is, indeed, irreducible. But now there is the question of modularity of the mod 5 representation. This part is a bit more subtle. The 3-5 Switch claims that, in this case, there is a different elliptic cuve $E'$ whose mod 3 representation is irreducible, and hence is modular, but the representations $\overline{\rho}_{E,5}$ and $\overline{\rho}_{E',5}$ are isomorphic and, hence, $\overline{\rho}_{E,5}$ must be modular. With this, we get that all semistable elliptic curves are modular.
+    </p>
+    <p>
+      All of these results follow from magic on modular curves. Let's look at the first part that says that if the mod 3 representation of a semistable elliptic curve is reducible, then its mod 5 representation is irreducible. Start by assuming that $E$ is a curve whose mod 3 and mod 5 representations are reducible. The only way that the mod $p$ representation of an elliptic curve $E$ can be reducible is if there is a $G_{\mathbb{Q}}$-fixed cyclic subgroup $C_p\subseteq E(\overline{\mathbb{Q}})$. This would make such a subgroup rational. Recall that the curve $X_0(n)$ is the moduli space of isomorphism classes of pairs $(E,C_n)$ where $E$ is an elliptic curve and $C_n$ is a cyclic subgroup. Rational points on $X_0(n)$ correspond to rational elliptic curves with rational subgroups. In our case, if $E$ has reducible mod 3 and mod 5 representations, then we get a rational cyclic subgroup $C_{15}$ of $E$. So the $\mathbb{C}$ isomorphism classes of every rational elliptic curve that is reducible mod 3 and mod 5 correspond to points on $X_0(15)(\mathbb{Q})$. This rational modular curve has 8 points, four of which are singular point and don't come into consideration. Since we can compute things easily on modular curves, we can explicitly find a description of an elliptic curve corresponding to the remaining four points. From these we can explicitly find that none of these elliptic curves are semistable. Hence any semistable elliptic curve with reducible mod 3 representation must have a reducible mod 5 representation.
+    </p>
+    <p>
+      What we did was use modular curves to classify all elliptic curves of interest, use the fact that we can compute on modular curves to reduce this question of irreducibility to one of computation. All that is left is to show that if we have an irreducible mod 5 representation and reducible mod 3 representation, then $\overline{\rho}_{E,5}$ is modular.
+    </p>
+    <p>
+      This will again involve modular curve magic. 
 
   </div>
 
