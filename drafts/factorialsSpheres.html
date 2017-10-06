@@ -12,7 +12,7 @@
 
 
 
-<title>Factorials and Volumes of Sphere</title>
+<title>A Geometric Interpretation of Factorials</title>
 </head>
 <body>
   <div class="title">
@@ -20,9 +20,76 @@
   </div>
   <hr id="titlebreak">
   
-  <h2 id = "titleheading">Factorials and Volumes of Spheres</h2>
+  <h2 id = "titleheading">A Geometric Interpretation of Factorials</h2>
   <div class="post-content">
   <div class="post-date">11/21/2016</div>
+    <p>
+      The main definition for factorials comes from counting permutations of object. $n!$ is defined to be the number of ways to order $n$ different things. From this, you can quickly get the formula $n!=1\cdot 2\cdots\cdots\cdots n$, which can also be taken as a definition for $n\geq 1$. Also closely related is the recursive definition of $0!:=1$ and $(n+1)!=(n+1)\cdot n!$. These are the most familiar and elementary ways to look at factorials, and these definitions are generally responsible for their prominence all over math. But one thing these definitions don't do is provide a clear way to generalize the factorial to non-integer values. The can provide ways to check if a function generalizes the factorial, but offer no starting point. We'll look at a geometric definition for the factorial that can do this.
+    </p>
+    <h3>Simplexes</h3>
+    <p>
+      To start off, we want to investigate the geometry of basic simplexes. An $n$-dimensional simplex is, essentially, the simplest $n$ dimensional object that you can create. A 0-simplex is a point. A 1-simplex is a line. A 2-simplex is a triangle. A 3-simplex is a tetrahedron. An $n$-simplex is the triangle-like object you can make by arranging $n+1$ objects in $n$ dimensional space. While these are generally very important, we will be interested in the simplexes given by the points
+      $$
+      \begin{eqnarray*}
+      (0,0,0,...,0)&&\\
+      (R,0,0,...,0)&&\\
+      (0,R,0,...,0)&&\\
+      \vdots &&\\
+      (0,0,...,R,0) &&\\
+      (0,0,...,0,R) &&\\
+      \end{eqnarray*}
+      $$
+      So the line is given by $(0)$ and $(R)$. The triangle is given by $(0,0)$, $(R,0)$ and $(0,R)$. Etc. These are basic object in $n$-dimensions, and we want to figure out their volume. Let's denote the volume of these object by $v_n(R)$, the volume of the $n$-dimensional simplex constructed using $R$ as above.
+    </p>
+    <p>
+      The volume can be easily computed via integration. The key thing to see is that we can create an $n$-dimensional simplex from slices of $n-1$ dimensional simplexes. A triangle can be made from slices of parallel lines. A tetrahedron sliced parallel to one of its faces gives triangles. Etc. Using this we get the relationship:
+      $$
+      v_n(R) = \frac{v_{n-1}(R)}{n}R
+      $$
+      Or, letting $v_n$ denote $v_n(1)$, we have that $v_n = \frac{v_{n-1}}{n}$. This gives us a nice recursive relationship, and using this we find $v_n = \frac{v_0}{n!}$. But since $v_0$ is defined to be one, we have $v_n=\frac{1}{n!}$. We can then use the volume of these objects as a definition for a factorial. That is, we define
+      $$
+      n! := \frac{1}{v_n}
+      $$
+      So now the factorial is defined to be the reciprocal of the volume of the basic $n$-simplex. This is going to be our starting point. 
+    </p>
+    <h4>A Few Notes</h4>
+    <p>
+    We're going to adjust things a little bit so that they generalize a bit easier. Firstly, the $n$-simplex described above is actually the set of all points satisfying
+    $$
+    \begin{eqnarray*}
+    x_1+x_2+\cdots + x_n &\leq & R\\
+    x_1,...,x_n &\geq& 0
+    \end{eqnarray*}
+    $$
+    The first change is that we're going to make this equation description easier by considering the set of points
+    $$
+    |x_1|+|x_2|+\cdots + |x_n| \leq R
+    $$
+    This allows for negative coordinates, but functions by creating one of these objects in each of the corners of the coordinate axis. This pastes the triangle into a square, and the tetrahedron into an octahedron. So we can think of these new objects as "$n$-dimensional octahedrons". The number of additional copies is equal to the number of sections in the $n$-dimensional coordinate grid, which is $2^n$. So let $V_n$ be the volume of this new object, we then get $V_n=2^n/n!$, or
+    $$
+    n! = \frac{2^n}{V_n}
+    $$
+    which will be our working definition of the factorial.
+    </p>
+    <h3> $L_p$-Spheres </h3>
+    <p>
+      How to generalize this? It turn out that the $n$-dimensional octohedrons can be thought of as certain spheres in $n$ dimensions. Particularly an $L_1$-sphere. For any $p\geq 1$ we say that the $L_p$-sphere of radius $R$ is the set of points
+      $$
+      |x_1|^p +|x_2|^p+\cdots + |x_n|^p \leq R^p
+      $$
+    This is a filled in sphere. The ordinary sphere is the $L_2$-sphere. Maybe there is a way to do what we did above with the $L_1$-sphere to get an $L_p$-sphere interpretation for the factorial for any positive integer $p$. Let $V_{n,p}$ be the volume of the $n$-dimensional $L_p$-sphere of radius 1. Playing with integrals in a similar manner, we can get the recursive relationship
+      $$
+      V_{n,p} = \frac{p}{n}V_{n-p,p}V_{p,p}
+      $$
+      This is particularly interesting when $n=kp$, that is, when $n$ is a multiple of $p$. In this case, the equation becomes
+      $$
+      V_{kp,p} = \frac{V_{(k-1)p,p}V_{p,p}}{k}
+      $$
+    
+    
+    
+    
+    
     <p>
       Why is $\pi$ so related to factorials? For example, why do we have $\left(\frac{1}{2}\right)! = \frac{\sqrt{\pi}}{2}$?
     Factorials come up when counting permutations and they're what you get when you multiply the first few positive integers together. Pi is geometric and related to circles. What is the connection?
