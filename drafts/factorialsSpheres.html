@@ -77,83 +77,24 @@
       $$
       |x_1|^p +|x_2|^p+\cdots + |x_n|^p \leq R^p
       $$
-    This is a filled in sphere. The ordinary sphere is the $L_2$-sphere. Maybe there is a way to do what we did above with the $L_1$-sphere to get an $L_p$-sphere interpretation for the factorial for any positive integer $p$. Let $V_{n,p}$ be the volume of the $n$-dimensional $L_p$-sphere of radius 1. Playing with integrals in a similar manner, we can get the recursive relationship
+    This is a filled in sphere. The ordinary sphere is the $L_2$-sphere. Maybe there is a way to do what we did above with the $L_1$-sphere to get an $L_p$-sphere interpretation for the factorial for any positive integer $p$. Let $V_{n,p}$ be the volume of the $n$-dimensional $L_p$-sphere of radius 1. Set $\pi_p=V_{p,p}$. Playing with integrals in a similar manner, we can get the recursive relationship
       $$
-      V_{n,p} = \frac{p}{n}V_{n-p,p}V_{p,p}
+      V_{n,p} = \frac{\pi_p\cdot p}{n}V_{n-p,p}
       $$
-      This is particularly interesting when $n=kp$, that is, when $n$ is a multiple of $p$. In this case, the equation becomes
+      This is particularly interesting when $n=kp$, that is, when $n$ is a multiple of $p$. In this case, the equation becomes $V_{kp,p} = V_{(k-1)p,p}\frac{\pi_{p}}{k}$. We can iterate this down through $k$, keeping in mind that $V_{0,p}$ is defined to be one, to get $V_{kp,p} = \frac{\pi_p^k}{k!}$. Rearranging gives us an $L_p$-interpretation of the factorial
       $$
-      V_{kp,p} = \frac{V_{(k-1)p,p}V_{p,p}}{k}
+      k! = \frac{\pi_p^k}{V_{kp,p}}$
       $$
-    
-    
-    
-    
-    
-    <p>
-      Why is $\pi$ so related to factorials? For example, why do we have $\left(\frac{1}{2}\right)! = \frac{\sqrt{\pi}}{2}$?
-    Factorials come up when counting permutations and they're what you get when you multiply the first few positive integers together. Pi is geometric and related to circles. What is the connection?
-    </p>
-    <p>
-      To motivate, let us make a geometric connection that will give an alternative formula for the factorial. To make this connection, we will want to consider "$n$-Dimensional Simplexes". With $n=2$ on the plane, this is just the triangle obtained from the axis by connecting the diagonal line $(1,0)$ to $(0,1)$. In 3 dimensions this is the 3D-object obtained by connecting the three points $(1,0,0)$, $(0,1,0)$ and $(0,0,1)$, along with the x,y and z planes. ????
-    
-    
-    
-    
-  <p>
-  The traditional 3-dimensional unit ball is the set of points $(x,y,z)$ that satisfy
-  $$
-  x^2+y^2+z^2\leq 1
-  $$
-  This can be easily generalized to higher dimensions by adding more components. The traditional $n$-dimensional unit ball is the set of points $(x_1,...,x_n)$ that satisfy
-  $$
-  x_1^2+x_2^2+\cdots+x_n^2 \leq 1
-  $$
-  But these objects can be generalized in another way. This uses the traditional notion of Euclidean distance as determined by the Pythagorean Theorem. But if $p\geq 1$ is any positive integer, then we can create the $L_p$-unit ball in $n$ dimensions as the set of points $(x_1,...,x_n)$ satisfying
-  $$
-  |x_1|^p+|x_2|^p+\cdots +|x_n|^p =1
-  $$
-    Let $B_{n,p}$ denote such an object, and let $V_{n,p}$ be its volume. In the case $p=1$, the object is an $n$-dimensional version of an octahedron. But the volume of the $B_{n,1}$ is closely related to factorials. In particular, we have the formula
-    $$
-    V_{n,1} = \frac{2^n}{n!}
-    $$
-    What this does is allow us to find an alternative definition for the factorial, based on volume of the $L_1$-ball. There are many different formulas for the factorial, the number of permutations, the product of the first consecutive integers, or through a multiplicative recursion formula, and we can add to this list the factorial determined by these volumes:
-    $$
-    n! := \frac{2^n}{V_{n,1}}
-    $$
-    You can compute everything on the right-hand side independent of knowing what a factorial is, so this works as a definition of the factorial. The interesting thing what happens when we consider larger $p$.
-    </p>
-    <h3>Volumes of $L_p$ unit balls</h3>
-    <p>
-    We say that $V_{0,p}=1$ for all $p$ and set $\pi_p = V_{p,p}$. For a given $p$, we can relate $V_{n,p}$ to $V_{n-p,p}$ fairly directly through the formula
-    $$
-    V_{n,p}=V_{n-p,p}\frac{p\pi_p}{n}
-    $$
-    This follows from a change of variables in an integral, and the fact that we subtract out $p$ from $n$ is vital for this working out. When $n=kp$ is a multiple of $p$, this formula becomes
-    $$
-    V_{kp,p} = V_{(k-1)p,p} \frac{\pi_p}{k}
-    $$
-    This, along with $V_{0,p}=1$, is a recursion formula that allows us to compute
-    $$
-    V_{kp,p} = \frac{\pi_p^k}{k!}
-    $$
-    which is totally analogous to the $p=1$ case (since $\pi_1=2$). This, then, gives yet another working definition for the factorial:
-    $$
-    k! = \frac{\pi_p^k}{V_{kp,p}}
-    $$
-    But the very interesting thing about this formula is that the right side of this formula is valid for any $k$ so that $kp$ is an integer. That is, we can plug in $k=n/p$ for any integer $n$ and still have a computable and defined value on the right. This then gives us a way to define the factorial of any positive rational number:
-    $$
-    \left(\frac{n}{p}\right) ! = \frac{\pi_p^{n/p}}{V_{n,p}}
-    $$
-    It takes work to show that the value does not depend on our choice of denominator, but it is valid. This, then, is a formula for any rational factorial. As an example, $V_{1,p}=2$ for any $p$ and so
-    $$
-    \left(\frac{1}{p}\right) ! = \frac{\sqrt[p]{\pi_p}}{2}
-    $$
-    Which, of course, completely generalizes $(1/2)!=\sqrt{\pi}/2$. We can, further, define the Gamma Function on all positive real values by
-    $$
-    \Gamma(r) := \lim_{a/b\rightarrow r} \frac{\pi_b^{a/b}}{V_{a,b}}
-    $$
-    While this may be a super inconvenient formula for the Gamma Function, it is still interesting to see it done using volumes of generalized unit balls.
+      This is consistent with what we did above as $\pi_1=2$. But the interesting thing about this is that everything on the right hand side of this will work if we replace $k$ with $n/p$:
+      $$
+      \left(\frac{n}{p}\right)! = \frac{\pi_p^{n/p}}{V_{n,p}}
+      $$
+      but the computations on the right will work even when $n$ is not a multiple of $p$. This gives us a way to compute a generalized factorial for any rational number. Technically, this depends on how you choose to represent a rational number. Choosing $1/3$ or $2/6$ give different computations on the right hand side. It is through the act of proving that these kinds of choices don't matter that we find the Gamma function naturally arise. But, with the proof that these actually don't matter, and are continuous, that we can get a geometric definition for any nonnegative real factorial as
+      $$
+      r! := \lim_{n/p\rightarrow r} \frac{\pi_p^{n/p}}{V_{n,p}}
+      $$
+      When computing and working with the involved integrals, the formula that we will get is the integral for the Gamma function, linking it back into all of this.
+    </p> 
     
     
     
