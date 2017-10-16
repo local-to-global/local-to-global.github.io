@@ -1,0 +1,62 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Stable Distributions and the Central Limit Theorem</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading"><a href="index.html" class="title-link">Local-to-Global</a></h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Stable Distributions and the Central Limit Theorem</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  <p>
+  The Central Limit Theorem intuitively tells us that our notion of "average" (the arithmetic mean) is a good one. Regardless of what kind of distribution that we're sampling from, the Central Limit Theorem says that with high enough sample size, the arithmetic mean of our sample will actually approximate the true mean of the distribution. At a slightly higher level though, it says that the distribution of sample means from samples of size $N$ is approximately equal to the Normal Distribution whose mean is equal to the mean of the population distribution, and standard deviation proportional to $1/\sqrt{N}$ depending on the standard deviation of the population. This gives the normal distribution a special place, making it more "important" than other distributions. What about the normal distribution makes it important and how does this fit into the context of the Central Limit Theorem?
+  </p>
+<h3>Stable Distributions</h3>
+<p>
+If $X$ is a real random variable, then it has some distribution function $f_X(x)$. This is the derivative of the probability function $P(X\leq x)$. There are arithmetic operations that we often do to random variables and it is good to see how these affect the distribution function. If $c$ is nonzero and $d$ is some real value, then we can create the random variable $cX+d$. The distribution of this is given by
+$$
+f_{cX+d}(x) = \frac{1}{c}f_X\left(\frac{x-d}{c}\right)
+$$
+It's just a scale and horizontal shift of the original distribution, so they essentially have the same distribution.
+But, often, we  also take two random variables, $X$ and $Y$ and combine them to get a new random variable $aX+bY$, where $a$ and $b$ are two real values. This new distribution has its own distribution function, and can be computed as the convolution of the two original probability functions:
+$$
+f_{aX+bY}(x) = (f_{aX} * f_{bY})(x)
+$$
+The thing that we want to investigate is combinations of random variables with themselves. The arithmetic mean is an example of this. That is, if $X_1$ and $X_2$ independent random variables and are identically distributed to $X$, then we want to consider random variables of the form $aX_1+bX_2$. A distribution is called Stable if for any $a,b$ we have that there are some $c,d$ so that
+$$
+f_{aX_1+bX_2}(x) = f_{cX+d}(x)
+$$
+This means that $X$ does not change distributions under linear combination.
+</p>
+<p>
+As an example of a Stable Distribution, let $Y_1, Y_2,...$ be infinitely many independent, identically distributed random variables and consider $X=\lim_{n\rightarrow \infty}\frac{Y_1+Y_2+\cdots + Y_n}{n}$. Then $X$ will be a stable distribution whenever $Y$ is a random variable that lets this sum converge. To see this, note that if $X_1$ and $X_2$ are two copies of this random variable, then we have
+$$
+\begin{eqnarray*}
+X_1+X_2 &=& \lim_{n\rightarrow\infty} \frac{Y_{11}+Y_{12}+\cdots + Y_{1n}}{n} + \lim_{m\rightarrow\infty} \frac{Y_{21}+Y_{22}+\cdots + Y_{2m}}{m}\\
+&=& 
+$$
+    
+
+
+
+  </div>
+
+
+
+</body>
+</html>
