@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 body{
-  background-color: #629DAA;
+  background-color: #EEEDEA;
   font-size: large;
-  color: #EAEAEA;
+  color: #434544;
 }
 
 
@@ -23,7 +23,7 @@ hr{
     margin: auto;
     width: 65%;
     padding: 10px;
-    background-color: #629DAA;
+    background-color: #EEEDEA;
 }
 
 img {
@@ -38,17 +38,17 @@ img {
 }
 
 h3{
-  color: #EAEAEA;
+  color: #434544;
   text-decoration: underline;
 }
 
 h4 {
-  color: #EAEAEA;
+  color: #434544;
 }
 
 
 .post{
-    background-color: #629DAA;
+    background-color: #EEEDEA;
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: auto;
@@ -58,7 +58,7 @@ h4 {
 }
 
 .def{
-    background-color: #629DAA;
+    background-color: #EEEDEA;
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: auto;
@@ -68,7 +68,7 @@ h4 {
 }
 
 .thm{
-    background-color: #629DAA;
+    background-color: #EEEDEA;
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: auto;
@@ -78,7 +78,7 @@ h4 {
 }
 
 .post-content{
-    background-color: #629DAA;
+    background-color: #EEEDEA;
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: auto;
@@ -101,8 +101,7 @@ h4 {
   font-size: x-small;
 }
 
-.title-link{
-    color: #EAEAEA;
+.title-link#434544;
     text-decoration: none;
 }
 
