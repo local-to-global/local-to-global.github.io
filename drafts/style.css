@@ -2,12 +2,18 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 body{
-  background-color: white;
-  font-size: 16px;
+  background-color: #EEEDEA;
+  font-size: large;
+  color: #434544;
 }
 
-h1{
+a{
+ color: #434544;
+  
+}
 
+a:visited{
+  color: #747675;
 }
 
 hr{
@@ -25,7 +31,7 @@ hr{
     margin: auto;
     width: 65%;
     padding: 10px;
-    background-color: white;
+    background-color: #EEEDEA;
 }
 
 img {
@@ -40,39 +46,37 @@ img {
 }
 
 h3{
-  color: #006699;
+  color: #434544;
   text-decoration: underline;
 }
 
 h4 {
-  color: #006699;
+  color: #434544;
 }
 
 
 .post{
-    background-color: white;
+    background-color: #EEEDEA;
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-    border: 3px solid green;
+    width: 65%;
     padding: 10px;
 }
 
 .def{
-    background-color: white;
+    background-color: #EEEDEA;
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: auto;
     margin-right: auto;
     width: 85%;
-    border: 3px solid green;
     padding: 10px;
 }
 
 .thm{
-    background-color: white;
+    background-color: #EEEDEA;
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: auto;
@@ -82,7 +86,7 @@ h4 {
 }
 
 .post-content{
-    background-color: white;
+    background-color: #EEEDEA;
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: auto;
@@ -103,4 +107,8 @@ h4 {
 .post-date{
   font-family: "Open Sans";
   font-size: x-small;
+}
+
+.title-link#434544;
+    text-decoration: none;
 }
