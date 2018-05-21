@@ -1,0 +1,94 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>The General Quadratic Formula</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading"><a href="index.html" class="title-link">Local-to-Global</a></h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">The General Quadratic Formula</h2>
+  <div class="post-content">
+  <div class="post-date">5/21/2018</div>
+<p>    We all know the quadratic formula. If $k$ is a field of characteristic other than two and $ax^2+bx+c\in k[x]$ is a quadratic polynomial, then the roots in an algebraic closure of $k$ are of the form
+    $$
+    x = \frac{-b\pm \sqrt{b^2-4ac}{2a}
+    $$
+This is a great formula. But what about when $\char(k)=2$? What do the solutions look like? In this case, we'll see, that the solutions split from the pure roots, ie roots to equations like $x^2-a=0$, and other non-pure roots. This manifests in field theory as a distinction between inseparable extensions and Artin-Schreier extensions. In this way, Artin-Schreier extensions act like separable radical extensions of degree equal to the characteristic. With these concepts we'll be able to completely solve a quadratic equation regardless of the characteristic.
+</p>
+<h3>Pure Radical Extensions</h3>
+We first should look a little more closely at what $n$th roots are when $n$ is prime to the characteristic of the field. The reason for this is to find properties of roots that make sense in contexts where an familiar radical doesn't.
+
+An $n$th root of $a\in k$ is an element in an algebraic closure $r\in \overline{k}$ that is a root to the equation $x^n-a=0$. We usually fix a root, call it $r=\sqrt[n]{a}$, and then all the roots are $x=\zeta_n^r\sqrt[n]{a}$ for $r=0,...,n-1$ and $\zeta_n$ is some primitive $n$th root of unity. If $a,b\in k$, then we can choose the roots appropriately so that $\sqrt[n]{ab}=\sqrt[n]{a}\sqrt[n]{b}$. If we assume that $\zeta_n\in k$, then the extension $k(\sqrt[n]{a})/k$ is cyclic of degree dividing $n$. In fact, any cyclic extension of $\ell/k$ of degree dividing $n$ is of this form. 
+
+This all means that we can loosely think of an $n$th root as some arithmetically "nice" generator of cyclic extensions. We will be talking about these things in the context of inseparable extensions, which are not Galois, in which case we can replace the notion of "cyclic" with "prime degree", since any Galois extension of prime degree is cyclic.
+
+<h3>Artin-Schreier Extensions</h3>
+<p>
+Let $k$ be a field of characteristic $p>0$. We know how to get cyclic extensions of degree $n$ coprime to $p$, but what about cyclic extensions of $k$ of degree $p$? That is, what are the extensions $\ell/k$ that are separable, cyclic and of degree $p$, and what are their generators?
+</p>
+
+<p>
+This question is answered by the Artin-Schreier Theorem. It says that every such extension is given by the splitting field of a polnomial of the form $x^p-x+a=0$, irreducible in $k$. I claim that the roots to these kinds of equations should be viewed as "Separable $p$th roots in characteristic $p$". The Artin-Schreier Theorem already says that they generate the correct kinds of field extensions, but we want to show that they are arithmetically significant and similar to traditional roots. 
+</p>
+<p>
+Let $\log\sqrt[p]{a}$ denote some fixed root to $x^p-x+a=0$. Consider $r=n+\log\sqrt[p]{a}$ for some integer $n$ (viewed as an element of $k$). Then we have
+$$
+\begin{eqnarray*}
+r^p-r+a &=& (n+\log\sqrt[p]{a})^p-n-\log\sqrt[p]{a} +a\\
+&=& n^p-n +(\log\sqrt[p]{a})^p-\log\sqrt[p]+a\\
+&=& 0
+\end{eqnarray*}
+$$
+by Fermat's Little Theorem. This means taht the roots to $x^p-x+a=0$ are $x=n+\log\sqrt[p]{a}$ for $n=0,...,p-1$. This is an additive form of the traditional roots. Moreover, with this theme, we can show that, with appropriate choices of roots, that 
+$$
+\log\sqrt[p]{a+b} = \log\sqrt[p]{a} + \log\sqrt[p]{b}
+$$
+This demonstrates the arithmetic analog and significance of these roots. What this means is that separable cyclic extensions of $k$ are given by a combination of ordinary roots and these Artin-Schreier roots.
+<h3>Inseparable Extensions</h3>
+<p>
+Now we must consider the inseparable case. There will not be a Galois action, so we need to consider the prime extentions.
+Let $k$ be a field of characteristic $p>0$. If $\ell/k$ is any field extension, then it can be broken up as $\ell/\ell^{sep}/k$, so that $\ell/\ell^{sep}$ is separable and $\ell^{sep}/k$ is purely inseparable. Purely inseparable extensions can be built by a sequence of prime extensions of the form $k(r)/k$ where $r$ is a root to an irreducible equation $x^p-a=0$. For such an equation there is exactly one root in any algebraic closure, call it $\sqrt[[p]]{a}$. This root necessarily generates the associated extension. Moreover, we have
+$$
+\begin{eqnarray*}
+\sqrt[[p]]{a+b}&=&\sqrt[[p]]{a}+\sqrt[[p]]{b}\\
+\sqrt[[p]]{ab}&=&\sqrt[[p]]{a}\sqrt[[p]]{b}
+\end{eqnarray*}
+$$
+These should clearly be seen as the inseparable analogs of $p$th roots.
+</p>
+We then find that over $k$, any prime, cyclic extension is given by ordinary roots, Artin-Schreier roots, and inseparable roots.
+<h3>The Quadratic Formula</h3>
+If $a\ne 0$, what do the roots of $ax^2+bx+c=0$ look like over $k$? If $k$ has characteristic not equal to $2$, then the solutions are given by the ordinary quadratic formula. If $\char(k)=2$ and $b=0$, then we have
+$$
+x=\sqrt[[2]]{\frac{c}{a}}
+$$
+as the only root. So let $b\ne 0$. In this case, completing the square won't help us, since it necessarily divides by $2$, but maybe there is another change of variables that will do the same thing? Firstly, divide through by $a$ and rewrite the equation as $x^2+Bx+C=0$ with $B=b/a$ and $C=c/a$. Divide again through by $B^2$ to obtain the equation
+$$
+\left(\frac{x}{B}\right)^2 + \left(\frac{x}{B}\right) + C/B^2=0
+$$
+We can then use the change of variables $u=x/B^2$ to get the formula $u^2+u+C/B^2=0$. The roots to this are $u=\log\sqrt{C/B^2}$ and $u=1+\log\sqrt{C/B^2}$. Changing variables and re-replacing our constants, we get the solutions
+$$
+x = \frac{b}{a} \log\sqrt{\frac{ac}{b^2}},\;\;\; \frac{b}{a}\left(1+\log\sqrt{\frac{ac}{b^2}}\right)
+$$
+
+
+  </div>
+
+
+
+</body>
+</html>
