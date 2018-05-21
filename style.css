@@ -7,6 +7,14 @@ body{
   color: #434544;
 }
 
+a{
+ color: #434544;
+  
+}
+
+a:visited{
+  color: #747675;
+}
 
 hr{
   width = 75%;
