@@ -1,0 +1,84 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Limits and Approximation</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading"><a href="index.html" class="title-link">Local-to-Global</a></h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Limits and Approximation</h2>
+  <div class="post-content">
+  <div class="post-date">7/22/2018</div>
+  <p>
+  Limits are one of the most fundamental concepts in math and its applications. The play the role of linking the theoretical with the applicable. And this happens through the epsilon-delta formulation of limits. It is then advantageous for both theory and practice to have a solid understanding of how limits work at this level.
+  </p>
+<h3>Approximation</h3>
+<p>
+Approximations occur everywhere in science, math, engineering, technology, medicine, computer science, statistics, big data, etc. An approximation is made up of three key things:
+<ol>
+<li>The value to be approximated (call it $x_0$)</li>
+<li> The value appoximating it (call it $x$)</li>
+<li> The error bars of this approximation (call this $\epsilon$)</li>
+</ol>
+As an example, $3.14$ is an approximation of $\pi$ within an error of $0.01$. So $x_0=\pi$ is the value to be approximated, $x=3.14$ is the approximating value, and the error bars are given by $\epsilon=0.01$. What this tells us is that, while we may not know what $\pi$ is, we know that it is within $0.01$ from the value $3.14$.
+</p>
+<p>
+In the sciences, there is notation to say all this symbolically. For example, when LIGO detected the collision of two neutron stars, they were able to compute the mass of the system as $2.74$ solar masses. Of course, this isn't an exact value, there is some error. What they were actually able to conclude is that the total mass of the neutron star system is between $2.74-0.01$ and $2.74+0.04$ solar masses, written as $M=2.74_{-0.01}^{0.04}$. This is an approximation of $M$ using the value $2.74$ and in this case the error bars are different on the below and above the approimating value, being $0.01$ and $0.04$ respectively. But we can loosen it to simplify the situation and just say that $\epislon=0.04$, the larger of the two, in which case we have $M=2.74_{-0.04}^{0.04}$. (You can see the LIGO paper <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.119.161101">Here</a>).
+</p>
+<p>
+So, this understanding of approximation is heavily used in applications. From a math standpoint, we want to make this notion of approximation precise. We then say that $x$ <b>Approximate</b> the value $x_0$ with error $\epsilon$ if
+$$
+|x_0-x|<\epsilon
+$$
+Recall that $|a-b|$ is the distance between two real numbers, so this says that the distance from $x$ to $x_0$ is less than the error. In the case of the LIGO observation, the notation $M=2.74_{-0.04}^{0.04}$ is shorthand for saying $|M-2.74|<0.04$
+In the $\pi$ approximation, we say that $|\pi-3.14|<0.01$.
+</p>
+<h3>Limits</h3>
+<p>
+With this, hopefully intuitive, understanding of approximations, we can begin to think about limits. Limits, in a sense, make precise the notion of an "infinitely accurate approximation". This doesn't really make too much sense at face value, since the only number that approximates $x_0$ with error $\epsilon=0$ is $x_0$ itself.
+    <div class = "thm"><b>Definition:</b> 
+    </div>
+   
+    <div class="thm"><b>Theorem:</b> 
+    </div>
+    <div class="thm"><b>Proof: </b>
+
+     
+    </div>
+    <h3>Higher Order Derivatives and Taylor Polynomials</h3>
+    <div class = "thm"><b>Definition: </b> 
+    </div>
+    <div class="thm"><b>Theorem: </b>
+    </div>
+    <div class="thm"><b>Proof: </b>
+    </div>
+   <div class="thm"><b>Definition: </b> 
+    </div>
+  
+    <h3>Conclusion</h3>
+    
+    
+    
+    
+    
+    
+  </div>
+
+
+
+</body>
+</html>
