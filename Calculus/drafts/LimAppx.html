@@ -37,19 +37,44 @@ Approximations occur everywhere in science, math, engineering, technology, medic
 As an example, $3.14$ is an approximation of $\pi$ within an error of $0.01$. So $x_0=\pi$ is the value to be approximated, $x=3.14$ is the approximating value, and the error bars are given by $\epsilon=0.01$. What this tells us is that, while we may not know what $\pi$ is, we know that it is within $0.01$ from the value $3.14$.
 </p>
 <p>
-In the sciences, there is notation to say all this symbolically. For example, when LIGO detected the collision of two neutron stars, they were able to compute the mass of the system as $2.74$ solar masses. Of course, this isn't an exact value, there is some error. What they were actually able to conclude is that the total mass of the neutron star system is between $2.74-0.01$ and $2.74+0.04$ solar masses, written as $M=2.74_{-0.01}^{0.04}$. This is an approximation of $M$ using the value $2.74$ and in this case the error bars are different on the below and above the approimating value, being $0.01$ and $0.04$ respectively. But we can loosen it to simplify the situation and just say that $\epislon=0.04$, the larger of the two, in which case we have $M=2.74_{-0.04}^{0.04}$. (You can see the LIGO paper <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.119.161101">Here</a>).
+In the sciences, there is notation to say all this symbolically. For example, when LIGO detected the collision of two neutron stars, they were able to compute the mass of the system as $2.74$ solar masses. Of course, this isn't an exact value, there is some error. What they were actually able to conclude is that the total mass of the neutron star system is between $2.74-0.01$ and $2.74+0.04$ solar masses, written as $M=2.74_{-0.01}^{+0.04}$. This is an approximation of $M$ using the value $2.74$ and in this case the error bars are different on the below and above the approimating value, being $0.01$ and $0.04$ respectively. But we can loosen it to simplify the situation and just say that $\epsilon=0.04$, the larger of the two, in which case we have $M=2.74_{-0.04}^{+0.04}$. (You can see the LIGO paper <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.119.161101">Here</a>).
 </p>
 <p>
 So, this understanding of approximation is heavily used in applications. From a math standpoint, we want to make this notion of approximation precise. We then say that $x$ <b>Approximate</b> the value $x_0$ with error $\epsilon$ if
 $$
 |x_0-x|<\epsilon
 $$
-Recall that $|a-b|$ is the distance between two real numbers, so this says that the distance from $x$ to $x_0$ is less than the error. In the case of the LIGO observation, the notation $M=2.74_{-0.04}^{0.04}$ is shorthand for saying $|M-2.74|<0.04$
-In the $\pi$ approximation, we say that $|\pi-3.14|<0.01$.
+Recall that $|a-b|$ is the distance between two real numbers, so this says that the distance from $x$ to $x_0$ is less than the error. In the case of the LIGO observation, the notation $M=2.74_{-0.04}^{+0.04}$ is shorthand for saying $|M-2.74|<0.04$
+In the $\pi$ approximation, we say that $|\pi-3.14|<0.01$. Therefore this technical definition of an approximation aligns with how we use it and captures the more intuitive notions of it.
 </p>
 <h3>Limits</h3>
 <p>
-With this, hopefully intuitive, understanding of approximations, we can begin to think about limits. Limits, in a sense, make precise the notion of an "infinitely accurate approximation". This doesn't really make too much sense at face value, since the only number that approximates $x_0$ with error $\epsilon=0$ is $x_0$ itself.
+With this, hopefully intuitive, understanding of approximations, we can begin to think about limits. Limits, in a sense, make precise the notion of an "infinitely accurate approximation". This doesn't really make too much sense at face value, since the only number that approximates $x_0$ with error $\epsilon=0$ is $x_0$ itself. Instead of asking "What number best approximates the value $x_0?", since you can always do better, we ask "Can we always approximate $x_0$, regardless of how small the required error might be?"
+  </p>
+  <p>
+    This is best illustrated by example. Consider the issue of approximating $x_0=\frac{1}{3}$ using decimals. If I want to approximate this value with error $\epsilon=0.1$, then I can use $x=0.3$. But if I push the error to be smaller, then this approximations becomes insufficient. If I want to approximate with error $\epsilon=0.01$ instead, then I need a different number. In this case, I can use $x=0.33$. This pattern continues. What this means is that for any error $\epsilon$, no matter how small, we can always find a value $x$ so that $x$ approximates $x_0$ with error $\epsilon$. In fact, this is exactly what the statement $\frac{1}{3}=0.333...$ says: Given any error $\epsilon>0$, you can find a number of the form $x=0.33...3$ so that $x$ approximates $\frac{1}{3}$ within this error.
+  </p>
+  <p>
+    In this example, we have a sequence of numbers $s_1=0.3$, $s_2=0.33$, $s_3=0.333$, $s_4=0.3333$, and so on, which approximate $x_0=\frac{1}{3}$ better and better and better. If we choose $\epsilon=0.01$, then $s_n$ will approximate $\frac{1}{3}$ with error $\epsilon$ for any $n\geq 2$. If we choose $\epsilon=10^{-50}$, then $s_n$ will approximate $\frac{1}{3}$ with error $\epsilon$ for any $n\geq 50$. So while none of the $s_n$ actually equal $\frac{1}{3}$, the eventually will approximate $\frac{1}{3}$ to any given error, regardless of how small it is. We then say that the limit of these $s_n$ is $\frac{1}{3}$.
+  </p>
+  <p>
+    More precisely, let $x_0$ be a value. We say that the <b>Limit</b> of a sequence $s_n$ is $x_0$ if for any error $\epsilon>0$ there is some index $N$ so that $s_n$ approximates $x_0$ with error $\epsilon$ for any $n\geq N$. That is, if we choose $\epsilon>0$, there is some $N$ so that if $n\geq N$, then we have
+    $$
+    |x_0-s_n| < \epsilon
+    $$
+ This is what a limit is. They capture the idea of being able to approximate a value to any possible value that you might want.
+</p>
+<p>
+  A lot of formulas are actually limits in disguise. In fact, any infinite sum is a limit. As an example, let's look at Leibniz's famous formula
+  $$
+  \frac{\pi}{4} = 1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+\frac{1}{9}-\frac{1}{11}+\cdots
+  $$
+  Let's define the sequence $s_n$ by
+  $$
+  s_n=1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7} +\cdots+(-1)^{n+1}\frac{1}{2n-1}
+  $$
+  which is this sum truncted after $n$ steps. The important thing is that we actually can, given enough time, compute $s_n$, which is not true of the infinite sum. The fact that $\frac{\pi}{4}$ is equal to this infinite sum is actually the statement that the limit of the sequence $s_n$ is $\frac{\pi}{4}$. So, if you need to use $\pi$, but know that you actually can't use its full decimal expansion, then you might find that you really only need to use $\pi$ approximated to within some error $\epsilon$. Then this formula says that you just need to figure out how large to make your index $n$, and then just compute $s_n$. (Of course, in practice, this formula is pretty inefficient, but this is true for other, better, formulas for $\pi$.) 
+  
     <div class = "thm"><b>Definition:</b> 
     </div>
    
