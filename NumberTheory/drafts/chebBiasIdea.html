@@ -23,34 +23,43 @@
   <h2 id = "titleheading">Explaining Chebyshev's Bias</h2>
   <div class="post-content">
   <div class="post-date">11/21/2016</div>
-  <p>
-  The common illustration of Chebyshev's Bias is through the Prime Race. You are going along the number line and sorting primes. When you come upon a prime, you divide it by 4 and see what its remainder is. Aside from 2, the only options for the remainder after dividing a prime by four is either 1 or 3. If the remainder is 1, you sort the prime into the first bucket, if the remainder is 2 you sort it into the second bucket. If we pause this process, we can ask which bucket has more primes. Now, Dirichlet's Theorem on Primes in Arithmetic Progression tells us that, at infinity, these buckets will even out with equal proportion in both. We can then infer that half the time bucket 1 will have more primes in it and half the time bucket 3 will have more primes. But we don't see this. We find that bucket 3 will have more primes in it 99.59% of the time. This discrepancy between the expected evenness of this process and the provable sidedness of this process is called Chebyshev's bias.
-  </p>
+    <p>Chebyshev's Bias is an apparent preference amoung primes. The basic example works as follows: Go along the number line and sort the primes into one of two boxes. Sort the prime $p$ into Box A if the remainder of $p$ after dividing by $4$ is $1$. Sort the prime into Box B if the remainder of $p$ after dividing by $4$ is $3$. These are the only two options for remainders of odd primes.
+    </p>
+    <p>
+     We have an important theorem, called Dirichlet's Theorem on Primes in Arithmetic Progression, which says that the boxes will have the same "proportion" of primes in them when this process is "finished". Half of the primes will be in Box A and half of the primes will be in Box B. If we track which box has more primes in it as we go along, then, since Dirichlet's Theorem says that there's no overall preference, we should be able to conclude that Box A will have more primes in it half of the time and Box B will have more primes in it the other half of the time.
+    </p>
+    <p>
+      But we don't see this. What we find is that Box B is in the lead $99.59\%$ of the time. If we view this as a race, then Racer B is the favored runner. The race may end as a tie, but Racer B leads almost the entire race. Really, the race ends in an upset due to the preference given to Racer B. The graph below gives the (weighted) number of primes in each box up to the x-value of the graph:
+    </p>
     <img src="https://local-to-global.github.io/images/primes.png">
   <p>
-  Why do this happen? It seems like the primes favor having a remainder 3, when there shouldn't be this kind of preference! 
+  Why do this happen? This goes against our intuition because primes should behave randomly, and this result is a clear preference among primes. Particularly, there should be an arithmetic explanation of this statistical anomoly.
   </p>
   <p>
-  We can look at a more general formulation of Chebyshev's Bias. If $q$ is a number, then there are two types of remainders after dividing by $q$: Quadratic Residues and Non-residues. A remainder $r$ is a quadratic residue if there is some number $x$ so that $x^2$ divided by $q$ has remainder $r$. A non-residue is a remainder that is not a quadratic residue. So, given $q$, we have two bucets: Residues and Non-residues. For $q=4$ the residues are exactly $0$ and $1$, whereas the non-residues are $2$ and $3$. The general Chebyshev's Bias says that if we do this sorting process by dividing by $q$, then, most of the time, the non-residue bucket will have more primes in it than the residue bucket.
+  We need to get a better understanding of this situation and to do so can look at a more general formulation of Chebyshev's Bias. If $q$ is a number, then there are two types of remainders after dividing by $q$: Quadratic Residues and Non-residues. A remainder $r$ is a quadratic residue if there is some number $x$ so that $x^2$ divided by $q$ has remainder $r$. A non-residue is a remainder that is not a quadratic residue. So, given $q$, we have two buckets: Residues and Non-residues. For $q=4$ the residues are exactly $0$ and $1$, whereas the non-residues are $2$ and $3$, which correspond to Box A and Box B respectively. The general Chebyshev's Bias says that if we do this sorting process while by dividing by $q$, then, most of the time, the non-residue bucket will have more primes in it than the residue bucket. For some reason, there is a preference towards non-residues.   This gives us an arithmetic connection, as primes prefer to not be equivalent to a square after division. 
   </p>
   <p>
-  To understand why this kind of bias is present, it is good to know a little bit about some preferences that the number line has. When we do Analytic Number Theory, we're often interested in properties of the primes. But this set of numbers is often out of reach. In order to make formulas workable and accessible, we pad this set out by looking at, not just the primes, but the prime powers as well. So instead of the numbers
-  $$
+    The next thing that we can do is look towards the proof of Chebyshev's Bias to see if we can understand why primes might do this. One thing to understand about results like Chebyshev's Bias, which are part of the field of Analytic Number Theory, is that we obtain theorems by taking advantage of some nice analytic property of well-behaved functions that are constructed to encode the information we're interested in. Oftentimes, during this construction process, it is not productive to limit our focus to just the primes. The set of primes is too particular and don't interact well with our construction processes. Instead, we smooth out the primes by including prime-powers as well. So instead of the set
+    $$
   2,3,5,7,11,13,17,19,...
-  $$
+  $$    
   we look at the numbers
   $$
   2,3,4,5,7,8,9,11,13,16,17,19,...
   $$
-  This padding makes formulas a lot more tractable. In order to get results about just primes, then, requires us to show that the prime powers with exponent bigger than 1 don't contribute anything meaningful to the end result. This is usually because they higher powers of primes are much, much more rare than primes are so they don't really get in the way. This padding is used when proving Dirichlet's Theorem on Primes in Arithmetic Progression. The catch is that this theorem expects us to consider the whole number line (or, at least, asymptotics of it). The fact that we can exclude the larger powers of primes follows from the fact that we're going all the way out to infinity. But if we halt this process, then the contribution of the higher powers still kinda mattes. This is what gives us Chebyshev's Bias.
-  </p>
-  <p>
-  Explicitly, we can work through the work on Chebyshev's Bias, but not excluding prime powers. So the new sorting game is to sort <i>prime powers</i> into the residue and non-residue buckets. What we find in this case is that the buckets are generally always even. 50% of the time the residue bucket has more prime powers and 50% of the time the non-residue bucket has more powers. So this sorting process is trying to even-out the buckets along the prime powers. The issue is that if $p$ is a prime, then the remainder of $p$ after dividing by $q$ may or may not be a quadratic residue, but the remainder after dividing by the prime power $p^2$ is <i>always</i> a quadratic residue. This means that there is going to naturally be a lot of prime powers in the quadratic residue bucket by default. This means that there should, more often than not, be more primes in the non-residue bucket, as a way to even out this imbalance. This is why we see Chebyshev's bias.
-  </p>
-    <img src="https://local-to-global.github.io/images/powers.png">
-  <p>
-  So, to recap, in order to do computations we usually pad the set of primes to include prime powers as well. Usually, especially in asymptotic results, this doesn't add anything to the end result. But because this sorting process is focusing on this padded set of primes, it is trying to even it out amoung the primes powers. By the nature of quadratic residues, this creates a surplus of $p^2$s in the quadratic residue bucket, which must be counterbalanced by more primes in the non-residue bucket!
-  </p>
+    This enlarged set of numbers is much more well behaved, and this allows for the construction of the nice functions that we can the use analytic techniques to extract results from. This is usually not an issue because higher powers of primes are much more rare than primes, which means that they usually don't contribute much if anything to the end result. So if we're going for a particular result, we'll show that the corresponding result is true about prime powers and then show that the contribution of prime powers is insignificant, allowing us to make the conclusion about primes. This is how the Prime Number Theorem and Dirichlet's Theorem work. But usually it is the asymptotic nature of these results that allows us to exclude prime powers. That is, prime powers contribute <i>something</i> to results, but this contribution gets less and less the further along the number line we go, allowing us to exclude them asymptotically. But Chebyshev's Bias is looking at what is happening as we go along the number line, not what happens at the end, so prime powers are going to make a nontrivial contribution to the result.
+    </p>
+    <p>
+      How does including prime powers, then, affect our sorting process? Well, if we do include the prime powers into this sorting process, sorting $p^n$ into either Box A or Box B depending on whether or not its remainder after dividing by $q$ is a quartatic residue, then we actually prove that the preference is gone! That is, Box A will be in the lead half of the time and Box B will be in the lead the other half of the time. This means that there is no Chebyshev Bias for prime powers! This is illustrated by the graph below, where you can see a swapping of the lead very frequently:
+    </p>
+        <img src="https://local-to-global.github.io/images/powers.png">
+    <p>
+      It is this unbiasedness of the prime powers, along with arithmetic considerations, that produces Chebyshev's bias. The important hting to note is that for any prime $p$ the prime power $p^2$ will <i>always</i> get sorted into Box A. As will every $p^4$, $p^6$, etc, etc (although, powers larger than $2$ don't contribute much even to this process). Box A corresponds to remainderst that are remainders of squares, and these are all squares, so they go into Box A. This means that there are a lot of numbers going into Box A by default (thanks to arithmetic considerations). Since the situation wants to keep Boxes A and B even among prime powers, it follows that there are going to have to be a lot of primes going into Box B. 
+    </p>
+    <p>
+      So, really, Chebyshev's Bias isn't really a bias, its a process that must be done in order to balance out and preserve non-bias!
+    </p>
+
 
   </div>
 
