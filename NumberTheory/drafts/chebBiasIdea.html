@@ -26,6 +26,7 @@
   <p>
   The common illustration of Chebyshev's Bias is through the Prime Race. You are going along the number line and sorting primes. When you come upon a prime, you divide it by 4 and see what its remainder is. Aside from 2, the only options for the remainder after dividing a prime by four is either 1 or 3. If the remainder is 1, you sort the prime into the first bucket, if the remainder is 2 you sort it into the second bucket. If we pause this process, we can ask which bucket has more primes. Now, Dirichlet's Theorem on Primes in Arithmetic Progression tells us that, at infinity, these buckets will even out with equal proportion in both. We can then infer that half the time bucket 1 will have more primes in it and half the time bucket 3 will have more primes. But we don't see this. We find that bucket 3 will have more primes in it 99.59% of the time. This discrepancy between the expected evenness of this process and the provable sidedness of this process is called Chebyshev's bias.
   </p>
+    <img src="https://local-to-global.github.io/images/primes.png">
   <p>
   Why do this happen? It seems like the primes favor having a remainder 3, when there shouldn't be this kind of preference! 
   </p>
@@ -46,6 +47,7 @@
   <p>
   Explicitly, we can work through the work on Chebyshev's Bias, but not excluding prime powers. So the new sorting game is to sort <i>prime powers</i> into the residue and non-residue buckets. What we find in this case is that the buckets are generally always even. 50% of the time the residue bucket has more prime powers and 50% of the time the non-residue bucket has more powers. So this sorting process is trying to even-out the buckets along the prime powers. The issue is that if $p$ is a prime, then the remainder of $p$ after dividing by $q$ may or may not be a quadratic residue, but the remainder after dividing by the prime power $p^2$ is <i>always</i> a quadratic residue. This means that there is going to naturally be a lot of prime powers in the quadratic residue bucket by default. This means that there should, more often than not, be more primes in the non-residue bucket, as a way to even out this imbalance. This is why we see Chebyshev's bias.
   </p>
+    <img src="https://local-to-global.github.io/images/powers.png">
   <p>
   So, to recap, in order to do computations we usually pad the set of primes to include prime powers as well. Usually, especially in asymptotic results, this doesn't add anything to the end result. But because this sorting process is focusing on this padded set of primes, it is trying to even it out amoung the primes powers. By the nature of quadratic residues, this creates a surplus of $p^2$s in the quadratic residue bucket, which must be counterbalanced by more primes in the non-residue bucket!
   </p>
