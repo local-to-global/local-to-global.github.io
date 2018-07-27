@@ -1,0 +1,57 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>The Monty Hall Problem</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading"><a href="index.html" class="title-link">Local-to-Global</a></h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">The Monty Hall Problem</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2018</div>
+  <p>
+  Consider the following game:
+  </p>
+  <div class="thm">
+  You are a constestant on a gameshow. You are presented with a wall containing three doors. Behind one of the doors is a prize, and behind the other two are goats. The host asks you to choose one of the doors, which you do. The host then opens one of the doors that you did not choose and reveals a goat. The prize is then either behind the door that you chose, or it is behind the remining unopened door. The host then gives you a choice: You can either keep the door you originally chose or change your choice to the remaining open door. Which choice should you make? Does it even matter?
+  </div>
+  <p>
+  This is the Monty Hall problem, as this exact game was played on the Monty Hall Show. The correct choice to make is to switch doors. You will have a $1/3$rd chance of winning if you stay with the door that you have and a $2/3$ chance of winning if you swap. This result is unintuitive. So unintuitive that when it was first demonstrated, mathematicians did not believe it (partly because the person who proved it was a woman). Explanations for this conclusion abound, but they are generally overly complex or don't just prove it without addressing a "why" for the solution. We'll take a look at why this result is as it is and how it can make intuitive sense, by looking at it through a simple lens.
+  </p>
+  <h3>An Equivalent Game</h3>
+  <p>
+  Instead of directly addressing and analyzing the Monty Hall Game, let's look at a different game on a knock-off version of the show:
+  </p>  
+  <div class="thm">
+  You are a constestant on a gameshow. You are presented with a wall containing three doors. Behind one of the doors is a prize, and behind the other two are goats. The host asks you to choose one of the doors, which you do. The host then gives you a choice of win-conditions: You can either choose to win if the prize is behind the door that you chose OR you can choose to win if the prize is behind any door that you did not choose. Which choice should you make? Does it even matter?
+  </div>
+  <p>
+  Hopefully the solution to this problem is obvious: Choose to win if the prize is behind a door you did not choose. There are two possible places for the prize to be in this case, so you'll win two out of three times. The key insight is that this game is equivalent to the original Monty Hall Game!
+  </p>
+  <p>
+  To see this, we need to understand that opening a losing door does not actually provide any new information. After selecting a door, you know that one of the remaining doors will have the prize and the other will not. When the door is opened, you still know this, with the unimportant detail of which door is which. Imagine that you jumped the gun when playing the game. You chose a door and before Monty could open one of the remaining doors, you went ahead and decided to switch your door. Monty would then open the losing door and attach your choice to the remaining door. But by making that choice early, you've decided to make your win condition be that you'll win if the prize is behind either of the doors that you did not choose. The order of these things does not matter, so these two games are equivalent. The structure of the original game then functions to obfuscate the nature of this choice.
+  </p>
+  <p>
+  So that is the "Why" for the particular probabilities involved. The Monty Hall Game is equivalent to the Knock-off Monty Hall Game. Furthermorer, this explanation can be worked into a precise proof for those that want more details. 
+  </p>
+
+  </div>
+
+
+
+</body>
+</html>
