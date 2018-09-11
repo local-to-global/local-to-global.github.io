@@ -1,0 +1,100 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Solving Polynomials</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading"><a href="index.html" class="title-link">Local-to-Global</a></h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Solving Polynomials</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+    <p> There are three subtle things about solving polynomials that are glossed over in a typical course that I wish to discuss here. 
+    <ol>
+    <li> What happens in a non-optimal characteristic? What do radical solutions look like when when the characteristic divides the degree of the splitting field? How do we deal with inseparability?</li>
+    <li> The statement that a polynomial is solvable with radicals if and only if the Galois extension is solvable has a few caveats, like there being enough roots of unity in the base field and the characteristic not dividing the degree of the extension. What happens when we dig a bit deeper into these conditions?</li>
+    <li> Why can we transfer Galois information from the splitting field of a polynomial with arbitrary coefficients to the splitting field of a polynomial obtained from plugging in values, and what does this information transfer actually look like?
+    </li>
+    </ol>
+    Each of these things has a lot of details associated with them, and whenever I sit to write out everything in the style of a typical summary paper, there's too many details and it ends up being a drag. Moreover, each of these thing is intertwind with each other, and so it is hard to choose a narratively pleasant starting point. With this post I want to provide enough detail to be intuitive and convincing, while having it be expositorialy pleasant. 
+    </p>
+    <h3>Potentially Inseparable Characteristic</h3>
+    <p>
+    The main investigation here is to figure out what a $p$th power radical means when we are in characteristic $p$. We'll do this by looking at two different characterizations of radicals in good characteristic. In, say, characteristic $0$, the $n$ radical of an element $a$ is an element that is a solution to the equation $x^n-a=0$. We usually fix one and denote it by $\sqrt[n]{a}$. If the base field has enough roots of unity, then we can write the other solutions to this equation as $\zeta\sqrt[n]{a}$ for an appropriate root of unity. This gives us our first classification of radicals:
+    <ul>
+    <li>A radical is a choice of root to an equation of the form $x^n-a=0$</li>
+    </ul>
+    It's not important now, but we will exclude the case when $a=1$, that is roots of unity, from being pure radicals. This will be discussed later.  This is one characterization but we also have a Galois characterization. If the ground field $K$ has enough roots of unity then an $n$th degree radical of $a$, call it $b$, will generate a cyclic extension $K(b)/K$ of degree dividing $b$ that, additionally, provides with a natural arithmetic description of the Galois group. For instance, $sqrt{2}$ is a radical over $\mathbb{Q}$ because the extension $\mathbb{Q}(\sqrt{2})/\mathbb{Q}$ is cyclic and, moreover, it gives a natural map $G(\mathbb{Q}(\sqrt{2})/\mathbb{Q})\too \mathbb{Q}^{\times}$ given by
+    $$
+    \sigma \mapsto \frac{\sigma(\sqrt{2})}{\sqrt{2}}
+    $$
+    In this way, even though $1+\sqrt{2}$ also generates the extension $\mathbb{Q}(\sqrt{2})/\mathbb{Q}$, there is no analogous map, so it is not a radical. This latter idea of an arithmetic description of the Galois group can probably benefit from a more technical description, but we're just looking at motivation for now. But this gives a second classification of radicals:
+    <ul>
+    <li>In a ground field with enough roots of unity, a radical is a generator of a cyclic extension that "naturally" provdes an arithmetic description of the Galois group.</li>
+    </ul>
+    In non-controversial characteristic, these two notions are the same. But, as we'll see, in positive characteristic these ideas can separate. We'll do this by seeing what objects actually can satisfy these conditions. First things first, if we're in characteristic $p$, then there are no $p$th roots of unity so they are not something we have to worry about or get to use. Every field of characteristic $p$ has all the $p$th roots of unity you could ask for.
+    </p>
+    <p>
+    If $K$ is a field of characteristic $p$ and $a\in K$, then we can create the equation $x^p-a=0$. If $b$ is a root to this equation, then since we're in characteristic $p$ we can actually write $x^p-a=(x-b)^p$ and so $b$ is the only root. It then seems natural to just say that $b$ is the $p$th radical of $a$. The only issue is that (if $b\ne K$) the extension $K(b)/K$ is totally inseparable and so has no Galois group or Galois information. So while $b$ is equationally similar to the first kind of root, there is this extra inseparable baggage. But we'll take it, and we'll call it the Inseparable Root of $a$ and denote it by $a^{1/p}$. It is unique, so there is no room for ambiguity. Note that we actually have the nice pair of equations
+    $$
+    \begin{eqnarray*}
+    (a+c)^{1/p} &=& a^{1/p}+c^{1/p}\\
+    (ac)^{1/p} &=& a^{1/p}c^{1/p}
+    \end{eqnarray*}
+    $$
+    which is a type of freshman's dream.
+    </p>
+    <p>
+    What about the other kind of radical? One that generates a cyclic (and therefore separable) extension and offers an arithmetic description of the Galois group? To get these kinds of roots we look to the equation $x^p-x-a=0$. This is the Artin-Schreier equation and we'll can its roots "Artin-Schreier Radicals". This name is appropriate because its roots are, in fact, radicals of the second type. A well-known theorem of Artin and Schreier tells us that each such root generates a cyclic extension of degree $p$ and, in fact, all such cyclic extensions are given by such a root. Moreover, if $b$ is a root to this equation, then all of the other roots are
+    $$
+    b, b+1, b+2,...,b+(p-1)
+    $$
+    And so the map $G\too K^+$ given by
+    $$
+    \sigma\mapsto \sigma(b)-b
+    $$
+    provides an aritmetic description of the Galois group. Moreover, note how the original case was a multiplictive cocycle and this one is an additive cocycle. Therefore roots to Artin-Schreier equations should be considered radicals. An Artin-Schreier Radical is then a choice of such a root, and we'll denote it by $\sqrt[\overline{p}]{a}$. 
+    </p>
+    <p>
+    Now, there is an interesting relationship between Inseparable Roots and Artin-Scheier Roots. Particularly, we can think of Artin-Schreier Roots as deformed Inseparable roots. To see this, note the equation
+    $$
+    x^p-e^{p-1}x-a=0
+    $$
+    If $e$ were zero, we'd get the inseparable equation $x^p-a=0$. So assume that it is not zero. We can multiply through by $1/e^{p}$ to get
+    $$
+    (x/e)^p-(x/e)-a/e^p=0
+    $$
+    This is an Artin-Schreier equation in the variable $x/e$ and so the roots are (for $n=0,1,2,...,p-1$)
+    $$
+    x= en+e\sqrt[\overline{p}]{a/e^p}
+    $$
+    There are a few things in this expression. Firstly, the roots are distinguished by the different $n$ and if $e=0$, then this this extra term goes away and there is no way to distinguish between the roots, which is consistent with our understanding of the inseparable equation. Next, our gut wants to say that $e\sqrt[\overline{p}]{a/e^p} = \sqrt[\overline{p}]{a}$, ie factor our the $e^p$ and cancel. The fact, then, that inseparable roots are not zero can be seen as this kind of thing being allowed to happen "at zero", hence this term with the radical doesn't disappear when we put $e=0$. In this way, we can intuitively think of 
+    $$
+    \lim_{e\rightarrow 0}e\sqrt[\overline{p}]{a/e^p} = a^{1/p}
+    $$
+    which sits well with our intuition even if the above doesn't exactly make sense formally. In this way, Artin-Schreier Radicals are what you get when you deform away the inseparability in the traditional equation.
+    </p>
+
+
+    
+    
+  </div>
+
+
+
+</body>
+</html>
