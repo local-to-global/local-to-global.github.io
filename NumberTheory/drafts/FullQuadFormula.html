@@ -20,10 +20,10 @@
   </div>
   <hr id="titlebreak">
   
-  <h2 id = "titleheading">Chebyshev's Bias</h2>
+  <h2 id = "titleheading">The Complete Quadratic Formula</h2>
   <div class="post-content">
   <div class="post-date">7/27/2018</div>
-    <p><i>The usual quadratic formula is incomplete! There are certain cases of quadratics that it does not provide solutions for. We will look at these different cases and figure out what the full quadratic formula should be.</i></p>
+    <p><i>The usual quadratic formula is incomplete. There are certain cases of quadratics that it does not provide solutions for. We will look at these different cases and figure out what the full quadratic formula should be.</i></p>
     <hr>
     <p>
     To find the solution to an arbitrary quadratic equation, $ax^2+bx+c=0$, where $a\ne 0$, we can use the Quadratic Formula which says that the solutions are
@@ -62,7 +62,31 @@ $$
 $$
 We then get that $(x+s)(x+\sigma(s)) = x^2 + x + a$, where $a=s\sigma(s) = s(s+1)\in K$ as claimed.
 </div>
-<p>This theorem gives us a roadmap to constructing a square root. Before we can do this, we need some notation first. For $a\in K$ let $\sqrt[A]{a}$ denote a choice of root of $x^2+x+a=0$, and call it an Artin-Schreier Radical. 
+<p>This theorem gives us a roadmap to constructing a square root. Before we can do this, we need some notation first. For $a\in K$ let $\sqrt[A]{a}$ denote a choice of root of $x^2+x+a=0$, and call it an Artin-Schreier Radical. Let $\sqrt[A]{a}$ generate the degree two cyclic extention $L/K$ and note that the map
+  $$
+  \sigma\mapsto \sigma(\sqrt[A]{a})-\sqrt[A]{a}
+  $$
+  from $G(L/K)$ into $K$ satisfies the cocycle condition. Now, this is an additive cocycle, as it can't be a multiplicative cocycle since $K$ does not have a $-1$ to do this with. In fact, $\sigma(\sqrt[A]{a})-\sqrt[A]{a}$ will be 0 if $\sigma$ is trival and 1 otherwise, so this cocycle maps into the additive group $\{0,1\}$ in $K$. It then follows that $\sqrt[A]{a}$ is a proper square root for separable extensions of degree two. We can then all solutions to an arbitary quadratic equation $ax^2+bx+c=0$ in terms of these Artin-Schreier square roots, as long as $ab\ne 0$.
+    </p>
+    <div class="thm"><b>Theorem:</b> Let $ax^2+bx+c=0$ be a quadratic equation in $K$ and $ab\ne 0$. Then its solutions are
+      $$
+      \begin{eqnarray*}
+      x &=& \frac{b}{a}\sqrt[A]{\frac{ac}{b^2}}\\
+      x &=& \frac{b}{a}\left(1+\sqrt[A]{\frac{ac}{b^2}}\right)
+      \end{eqnarray*}
+      $$
+    </div>
+    <div class="thm"><b>Proof: </b> This will follow from an Artin-Schreier version of completing the square, which is nothing more than putting it in the form $x^2+x+r=0$ for some $r\in K$. Firstly, we multiply $ax^2+bx+c=0$ through by $a/b^2$ to get 
+      $$
+      \left(\frac{ax}{b}\right)^2+\frac{ax}{b}+\frac{ac}{b^2}=0
+      $$
+      This means that, under that change of variable $y=ax/b$ we get the equation $y^2+y+ac/b^2=0$ whose solutions are $y=\sqrt[A]{ac/b^2}$ and $y=1+\sqrt[A]{ac/b^2}$. Undoing the substitution and solving for $x$ gives the provided formulas.
+  
+      
+      
+    </div>
+  
+  
   </div>
 
 
