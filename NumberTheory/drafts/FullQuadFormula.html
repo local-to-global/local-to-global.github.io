@@ -1,0 +1,71 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>The Complete Quadratic Formula</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading"><a href="index.html" class="title-link">Local-to-Global</a></h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Chebyshev's Bias</h2>
+  <div class="post-content">
+  <div class="post-date">7/27/2018</div>
+    <p><i>The usual quadratic formula is incomplete! There are certain cases of quadratics that it does not provide solutions for. We will look at these different cases and figure out what the full quadratic formula should be.</i></p>
+    <hr>
+    <p>
+    To find the solution to an arbitrary quadratic equation, $ax^2+bx+c=0$, where $a\ne 0$, we can use the Quadratic Formula which says that the solutions are
+    $$
+    x = \frac{-b\pm \sqrt{b^2-4ac}}{2a}
+    $$
+But this statement isn't entirely true. It only holds in fields of characteristic other than 2. A full formula for the solutions to any quadratic would have to include the characteristic two case, which we will investigate here. In order to do this, we have to figure out what it means to have a solution in terms of a radical, and what this means in a positive characteristic case.
+</p>
+<h3>What are Square Roots?</h3>
+<p>
+If we're in an ordinary field of characteristic not equal to two, then a square root is a straightforward thing: It is a choice of solution to an equation of the form $x^2-a=0$. Using these, and they're higher order versions, we can generate solutions to many different polynomials without introducing any new kind of number. This is a simple enough characterization of roots, but there is another important property that square roots have: They are "special" generators of cyclic extensions of order 2.
+</p>
+<p>
+If $L/K$ is a field extension of degree 2 in characteristic not equal to 2, then we can find an element $a\in L$ so that $L=K(a)$ and $a$ generates a trivial cocycle of $G(L/K)$ into $K$. This means that the map $\varphi:G(L/K)\rightarrow K$ given by
+$$
+\varphi(\sigma) = \frac{\sigma(a)}{a}
+$$
+and it satisfies the cocycle condition $\varphi(\sigma\tau)=\varphi(\sigma)\cdot \sigma(\varphi(\tau))$. The $a$ in this case would have to be of the form $a=\sqrt{A}$ for some $A\in K$, and then the cocycle will be either $+1$ or $-1$ depending on whether or not the input was trivial or not. To see this, note that if $a=x+y\sqrt{A}$, and $\frac{\sigma(a)}{a}\in K$ when $\sigma$ is the nontrivial conjugation, then we'd need $(x^2+Ay^2+2xy\sqrt{A})/(x^2-Ay^2)$ to be in $K$, which can only happen if $xy=0$. The fact that $a$ must be of this form in the general case of higher order roots is a bit of what Kummer Theory says. 
+</p>
+<p>In light of this, we will also say that a square root of a degree two Galois extension $L/K$ is an element that generates this extension and whose corresponding cocycle maps into $K$.
+</p>
+<p> We then have two kinds of radicals, the ordinary root to something of the form $x^2-A=0$, and a special element that generates a Galois extension of order two. In the characteristic not equal to two case, these are the same thing, but we'll see that they split when we move into the characteristic two case.</p>
+
+<h3>Characteristic Two</p>
+<p>
+There are two types of degree two extensions $L/K$ in degree two: Separable and Inseparable extensions. We'll have to consider both of these cases separately in order to get the complete quadratic formula.
+</p>
+<h4>Artin-Schreier Extensions</h4>
+<p>
+If $L/K$ is degree two and is separable, then it will be Galois. This means that we see if there are any elements $a\in L$ that generate the extension so that the cocycle corresponding to $a$ gives elements of $K$. The answer is yes, there are two such elements, kinda. To see this we need to know about the Artin-Schreier Theorem
+</p>
+<div class="thm"><b>Artin-Schreier Theorem:</b> Let $K$ have characteristic $p>0$ and let $L/K$ be a cyclic extension of degree $p$ with Galois group $G(L/K)$. Then $L$ is the splitting field of $x^p-x+a$ for some $a\in K$.</div>
+<div class="thm"><b>Proof:</b> Pick any element $r\in L$ that is not in $K$. Then $L=K(r)$, we will use this to construct an element $s\in L$ with the prescribed properties. If $\sigma\in G(L/K)$ is the nontrivial conjugation, then we have that the element $x=r+\sigma(r)$ is invariant under the action of $G(L/K)$ and is, therefore, in $K$. We claim that $s=r/x$ has the desired properties. Note that $\sigma(r) = x+r$, which means that, since $x\in K$
+$$
+\sigma(s) = s + 1
+$$
+We then get that $(x+s)(x+\sigma(s)) = x^2 + x + a$, where $a=s\sigma(s) = s(s+1)\in K$ as claimed.
+</div>
+<p>This theorem gives us a roadmap to constructing a square root. Before we can do this, we need some notation first. For $a\in K$ let $\sqrt[A]{a}$ denote a choice of root of $x^2+x+a=0$, and call it an Artin-Schreier Radical. 
+  </div>
+
+
+
+</body>
+</html>
