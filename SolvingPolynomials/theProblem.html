@@ -1,1 +1,55 @@
+<html>
+<head>
 
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Solving Polynomials 1: The Problem</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Solving Polynomials 1: The Problem</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+    <p>
+    The solution to the equation $ax^2+bx+c=0$ is
+    </p>
+      $$
+      x = \frac{-b \pm \sqrt{b^2-4ac}{2a}
+      $$
+    <p>
+      The great thing about this is that it is true regardless of what $a,b,c$ are (as long as $a\ne 0$), and regardless of what field you're in (as long as it isn't characteristic 2). When working over the real numbers, the meanining of the square root is pretty clear, and even though problems involving roots arise even when working over the complex numbers for an algebraist things are resolved once we just fix a square root.
+    </p>
+    <p>
+      The way that this result works is that if we're wanting to solve the equation $ax^2+bx+c=0$ where $a,b,c$ are going to be in the field $F$, which amounts to solving an infinite family of equation simultaneously (assuming $F$ is infinite), then we actually just find a solution to the equation $ax^2+bx+c=0$ in the field $F(a,b,c)$, which is a single equation which simplifies things greatly. We then assume that there are infinitely many ways to plug in values, or to go from $F(a,b,c)$ to $F$ by picking values for $a,b,c$. 
+    </p>
+    <p>
+      We actually take the moral of this story even further when we start figuring out which equations have solutions in terms of roots and which do not. In order to say things like "There is no quadratic equation-like solution for degree 5 polynomials", we effectively show that the equation $ax^5+bx^4+cx^3+dx^2+ex+f=0$ has an unsolvable Galois group in $F(a,b,c,d,e,f)$, which then transfers to a solution about equations in $F$. Since the Galois group of this polynomial is unsolvable, there is no arbitrary solution.
+    </p>
+    <p>
+      But how much do these Galois properties transfer down to statements over $F$ itself? How does plugging in values for these coefficients change what is happening and how does this information manifest at the Galois level. For instance, all of these statements hold when $F=\mathbb{C}$, and yet all Galois information must be lost in the plugging-in process since $\mathbb{C}$ is algebraically closed. Moreover, depending on whether $b^2-4ac$ is a square or not in $F$ will affect the field extensions we make when solving quadratic polynomials and so this information should be contained within Galois groups. If this information does, indeed, manifest at the Galois level, then can we investigate positive characteristic cases more fully? Is there a more abstract way of looking at the relationships between Galois information and plugging stuff in which helps illuminate cases and place it in a broader context.
+    </p>
+    <p>
+      This series is about problemetizing the relationships between Galois information and plugging stuff in that we take for granted.
+    </p>
+
+
+
+  </div>
+
+
+
+</body>
+</html>
