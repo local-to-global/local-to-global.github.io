@@ -1,0 +1,43 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Solving Polynomials 2: The Fields of Coefficients</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">Solving Polynomials 2: The Fields of Coefficients</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+    <p>
+     Let $F$ be a field, and let's say that we're trying to find an arbitrary solution to $ax^2+bx+c=0$. The idea is to work in the field $K=F(a,b,c)$ where we can find a field $L/K$ that splits the polynomial $ax^2+bx+c=0$ which will be a quadratic extension. If $F$ is not of degree two, then we can write $L=K(\sqrt{\Delta})$ for $\Delta=b^2-4ac$. This is all well-and-good, but given fixed $a,b,c\in F$, how do we use this to construct a field $E/F$ where $ax^2+bx+c$ splits? Moreover, how do the properties of the extension $L/K$ tell us about $E/F$?
+    </p>
+    <p>
+    We could just say that $E=F(\sqrt{\delta})$ where we have plugged in the appropriate values for $a,b,c$. And this does work. The issue is that this method does not offer a link between $L/K$ and $E/F$ through which we can transfer information. We'd have to independently justify that the extension is at most quadratic and that Galois information transfers in some way. This isn't too much of an issue in degree two, but we are losing an important tool in the general case and making more work for us. What we'd want is a map $K\rightarrow F$ and $L\rightarrow E$ through which the information is transferred in a way that we can analyze. The immediate problem with this is that there are no maps in this direction since $F$ is a subfield of $K$ and so the only additive and multiplicative map from $K$ to $F$ is the zero map, which does not provide any information. This shows that we need to work with alternate objects. Non-field rings perhaps.
+    </p>
+    <p>
+    Let's say that we fix $\alpha,\beta\gamma\in F$ and want to plug in $(a,b,c)=(\alpha,\beta,\gamma)$. This means immediately restricts the elements of $K=F(a,b,c)$ that we can work with. For instance, we can't work with $1/(a-\alpha)$. So any polynomial that we're going to be working with must not have at any of these coordinates. Let $R\subset K$ be the subring of elements $f(a,b,c)/g(a,b,c)$ in $K$ so that $g(\alpha,\beta,\gamma)\ne 0$. Note that $ax^2+bx+c\in R[x]$
+    </p>
+   
+
+
+  </div>
+
+
+
+</body>
+</html>
