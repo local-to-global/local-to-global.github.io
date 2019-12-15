@@ -30,7 +30,7 @@
     We could just say that $E=F(\sqrt{\delta})$ where we have plugged in the appropriate values for $a,b,c$. And this does work. The issue is that this method does not offer a link between $L/K$ and $E/F$ through which we can transfer information. We'd have to independently justify that the extension is at most quadratic and that Galois information transfers in some way. This isn't too much of an issue in degree two, but we are losing an important tool in the general case and making more work for us. What we'd want is a map $K\rightarrow F$ and $L\rightarrow E$ through which the information is transferred in a way that we can analyze. The immediate problem with this is that there are no maps in this direction since $F$ is a subfield of $K$ and so the only additive and multiplicative map from $K$ to $F$ is the zero map, which does not provide any information. This shows that we need to work with alternate objects. Non-field rings perhaps.
     </p>
     <p>
-    Let's say that we fix $\alpha,\beta\gamma\in F$ and want to plug in $(a,b,c)=(\alpha,\beta,\gamma)$. This means immediately restricts the elements of $K=F(a,b,c)$ that we can work with. For instance, we can't work with $1/(a-\alpha)$. So any polynomial that we're going to be working with must not have at any of these coordinates. Let $R\subset K$ be the subring of elements $f(a,b,c)/g(a,b,c)$ in $K$ so that $g(\alpha,\beta,\gamma)\ne 0$. Note that $ax^2+bx+c\in R[x]$. With $R$, then, we have two maps involving $F$: The inclusion map $F\righarrow R$ and then the evaluation map $R\righarrow F$, the composition of these maps is the identity. Both $R$ and the evaluation map are dependent on the choice of $\alpha, \beta, \gamma$, and the kernel of the evaluation map will be a determinator of the information we're looking for. In particular, $R$ is a local ring and the $F$ is determined as the unique residue field at the maximal ideal of $R$.
+    Let's say that we fix $\alpha,\beta\gamma\in F$ and want to plug in $(a,b,c)=(\alpha,\beta,\gamma)$. This means immediately restricts the elements of $K=F(a,b,c)$ that we can work with. For instance, we can't work with $1/(a-\alpha)$. So any polynomial that we're going to be working with must not have at any of these coordinates. Let $R\subset K$ be the subring of elements $f(a,b,c)/g(a,b,c)$ in $K$ so that $g(\alpha,\beta,\gamma)\ne 0$. Note that $ax^2+bx+c\in R[x]$. With $R$, then, we have two maps involving $F$: The inclusion map $F\rightarrow R$ and then the evaluation map $R\rightarrow F$, the composition of these maps is the identity. Both $R$ and the evaluation map are dependent on the choice of $\alpha, \beta, \gamma$, and the kernel of the evaluation map will be a determinator of the information we're looking for. In particular, $R$ is a local ring and the $F$ is determined as the unique residue field at the maximal ideal of $R$.
     </p>
     <p>
       We can construct $L$ in the same way, the splitting field of $ax^2+bx+c$, but we still want to be able to map to a corresponding field extension of $F$. To do this, let $S$ be the integral closure of $R$ in $L$. $S$ will be a semi-local field. The number of maximal ideals and their interactions determine different possibilities for field extensions of $F$ as we will discuss. But a key fact is that these are all isomorphic residue fields, each corresponding to how we choose roots. What we want from $S$ is a field $E$ which interacts with $S$ in the same way that $F$ interacts with $R$. That is, we want inclusion and evaluation maps $E\rightarrow S$ and $S\rightarrow E$ which extend the evaluations and inclusions of $R$ and $F$. That is, we want a field that makes the following diagram work
@@ -38,7 +38,24 @@
     KEY DIAGRAM
     <p>
       This diagram is suggestive of the fied that we want: $E:=S\otimes_R F$. This field will obviously work for one side of the diagram, the trick will be showing it works for the other as well. We'll see the proof in a more general setting later. The important thng about this is that it depends on the structure of $R$, which depends on the values we're plugging in, and $S$, which depends on the polynomial we're trying to find a formula for. So, morally, it should have all the information that we're looking for.
-   
+    </p>
+    <p>
+      This two-level diagram can help us understand the relationship between the Galois groups $G(L/K)$ and $G(E/F)$. Assume that $\varphi\in G(S/R)\subseteq G(L/K)$. We can then make the following diagram:
+    </p>
+    Galois Diagram
+    <p>
+      We through pre/post composition we get a map $G(S/R)\rightarrow G(E/F)$. Immediately we can see that if $G(L/K)$ is solvabe, then so will $G(E/F)$, allowing us to transfer conclusions like solvability by radicals. This is all, of course, an optimized situation where everything works and exists. One thing we will be interested in is what happens in the case of conflicting characteristic, where Galois groups cannot be constructed so cleanly. The what that arbitrary extensions split up in non-separable cases will help us decode how to interpret what is going on.
+    </p>
+    <hr>
+    <p>
+      We can do a quick example using the case of the quadratic formula over $F=\mathbb{Q}$. To make things a bit easier, lets solve the equation $x^2+px+q=0$ where we'll plug in $p=n$ and $q=m$. We then have $K=\mathbb{Q}(p,q)$ and 
+    </p>
+      $$
+      R = \{\frac{f(p,q)}{g(p,q)}\in K\;|\; g(p,q)\not\in (p-n,q-m)\}
+      $$
+    <p>
+      The maximal ideal of $R$ is $\mathfrak{m}=(p-n,q-m)$ and we naturally have $F\simeq R/\mathfrak{m}$ through the evaluation map. If $r = \sqrt{p^2-4q}$, then $L=K(r)$ through the quadratic formula.  
+    </p>
 
 
   </div>
