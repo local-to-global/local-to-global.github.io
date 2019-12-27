@@ -1,0 +1,81 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>Pi and Integers</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading">Local-to-Global</h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">On Pi</h2>
+  <div class="post-content">
+  <div class="post-date">11/21/2016</div>
+  <p>
+  Pi appears in a lot of stuff. Seemingly for no reason at all, pi has a nontrivial place in many super important formulas and it gives the number a kind of mysterious reverence. There are loads of explanations for why pi should appear in these formulas, as a way to stave off numerological reasoning when it comes to pi. But these range from just providing a proof of a formula, which are often dry and don't really offer any explanation (they answer that it is true, rather than why it is true), to marvolously constructed geometric arguments which can seem a bit ad hoc and specific to a single case. These answer the question "Why is pi in this formula?" rather than "Why is pi in all of these formulas?". This post attempts to provide an answer to the latter question.
+  </p>
+  <p>
+  The main idea rests on the constrains that we get from complex analysis. In complex analysis, without going into too much detail, we learn that nice functions (entire functions) can often be thought of as "infinite degree polynomials". This heuristic leads to important insights. For instance, just like polynomials, entire functions are almost completely determined by its zeros. Just like polynomials, if two entire functions share zeros then they are equal up to "scale". This "scale" is a bit more complicated in the case of entire functions, but the intuition is similar. 
+  </p>
+  <p>
+  We are often interested in entire functions with a certain arrangement of zeros. Their zeros are evenly spaced out on some line on the complex plane. Note that through simple affine transformations, these zeros can all be placed exactly on the integers. So we're really interested in functions whose zeros are exactly the integers. We already know one such entire function: $\sin(\pi z)$. What this line of reasoning then means is that all of these other functions that we're interested in must somehow relate back to sine. Moreover, since $\pi$ is the scale from the integers to the zeros of sine, if our function explicitly has zeros at the integers then $\pi$ will be the way to mediate from this function to sine and, hence, pi will manifest in the formula.
+  </p>
+  That's the big idea for the multitude of $\pi$s, but lets see some examples.
+  <h3>Euler's Reflection formula and $\frac{1}{2}!$</h3>
+  <p>
+  The Gamma function, $\Gamma(z)$, generalizes the factorial through the relationship $\Gamma(n+1)=n!$. It satisfies $\Gamma(z+1)=z\Gamma(z)$. Since $\Gamma(1)=1$ which "is" $0\cdot\Gamma(0)$, it follows that we must have $\Gamma(0)=\infty$. More precisely, through this kind of recursion, we have for non-negative integers $n$,
+  $$
+  \lim_{z\rightarrow -n} (z+n)\Gamma(z) = \frac{(-1)^n}{n!}
+  $$
+  The gamma function has no other zeros or poles and so it follows that $1/\Gamma(z)$ is an entire function with zeros at $n=0,-1,-2,-3,...$. This list of zeros does not quite meet the criteria above of being evenly spaced out on a line, as they exist on a ray instead. But we can amend this by multiplying it by a reflection of this ray. In this way the zeros of $\frac{1}{\Gamma(z)}\cdot\frac{1}{\Gamma(1-z)}$ are exactly the integers. It then heuristically follows that this product should be related to $\sin(\pi z)$ through nothing more than a "scaling". In this case, the scale is really easy and we get the formula
+  $$
+  \frac{\pi}{\Gamma(z)}\cdot \frac{1}{\Gamma(1-z)} = \sin(\pi z)
+  $$
+  This pi is playing the role of scaling the zeros and the pi on the left works to counteract the pi on the right at the level of functions. This formula is Euler's reflection formula. From this, if we plug in $z=1/2$ and move things a bit then we get
+  $$
+  \Gamma\left(\frac{1}{2}\right)^2 = \pi
+  $$
+  This pi, $\sqrt{\pi}=\Gamma(1/2)$ is "the pi" that appears in a lot of formulas. For instance, we then get the formula 
+  $$
+  (1/2)! = \Gamma\left(1+\frac{1}{2}\right) = \frac{1}{2}\Gamma\left(\frac{1}{2}\right) = \frac{\sqrt{\pi}{2}
+  $$
+  Using the relationship $\Gamma(z+1)=z\Gamma(z)$ we can extend this to any positive half-integer. From this we have
+  $$
+  \Gamma\left(n+\frac{1}{2}\right) = \frac{(2n)!}{4^nn!}\Gamma(1/2) = \frac{(2n)!}{4^nn!}\sqrt{\pi}
+  $$
+  This all arises because $1/\Gamma(z)$ is a function with regular zeros and these values are, generally, not directly computable. But it is necessarily related to sine through the regularity of zeros and sine is really the only function with regular zeros that we can compute special values of and so, as in this case, we leverage that to get a nice formula.
+  <h3> The Gaussian Integral</h3>
+  <p>
+  One of the most common places that pi appears in a weird place is through the Gaussian integral. It's used in basic probability and so many people encounter it as a first odd-place to run into pi. Now, the circular symmetry granted by the integrad offers a good explanation for why it might appear, but we want to connect it with our more of zero-regularity. 
+  
+  
+  
+  
+  <h3>The Riemann Zeta Function and the Basel Problem</h3>
+  <p>
+  Another surprising place that $\pi$ appears is in the solution to the Basel problem. Euler proved that
+  $$
+  \frac{\pi^2}{6} = \sum_{n=1}^{\infty}\frac{1}{n^2}
+  $$
+  One one hand, we have a nice formula involving the reciprocals of square and on the other we get $\pi$ appearing. There's no direct intuitive reason why this should be the case. But it becomes clear when we start looking at zeros and seeing where they're regular. We start with the integral representation of the Riemann Zeta Function 
+</p>
+
+
+  </div>
+
+
+
+</body>
+</html>
