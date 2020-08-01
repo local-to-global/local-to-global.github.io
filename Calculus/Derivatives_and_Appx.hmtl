@@ -38,15 +38,31 @@
 </p>
 
 <h4>Tangent Lines</h4>
-  
-  Lines are particularly simple to work with, and most functions look like straight lines when you zoom in enough, so it can be illuminating to try and figure out which line approximates a function best around a certain point. If $f(x)$ is a funciton, and $(a,f(a))$ is the point that we're interested in, then we want to find the line that looks like $f(x)$ near $(a,f(a))$ the most. Obviously, this line will have to pass through $(a,f(a))$ and so it must look like
+  <p>
+  Lines are particularly simple to work with, and most functions look like straight lines when you zoom in enough, so it can be illuminating to try and figure out which line approximates a function best around a certain point. If $f(x)$ is a function, and $(a,f(a))$ is the point that we're interested in, then we want to find the line that looks like $f(x)$ near $(a,f(a))$ the most. Obviously, this line will have to pass through $(a,f(a))$ and so it must look like
   $$
   y = f(a) + m(x-a)
   $$
-  These linse, if we vary $m$, will give us all the non-vertical lines which pass through the point $(a,f(a))$. It's just a question of finding the one that fits the function the best. 
-  
-    
-    
+  These lines, if we vary $m$, will give us all the non-vertical lines which pass through the point $(a,f(a))$. It's just a question of finding the one that fits the function the best. What this means is that, if $x$ is close enough to $a$ then corresponding point on the line and the value $f(x)$ will be approximately equal and, moreover, this approximation gets better and better the closer we get to $x=a$. That is, for $x$ close enough to $a$, we can write
+  $$
+  f(x) \approx f(a) + m(x-a)
+  $$
+  We can actually use this to get an idea of what $m$ has to be in order to get a good approximation. Using this expression to approximately solve for $m$ gives:
+  $$
+  m \approx \frac{f(x)-f(a)}{x-a}
+  $$
+  Now, of course, given any fixed $x$ close to $a$, there could be many different $m$s which provide good-enough approximations. but the closer $x$ is to $a$, the less leway we'll have. So if we want to find the absolute best $m$, then we should take $x=a$ in this formula. Unfortunately, that gives $0/0$, which is problematic. We can, instead, take the limit as $x\rightarrow a$. This also functions to exclude the less-best $m$s, leaving only the optimal one. We then get
+  $$
+  m = \lim_{x\rightarrow a} \frac{f(x)-f(a)}{x-a}
+  $$
+  This gives us the most optimal $m$, which we usually write $f'(a)$, and so it also gives us the most optimal line:
+  $$
+  T_a(x) = f(a)+f'(x)(x-a)
+  $$
+  This is called the Tangent Line of $f(x)$ at $x=a$. This tangent line then gives us access to some of the more complicated information contained in $f(x)$. 
+  </p>
+  <h4> Tangent Polynomials</h4>
+  <p>
     
     
     -Logarithmic derivative as an approximating exponential
