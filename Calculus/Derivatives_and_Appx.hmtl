@@ -39,7 +39,12 @@
 
 <h4>Tangent Lines</h4>
   
-  Lines are particularly simple to work with, and most functions look like straight lines when you zoom in enough, 
+  Lines are particularly simple to work with, and most functions look like straight lines when you zoom in enough, so it can be illuminating to try and figure out which line approximates a function best around a certain point. If $f(x)$ is a funciton, and $(a,f(a))$ is the point that we're interested in, then we want to find the line that looks like $f(x)$ near $(a,f(a))$ the most. Obviously, this line will have to pass through $(a,f(a))$ and so it must look like
+  $$
+  y = f(a) + m(x-a)
+  $$
+  These linse, if we vary $m$, will give us all the non-vertical lines which pass through the point $(a,f(a))$. It's just a question of finding the one that fits the function the best. 
+  
     
     
     
