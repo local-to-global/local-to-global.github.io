@@ -63,14 +63,52 @@
     $$
     f(a+\Delta x) \approx f(a) + f'(a)\Delta x
     $$
+    This approximation has intuitive meaning as well. A line increases at a steady rate, as determines by its slope. A function, however, can turn and change its direction all the time and so it does not actually make sense to talk about the slope of an arbitrary function. But if we can approximate this function using a line then if we had to talk about the slope of the function we could say that it is the slope of the approximating line. This is the best possible answer for a question which has no answer. This allows us to use our understanding of slope to make inferences about the function itself.
+
   </p>
-  <h4> Tangent Polynomials</h4>
+  <h3> Tangent Quadratics</h3>
   <p>
-    
-    
-    -Logarithmic derivative as an approximating exponential
-    -Trigonometric Diff
-    -Jump Differentiable (2nd diff)
+    Using lines to approximate functions is good and all, but a line can only pull so much weight. If we want finer data about our function we'll have to do approximations using functions with a bit more clout. The natural progression is to look at approximating quadratics. Any quadratic passing through $(a,f(a))$ will look like
+    $$
+    q(x) = r(x-a)^2+s(x-a)+f(a)
+    $$
+    for some $r$ and $s$. We want to find the optimal $r,s$ so that when $x$ is close enough to $a$ we can write 
+    $$
+    f(x)\approx r(x-a)^2+s(x-a)+f(a)
+    $$
+    In this situation, there are two parameters to work with and so it might be a little tougher to find the fit. But trick is to notice that for $x$ close enough to $a$, the quadratic term is super small, much smaller than the linear term and so we can ignore it. This means for $x$ really close to $a$ we must have
+    $$
+    f(x) \approx s(x-a)+f(a)
+    $$
+    But we already know what $s$ is in this case, $s=f'(a)$. We can plug this in and see that we just have to find the optimal $r$ to fit the approximation
+    $$
+    f(x) \approx r(x-a)^2 +f'(a)(x-a)+f(a)
+    $$
+    Reasoning in the same way as above, we get that
+    $$
+    r = \lim_{x\too a} \frac{f(x)-f(a)-f'(a)(x-a)}{(x-a)^2}
+    $$
+    This may not be the most familiar formula, but it is actually a way to compute half the second derivative of a function. We sometimes write $r=f''(a)/2$. This helps us figure out the most optimally approximating quadratic. This approximation is finer than the approximation given by a line, but it is still relatively simple enough to be useful in applications. This has an intuitive reading as well. In general, a function is not a quadratic, but if we had to say that it was quadratic near a point, then this would be the best possible answer. We can then see quadratic features of a functions through this approximation, features such as maximum and minimum points.
+    </p>
+    <h3>Tangent Polynomials</h3>
+    <p>
+      This line of reasoning can continue. For our difficult function $f(x)$, we can try to find the best approximating polynomial of each degree. Each iteration when we try to do this, we rediscover higher order derivatives. The general formula for the best approximating degree $n$ polynomial for $f(x)$ around $x=a$ is
+      $$
+      f(x) \approx f(a) + f'(a)(x-a) + f''(a)\frac{(x-a)^2}{2!} + f'''(a) \frac{(x-a)^3}{3!} +\cdots +f^{(n)}(a)\frac{(x-a)^n}{n!}
+      $$
+      In fact, we can take the coefficients of these polynomials to be the definitions of these derivatives: The $n$th order derivative of $f(x)$ is $n!$ times the coefficient of $(x-a)^n$ in the best approximating polynomial of degree at least $n$. Now, each of these approximating polynomials can give us information about the kinds of features that appear in polynomials of various degrees. We can get information about inflection, or higher order maximums and minimums. All of this is done through approximation.
+    </p>
+    <h3>Taylor Series</h3>
+    <p>
+      The idea can be pushed even further. In general, as you increase the degree of the polynomial the better the approximation will be. And so that can lead us to ask what happens if we have an "infinite degree polynomial" (also known as a power series)? It turns out that, for nice functions, this approximation does get better and better. So good, in fact, that the function becomes equal to the power series. That is for nice functions we have:
+      $$
+      f(x) = \frac_{n=0}^{\infty} f^{(n)}(a)\frac{(x-a)^n}{n!}
+      $$
+      This is called the Taylor Series for $f(x)$ at $x=a$. But there is a balance to be struck. Approximations get worse as you stray from the central point, and how this manifests in the infinite degree polynomial is that it will diverge after some point. There is some distance you can stray from the point of interest where the power series equals the function. But if you stray too far the lack of approximation takes over and the series violently becomes not equal to the function due to a sudden lack of convergence. So for these functions, we can find patches where the function equals some nice power series.
+    </p>
+    <p>
+      It should be noted, however, that this only works for very nice functions. The function has to look like a polynomial enough to be approximated by polynomials. There are functions which look nothing like a polynomial, even on small scales. There are functions that look like any degree polynomial we want, but they don't approximate strongly enough to produce a Taylor series. And so even if we have opened the door to more complicated functions, we've only barely cracked the door. Is there a way to understand even more complex families of functions?
+    </p>
     
   </div>
 
