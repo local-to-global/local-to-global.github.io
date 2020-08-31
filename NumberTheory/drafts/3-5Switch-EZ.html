@@ -28,10 +28,28 @@
    </p>
    <h3>The Setup</h3>
    <p>
-   The main objects of interest in Wiles' proof are rational Elliptic Curves. The temptation for something like this is to offer clear introductions to the objects involved and a careful explanation of how everything works but even if you lay out everything very clearly then, unless you have experience with these objects, it's just going to be a bunch of jargon; meaningless nouns preceeded by a zoo of equally meaningless adjectives. I will, then, forgo the formalities. Instead of Elliptic Curves, we'll be thinking of pictures, like those on your computer.
-   </p>
-   <p>
-   A picture can be of a mountain, a field, a church, or of people. Pictures can be outlines, black-and-white, or colorful. With our new wording, a key result obtained was that Fermat's Last Theorem is true if we can show that all Pictures of People are colorful. And this is what Wiles proved. The actual main result, with the bulk of the work, was showing that if a Picture of People was not just an outline, then it was colorful 
+   The main objects of interest in Wiles' proof are rational Elliptic Curves. In order to describe exactly how Elliptic Curves are used, we would need to introduce a lot of terminology which would, unfortunately, distract from exploring the 3-5 Switch. So I'm not going to explain them, because the interesting thing is not what these terms mean, but how they fit together. Instead, I'll just label them using letters in a way that, at least moderately flows with the logic. Here's a quick list of these labels and what they stand for. If it's all gibberish, then that's totally cool.
+    </p>
+    <ul>
+      <li>$S$ - Semistable</li>
+      <li>$m_p$ - The mod $p$ Galois representation for the curve is modular</li>
+      <li> $M$ - Modular</li>
+      <li> $I$ - Irreducible</li>
+    </ul>
+    <p>
+      The main statement that Wiles was trying to prove was that if $E$ was a rational elliptic curve with property $S$ then $E$ was had property $M$. This would prove Fermat's Last Theorem. In equation form:
+      $$
+      \Big( (E+S)\doublerightarrow (E+M)\Big) \doublerightarrow \textrm{FLT}
+      $$
+      The main result that Wiles proved was that if $E$ had property $S$ and there was some prime $p$ so that $E$ also had property $m_p$, then $E$ was $M$. In equation form:
+      $$
+      (E+S+m_p) \doublerightarrow (E+M)
+      $$
+      After this huge, huge step was finished, he still had more to do. He had to show that for every $E$ with property $S$, there was some prime $p$ so that $E$ also had $m_p$. That is, he needed to prove:
+      $$
+      (E+S) \doublerightarrow (\exists p\;\; E+m_p)
+      $$
+      This will be where we pick-up the proof.
 
   </div>
 
