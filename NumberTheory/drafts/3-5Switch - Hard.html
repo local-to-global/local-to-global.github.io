@@ -1,0 +1,105 @@
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+<title>The 3-5 Switch</title>
+</head>
+<body>
+  <div class="title">
+    <h1 id="titleheading"><a href="index.html" class="title-link">Local-to-Global</a></h1>
+  </div>
+  <hr id="titlebreak">
+  
+  <h2 id = "titleheading">The 3-5 Switch</h2>
+  <div class="post-content">
+  <div class="post-date">8/31/2020</div>
+  <p>
+    The proof of Fermat's Last Theorem due to Andrew Wiles is quite a trip. After going through Mordor and back, however, we are still not quite finished. We still need to ensure that the powerful machinery that we've constructed on the journey is actually sufficient to prove the theorem. We still need to defeat Saruman and prevent the Scouring of the Shire. The final step, the last trick, before completing the proof is known as the 3-5 Trick, and it is a fascinating piece of math which we will seek to explore here.
+    </p>
+    <p>
+    The basic outline of this article is that we will first introduce some of the main mathematical characters and tools involved in this story. Then we will explain what the 3-5 Switch entails and why we need it. Then we'll dive into how it actually works. 
+    </p>
+    <h3>Elliptic curves and other objects</h3>
+    <p>
+    The main goal of Wiles' proof is to prove that every rational, semistable elliptic curve is modular, the work of Ribet shows that this is sufficient to prove Fermat's Last Theorem. We need to know what all of those things mean. Rational Elliptic Curves. Semistable Elliptic Curves. And Modular Elliptic Curves. Along the way we'll find Modular Forms and Modular Curves and discuss the Langlands-Tunnell Theorem.
+    </p>
+    <h4>Rational and Semistable Elliptic Curves</h4>
+    <p>
+    An elliptic curve is, very roughly, the curve given by equations of the form $y^2=x^3+ax+b$. A <b>Rational Elliptic Curve</b> is an elliptic curve defined by an equation with rational coefficients while only considering its rational points. An example is the curve
+    $$
+    y^2 = x^3 + 4x
+    $$
+    It has only four points: $(0,0)$, $(2,4)$, $(2,-4)$. The fourth point is $O$, the "point at infinity" which all such curves have. You can explore millions of rational elliptic curves <a href = "https://www.lmfdb.org/EllipticCurve/Q/">Here</a>. An important thign about rational elliptic curves, in particular, is that if $p$ is a prime, then we can look at them modulo $p$. For example, we can look at the equation
+    $$
+    y^2 \equiv x^3 + 4x \mod 5
+    $$
+    and get an elliptic curve mod 5. This has the points $(0,0)$, $(2,4)$, $(2,1)$, $(1,0)$, $(3,2)$, $(3,3)$, $(4,0)$ and the point at infinity (all taken modulo 5). One idea is that if $E$ is a rational elliptic curve and $E_p$ is the curve mod $p$, then understanding infinitly many of the $E_p$ can tell us something about $E$. In particular, we often expect the size of $E_p$ to be around $p+1$, and so the collection of values 
+    $$
+    a_p = p+1 - |E_p|
+    $$
+    are a characteristic of the curve $E$ and can help us get a hold on it. It should be noted that $a_n$ exist for every $n$, but are more complicated to define. Taking a rational elliptic curve and reducing it modulo some prime can change it, making a seemingly nice curve suddenly behave very unweildly. An elliptic curve $E$ is said to be <b>Semistable</b> if none of the reduced elliptic curves $E_p$ has a cusp point. These are the "not too bad" elliptic curves.
+    </p>
+    <h4>Modularity</h4>
+    <p>
+    Elliptic Curves are algebraic objects. On the other hand, Modular Forms are analytic objects. Very broadly, Modular Forms are differentiable functions on the hyperbolic plane which generalize the notion of periodic functions on the real line. Just as periodicity introduces a lot of useful symmetry for the analysis of periodic functions, modular forms have "modular relations" which introduce a lot of useful symmetry tools for their analysis. In particular, if $f(z)$ is a modular form, then its modularity implies periodicity and so it has a Fourier Transform
+    $$
+    f(z) = \sum_{k=0}^{\infty}b_k e^{2\pi ikz}
+    $$
+    A <b>Modular Elliptic Curve</b> is an elliptic curve which inherits some analytic structure from a modular form. In particular, the rational elliptic curve $E$, with coefficients $a_n(E)$, is said to be modular if there is a modular form $f(z)$ whose Fourier Coefficients are the $a_n(E)$. That is,
+    $$
+    f(z) = \sum_{k=0}^{\infty}a_k(E) e^{2\pi ikz}
+    $$
+    
+    
+    if $E$ is a rational elliptic curve given by the equation $y^2=x^3+ax+b$, then at every prime $p$ we can look at the corresponding curve modulo $p$
+    
+    
+    
+    
+    Roughly speaking, a rational elliptic curve is one whose equation has rational coefficients and coordinates, and a semistable elliptic curve means that the curve is not-too-bad. There are, however, two types of modularity that we will be interested in. The first is the modularity of an elliptic curve. In practicality, this gives an "analytic structure" to a rational elliptic curve, an "algebraic structure". More specifically, 
+    
+    The main result that Wiles proves in his work is the following:
+    <div class="thm"><b>Theorem (Wiles): </b> If $E$ is a rational, semistable elliptic curve such that there exists a prime $p\geq 3$ so that the natural representation $\overline{\rho}_{E,p}:G_{\mathbb{Q}} \rightarrow GL_2(\mathbb{Z}/p\mathbb{Z})$ is irreducible and modular, then $E$ is modular. 
+    </div>
+    </p>
+    <p>
+    Since Fermat's Last Theorem follows from the modularity of semistable rational elliptic curves, all we need to do to finish the proof is to show that for each such elliptic curve that we can find a prime $p\geq 3$ that satisfies the above conditions. But proving the modularity of residual representations is not an easy task. For the case $p=3$ an important result of Langlands and Tunnell says that if $\overline{\rho}_{E,3}$ is irreducible, then it is modular. This proves the modularity for all elliptic curves whose mod 3 representation is irreducible. But what happens when this representation is not irreducible? This is where we find the 3-5 switch, which fixes things when mod 3 representations are reducible. 
+    </p>
+    <p>
+      This works in a couple of steps. Firstly, in the case that the mod 3 representation of an elliptic curve is reducible it is first proved that the mod 5 representation is, indeed, irreducible. But now there is the question of modularity of the mod 5 representation. This part is a bit more subtle. The 3-5 Switch claims that, in this case, there is a different elliptic cuve $E'$ whose mod 3 representation is irreducible, and hence is modular, but the representations $\overline{\rho}_{E,5}$ and $\overline{\rho}_{E',5}$ are isomorphic and, hence, $\overline{\rho}_{E,5}$ must be modular. With this, we get that all semistable elliptic curves are modular.
+    </p>
+    <p>
+      All of these results follow from magic on modular curves. Let's look at the first part that says that if the mod 3 representation of a semistable elliptic curve is reducible, then its mod 5 representation is irreducible. Start by assuming that $E$ is a curve whose mod 3 and mod 5 representations are reducible. The only way that the mod $p$ representation of an elliptic curve $E$ can be reducible is if there is a $G_{\mathbb{Q}}$-fixed cyclic subgroup $C_p\subseteq E(\overline{\mathbb{Q}})$. This would make such a subgroup rational. Recall that the curve $X_0(n)$ is the moduli space of isomorphism classes of pairs $(E,C_n)$ where $E$ is an elliptic curve and $C_n$ is a cyclic subgroup. Rational points on $X_0(n)$ correspond to rational elliptic curves with rational subgroups. In our case, if $E$ has reducible mod 3 and mod 5 representations, then we get a rational cyclic subgroup $C_{15}$ of $E$. So the $\mathbb{C}$ isomorphism classes of every rational elliptic curve that is reducible mod 3 and mod 5 correspond to points on $X_0(15)(\mathbb{Q})$. This rational modular curve has 8 points, four of which are singular point and don't come into consideration. Since we can compute things easily on modular curves, we can explicitly find a description of an elliptic curve corresponding to the remaining four points. From these we can explicitly find that none of these elliptic curves are semistable. Hence any semistable elliptic curve with reducible mod 3 representation must have an irreducible mod 5 representation.
+    </p>
+    <p>
+      What we did was use modular curves to classify all elliptic curves of interest, use the fact that we can compute on modular curves to reduce this question of irreducibility to one of computation. All that is left is to show that if we have an irreducible mod 5 representation and reducible mod 3 representation, then $\overline{\rho}_{E,5}$ is modular.
+    </p>
+    <p>
+      This will again involve modular curve magic. The key is to find a semistable curve $E'$ that similar to $E$ when you look at their mod 5 representations, but whose mod 3 representation is irreducible. Then we can apply Wiles and Langlands and Tunnell to show that $E'$ is modular, hence its mod 5 representation is modular, hence the mod 5 representation of $E$ is modular, hence $E$ itself is modular. To do this, we can set up a modular curve that parameterizes curves that share isomorphism classes of $\overline{\rho}_{E,5}$ with $E$. Let $X(E,5)$ be the set of pairs $(E',\phi)$ where $\phi:E[5]\rightarrow E'[5]$ is an isomorphism of the 5-torsion points. There are some additional arithmetic constraints on what $E'$ can be to make it so that this isomorphism makes it so that the representations $\overline{\rho}_{E,5}$ and $\overline{\rho}_{E',5}$ are equivalent. Note that if $(E',\phi)$ is a point on this curve, with $E'$ semistable and whose mod 3 representation is irreducible, then it is modular and, hence, it's mod 5 representation is, which means that $\overline{\rho}_{E,5}$ is modular, and implies that $E$ is modular. So we need to ensure that we can make it so that $E'$ is semistable and has an irreducible mod 3 representation. 
+    </p>
+    <p>
+      For semistability, we note that the curve $X(E,5)$ is a twist of $X_0(5)$ which has genus 0, so $X(E,5)$ is genus 0 with at least one point on it ($(E,\textrm{id})$), which implies that $X(E,5)$ is isomorphic to $\mathbb{P}^1(\mathbb{Q})$. In particular, this curve has infinitely many points. Moreover, we can parameterize elliptic curves on this by a parameter $t$. If we choose a $t$ that is 5-adically close to the value that gives $(E,\textrm{id})$, then the curve parameterized by $t$ will have similar properties as $E$. Particularly, we can find an open 5-adic neighborhood of $(E,\textrm{id})$ where each point corresponds to a semistable elliptic curve. In particular, there are infinitely many curves to choose from. We then just need to be able to ensure that at least one has an irreducible mod 3 representation.
+    </p>
+    <p>
+      We then want to parameterize those curves that live on $X(E,5)$ that have reducible mod 3 representations. We'll do this with a modular curve. Let $X(E,5;3)$ be the curve that parameterizes the triples $(E',\phi,C_3)$, where $(E',\phi)$ is a point on $X(E,5)$ and $C_3$ is a cyclic subgroup of order 3 in $E'$. Just as before, this means that the mod 3 representation of $E'$ is reducible. This modular curve can be computed to have a genus 9. By Falting's Theorem, this means that it has only finitely many rational points. The natural projection map $X(E,5;3)\rightarrow X(E,5)$ then has finite image. We can then choose a small enough 5-adic neighborhood of $(E,\textrm{id})$ that does not contain any of these points (or any cusps). We can then use any point within this neightborhood to show that $\overline{\rho}_{E,5}$ is modular.
+    </p>
+    <p>
+      This shows that all semistable rational elliptic curves are modular. As mentioned by many, this proof can only work for the prime $p=5$, because we used the fact that $X_0(3p)$ had genus bigger than 0 to check that, on semistable curves, mod 3 reducible implies mod 5 irreducible, and the fact that $X_0(p)$ had genus 0 to gie us plenty of modular elliptic curves to relate back to the one in question. There are a lot of missing details in this, but this is the gist of it. For a full proof, it is done well at the end of <a href="https://math.stanford.edu/~lekheng/flt/wiles.pdf">Wiles' Paper</a>, and outlined nicely in a <a href="https://youtu.be/Hl4vQ7KzABY">Lecture by Karl Rubin</a>, both of which were stolen from for this article.
+    </p>
+
+  </div>
+
+
+
+</body>
+</html>
