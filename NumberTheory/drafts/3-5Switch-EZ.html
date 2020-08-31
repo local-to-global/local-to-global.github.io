@@ -34,22 +34,40 @@
       <li>$S$ - Semistable</li>
       <li>$m_p$ - The mod $p$ Galois representation for the curve is modular</li>
       <li> $M$ - Modular</li>
-      <li> $I$ - Irreducible</li>
+      <li> $I_p$ - Irreducible at prime $p$</li>
+      <li> $K_p$ - Reducible at prime $p$ (Note: a curve either has $I_p$ or $K_p$)</li>
     </ul>
     <p>
       The main statement that Wiles was trying to prove was that if $E$ was a rational elliptic curve with property $S$ then $E$ was had property $M$. This would prove Fermat's Last Theorem. In equation form:
       $$
-      \Big( (E+S)\doublerightarrow (E+M)\Big) \doublerightarrow \textrm{FLT}
+      \Big( (E+S)\implies (E+M)\Big) \implies \textrm{FLT}
       $$
       The main result that Wiles proved was that if $E$ had property $S$ and there was some prime $p$ so that $E$ also had property $m_p$, then $E$ was $M$. In equation form:
       $$
-      (E+S+m_p) \doublerightarrow (E+M)
+      (E+S+m_p) \implies (E+M)
       $$
       After this huge, huge step was finished, he still had more to do. He had to show that for every $E$ with property $S$, there was some prime $p$ so that $E$ also had $m_p$. That is, he needed to prove:
       $$
-      (E+S) \doublerightarrow (\exists p\;\; E+m_p)
+      (E+S) \implies (\exists p\;\; E+m_p)
       $$
-      This will be where we pick-up the proof.
+      This is a tough problem because showing that something is $m_p$ is, itself, a highly non-trivial challenge. But for any Number Theorist, at first glance there is an immediate possible solution to Wiles' conundrum. One of the biggest results in number theory at the time was the Langlands-Tunnell Theorem. A direct application of this result to the problem directly gives us $m_3$ for a curve, but the result is unfortunately contingent on the curve being $I_3$. And so we have
+      $$
+      (E+S+I_3)\implies (E+S+m_3) \implies (E+M)
+      $$
+      The unfortunate reality is that we already know that there exist elliptic curves that are $K_3$ instead of $I_3$. We then need to find a way to replace $I_3$ with $K_3$ in the above equation, which will complete the proof. The role of the 3-5 Switch is to take care of this final gap in the proof and works by, perhaps unsurprisingly, switching 3 to 5.
+    </p>
+    <h3>Modular Curves, $K_3$ and $I_5$</h3>
+    <p>
+      The first step in the switch will be to show that if $E$ is $S$ and $K_3$, then it is $I_5$. The way that this, and all the other main steps, will work is through the magic of modular curves. Very, very, very loosely, number theorists really like to take different collections of things and turn them into geomeric objects. So, for instance, we can think of each point on the Unit Circle as actually being a right triangle with hypotenuse of length 1. In this case the collection, right triangles of hypotenuse 1, is not just an arbitrary bag of right triangles, but a geometric object where each point is such a triangle and, moreover, if two points are close to each other on the circle, then the two corresponding triangles are very similar. Furthermore, the unit circle is given by an algebraic equation, $x^2+y^2=1$, and so to investigate the limits to what such a right triangle can do, we just have to solve this equation. For instance, we know that there can be no such triangle with a leg of length $2$ since there is no corresponding solution. We'll be doing this kind of thing but, instead of doing it with right triangles, we'll be doing it with elliptic curves.
+    </p>
+    <p>
+      The first so-called modular curve will be $X(15)$. This is the geometric object made up from the collection of all elliptic curves which are both $K_3$ and $K_5$, even allowing both $S$ and non-$S$ curves. This geometric object is then the collection of all elliptic curves that fail the $E+K_3\implies I_5$ that we're trying to access. The curve $X(15)$ is given by algebraic equations and we can solve them to understand all such elliptic curves. It turns out that $X(15)$ has only 8 points on them. Four of these points are cusps and don't actually correspond to elliptic curves, in much the same way that the top of the unit circle, the point $(0,1)$, doesn't correspond to an actual right triangle. But there are four remaining points on $X(15)$. For each of these points, we can find the elliptic curve that corresponds to each and we find that none of these elliptic curves are $S$. So this means that if $E$ is $S$ and $K_3$, then it cannot also be $K_5$. That is, we now have
+      $$
+      (E+S+K_3) \implies (E+S+I_5)
+      $$
+    </p>
+    
+      
 
   </div>
 
