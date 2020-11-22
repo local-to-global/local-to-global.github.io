@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+  <meta charset="utf-8"><meta name="theme-color" content="#ffffff">
+  <title>Complex Angles</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Local-to-Global">
+   <link rel="stylesheet" type="text/css" href="https://local-to-global.github.io/main.css">
+   <link rel="stylesheet" type="text/css" href="https://local-to-global.github.io/notMain.css">
+</head>
+
+<body>
+  <h1>Complex Angles</h1>
+  
+  <p class="st">
+    Trigonometric functions and hyperbolic functions have a lot in common, but there are some quirks that make them different enough to prevent straight analogies from being made between them. We spend a lot of time with the trigonometric functions, but the hyperbolic functions are often just thrown at us as merely being a sum of exponential functions with loose justification. But there seems to be some kind of nontrivial connection since we have relationships like
+   </p>
+   $$
+   \cosh(ix) = \cos(x)
+   $$
+   $$
+   \sinh(ix) = i\sin(x)
+   $$
+   <p>
+   This suggests some kind of unified understanding of these things, and these connections must be made within the logic of complex geometry. And this is what we will try to understand. Our approach will be to get an intuitive understanding about how these things become unified, and so we won't engage in a first-principals construction of trigonometric functions which encapsulates everything, instead we'll combine our two notions into one. Though, the former can be done using this intuition.
+   </p>
+   
+   <h2><a href="index.html">Trigonometric and Hyperbolic Angles</a></h2>
+   <p>
+   Geometrically, the trigonometric and hyperbolic functions begin by first defining some notion of an "angle" and using this to parameterize a circle or hyperbola respectively. For circles, the "angle" between two points on the unit circle is the arclength between these two points. Importantly, under rotation this value does not change, this is what produces some of the nice properties of the trigonometric functions. For hyperbolas, the arclength between two points is not fixed under a hyperbolic rotation and so this does not give a good notion for an "angle" with which to parameterize by. Instead, however, for two points on the unit hyperbola, we can create a sector using these points and the origin, bounded by the hyperbola and the area of this sector is invariant under hyperbolic rotation and so this area is a hyperbolic angle.
+   </p>
+   <p>
+   These two notions of angle are related, the sector area in a unit circle is propotional to the angle, but it only makes a small connection between these things. In particular, it doesn't explain to us why we should think of these two kinds of angles being related using imaginary numbers. To do this, we want to get a more dynamic notion of angles that is less bound to specific geometries.
+   </p>
+   <p>
+   For this, we will look at how trigonometic and hyperbolic functions connect two points. Assume that the point $P$ on the unit circle makes an angle $\theta$ with $O=(1,0)$. Then the trigonometric functions allow us to trace a path from $O$ to $P$ using the function
+   </p>
+   $$
+   F(t) = (\cos(\theta t), \sin(\theta t))
+   $$
+   <p>
+   This function begins at $O$ for $t=0$ and ends at $P$ with $t=1$. The idea is to use this function $F(t)$ as something to extract $\theta$ from. If a point $Q$ is on the circle with angle $\varphi$, then there is a unique tangent vector at $Q$ pointing in the counterclockwise direction of length 1. If $Q=(\cos(\varphi),\sin(\varphi))$, then the direction of this unit vector is given by $Q^*=(-sin(\varphi),\cos(\varphi))$. Therefore the tangent line on the circle at $Q$ is given by $Q+rQ^*$ for some real $r$. Moreover, this unit vector, forming a basis for the tangent space, translates around the circle in a very nice way. As $F(t)$ progresses around the unit circle, its velocity at any point will be given by an element of the tangent space. In particular, the element:
+   </p>
+   $$
+   F'(t) = \theta \cdot F(t)^*
+   $$
+   <p>
+   Things to note are that the velocity is actually constant relative to our special tangent space basis, and so this function is defined by this constant velocity. Moreover, this constant velocity is exactly equal to the angle of this point. In fact, if $\theta$ is any real value, then the function $F(t)$ is uniquely defined by the initial value problem $y'=\theta\cdot y^*$ and $y(0)=O$. Since $P=F(1)$ is also produced by this function. So we can say that the angle between two points is the constant velocity $\theta$ (relative to a special basis) required by an path that goes between these two points in a time of one unit.
+   </p>
+   <p>
+   The good bit about this more dynamic definition of an angle is it works out exactly the same for the unit hyperbola. If $Q$ is any point on the unit hyperbola, then there is a tangent vector at $Q$ which just swaps the coordinates, denoted $Q^*$. For $P$, any point on the right-half of the hyperbola, there is then a unique constant velocity $\alpha$ such that the path given by $F'(t)=\alpha F(t)^*$ and $F(0)=O$ with $F(1)=P$. We say that $\alpha$ is the hyperbolic angle for $P$. These definitions for angles are much more flexible, and can be unambiguously defined on many kinds of objects. So to unify trigonometic and hyperbolic functions and ideas, we simply need a way to unify the circle and hyperbola. And complex numbers allow us to do exactly this.
+   
+   <h2>The Complex Hyperbola</h2>
+   <p>
+   Let $\mathcal{H}$ be the set of all pairs of complex numbers $(x,y)$ which satisfy $x^2-y^2=1$. This is the complex hyperbola and, clearly, the real points on this object is the ordinary unit hyperbola. The points of the form $(x,iy)$, for $x,y$ real, make up a copy of the unit circle. Geometrically, then, $\mathcal{H}$ is a one-sheeted hyperboloid embedded into 2D complex space (so 4D real space). At each point there is a 1-dimensional complex tangent space (so a real-plane). Implicit differentiation tells us that if $(u,v)$ is a tangent vector at $(x,y)$ then we need $ux=vy$. In other words, if $P=(x,y)$ and $P^*=(y,x)$, then $P^*$ will be a basis for the complex tangent line at $P$. A tangent vector is given by $z\cdot P^*$. For any complex number $z$, we can define the point $P_z$ as follows: Let $F(t)$ be the unique function with constant (with respect to this basis) velocity $z$ defined by the IVP $y'=z\cdot y^*$ and $y(0)=O$. Set $P_z=F(1)$, and we say that $z$ is the complex angle associated to $P_z$. Importantly, this process will hit all points on $\mathcal{H}$.
+   </p>
+   <p>
+   This directly reproduces the points on the real unit hyperbola as points with real angles. The points on the unit circle become the points with purely imaginary angle. 
+   
+   <h2><a href="index.html">Sample Post 2</a></h2>
+   <p>
+   Same deal
+   </p>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- Note: this was stolen from the best motherfucking website !-->
+  
+  
+
+
+  
+  </body>
+
+</html>
