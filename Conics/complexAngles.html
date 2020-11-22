@@ -64,11 +64,36 @@
    Let $\mathcal{H}$ be the set of all pairs of complex numbers $(x,y)$ which satisfy $x^2-y^2=1$. This is the complex hyperbola and, clearly, the real points on this object is the ordinary unit hyperbola. The points of the form $(x,iy)$, for $x,y$ real, make up a copy of the unit circle. Geometrically, then, $\mathcal{H}$ is a one-sheeted hyperboloid embedded into 2D complex space (so 4D real space). At each point there is a 1-dimensional complex tangent space (so a real-plane). Implicit differentiation tells us that if $(u,v)$ is a tangent vector at $(x,y)$ then we need $ux=vy$. In other words, if $P=(x,y)$ and $P^*=(y,x)$, then $P^*$ will be a basis for the complex tangent line at $P$. A tangent vector is given by $z\cdot P^*$. For any complex number $z$, we can define the point $P_z$ as follows: Let $F(t)$ be the unique function with constant (with respect to this basis) velocity $z$ defined by the IVP $y'=z\cdot y^*$ and $y(0)=O$. Set $P_z=F(1)$, and we say that $z$ is the complex angle associated to $P_z$. Importantly, this process will hit all points on $\mathcal{H}$.
    </p>
    <p>
-   This directly reproduces the points on the real unit hyperbola as points with real angles. The points on the unit circle become the points with purely imaginary angle. 
-   
-   <h2><a href="index.html">Sample Post 2</a></h2>
+   This directly reproduces the points on the real unit hyperbola as points with real angles. The points on the unit circle become the points with purely imaginary angle. Let $T(t)$ be the path defined by $T'(t)=T(t)^*$ and $T(0)=O$, then it is clear that $T(zt)$ satisfies the equations for the point $P_z$, and so $T(z)$ is a universal such function. We can write
+     $$
+     T(z) = (\cosh(z),\sinh(z))
+     $$
+     From all this, we get the relationships, using complex numbers, between the trigonometric and hyperbolic functions. The way to think about this is to imagine a single-sheet hyperboloid, with $O$ marked at on the "waist". We can make all kinds of paths from this point to hit any point on the hyperboloid, and these initial velocities are given by a complex number. This complex number is the angle, which is why circular and hyperbolic angles are perpendicular to each other.
+  </p>
+  <h2>Exponential Functions</h2>
+  <p>
+    How does Euler's equation and exponents all fit into this. This is, afterall, how we usualyl define the hyperbolic functions.
+  </p>
+  <p>
+    Instead of working with the conic $x^2-y^2=1$, we can work with the conic $xy=1$. Let $C$ the set of all pairs of complex numbers satisfying this equation. Implicit differentiation tells us that if $(u,v)$ is tangent at $(x,y)$, then it must satisfy $uy=-vx$. That is, if $P=(x,y)$ and $P'=(x,-y)$, then the tangent space is given by the vectors $z\cdot P'$. We can, again, look at paths on $C$ which have constant velocity with respect to this chosen basis. That is, paths which satisfy $F'(t)=z\cdot F(t)$ and $F(0)=(1,1)$. If we dig a bit into this differential equation, we find that it is actually the pair
+    $$
+    x'(t) = z x(t)
+    $$
+    $$
+    y'(t) = -z x^(t)
+    $$
+   And so with these initial conditions, we find that $F(t)=(e^{zt},e^{-zt})$. If $P=(x,x^{-1})$ is some point on $C$, then the velocity that gets to $P$ is exactly the natural logarithm of $x$. Therefore, we should really be thinking of exponentials as analogous to trigonometric functions, and logarithms as analogous to angles/inverse-trigonometric functions.
+  </p>
+  <p>
+    The insight is that $C$ and $\mathcal{H}$ are actually the same. There is map from $\mathcal{H}$ to $C$ which sense $(u,v)$ to the point $(u+v, u-v)$. This map doesn't mess with the points or velocities in question, and so what this map actually says is that
+    $$
+    e^{z} = \cosh(z)+\sinh(z)
+    $$
+    If $z=ix$ then this we get $e^{ix}=\cos(x)+i\sin(x)$. And the reverse equation recovers the formulas for the hyperbolic functions which is usually their introduction.
+  </p>
+   <h2>Next?</h2>
    <p>
-   Same deal
+   Some of the steps in this construction were a little arbitrary, but everything can be naturally motivated from the bottom up using Lie Groups. The trick is to turn $\mathcal{H}$ and $C$ into Lie Groups in their own right, from this the constructions of good tangent vectors and paths becomes much more natural. Furthermore, the identification of $\mathcal{H}$ and $C$ at the level of tangent spaces is a statement about Lie Algebras. 
    </p>
   
   
